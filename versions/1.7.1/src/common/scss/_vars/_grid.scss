@@ -1,0 +1,36 @@
+$__grid__columns: 12;
+
+$__grid__container--xsmall: ($__breakpoints--small - 1px);
+$__grid__container--small: 100%;
+$__grid__container--medium: 720px;
+$__grid__container--large: 960px;
+$__grid__container--xlarge: 1140px;
+$__grid__container--xxlarge: 1320px;
+
+$__module__xsmall: 16px;
+$__module__small: 20px;
+$__module__medium: 24px;
+$__module__large: 32px;
+$__module__xlarge: 40px;
+
+$__module__xsmall--half: $__module__xsmall / 2;
+$__module__small--half: $__module__small / 2;
+$__module__medium--half: $__module__medium / 2;
+$__module__large--half: $__module__large / 2;
+$__module__xlarge--half: $__module__xlarge / 2;
+
+$__module__xsmall--quarter: $__module__xsmall / 4;
+$__module__small--quarter: $__module__small / 4;
+$__module__medium--quarter: $__module__medium / 4;
+$__module__large--quarter: $__module__large / 4;
+$__module__xlarge--quarter: $__module__xlarge / 4;
+
+$__grid__gutter--xsmall: $__module__xsmall;
+$__grid__gutter--small: $__module__small;
+$__grid__gutter--medium: $__module__medium;
+$__grid__gutter--large: $__module__large;
+$__grid__gutter--xlarge: $__module__xlarge;
+
+$__module__space--small: 12;
+$__module__space--default: 24;
+$__module__space--large: 48;

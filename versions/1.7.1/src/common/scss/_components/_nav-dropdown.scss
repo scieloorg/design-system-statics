@@ -1,0 +1,56 @@
+.dropdown {
+    &-divider{
+        border-color: $__border--light;
+
+        @include __on-theme--dark {
+            border-color: $__border--dark;
+        }
+
+        @include __on-theme--light {
+            border-color: $__border--light;
+        }
+    }
+    &-menu{
+        background: $__bg--light;
+        border-color: $__border--light;
+
+        @include __on-theme--dark {
+            background: $__bg--dark;
+            border-color: $__border--dark;
+        }
+
+        @include __on-theme--light {
+            background: $__bg--light;
+            border-color: $__border--light;
+        }
+    }
+    &-item {
+        white-space: normal;
+        color: $__text--light;
+
+        &:hover{
+            color: $__text--light;
+            background: $__hover__secondary--light;
+        }
+
+        @include __on-theme--dark {
+            white-space: normal;
+            color: $__text--dark;
+
+            &:hover{
+                color: $__text--dark;
+                background: $__hover__secondary--dark;
+            }
+        }
+
+        @include __on-theme--light {
+            white-space: normal;
+            color: $__text--light;
+
+            &:hover{
+                color: $__text--light;
+                background: $__hover__secondary--light;
+            }
+        }
+    }
+}

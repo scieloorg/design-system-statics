@@ -1,0 +1,644 @@
+
+/*
+$__borderSolidColor: #E3E5E7;
+
+
+@mixin __table__cell--base {
+    line-height: __remcalc(20.25) !important;
+    padding: __remcalc(14) __remcalc(24);
+}
+
+@mixin __table__thead {
+    background: none;
+
+    th[rowspan] {
+        vertical-align: bottom;
+    }
+
+    th[colspan] {
+        text-align: center;
+    }
+
+    th {
+        @include __table__cell--base;
+        @include __table__thead--level1;
+    }
+
+    .#{$__classPrefix}__head--level2 {
+        th {
+            @include __table__thead--level2;
+        }
+    }
+
+    .#{$__classPrefix}__head--level3 {
+        th {
+            @include __table__thead--level3;
+        }
+    }
+
+    .#{$__classPrefix}__head--level4 {
+        th {
+            @include __table__thead--level4;
+        }
+    }
+}
+
+
+@mixin __table__thead--level1 {
+    @include __text__caption--large;
+    border-top: 2px solid $__menu--light;
+    border-bottom: none;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        border-top-color: $__menu--dark;
+        color: $__text__emphasis--dark;
+    }   
+
+    @include __on-theme--light {
+        border-top-color: $__menu--light;
+        color: $__text__emphasis--light;
+    }
+}
+
+@mixin __table__thead--level2 {
+    @include __text__body--small;
+    background: $__bg__gray--2;
+    border-left: 1px solid $__white;
+    border-bottom: 1px solid $__borderSolidColor;
+    font-weight: 400;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        background: $__disabled--light;
+        border-left-color: $__bg--dark;
+        border-bottom-color: transparent;
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__bg__gray--2;
+        border-left-color: $__white;
+        border-bottom-color: $__borderSolidColor;
+        color: $__text__emphasis--light;
+    }
+}
+
+@mixin __table__thead--level3 {
+    @include __text__body--small;
+    background: $__bg__gray--1;
+    border-left: 1px solid $__borderSolidColor;
+    border-bottom: 1px solid $__borderSolidColor;
+    border-top: none;
+    font-weight: 400;
+
+    @include __on-theme--dark {
+        background: $__disabled--dark;
+        border-left-color: $__bg--dark;
+        border-bottom-color: transparent;
+        color: $__text__emphasis--dark;
+    }
+    
+    @include __on-theme--light {
+        background: $__bg__gray--1;
+        border-left-color: $__borderSolidColor;
+        border-bottom-color: $__borderSolidColor;
+        color: $__text__emphasis--light;
+    }
+}
+
+@mixin __table__thead--level4 {
+    @include __text__body--small;
+    border-left: 1px solid $__borderSolidColor;
+    border-bottom: 1px solid $__borderSolidColor;
+    border-top: none;
+    font-weight: 400;
+
+    @include __on-theme--dark {
+        border-left-color: $__bg__white--2;
+        border-bottom-color: $__bg__white--2;
+        color: $__text__emphasis--dark;
+    }   
+
+    @include __on-theme--light {
+        border-left-color: $__borderSolidColor;
+        border-bottom-color: $__borderSolidColor;
+        color: $__text__emphasis--light;
+    }
+}
+
+@mixin __table__tbody-row {
+    background: none;
+    transition: background .2s;
+
+    & > td, 
+    & > th {
+        vertical-align: middle;
+        
+        &:first-child {
+            border-left: 1px solid transparent;
+        }
+    }
+
+    &.is-selected {
+        background: $__bg__gray--2;
+
+        @include __on-theme--dark {
+            background: $__bg__white--2;
+        }
+        
+        @include __on-theme--light {
+            background: $__bg__gray--2;
+        }
+        
+        & > td, 
+        & > th {
+            &:first-child {
+                border-left: 3px solid $__focus;
+            }
+        }
+    }
+}
+
+@mixin __table__tbody-row--hover($mode) {
+    $bg-light: transparent;
+    $bg-dark: transparent;
+
+    @if $mode == even {
+        $bg-light: $__bg__gray--1;
+        $bg-dark: $__bg__white--1;
+    } @else if $mode == evenhover {
+        $bg-light: $__hover--light40;
+        $bg-dark: $__hover--dark40;
+    } @else if $mode == hover {
+        $bg-light: $__hover--light40;
+        $bg-dark: $__hover--dark40;
+    } 
+
+    background: $bg-light;
+    
+    @include __on-theme--dark {
+        background: $bg-dark;
+    }
+
+    @include __on-theme--light {
+        background: $bg-light;
+    }
+}
+
+@mixin __table__tbody-cell {
+    @include __table__cell--base;
+    @include __text__body--small;
+    text-align: left;
+    border-top: 1px solid $__borderSolidColor;
+    border-bottom: 1px solid $__borderSolidColor;
+    color: $__text--light;
+
+    @include __on-theme--dark {
+        border-top-color: $__bg__white--2;
+        border-bottom-color: $__bg__white--2;
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        border-top-color: $__borderSolidColor;
+        border-bottom-color: $__borderSolidColor;
+        color: $__text--light;
+    }
+}
+
+@mixin __table__utils {
+    .#{$__classPrefix}__form-checkbox ~ label, 
+    .#{$__classPrefix}__form-radio ~ label {
+        margin-left: 0;
+        margin-right: __remcalc(-20);
+        vertical-align: middle;
+    }
+
+    .#{$__classPrefix}__cell--without-padding {
+        padding: 0 0 0 __remcalc(24);
+        line-height: __remcalc(48);
+        height: __remcalc(48);
+    }
+}
+
+@if $bootstrap {
+    .table,
+    .#{$__classPrefix}__datagrid {
+        @include __table__utils;
+
+        thead {
+            @include __table__thead;
+
+            &.thead-dark {
+                th {
+                    @include __table__thead--level2;
+                    border-top: 2px solid $__menu--light;
+
+                    @include __on-theme--dark {
+                        border-top-color: $__menu--dark;
+                    }
+
+                    @include __on-theme--light {
+                        border-top-color: $__menu--light;
+                    }
+                }
+            }
+
+            &.thead-light {
+                th {
+                    @include __table__thead--level3;
+                    border-top: 2px solid $__menu--light;
+
+                    @include __on-theme--dark {
+                        border-top-color: $__menu--dark;
+                    }
+
+                    @include __on-theme--light {
+                        border-top-color: $__menu--light;
+                    }
+                }
+            }
+        }
+
+        tbody, tfoot {
+            tr {
+                @include __table__tbody-row;
+            }
+    
+            th, td {
+                @include __table__tbody-cell;
+            }
+        }
+
+        &-striped tbody tr {
+            &:nth-of-type(odd) {
+                background: none;
+            }   
+
+            &:nth-of-type(even) {
+                @include __table__tbody-row--hover(even);
+            }   
+        }
+
+        &-striped.table-hover tbody tr:hover:nth-of-type(even) {
+            @include __table__tbody-row--hover(evenhover);
+        }
+
+        &-bordered {
+            th, td {
+                border: 1px solid $__borderSolidColor;
+
+                @include __on-theme--dark {
+                    border-color: $__bg__white--2;
+                }
+
+                @include __on-theme--light {
+                    border-color: $__borderSolidColor;
+                }
+            }
+
+            tbody tr {
+                & > th, 
+                & > td {
+                    &:first-child {
+                        border-left-color: $__borderSolidColor;
+
+                        @include __on-theme--dark {
+                            border-left-color: $__bg__white--2;
+                        }
+        
+                        @include __on-theme--light {
+                            border-left-color: $__borderSolidColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-hover {
+            tbody tr:hover {
+                @include __table__tbody-row--hover(hover);
+            }
+        }
+    }
+}
+
+@if $foundation {
+    thead, tbody, tfoot {
+        border: none;
+        background: none;
+    }
+
+    thead {
+        @include __table__thead;
+    }
+
+    tbody, tfoot {
+        tr {
+            @include __table__tbody-row;
+        }
+
+        th, td {
+            @include __table__tbody-cell;
+        }
+    }
+
+    table {
+        @include __table__utils;
+
+        &.hover {
+            thead tr:hover {
+                background: none !important;
+            }
+            
+            tbody tr {
+                &:hover {
+                    @include __table__tbody-row--hover(hover);
+                }
+            }
+
+            &:not(.unstriped) tbody tr:nth-of-type(even):hover {
+                @include __table__tbody-row--hover(evenhover);
+            }
+        }
+
+        &:not(.unstriped) tbody tr:nth-child(even) {
+            @include __table__tbody-row--hover(even);
+        }
+
+        &.unstriped {
+            tbody {
+                background: none;
+
+                tr {
+                    background: none;
+                }
+            }
+        }   
+    }
+}
+*/
+
+// scss-docs-start table-variant
+@mixin table-variant($state, $background) {
+    .table-#{$state} {
+      $color: color-contrast(opaque($body-bg, $background));
+      $hover-bg: mix($color, $background, percentage($table-hover-bg-factor));
+      $striped-bg: mix($color, $background, percentage($table-striped-bg-factor));
+      $active-bg: mix($color, $background, percentage($table-active-bg-factor));
+  
+      --#{$variable-prefix}table-bg: #{$background};
+      --#{$variable-prefix}table-striped-bg: #{$striped-bg};
+      --#{$variable-prefix}table-striped-color: #{color-contrast($striped-bg)};
+      --#{$variable-prefix}table-active-bg: #{$active-bg};
+      --#{$variable-prefix}table-active-color: #{color-contrast($active-bg)};
+      --#{$variable-prefix}table-hover-bg: #{$hover-bg};
+      --#{$variable-prefix}table-hover-color: #{color-contrast($hover-bg)};
+  
+      color: $color;
+      //border-color: mix($color, $background, percentage($table-border-factor));
+    }
+  }
+  // scss-docs-end table-variant
+  
+  
+
+//
+// Basic Bootstrap table
+//
+
+
+.table {
+    --#{$variable-prefix}table-bg: #{$table-bg};
+    --#{$variable-prefix}table-striped-color: #{$table-striped-color};
+    --#{$variable-prefix}table-striped-bg: #{$table-striped-bg};
+    --#{$variable-prefix}table-active-color: #{$table-active-color};
+    --#{$variable-prefix}table-active-bg: #{$table-active-bg};
+    --#{$variable-prefix}table-hover-color: #{$table-hover-color};
+    --#{$variable-prefix}table-hover-bg: #{$table-hover-bg};
+  
+    width: 100%;
+    margin-bottom: $spacer;
+    //color: $table-color;
+    color: $__text--light;
+    vertical-align: $table-cell-vertical-align;
+    //border-color: $table-border-color;
+    border-color: $__border--light;
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+        border-color: $__border--dark; 
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+        border-color: $__border--light;
+    }
+  
+    // Target th & td
+    // We need the child combinator to prevent styles leaking to nested tables which doesn't have a `.table` class.
+    // We use the universal selectors here to simplify the selector (else we would need 6 different selectors).
+    // Another advantage is that this generates less code and makes the selector less specific making it easier to override.
+    // stylelint-disable-next-line selector-max-universal
+    > :not(caption) > * > * {
+      padding: $table-cell-padding-y $table-cell-padding-x;
+      background-color: var(--#{$variable-prefix}table-bg);
+      border-bottom-width: $table-border-width;
+      box-shadow: inset 0 0 0 9999px var(--#{$variable-prefix}table-accent-bg);
+
+      
+    }
+  
+    > tbody {
+      vertical-align: inherit;
+    }
+  
+    > thead {
+      vertical-align: bottom;
+
+    
+      th {
+            border-bottom: 2px solid $__border--light;
+
+            @include __on-theme--dark {
+                border-bottom: 2px solid $__border--dark; 
+            }
+
+            @include __on-theme--light {
+                border-bottom: 2px solid $__border--light;
+            }
+        }
+        
+    }
+  
+    // Highlight border color between thead, tbody and tfoot.
+    > :not(:last-child) > :last-child > * {
+      //border-bottom-color: $table-group-separator-color;
+      border-bottom-color: $__border--light;
+
+        @include __on-theme--dark {
+            border-bottom-color: $__border--dark; 
+        }
+
+        @include __on-theme--light {
+            border-bottom-color: $__border--light;
+        }
+    }
+
+    
+  }
+  
+  
+  //
+  // Change placement of captions with a class
+  //
+  
+  .caption-top {
+    caption-side: top;
+  }
+  
+  
+  //
+  // Condensed table w/ half padding
+  //
+  
+  .table-sm {
+    // stylelint-disable-next-line selector-max-universal
+    > :not(caption) > * > * {
+      padding: $table-cell-padding-y-sm $table-cell-padding-x-sm;
+    }
+  }
+  
+  
+  // Border versions
+  //
+  // Add or remove borders all around the table and between all the columns.
+  //
+  // When borders are added on all sides of the cells, the corners can render odd when
+  // these borders do not have the same color or if they are semi-transparent.
+  // Therefor we add top and border bottoms to the `tr`s and left and right borders
+  // to the `td`s or `th`s
+  
+  .table-bordered {
+    > :not(caption) > * {
+      border-width: $table-border-width 0;
+  
+      // stylelint-disable-next-line selector-max-universal
+      > * {
+        border-width: 0 $table-border-width;
+      }
+    }
+  }
+  
+  .table-borderless {
+    // stylelint-disable-next-line selector-max-universal
+    > :not(caption) > * > * {
+      border-bottom-width: 0;
+    }
+  }
+  
+  // Zebra-striping
+  //
+  // Default zebra-stripe styles (alternating gray and transparent backgrounds)
+  
+  .table-striped {
+    > tbody > tr:nth-of-type(#{$table-striped-order}) {
+      --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-striped-bg);
+      //color: var(--#{$variable-prefix}table-striped-color);
+
+      color: $__text--light;
+
+        @include __on-theme--dark {
+            color: $__text--dark;
+        }
+
+        @include __on-theme--light {
+            color: $__text--light;
+        }
+    }
+  }
+  
+  // Active table
+  //
+  // The `.table-active` class can be added to highlight rows or cells
+  
+  .table-active {
+    --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-active-bg);
+    //color: var(--#{$variable-prefix}table-active-color);
+    color: $__text--light;
+
+        @include __on-theme--dark {
+            color: $__text--dark;
+        }
+
+        @include __on-theme--light {
+            color: $__text--light;
+        }
+  }
+  
+  // Hover effect
+  //
+  // Placed here since it has to come after the potential zebra striping
+  
+  .table-hover {
+    > tbody > tr:hover {
+      --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-hover-bg);
+      //color: var(--#{$variable-prefix}table-hover-color);
+      color: $__text--light;
+
+        @include __on-theme--dark {
+            color: $__text--dark;
+        }
+
+        @include __on-theme--light {
+            color: $__text--light;
+        }
+    }
+  }
+  
+  
+  // Table variants
+  //
+  // Table variants set the table cell backgrounds, border colors
+  // and the colors of the striped, hovered & active tables
+
+/*
+  @each $color, $value in $table-variants {
+    @include table-variant($color, $value);
+
+    @include __on-theme--dark {
+        border-bottom-color: $__border--dark; 
+    }
+
+    @include __on-theme--light {
+        border-bottom-color: $__border--light;
+    }
+  }
+  */
+
+    @each $color, $value in $table-variants-scielo {
+        @include table-variant($color, $value);
+    }
+
+    
+
+  // Responsive tables
+  //
+  // Generate series of `.table-responsive-*` classes for configuring the screen
+  // size of where your table will overflow.
+  
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+    @include media-breakpoint-down($breakpoint) {
+      .table-responsive#{$infix} {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  }
+  
+.table table{
+    min-width: 100%;
+}

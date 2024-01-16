@@ -1,0 +1,10 @@
+.#{$__classPrefix}__theme {
+    &--light {
+        background: $__bg__light;
+        color: $__text--light;
+    }
+    &--dark {
+        background: $__bg__dark;
+        color: $__text--dark;
+    }
+}

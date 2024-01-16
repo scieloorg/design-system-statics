@@ -1,0 +1,307 @@
+/*
+Logo SciELO
+*/
+.#{$__classPrefix}__logo-scielo{
+	background-image: url(../img/logo-scielo-no-label.svg);
+	background-size: contain;
+	background-repeat: no-repeat;	
+	display: inline-block;
+    width: __remcalc(64px);
+    height: __remcalc(64px);
+
+    @include __on-theme--dark {
+		background-image: url(../img/logo-scielo-no-label-negative.svg);
+	}
+	
+	@include __on-theme--light {
+		background-image: url(../img/logo-scielo-no-label.svg);
+	}
+
+
+	&--large {
+        background-image: url(../img/logo-scielo-no-label.svg);
+        background-size: contain;
+	    background-repeat: no-repeat;
+        display: inline-block;
+        width: __remcalc(250px);
+        height: __remcalc(250px);
+
+        @include __on-theme--dark {
+            background-image: url(../img/logo-scielo-no-label-negative.svg);
+        }
+        
+        @include __on-theme--light {
+            background-image: url(../img/logo-scielo-no-label.svg);
+        }
+
+    }
+	&--medium {
+        background-image: url(../img/logo-scielo-no-label.svg);
+        background-size: contain;
+	    background-repeat: no-repeat;
+        display: inline-block;
+        width: __remcalc(150px);
+        height: __remcalc(150px);
+
+        @include __on-theme--dark {
+            background-image: url(../img/logo-scielo-no-label-negative.svg);
+        }
+        
+        @include __on-theme--light {
+            background-image: url(../img/logo-scielo-no-label.svg);
+        }
+
+       // outline: 1px solid blue;
+
+       &.scielo__logo-scielo--caption{
+
+            //outline: 1px solid green;
+            margin-bottom: __remcalc(32px);
+
+            small{
+                position: relative;
+                font-size: __remcalc(30px);
+                font-family: $__font__family--brand;
+                color: $__text--light;
+                font-style: italic;
+                padding-left: 60px;
+                border-bottom: 1px solid $__border--light;
+                padding-bottom: 12px;
+                padding-right: 5px;
+                top: 80px;
+                left: 110px;
+
+                //outline: 1px solid red;
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                    border-color: $__border--dark;
+                }
+                
+                @include __on-theme--light {
+                    color: $__text--light;
+                    border-color: $__border--light;
+                }
+            }
+            span{
+                position: relative;
+                left: 50%;
+                transform: translateX(__remcalc(-115px));
+                top: __remcalc(100px);
+                display: block;
+                font-size: __remcalc(24px);;
+                font-family: $__font__family--brand;
+                color: $__text--light;
+                white-space: nowrap;
+                width: __remcalc(230px);
+                //outline: 1px solid green;
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                }
+                
+                @include __on-theme--light {
+                    color: $__text--light;
+                }
+            }
+       }
+
+        
+
+    }
+	&--small{
+        background-image: url(../img/logo-scielo-no-label.svg);
+        background-size: contain;
+	    background-repeat: no-repeat;
+        display: inline-block;
+        width: __remcalc(64px);
+        height: __remcalc(64px);
+
+       // outline: 1px solid orange;
+
+        @include __on-theme--dark {
+            background-image: url(../img/logo-scielo-no-label-negative.svg);
+        }
+        
+        @include __on-theme--light {
+            background-image: url(../img/logo-scielo-no-label.svg);
+        }
+
+        /*
+        Quando ocorre nome da coleção junto ao logo
+        */
+        &.scielo__logo-scielo--caption{
+            
+            strong{
+                // outline: 1px solid green;
+                position: relative;
+                left: __remcalc(72px);
+                top: __remcalc(28px);
+                color: $__text--light;
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                }
+                
+                @include __on-theme--light {
+                    color: $__text--light;
+                }
+             }
+        
+        }
+        
+    }
+
+    /*
+    Logo que contém o descritivo:
+        Scientific Electronic Library Online
+        +
+        coleção. Exemplo: Brasil
+
+        Tamanhos baseado no logo--medium
+    */
+    &-caption{
+        position: relative;
+        width: __remcalc(270px);
+        height: __remcalc(100px);
+        background-image: url(../img/logo-scielo-no-label.svg);
+	    background-repeat: no-repeat;
+        background-size: 75px auto;
+        background-position-x: calc(50% - 22px);
+        display: inline-block;
+
+        //outline: 1px solid blue;
+
+        @include media-breakpoint-up(sm) {
+            width: __remcalc(350px);
+            height: __remcalc(182px);
+            background-size: 150px auto;
+            background-position-x: calc(50% - 55px);
+            //outline: 1px solid red;
+        }
+        
+        @include __on-theme--dark {
+            background-image: url(../img/logo-scielo-no-label-negative.svg);
+        }
+        
+        @include __on-theme--light {
+            background-image: url(../img/logo-scielo-no-label.svg);
+        }
+
+        &:after{
+            content: "Scientific Electronic Library Online";
+            position: absolute;
+            //left: 50%;
+            //transform: translateX(__remcalc(-115px));
+            top: __remcalc(70px);
+            display: block;
+            //font-size: __remcalc(16px);
+            font-size: 1.2rem;
+            font-family: $__font__family--brand;
+            color: $__text--light;
+            white-space: nowrap;
+            width: 100%;
+        // outline: 1px solid green;
+            text-align: center;
+
+            @include media-breakpoint-up(sm) {
+                top: __remcalc(150px);
+                font-size: __remcalc(24px);
+            }
+
+            @include __on-theme--dark {
+                color: $__text--dark;
+            }
+            
+            @include __on-theme--light {
+                color: $__text--light;
+            }
+
+        }
+
+        small{
+            position: absolute;
+            font-size: __remcalc(16px);
+            font-family: $__font__family--brand;
+            color: $__text--light;
+            font-style: italic;
+            border-bottom: 1px solid $__border--light;
+            padding-bottom: 2px;
+            padding-left: 24px;
+            padding-right: 0;
+            top: 40px;
+            left: __remcalc(130px);
+
+            @include media-breakpoint-up(sm) {
+                font-size: __remcalc(30px);
+                padding-bottom: 12px;
+                padding-left: 60px;
+                padding-right: 5px;
+                top: 80px;
+                left: __remcalc(150px);
+            }
+
+            //outline: 1px solid red;
+
+            @include __on-theme--dark {
+                color: $__text--dark;
+                border-color: $__border--dark;
+            }
+            
+            @include __on-theme--light {
+                color: $__text--light;
+                border-color: $__border--light;
+            }
+        }
+    }
+
+    /*
+        Logo que contém o nome da coleção:
+        Exemplo: Brasil
+
+        Geralemente aparece no header.
+
+        Tamanho baseado no logo--small
+    */
+    &-collection{
+        position: relative;
+        background-image: url(../img/logo-scielo-no-label.svg);
+        background-size: contain;
+	    background-repeat: no-repeat;
+        display: inline-block;
+        width: __remcalc(64px);
+        height: __remcalc(64px);
+
+        @include __on-theme--dark {
+            background-image: url(../img/logo-scielo-no-label-negative.svg);
+        }
+        
+        @include __on-theme--light {
+            background-image: url(../img/logo-scielo-no-label.svg);
+        }
+        
+        small{
+            position: absolute;
+            left: __remcalc(72px);
+            top: __remcalc(28px);
+            color: $__text--light;
+            font-weight: bolder;
+
+            @include __on-theme--dark {
+                color: $__text--dark;
+            }
+
+            @include __on-theme--light {
+                color: $__text--light;
+            }
+        }
+    }
+    
+	footer &,
+	header &{
+		width: 64px;
+		height: 64px;
+	}
+
+}
+

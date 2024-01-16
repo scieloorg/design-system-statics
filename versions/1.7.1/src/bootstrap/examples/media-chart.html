@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-br" class="example">
+<!--=include ./_parts/_headTag.html -->
+<body>
+    <div class="container">
+        <div class="bd-example">
+            <canvas id="exemploBarChart" width="200" height="200"></canvas>
+        </div>
+        <div class="bd-example">
+            <canvas id="exemploLineChart" width="200" height="200"></canvas>
+        </div>
+        <div class="bd-example">
+            <canvas id="exemploRadarChart" width="200" height="200"></canvas>
+        </div>
+        <div class="bd-example">
+            <canvas id="exemploDoughnutChart" width="200" height="200"></canvas>
+        </div>
+        <div class="bd-example">
+            <canvas id="exemploPieChart" width="200" height="200"></canvas>
+        </div>
+    </div>
+    <script src="../../dist/bootstrap/js/plugins/jquery.min.js"></script>
+	<script src="../../dist/bootstrap/js/plugins/popper.min.js"></script>
+	<script src="../../dist/bootstrap/js/plugins/Chart.min.js"></script>
+    <script src="../../dist/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../../dist/bootstrap/js/b3/b3-ds-min.js"></script>
+
+    <script>
+        $(function(){
+            var bar = document.getElementById('exemploBarChart'),
+                line = document.getElementById('exemploLineChart'),
+                radar = document.getElementById('exemploRadarChart'),
+                doughnut = document.getElementById('exemploDoughnutChart'),
+                pie = document.getElementById('exemploPieChart');
+            
+            var barChart = new Chart(bar, {
+                    type: 'bar',
+                    data: {
+                        labels: ['70', '80', '60', '20', '30', '10', '30', '70', '80', '60', '20'],
+                        datasets: [{
+                            label: '# of Votes',
+                            data: [70, 80, 60, 20, 30, 15, 30, 70, 80, 60, 20],
+                            backgroundColor: b3__chart.Colors('bar'),
+                            borderColor: b3__chart.Colors('bar'),
+                            borderWidth: 1
+                        }]
+                    }
+                }),
+                lineChart = new Chart(line,{
+                    type: "line",
+                    data: {
+                    labels:[
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July"
+                    ],
+                    datasets: [{
+                        label: "My First Dataset",
+                        data: [65,59,80,81,56,55,40],
+                        fill: false,
+                        borderColor: b3__chart.Colors('line'),
+                        lineTension: 0.1
+                    }]
+                }
+                }),
+                radarChart = new Chart(radar,{
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            "Eating",
+                            "Drinking",
+                            "Sleeping",
+                            "Designing",
+                            "Coding",
+                            "Cycling",
+                            "Running"
+                        ],
+                        datasets: [{
+                            label: "My First Dataset",
+                            data: [65,59,90,81,56,55,40],
+                            fill: true,
+                            backgroundColor: b3__chart.Colors('radar',0, true),
+                            borderColor: b3__chart.Colors('radar',0),
+                            pointBackgroundColor: b3__chart.Colors('radar', 0),
+                            pointHoverBorderColor: b3__chart.Colors('radar', 0)
+                        },
+                        {
+                            label: "My Second Dataset", 
+                            data: [28,48,40,19,96,27,100],
+                            fill: true, 
+                            backgroundColor: b3__chart.Colors('radar', 1, true), 
+                            borderColor: b3__chart.Colors('radar', 1),
+                            pointBackgroundColor: b3__chart.Colors('radar', 1),
+                            pointHoverBorderColor: b3__chart.Colors('radar', 1)
+                        }
+                    ]},
+                    options: {
+                        elements: {
+                            line: {
+                                tension: 0,
+                                borderWidth: 3
+                            }
+                        }
+                    }
+                }),
+                doughnutChart = new Chart(doughnut,{
+                    type: "doughnut",
+                    data: {
+                        labels: ["Red","Blue","Yellow","Red","Blue","Yellow","Red","Blue","Yellow"],
+                        datasets: [{
+                            label: "My First Dataset",
+                            data: [300,50,100,300,50,100,50,100,300,50,100],
+                            backgroundColor: b3__chart.Colors('doughnut'),
+                        }]
+                    }
+                }),
+                pieChart = new Chart(pie,{
+                    type: "pie",
+                    data: {
+                        labels: ["Red","Blue","Yellow","Red","Blue","Yellow","Red","Blue","Yellow"],
+                        datasets: [{
+                            label: "My First Dataset",
+                            data: [300,50,100,300,50,100,50,100,300,50,100],
+                            backgroundColor: b3__chart.Colors('pie'),
+                        }]
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

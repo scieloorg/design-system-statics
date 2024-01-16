@@ -1,0 +1,1167 @@
+@mixin __button__base($size) {
+    position: relative;
+    display: inline-block;
+    @include __button__resize($size);
+    @include __text__button;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-position: center;
+    transition: all 0.8s;
+    //transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: 0 0 1rem;
+    
+
+    &:focus {
+        box-shadow: 0 0 0 __remcalc(2) $__focus;
+        outline: none;
+    }
+
+    &:focus:active {
+        box-shadow: 0 0 0 __remcalc(4) $__focus;
+    }
+}
+
+@mixin __button__resize($size) {
+    padding: __remcalc($size / 4) __remcalc($size * .4);
+    border-radius: __remcalc($__button__radius);
+    line-height: __remcalc($size / 2);
+    height: __remcalc($size);
+}
+
+@mixin __button__update-corner($size) {
+    padding-left: __remcalc($size / 2);
+    padding-right: __remcalc($size / 2);
+}
+
+@mixin __button__ripple($hoverColor,$activeColor,$textColor) {
+    &:hover:not(:disabled):not(.disabled) {
+        border: $border-width solid $hoverColor;
+        background: $hoverColor radial-gradient(circle, transparent 1%, $hoverColor 1%) center/15000%;
+        color: $textColor;
+        text-decoration: none;
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+        border: $border-width solid $hoverColor;
+        background-color: $activeColor;
+        background-size: 100%;
+        transition: background 0s;
+        color: $textColor;
+    }
+}
+
+
+@mixin __button__ripple__secondary--light($hoverColor,$activeColor,$textColor) {
+    &:hover:not(:disabled):not(.disabled) {
+        border: $border-width solid $__border--light;
+        background: $hoverColor radial-gradient(circle, transparent 1%, $hoverColor 1%) center/15000%;
+        color: $textColor;
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+        border: $border-width solid $__border--light;
+        background-color: $activeColor;
+        background-size: 100%;
+        transition: background 0s;
+        color: $textColor;
+    }
+}
+
+@mixin __button__ripple__secondary--dark($hoverColor,$activeColor,$textColor) {
+    &:hover:not(:disabled):not(.disabled) {
+        border: $border-width solid $__border--dark;
+        background: $hoverColor radial-gradient(circle, transparent 1%, $hoverColor 1%) center/15000%;
+        color: $textColor;
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+        border: $border-width solid $__border--dark;
+        background-color: $activeColor;
+        background-size: 100%;
+        transition: background 0s;
+        color: $textColor;
+    }
+}
+
+@mixin __button--solid($type,$size) {
+    @include __button__base($size);
+    @include __button__theme--solid($type);
+}
+
+@mixin __button__theme--solid($type) {
+    $bg--light: $__text--light;
+    $text--light: $__menu--dark;
+    $bg--dark: $__text--dark;
+    $text--dark: $__menu--light;
+    $border--light: $border-width solid $bg--light;
+    $border--dark: $border-width solid $bg--dark;
+
+    @if $type == primary {
+        $bg--light: $__interaction--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__interaction--dark;
+        $text--dark: $__bg--dark;
+       // $border: $border-width solid $bg--light;
+        $border--light: $border-width solid $bg--light;
+        $border--dark: $border-width solid $bg--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--primary;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--primary;
+        }
+
+    } @else if $type == secondary {
+        $bg--light: $secondary;
+        $text--light: $__text--light;
+        //$border: $border-width solid $border-color;
+        $bg--dark: $__text--dark;
+        $text--dark: $__bg--dark;
+        $border--light: $border-width solid $__border--light;
+        $border--dark: $border-width solid $__border--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--secondary;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--secondary;
+        }
+        
+    } @else if $type == success {
+        $bg--light: $__positive--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__positive--dark;
+        $text--dark: $__bg--dark;
+        //$border: $border-width solid $bg--light;
+        $border--light: $border-width solid $bg--light;
+        $border--dark: $border-width solid $bg--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--success;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--success;
+        }
+
+    } @else if $type == warning {
+        $bg--light: $__warning--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__warning--dark;
+        $text--dark: $__bg--dark;
+        //$border: $border-width solid $bg--light;
+        $border--light: $border-width solid $bg--light;
+        $border--dark: $border-width solid $bg--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--warning;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--warning;
+        }
+
+    } @else if $type == info {
+        $bg--light: $__info--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__info--dark;
+        $text--dark: $__bg--dark;
+        //$border: $border-width solid $__info--light;
+        $border--light: $border-width solid $bg--light;
+        $border--dark: $border-width solid $bg--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--info;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--info;
+        }
+
+    } @else if $type == alert {
+        $bg--light: $__negative--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__negative--dark;
+        $text--dark: $__bg--dark;
+        //$border: $border-width solid $bg--light;
+        $border--light: $border-width solid $bg--light;
+        $border--dark: $border-width solid $bg--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--alert;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--alert;
+        }
+        
+    } @else if $type == disable {
+        $bg--light: $__bg__gray--1;
+        $text--light: $__disabled--light;
+        $bg--dark: $__disabled--dark;
+        $text--dark: $__text--dark;
+        //$border: $border-width solid $bg--light;
+        $border--light: $border-width solid $__border--light;
+        $border--dark: $border-width solid $__border--dark;
+
+        pointer-events: auto;
+        cursor: not-allowed;
+    } @else {
+        @error "Tipo de botão desconhecido.";
+    }
+
+    background-color: $bg--light;
+    //border: none;
+    //border: $border;
+    border: $border--light;
+    color: $text--light;
+
+    &:focus {
+        background-color: $bg--light;
+        color: $text--light;
+    }
+
+    @if $type == disable {
+        opacity: 1;
+    }
+
+    &.active:not(:disabled):not(.disabled) {
+        border: $border-width solid mix($__black,$bg--light,15%);
+        background-color: mix($__black,$bg--light,15%);
+        color: $text--light;
+    }
+    
+    @at-root .show > &.dropdown-toggle {
+        background-color: mix($__black,$bg--light,15%);
+        color: $text--light;
+    }
+
+    
+    ////////////////
+    //
+    // Button Hover
+    //
+    //$hoverBgColor: mix($__black,$bg--light,40%);
+    $hoverBgColor: mix($__black,$bg--light,15%);
+    $activeBgColor: mix($__black,$bg--light,90%);
+
+    @include __button__ripple($hoverBgColor, $activeBgColor, $text--light);
+
+    @if $type == secondary {
+    
+        $hoverBgColor: $__hover__secondary--light;
+        $activeBgColor: mix($__black,$bg--light,50%);
+
+        @include __button__ripple__secondary--light(hoverBgColor, $activeBgColor, $text--light);
+
+        &:focus {
+            border-color: $__border--light;
+        }
+    }
+
+    @include __on-theme--dark {
+        background-color: $bg--dark;
+        border: $border--dark;
+        color: $text--dark;
+
+        &:focus {
+            background-color: $bg--dark;
+            color: $text--dark;
+        }
+
+        &.active:not(:disabled):not(.disabled) {
+            background-color: mix($__black,$bg--dark,15%);
+            color: $text--dark;
+        }
+
+        $hoverBgColor: mix($__white,$bg--dark,40%);
+        $activeBgColor: mix($__white,$bg--dark,90%);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $text--dark);
+
+        @if $type == secondary {
+    
+            $hoverBgColor: $__hover__secondary--dark;
+            $activeBgColor: mix($__white,$bg--dark,90%);
+    
+            @include __button__ripple__secondary--dark(hoverBgColor, $activeBgColor, $text--light);
+    
+            &:focus {
+                border-color: $__border--dark;
+            }
+        }
+
+    }
+
+    @include __on-theme--light {
+        background-color: $bg--light;
+        border-color: $border--light;
+        color: $text--light;
+
+        &:focus {
+            background-color: $bg--light;
+            color: $text--light;
+        }
+
+        &.active:not(:disabled):not(.disabled) {
+            background-color: mix($__white,$bg--light,15%);
+            color: $text--light;
+        }
+
+        //$hoverBgColor: mix($__white,$bg--light,40%);
+        $hoverBgColor: mix($__black,$bg--light,15%);
+        $activeBgColor: mix($__black,$bg--light,90%);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $text--light);
+
+        @if $type == secondary {
+
+            $hoverBgColor: $__hover__secondary--light;
+            $activeBgColor: mix($__black,$bg--light,50%);
+
+            @include __button__ripple__secondary--light(hoverBgColor, $activeBgColor, $text--light);
+
+            &:focus {
+                border-color: $__border--light;
+            }
+        }
+
+    }
+}
+
+@mixin __button__theme--outline($type) {
+    $border--light: $__text--light;
+    $text--light: $__text--light;
+    $border--dark: $__text--dark;
+    $text--dark: $__text--dark;
+
+
+    //trazendo do solid (ajustar)
+    $bg--light: $__interaction--light;
+    $text--light: $__menu--light;
+    $bg--dark: $__interaction--dark;
+    $text--dark: $__bg--dark;
+
+
+    @if $type == primary {
+        $border--light: $__interaction--light;
+        $text--light: $__interaction--light;
+        $bg--light: $__interaction--light;
+
+        $border--dark: $__interaction--dark;
+        $text--dark: $__interaction--dark;
+        $text--dark--hover: $__text--light;
+        $bg--dark: $__interaction--dark;
+
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--primary;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--primary;
+        }
+
+
+    } @else if $type == secondary {
+        //$border--light: $border-color;
+        $border--light: $border-width solid $__border--light;
+        $text--light: $__text--light;
+        $bg--light: $secondary;
+
+        //$border--dark: $__text--dark;
+        $text--dark: $__text--dark;
+        $bg--dark: $__text--dark;
+        $border--dark: $border-width solid $__border--dark;
+
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--secondary;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--secondary;
+        }
+
+        
+
+    } @else if $type == info {
+        $border--light: $__info--light;
+        $text--light: $__info--dark;
+        $bg--light: $__info--light;
+
+        $border--dark: $__info--dark;
+        $text--dark: $__info--dark;
+        $bg--dark: $__info--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--info;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--info;
+        }
+
+    } @else if $type == success {
+        $border--light: $__positive--dark;
+        $text--light: $__positive--light;
+        $bg--light: $__positive--light;
+
+        $border--dark: $__positive--dark;
+        $text--dark: $__positive--dark;
+        $bg--dark: $__positive--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--success;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--success;
+        }
+
+    } @else if $type == alert {
+        $border--light: $__negative--light;
+        $text--light: $__negative--light;
+        $bg--light: $__negative--light;
+
+        $border--dark: $__negative--dark;
+        $text--dark: $__negative--dark;
+        $bg--dark: $__negative--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--alert;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--alert;
+        }
+
+    } @else if $type == warning {
+        $border--light: $__warning--light;
+        $text--light: $__warning--light;
+        $bg--light: $__warning--light;
+
+        $border--dark: $__warning--dark;
+        $text--dark: $__warning--dark;
+        $bg--dark: $__warning--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--warning;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--warning;
+        }
+
+    }@else if $type == disable {
+        $border--light: $__bg__gray--1;
+        $text--light: $__disabled--light;
+
+        $border--dark: $__disabled--dark;
+        $text--dark: $__text--dark;
+    } @else {
+        @error "Tipo de botão desconhecido.";
+    }
+
+    background-color: transparent;
+    border: 1px solid $border--light;
+    color: $text--light;
+
+    &:focus {
+        background-color: transparent;
+        color: $text--light;
+    }
+    
+    &:focus, &:hover {
+        border-color: $border--light;
+        //border: $border-width solid $hoverColor;
+    }
+    
+
+    @if $type == disable {
+        opacity: 1;
+    }
+
+    ///////////////
+    //
+    // Button outline hover
+    //
+    //$hoverBgColor: mix($__white,$bg--light,40%);
+    $hoverBgColor: mix($__black,$bg--light,15%);
+    $activeBgColor: mix($__white,$bg--light,90%);
+
+    @include __button__ripple($hoverBgColor, $activeBgColor, $__white);
+
+    @if $type == secondary {
+    
+        $hoverBgColor: $__hover__secondary--light;
+        $activeBgColor: mix($__black,$bg--light,50%);
+
+        @include __button__ripple__secondary--light(hoverBgColor, $activeBgColor, $text--light);
+
+        &:focus {
+            border-color: $__border--light;
+        }
+
+        &.dropdown-toggle.show{
+            border-color: $__border--light;
+        }
+    }
+
+    @include __on-theme--dark {
+        background-color: transparent;
+        border-color: $border--dark;
+        color: $text--dark;
+
+        &:focus {
+            background-color: transparent;
+            color: $text--dark;
+        }
+
+        &:focus, &:hover {
+            border-color: $border--dark;
+        }
+
+        
+
+        /*
+        $hoverBgColor: $__bg__white--2;
+        $activeBgColor: $__white;
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $text--dark);
+        */
+
+        $hoverBgColor: mix($__white,$bg--dark,40%);
+        $activeBgColor: mix($__white,$bg--dark,90%);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $__bg--dark);
+
+        @if $type == secondary {
+    
+            $hoverBgColor: $__hover__secondary--dark;
+            $activeBgColor: mix($__white,$bg--dark,90%);
+            
+            @include __button__ripple__secondary--dark(hoverBgColor, $activeBgColor, $text--light);
+    
+            &:focus {
+                border-color: $__border--dark;
+            }
+
+            &.dropdown-toggle.show{
+                background: transparent;
+                color: $text--dark;
+
+                &:focus{
+                    box-shadow: 0 0 0 __remcalc(2) $__focus--secondary;
+                }
+            }
+        }
+    }
+
+    @include __on-theme--light {
+        background-color: transparent;
+        border: 1px solid $border--light;
+        color: $text--light;
+
+        &:focus {
+            background-color: transparent;
+            color: $text--light;
+        }
+
+        &:focus, &:hover {
+            border-color: $border--light;
+        }
+
+        @if $type == disable {
+            opacity: 1;
+        }
+
+        /*
+        $hoverBgColor: $__hover--light;
+        $activeBgColor: mix($__focus,$__hover--light,10%);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $text--light);
+        */
+        $hoverBgColor: mix($__black,$bg--light,15%);
+        $activeBgColor: mix($__white,$bg--light,90%);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $__white);
+
+        @if $type == secondary {
+        
+            $hoverBgColor: $__hover__secondary--light;
+            $activeBgColor: mix($__black,$bg--light,50%);
+
+            @include __button__ripple__secondary--light(hoverBgColor, $activeBgColor, $text--light);
+
+            &:focus {
+                border-color: $__border--light;
+            }
+        }
+    }
+}
+
+@mixin __button__theme--clear($type) {
+    $text--light: $__text--light;
+    $text--dark: $__text--dark;
+
+    @if $type == primary {
+        $text--light: $__interaction--light;
+        $text--dark: $__interaction--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--primary;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--primary;
+        }
+
+    } @else if $type == secondary {
+        $text--light: $__text--light;
+        $text--dark: $__interaction--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--secondary;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--secondary;
+        }
+
+    } @else if $type == success {
+        $text--light: $__positive--light;
+        $text--dark: $__positive--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--success;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--success;
+        }
+
+    } @else if $type == alert {
+        $text--light: $__negative--light;
+        $text--dark: $__negative--dark;
+
+        &:focus {
+            box-shadow: 0 0 0 __remcalc(2) $__focus--alert;
+            outline: none;
+        }
+    
+        &:focus:active {
+            box-shadow: 0 0 0 __remcalc(4) $__focus--alert;
+        }
+
+    } @else if $type == disable {
+        $text--light: $__disabled--light;
+        $text--dark: $__disabled--dark;
+    } @else {
+        @error "Tipo de botão desconhecido.";
+    }
+
+    background-color: transparent;
+    //border: none;
+    border: $border-width solid transparent;
+    color: $text--light;
+
+    &:focus {
+        background-color: transparent;
+        border-color: transparent;
+        color: $text--light;
+    }
+
+    @if $type == disable {
+        opacity: 1;
+    }
+
+    //$hoverBgColor: $__hover--light;
+    //$activeBgColor: mix($__focus,$__hover--light,10%);
+    $hoverBgColor: $__bg--light;
+    $activeBgColor: rgba($__interaction--light,.1);
+
+    @include __button__ripple($hoverBgColor, $activeBgColor, $text--light);
+
+    @include __on-theme--dark {
+        background-color: transparent;
+        border-color: transparent;
+        color: $text--dark;
+
+        &:focus {
+            color: $text--dark;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        //$hoverBgColor: $__bg__white--2;
+        //$activeBgColor: $__white;
+        /*
+        $hoverBgColor: transparent;
+        $activeBgColor: $__white;
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $text--dark);
+        */
+        
+        $hoverBgColor: $__bg--dark;
+        $activeBgColor: rgba($__bg__gray--2,.5);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $__white);
+    }
+
+    @include __on-theme--light {
+        background-color: transparent;
+        //border: none;
+        color: $text--light;
+
+        &:focus {
+            background-color: transparent;
+            border-color: transparent;
+            color: $text--light;
+        }
+
+        @if $type == disable {
+            opacity: 1;
+        }
+
+        /*
+        $hoverBgColor: $__hover--light;
+        $activeBgColor: mix($__focus,$__hover--light,10%);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $text--light);
+        */
+
+        $hoverBgColor: $__bg--light;
+        $activeBgColor: rgba($__interaction--light,.1);
+
+        @include __button__ripple($hoverBgColor, $activeBgColor, $text--light);
+    }
+}
+
+@mixin __button__icon($size: $__button__icon--default) {
+    [class^='material-icons'] {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: __remcalc($size);
+        height: __remcalc($size);
+        font-size: __remcalc($size);
+        line-height: __remcalc($size);
+
+        &:before {
+            vertical-align: top;
+        }
+    }
+}
+
+@mixin __button__icon--left($size: $__button__icon-margin--default) {
+    padding-left: __remcalc($size * 2);
+
+    [class^='material-icons'] {
+        left: __remcalc($size/2);
+    }
+}
+
+@mixin __button__icon--right($size: $__button__icon-margin--default) {
+    padding-right: __remcalc($size * 2);
+
+    [class^='material-icons'] {
+        right: __remcalc($size/2);
+    }
+}
+
+@mixin __button__icon--only($size: $__button__size--default) {
+    padding: 0;
+    width: __remcalc($size);
+    //height: __remcalc($size);
+
+    [class^='material-icons'] {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+
+@mixin __button__icon--dropdown($size: $__button__icon--default, $margin: $__button__icon-margin--default, $icon: keyboard_arrow_down) {
+    
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Material Icons Outlined';
+    content: "arrow_drop_down";
+    color: inherit; 
+    border: 0;
+    line-height: 1.5rem !important;
+    text-align: center;
+    @include __button__icon--dropdown-update($size, $margin);
+}
+
+@mixin __button__icon--dropdown-update($size, $margin) {
+    right: __remcalc($margin);
+    width: __remcalc($size);
+    height: __remcalc($size);
+    font-size: __remcalc($size);
+    line-height: __remcalc($size);
+
+}
+
+.btn {
+    @include __button--solid(secondary,$__button__size--default);
+
+    &-primary, &-light {
+        @include __button__theme--solid(primary);
+    }
+
+    &-info {
+        @include __button__theme--solid(info);
+    }
+    
+    &-dark {
+        @include __button__theme--solid(secondary);
+    }
+
+    &-success {
+        @include __button__theme--solid(success);
+    }
+
+    &-danger {
+        @include __button__theme--solid(alert);
+    }
+    &-warning {
+        @include __button__theme--solid(warning);
+    }
+
+    &:disabled,
+    &.disabled {
+        @include __button__theme--solid(disable);
+    }
+
+    &-link {
+        @include __button__update-corner(48);
+        @include __button__theme--clear(primary);
+
+        text-decoration: none;
+
+        &.btn-lg {
+            @include __button__update-corner(60);
+        }
+
+        &.btn-sm {
+            @include __button__update-corner(36);
+        }
+
+        &:disabled,
+        &.disabled {
+            @include __button__theme--clear(disable);
+        }
+        
+        &:hover{
+            background: transparent !important;
+            border-color: transparent !important;
+            text-decoration: underline !important;
+        }
+    }
+
+    &-outline-primary, &-outline-light {
+        @include __button__theme--outline(primary);
+    }
+
+    &-outline-secondary, &-outline-dark {
+        @include __button__theme--outline(secondary);
+    }
+
+    &-outline-info {
+        @include __button__theme--outline(info);
+    }
+
+    &-outline-success {
+        @include __button__theme--outline(success);
+    }
+
+    &-outline-danger {
+        @include __button__theme--outline(alert);
+    }
+
+    &-outline-warning {
+        @include __button__theme--outline(warning);
+    }
+
+    &-outline-primary, 
+    &-outline-light, 
+    &-outline-secondary, 
+    &-outline-dark, 
+    &-outline-info, 
+    &-outline-success,
+    &-outline-danger, 
+    &-outline-warning {
+        &:disabled,
+        &.disabled {
+            @include __button__theme--outline(disable);
+        }
+    }
+
+    &[class*='scielo__btn-with-icon--left'] {
+        @include __button__icon;
+        @include __button__icon--left;
+    }
+
+    &[class*='scielo__btn-with-icon--right'] {
+        @include __button__icon;
+        @include __button__icon--right;
+    }
+
+    &[class*='scielo__btn-with-icon--only'] {
+        @include __button__icon;
+        @include __button__icon--only;
+    }
+
+    &.dropdown-toggle {
+        &[class*='scielo__btn-with-icon--only'] {
+            //width: __remcalc(48 * 2);
+
+            width: __remcalc(48);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: __remcalc(32);
+            padding-right: __remcalc(24); 
+
+            &:after {
+                right: 0;
+                //outline: 1px solid red;
+                position: static;
+                transform: none;
+                margin: 0;
+            }
+
+            [class^='material-icons'] {
+                position: static;
+               // outline: 1px solid blue;
+                transform: none;
+            }
+
+        }
+
+        &:after {
+            @include __button__icon--dropdown;
+            transition: .3s all ease-out;
+        }
+
+
+        &[class*='scielo__btn-with-icon--left'] {
+            &.btn-link {
+                padding-left: __remcalc(42);
+                padding-right: __remcalc(42);
+            }
+
+            padding-right: 1.5rem;
+
+            &:after {
+                right: 0.3rem;
+            } 
+        }
+    }
+
+    &-lg {
+        $buttonSize: $__button__size--large;
+        $iconMargin: $__button__icon-margin--large;
+        $iconSize: $__button__icon--large;
+
+        @include __button__resize($buttonSize);
+        @include __text__button--large;
+
+        &[class*='scielo__btn-with-icon--left'] {
+            @include __button__icon($iconSize);
+            @include __button__icon--left($iconMargin);
+        }
+
+        &[class*='scielo__btn-with-icon--right'] {
+            @include __button__icon($iconSize);
+            @include __button__icon--right($iconMargin);
+        }
+
+        &[class*='scielo__btn-with-icon--only'] {
+            @include __button__icon($iconSize);
+            @include __button__icon--only($buttonSize);
+        }
+
+        &.dropdown-toggle {
+            
+            &[class*='scielo__btn-with-icon--only'] {
+               // width: __remcalc($buttonSize * 2);
+                width: __remcalc($buttonSize);
+                //padding-right: __remcalc($buttonSize);
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                   // padding-left: __remcalc(32);
+                   // padding-right: __remcalc(24);
+            }
+
+            &:after {
+                @include __button__icon--dropdown-update($iconSize, $iconMargin)
+            }
+            
+
+            
+
+        }   
+    }
+
+    &-sm {
+        $buttonSize: $__button__size--small;
+        $iconMargin: $__button__icon-margin--small;
+        $iconSize: $__button__icon--small;
+
+        @include __button__resize($buttonSize);
+
+        /*
+        &[class*='scielo__btn-with-icon--left'] {
+            @include __button__icon--left($iconMargin);
+        }
+
+        &[class*='scielo__btn-with-icon--right'] {
+            @include __button__icon--right($iconMargin);
+        }
+
+        &[class*='scielo__btn-with-icon--only'] {
+            @include __button__icon--only($buttonSize);
+        }
+        
+
+        &.dropdown-toggle {
+            &[class*='scielo__btn-with-icon--only'] {
+                width: __remcalc($buttonSize * 2);
+                padding-right: __remcalc($buttonSize);
+            }  
+            &:after {
+                @include __button__icon--dropdown-update($iconSize, $iconMargin)
+            }
+        }
+        */
+    }
+}
+
+.dropdown {
+    & > .btn {
+        padding-right: 2.5rem;
+    }
+    
+    &.show .btn {
+        border-top-left-radius: __remcalc(24);
+        border-top-right-radius:  __remcalc(24);
+        border-bottom-left-radius: .25rem;
+        border-bottom-right-radius: .25rem;
+
+        &:after {
+            transform: rotate(180deg) translateY(50%);
+        }
+    }
+
+    .dropdown-menu {
+        background: $__bg--light;
+        border-color: $__border--light;
+
+        @include __on-theme--dark {
+            background: $__bg--dark;
+            border-color: $__border--dark;
+        }
+
+        @include __on-theme--light {
+            background: $__bg--light;
+            border-color: $__border--light;
+        }
+
+        & > a {
+            color: $__text--light;
+
+            &:hover{
+                background: $__hover__secondary--light;
+            }
+
+            @include __on-theme--dark {
+                color: $__text--dark;
+
+                &:hover{
+                    background: $__hover__secondary--dark;
+                }
+            }
+    
+            @include __on-theme--light {
+                color: $__text--light;
+
+                &:hover{
+                    background: $__hover__secondary--light;
+                }
+            }
+        }
+    }
+}
+
+
+.copyLink{
+    /* 
+    Removidas as dimensões do botão. Este deve ser usado sempre com classe btn, btn-sm, etc.
+    @include __button--solid(secondary,$__button__size--default);
+    */
+    position: relative;
+    cursor: pointer;
+
+    
+   
+    &:after{
+        font-family: 'Material Icons Outlined';
+        content: "check";
+
+        position: absolute;
+        background: $__positive--light;
+        top: 100%;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        
+        color: $__white;
+        font-size: 20px;
+        
+        display: block;
+        padding-top: __remcalc(8px);
+        text-align: center;
+        transition: all .3s ease-out,text-indent .3s ease-out;
+
+        @include __on-theme--dark {
+            background: $__positive--dark;
+            color: $__text--light;
+        }
+
+        @include __on-theme--light {
+            background: $__positive--light;
+            color: $__white;
+        }
+    }
+    &.copyFeedback:after {
+        top: 0;
+        visibility: visible;
+    }
+}

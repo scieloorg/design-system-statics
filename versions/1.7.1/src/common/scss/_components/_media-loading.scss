@@ -1,0 +1,164 @@
+@mixin __loading__animation($animation) {
+	animation: $animation;
+}
+
+@mixin __loading__resize($size, $margin: false) {
+    width: __remcalc($size);
+    height: __remcalc($size);
+
+    @if $margin {
+        margin-top: __remcalc(-$size / 2);
+        margin-left: __remcalc(-$size / 2);
+    }
+}
+
+.#{$__classPrefix}__loading {
+    $zindex-backdrop: 1040;
+    $zindex: 1050;
+        
+	&-block {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+		width: __remcalc(100);
+		height: __remcalc(100);
+        opacity: 0;
+        transition: opacity .5s linear;
+        transition-delay: .5s;
+        z-index: $zindex;
+    }
+    
+    &-backdrop {
+        transition: opacity .5s linear;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: $zindex-backdrop;
+       
+        &--dark {
+            background: $__brand__main;
+        }
+
+        &--light {
+            background: $__white;
+        }
+    }
+
+    &-visible {
+        .#{$__classPrefix}__loading-backdrop,
+        .#{$__classPrefix}__loading-block {
+            opacity: 1;
+        }
+    }
+
+    &-hide {
+        .#{$__classPrefix}__loading-backdrop {
+            transition-delay: .7s;
+        }
+
+        .#{$__classPrefix}__loading-block {
+            transition-delay: 0;
+        }
+    }
+
+	&-inline {
+        position: relative;
+        display: inline-block;
+        @include __loading__resize($__button__icon--default);
+
+        &:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            border: 2px solid $__hover--light;
+            border-top-color: $__menu--light;
+            animation: spinner .8s linear infinite;
+            @include __loading__resize($__button__icon--default,true);
+
+            @include __on-theme--dark {
+                border-color: $__hover--dark;
+                border-top-color: $__menu--dark;
+            }
+        
+            @include __on-theme--light {
+                border-color: $__hover--light;
+                border-top-color: $__menu--light;
+            }
+        }
+
+        [class*='b3__btn-with-icon'] & {
+            &:before {
+                border-color: $__bg__white--2;
+                border-top-color: $__menu--light;
+                
+                @include __on-theme--dark {
+                    border-color: $__bg__white--2;
+                    border-top-color: $__menu--light;
+                }
+            }
+        }
+
+        [class*='b3__btn-with-icon--left'] & {
+            &:before {
+                @include __button__icon;
+                @include __button__icon--left;
+            }
+        }
+
+        [class*='b3__btn-with-icon--right'] & {
+            &:before {
+                @include __button__icon;
+                @include __button__icon--right;
+            }
+        }
+	}
+}
+
+
+@if $bootstrap {
+    .btn-lg {
+        .#{$__classPrefix}__loading-inline {
+            @include __loading__resize($__button__icon--large);
+
+            &:before {
+                @include __loading__resize($__button__icon--large,true);
+            }
+        }
+    }
+}
+
+@if $foundation {
+    .button {
+        &.large {
+            .#{$__classPrefix}__loading-inline {
+                @include __loading__resize($__button__icon--large);
+    
+                &:before {
+                    @include __loading__resize($__button__icon--large,true);
+                }
+            }
+        }
+        &.tiny {
+            .#{$__classPrefix}__loading-inline {
+                @include __loading__resize($__button__icon--tiny);
+    
+                &:before {
+                    @include __loading__resize($__button__icon--tiny,true);
+                }
+            }
+        }
+    }
+}
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+  

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-br" class="example">
+<!--=include ./_parts/_headTag.html -->
+<body>
+    <!-- <div class="container">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch loading modal
+        </button>
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="scielods__loading" data-b3-loading="white"></div>
+            </div>
+        </div>
+    </div> -->
+    
+    <div class="container">
+        <p>Loading no botão</p>
+
+        <button type="button" class="btn btn-primary b3__btn-with-icon--left">
+            Primary
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+
+        <button type="button" class="btn btn-success b3__btn-with-icon--right">
+            Primary
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+        
+        <button type="button" class="btn btn-warning b3__btn-with-icon--only">
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+
+        <button type="button" class="btn b3__btn-with-icon--only">
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+
+        <br>
+
+        <button type="button" class="btn btn-lg btn-primary b3__btn-with-icon--left">
+            Primary
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+
+        <button type="button" class="btn btn-lg btn-primary b3__btn-with-icon--right">
+            Primary
+            <span class="scielods__ico b3__loading-inline"> </span>
+        </button>
+        
+        <button type="button" class="btn btn-lg btn-primary b3__btn-with-icon--only">
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+
+        <br>
+
+        <button type="button" class="btn btn-sm btn-primary b3__btn-with-icon--left">
+            Primary
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+
+        <button type="button" class="btn btn-sm btn-primary b3__btn-with-icon--right">
+            Primary
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+        
+        <button type="button" class="btn btn-sm btn-primary b3__btn-with-icon--only">
+            <span class="scielods__ico b3__loading-inline"></span>
+        </button>
+
+        <br><br><br>
+    </div>
+
+    <div class="container">
+        <p>Loading inline</p>
+        <span class="scielods__ico b3__loading-inline"></span>
+    </div>
+
+    <div class="container">
+        <p>Loading bloqueio de tela</p>
+        <a href="javascript:;" onclick="b3__loading.Show('dark')">Bloquear tela</a>
+    </div>
+    
+    <!-- <div class="scielods__loading-block" data-b3-loading="dark"></div> -->
+
+    <!-- <div class="scielods__loading-block" data-b3-loading="white"></div> -->
+    
+    <script src="../../dist/bootstrap/js/plugins/lottie_html.min.js"></script>
+    <!--=include ./_parts/_scripts.html -->
+</body>
+</html>

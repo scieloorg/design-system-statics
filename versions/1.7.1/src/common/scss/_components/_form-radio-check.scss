@@ -1,0 +1,561 @@
+/*
+.#{$__classPrefix}__form {
+    &-label {
+        position: relative;
+        padding-top: __remcalc(18);
+        
+        & > label:first-child {
+            position: absolute;
+            @include __form-control__label--reduced;
+            top: __remcalc(1);
+            margin-left: __remcalc(12);
+            @include __form-control__label__color;
+        }
+
+        & .#{$__classPrefix}__form-checkbox,
+        & .#{$__classPrefix}__form-radio {
+            & + label {
+                margin-top: __remcalc(-6);
+                margin-bottom: __remcalc(-12);
+            }
+        }
+
+    }
+
+    &-checkbox,
+    &-radio {
+        position: absolute;
+        opacity: 0;
+
+        & ~ label {
+            position: relative;
+            display: inline-block;
+            padding: __remcalc(12) 0 __remcalc(12) __remcalc(36);
+            @include __text__caption;
+            line-height: __remcalc(24);
+            cursor: pointer;
+            min-height: __remcalc(48);
+            margin: 0 __remcalc(12);
+            color: $__text__emphasis--light;
+
+            @include __on-theme--dark {
+                color: $__text__emphasis--dark;
+            }
+
+            @include __on-theme--light {
+                color: $__text__emphasis--light;
+            }
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                top: __remcalc(12);
+                left: __remcalc(0);
+                width: __remcalc(24);
+                height: __remcalc(24);
+                transition: all .2s ease;
+                overflow: hidden;
+                text-align: center;
+            }
+
+            &:before {
+                border: __remcalc(2) solid $__focus;
+                background: $__bg--light;
+
+                @include __on-theme--dark {
+                    background: $__bg--dark;
+                }
+
+                @include __on-theme--light {
+                    background: $__bg--light;
+                }
+            }
+
+            &:after {
+                font-family: "b3-icons";
+                font-size: __remcalc(1);
+                color: transparent;
+                box-shadow: 0 0 0 $__focus inset; 
+            }
+
+            &:hover:before {
+                @include __form-switch__track--hover;
+            }
+        }
+
+        &:focus + label {
+            &:before {
+                @include __form-switch__track--focus;
+            }
+        }
+
+        &:checked + label {
+            &:after {
+                box-shadow: 0 0 0 __remcalc(24) $__focus inset;
+                font-size: __remcalc(20);
+                color: $__white;
+            }
+        }
+
+        &:disabled + label {
+            cursor: not-allowed;
+            color: $__disabled;
+
+            
+
+            &:before {
+                border-color: $__disabled--light;
+
+                @include __on-theme--dark {
+                    border-color: $__bg__white--2;
+                }
+    
+                @include __on-theme--light {
+                    border-color: $__disabled--light;
+                }
+            }
+
+            &:hover:before {
+                box-shadow: none;
+            }
+        }
+
+        &:disabled:checked + label {
+            &:after {
+                box-shadow: none;
+                color: $__disabled--light;
+
+                @include __on-theme--dark {
+                    color: $__bg__white--2;
+                }
+    
+                @include __on-theme--light {
+                    color: $__disabled--light;
+                }
+            }
+        }
+
+        @at-root .was-validated & {
+            & ~ label {
+                color: $__text__emphasis--light;
+
+                @include __on-theme--dark {
+                    color: $__text__emphasis--dark;
+                }
+
+                @include __on-theme--light {
+                    color: $__text__emphasis--light;
+                }
+            }
+
+            &:invalid ~ label:before {
+                border-color: $__negative--dark;
+            }
+        }
+    }
+
+    &-checkbox {
+        & ~ label {
+            text-align: center;
+
+            &:before,
+            &:after {
+                border-radius: __remcalc(6);
+            }
+
+            &:after {
+                content: b3__ico--char(check_after);
+            }
+        }
+    }
+
+    &-radio {
+        & ~ label {
+            &:before,
+            &:after {
+                border-radius: 50%;
+            }
+
+            &:after {
+                content: b3__ico--char(radio_after);
+            }
+        }
+
+        &:checked + label {
+            &:after {
+                font-size: __remcalc(16);
+            }
+        }
+        
+    }
+}
+*/
+
+@if $bootstrap {
+
+    /*
+    .form-check {
+        padding: 0;
+
+        @at-root .was-validated & {
+            &-input:invalid ~ .form-check-label,
+            &-input:valid ~ .form-check-label, {
+                color: $__text__emphasis--light;
+
+                @include __on-theme--dark {
+                    color: $__text__emphasis--dark;
+                }
+
+                @include __on-theme--light {
+                    color: $__text__emphasis--light;
+                }
+            }
+        }
+
+        &-inline {
+            margin-right: 0;
+
+            .form-check-input {
+                position: absolute;
+            }
+        }
+    }
+    */
+}
+
+//
+// Check/radio
+//
+
+$form-check-input-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$__bg--light}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/></svg>") !default;
+$form-check-input-checked-bg-image--dark:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$__bg--dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/></svg>") !default;
+
+
+$form-check-radio-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$__bg--light}'/></svg>") !default;
+$form-check-radio-checked-bg-image--dark:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$__bg--dark}'/></svg>") !default;
+
+
+$form-check-input-indeterminate-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$__bg--light}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>") !default;
+$form-check-input-indeterminate-bg-image--dark:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$__bg--dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>") !default;
+
+
+$form-check-input-border:                 1px solid $__border--light;
+$form-check-input-border--dark:           1px solid $__border--dark;
+
+.form-check {
+    display: block;
+    min-height: $form-check-min-height;
+    padding-left: $form-check-padding-start;
+    margin-bottom: $form-check-margin-bottom;
+  
+    .form-check-input {
+      float: left;
+      margin-left: $form-check-padding-start * -1;
+    }
+  }
+  
+  .form-check-input {
+    width: $form-check-input-width;
+    height: $form-check-input-width;
+    margin-top: ($line-height-base - $form-check-input-width) / 2; // line-height minus check height
+    vertical-align: top;
+    //background-color: $form-check-input-bg;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    appearance: none;
+    color-adjust: exact; // Keep themed appearance for print
+    @include transition($form-check-transition);
+
+   // border: $form-check-input-border;
+   // background-color: $form-check-input-bg;
+
+    border-color: $__border--light;
+    background-color: $__bg--light;
+
+    @include __on-theme--dark {
+        //border: $form-check-input-border--dark;
+
+        border-color: $__border--dark;
+        background-color: $__bg--dark;
+    }
+
+    @include __on-theme--light {
+        //border: $form-check-input-border;
+
+        border-color: $__border--light;
+        background-color: $__bg--light;
+    } 
+  
+    &[type="checkbox"] {
+      @include border-radius($form-check-input-border-radius);
+    }
+  
+    &[type="radio"] {
+      // stylelint-disable-next-line property-disallowed-list
+      border-radius: $form-check-radio-border-radius;
+    }
+  
+    &:active {
+      filter: $form-check-input-active-filter;
+    }
+  
+    &:focus {
+      //border-color: $form-check-input-focus-border;
+      outline: 0;
+      box-shadow: $form-check-input-focus-box-shadow;
+
+      border-color: $__border--light;
+
+        @include __on-theme--dark {
+            border-color: $__border--dark;
+        }
+
+        @include __on-theme--light {
+            border-color: $__border--light;
+        } 
+    }
+  
+    &:checked {
+      //background-color: $form-check-input-checked-bg-color;
+      //border-color: $form-check-input-checked-border-color;
+
+      background-color: $__interaction--light;
+      border-color: $__interaction--light;
+
+        @include __on-theme--dark {
+            background-color: $__interaction--dark;
+            border-color: $__interaction--dark;
+        }
+
+        @include __on-theme--light {
+            background-color: $__interaction--light;
+            border-color: $__interaction--light;
+        } 
+  
+      &[type="checkbox"] {
+        @if $enable-gradients {
+          background-image: escape-svg($form-check-input-checked-bg-image), var(--#{$variable-prefix}gradient);
+
+            @include __on-theme--dark {
+                background-image: escape-svg($form-check-input-checked-bg-image--dark), var(--#{$variable-prefix}gradient);
+            }
+
+            @include __on-theme--light {
+                background-image: escape-svg($form-check-input-checked-bg-image), var(--#{$variable-prefix}gradient);
+            } 
+
+        } @else {
+          background-image: escape-svg($form-check-input-checked-bg-image);
+
+            @include __on-theme--dark {
+                background-image: escape-svg($form-check-input-checked-bg-image--dark);
+            }
+
+            @include __on-theme--light {
+                background-image: escape-svg($form-check-input-checked-bg-image);
+            } 
+
+        }
+      }
+  
+      &[type="radio"] {
+        @if $enable-gradients {
+          background-image: escape-svg($form-check-radio-checked-bg-image), var(--#{$variable-prefix}gradient);
+
+            @include __on-theme--dark {
+                background-image: escape-svg($form-check-radio-checked-bg-image--dark), var(--#{$variable-prefix}gradient);
+            }
+
+            @include __on-theme--light {
+                background-image: escape-svg($form-check-radio-checked-bg-image), var(--#{$variable-prefix}gradient);
+            } 
+
+        } @else {
+          background-image: escape-svg($form-check-radio-checked-bg-image);
+
+            @include __on-theme--dark {
+                background-image: escape-svg($form-check-radio-checked-bg-image--dark);
+            }
+
+            @include __on-theme--light {
+                background-image: escape-svg($form-check-radio-checked-bg-image);
+            } 
+
+        }
+      }
+    }
+  
+    &[type="checkbox"]:indeterminate {
+      background-color: $form-check-input-indeterminate-bg-color;
+      border-color: $form-check-input-indeterminate-border-color;
+  
+      @if $enable-gradients {
+        background-image: escape-svg($form-check-input-indeterminate-bg-image), var(--#{$variable-prefix}gradient);
+
+        @include __on-theme--dark {
+            background-image: escape-svg($form-check-input-indeterminate-bg-image--dark), var(--#{$variable-prefix}gradient);
+        }
+
+        @include __on-theme--light {
+            background-image: escape-svg($form-check-input-indeterminate-bg-image), var(--#{$variable-prefix}gradient);
+        } 
+
+      } @else {
+        background-image: escape-svg($form-check-input-indeterminate-bg-image);
+
+        @include __on-theme--dark {
+            background-image: escape-svg($form-check-input-indeterminate-bg-image--dark);
+        }
+
+        @include __on-theme--light {
+            background-image: escape-svg($form-check-input-indeterminate-bg-image);
+        } 
+
+      }
+    }
+  
+    &:disabled {
+      pointer-events: none;
+      filter: none;
+      opacity: $form-check-input-disabled-opacity;
+    }
+  
+    // Use disabled attribute in addition of :disabled pseudo-class
+    // See: https://github.com/twbs/bootstrap/issues/28247
+    &[disabled],
+    &:disabled {
+      ~ .form-check-label {
+        opacity: $form-check-label-disabled-opacity;
+      }
+    }
+  }
+  
+  .form-check-label {
+    color: $form-check-label-color;
+    cursor: $form-check-label-cursor;
+  }
+
+
+// inline
+.form-check-inline {
+    display: inline-block;
+    margin-right: $form-check-inline-margin-end;
+  }
+  
+  .btn-check {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+  
+    &[disabled],
+    &:disabled {
+      + .btn {
+        pointer-events: none;
+        filter: none;
+        opacity: $form-check-btn-check-disabled-opacity;
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+//
+// Switch
+//
+
+$form-switch-bg-image:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$__border--light}'/></svg>");
+$form-switch-bg-image--dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$__border--dark}'/></svg>");
+
+$form-switch-focus-bg-image:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$__border--light}'/></svg>");
+
+$form-switch-focus-bg-image--dark:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$__border--dark}'/></svg>");
+
+$form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
+
+$form-switch-checked-bg-image--dark:    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$__bg--dark}'/></svg>");
+
+
+.form-switch {
+    padding-left: $form-switch-padding-start;
+  
+    .form-check-input {
+      width: $form-switch-width;
+      margin-left: $form-switch-padding-start * -1;
+      background-position: left center;
+      @include border-radius($form-switch-border-radius);
+      @include transition($form-switch-transition);
+      background-image: escape-svg($form-switch-bg-image);
+      background-color: $__bg--light;
+      border-color: $__border--light; 
+
+        @include __on-theme--dark {
+            background-image: escape-svg($form-switch-bg-image--dark);
+            background-color: $__bg--dark;
+            border-color: $__border--dark; 
+        }
+
+        @include __on-theme--light {
+            background-image: escape-svg($form-switch-bg-image);
+            background-color: $__bg--light;
+            border-color: $__border--light; 
+        }
+  
+      &:focus {
+        background-image: escape-svg($form-switch-focus-bg-image);
+        
+        @include __on-theme--dark {
+            background-image: escape-svg($form-switch-focus-bg-image--dark);
+        }
+
+        @include __on-theme--light {
+            background-image: escape-svg($form-switch-focus-bg-image);
+        }
+      }
+  
+      &:checked {
+        background-position: $form-switch-checked-bg-position;
+        background-color: $__interaction--light;
+        border-color: $__interaction--light;
+
+        @include __on-theme--dark {
+            background-color: $__interaction--dark;
+            border-color: $__interaction--dark;
+        }
+
+        @include __on-theme--light {
+            background-color: $__interaction--light;
+            border-color: $__interaction--light;
+        }
+  
+        @if $enable-gradients {
+          background-image: escape-svg($form-switch-checked-bg-image), var(--#{$variable-prefix}gradient);
+
+            @include __on-theme--dark {
+                background-image: escape-svg($form-switch-checked-bg-image--dark), var(--#{$variable-prefix}gradient);
+            }
+
+            @include __on-theme--light {
+                background-image: escape-svg($form-switch-checked-bg-image), var(--#{$variable-prefix}gradient);
+            }
+
+        } @else {
+          background-image: escape-svg($form-switch-checked-bg-image);
+
+            @include __on-theme--dark {
+                background-image: escape-svg($form-switch-checked-bg-image--dark);
+            }
+
+            @include __on-theme--light {
+                background-image: escape-svg($form-switch-checked-bg-image);
+            }
+        }
+      }
+    }
+  }

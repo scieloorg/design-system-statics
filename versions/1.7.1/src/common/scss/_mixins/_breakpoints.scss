@@ -1,0 +1,53 @@
+@mixin __breakpoint--xsmall() {
+    @media screen and (min-width: #{$__breakpoints--xsmall}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--xsmall-only() {
+    @media screen and (max-width: #{$__breakpoints--small - 1px}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--small() {
+    @media screen and (min-width: #{$__breakpoints--small}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--small-only() {
+    @media screen and (min-width: #{$__breakpoints--small}) and (max-width: #{$__breakpoints--medium - 1px}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--medium() {
+    @media screen and (min-width: #{$__breakpoints--medium}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--medium-only() {
+    @media screen and (min-width: #{$__breakpoints--medium}) and (max-width: #{$__breakpoints--large - 1px}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--large() {
+    @media screen and (min-width: #{$__breakpoints--large}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--large-only() {
+    @media screen and (min-width: #{$__breakpoints--large}) and (max-width: #{$__breakpoints--xlarge - 1px}) {
+        @content;
+    }
+}
+
+@mixin __breakpoint--xlarge() {
+    @media screen and (min-width: #{$__breakpoints--xlarge}) {
+        @content;
+    }
+}

@@ -1,0 +1,964 @@
+/*
+@font-face {
+	font-family: "scielods-icons";
+	src: url('./src/common/assets/font/ads-icons.woff');
+	src: url('./src/common/assets/font/ads-icons.woff') format('woff'); 
+}
+*/
+/*
+@mixin scielods__ico--styles {
+	font-family: "scielods-icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+*/
+
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=swap');
+
+
+@mixin scielods__ico--styles {
+	font-family: 'Material Icons Outlined';
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+ 
+
+
+%scielods__ico- {
+	@include scielods__ico--styles;
+}
+
+@function scielods__ico--char($filename) {
+	$char: "";
+
+	@if $filename == Facebook {
+		$char: "\E001";
+	}
+	@if $filename == Glassdoor {
+		$char: "\E002";
+	}
+	@if $filename == Instagram {
+		$char: "\E003";
+	}
+	@if $filename == Linkedin {
+		$char: "\E004";
+	}
+	@if $filename == Twitter {
+		$char: "\E005";
+	}
+	@if $filename == YouTube {
+		$char: "\E006";
+	}
+	@if $filename == account_circle {
+		$char: "\E007";
+	}
+	@if $filename == add {
+		$char: "\E008";
+	}
+	@if $filename == add_circle_outline {
+		$char: "\E009";
+	}
+	@if $filename == add_comment {
+		$char: "\E00A";
+	}
+	@if $filename == add_shopping_cart {
+		$char: "\E00B";
+	}
+	@if $filename == alarm_off {
+		$char: "\E00C";
+	}
+	@if $filename == alarm_on {
+		$char: "\E00D";
+	}
+	@if $filename == apps {
+		$char: "\E00E";
+	}
+	@if $filename == arrow_back {
+		$char: "\E00F";
+	}
+	@if $filename == arrow_downward {
+		$char: "\E010";
+	}
+	@if $filename == arrow_drop_down {
+		$char: "\E011";
+	}
+	@if $filename == arrow_drop_up {
+		$char: "\E012";
+	}
+	@if $filename == arrow_forward {
+		$char: "\E013";
+	}
+	@if $filename == arrow_left {
+		$char: "\E014";
+	}
+	@if $filename == arrow_right {
+		$char: "\E015";
+	}
+	@if $filename == arrow_upward {
+		$char: "\E016";
+	}
+	@if $filename == attach_file {
+		$char: "\E017";
+	}
+	@if $filename == attach_money {
+		$char: "\E018";
+	}
+	@if $filename == attachment {
+		$char: "\E019";
+	}
+	@if $filename == autorenew {
+		$char: "\E01A";
+	}
+	@if $filename == bar_chart {
+		$char: "\E01B";
+	}
+	@if $filename == block {
+		$char: "\E01C";
+	}
+	@if $filename == bookmark {
+		$char: "\E01D";
+	}
+	@if $filename == bookmark_border {
+		$char: "\E01E";
+	}
+	@if $filename == bookmarks {
+		$char: "\E01F";
+	}
+	@if $filename == chat {
+		$char: "\E020";
+	}
+	@if $filename == chat_bubble {
+		$char: "\E021";
+	}
+	@if $filename == chat_bubble_outline {
+		$char: "\E022";
+	}
+	@if $filename == check {
+		$char: "\E023";
+	}
+	@if $filename == check_after {
+		$char: "\E024";
+	}
+	@if $filename == check_circle {
+		$char: "\E025";
+	}
+	@if $filename == clear {
+		$char: "\E026";
+	}
+	@if $filename == clear_all {
+		$char: "\E027";
+	}
+	@if $filename == cloud {
+		$char: "\E028";
+	}
+	@if $filename == cloud_done {
+		$char: "\E029";
+	}
+	@if $filename == cloud_download {
+		$char: "\E02A";
+	}
+	@if $filename == cloud_off {
+		$char: "\E02B";
+	}
+	@if $filename == cloud_upload {
+		$char: "\E02C";
+	}
+	@if $filename == compare_arrows {
+		$char: "\E02D";
+	}
+	@if $filename == computer {
+		$char: "\E02E";
+	}
+	@if $filename == create_new_folder {
+		$char: "\E02F";
+	}
+	@if $filename == credit_card {
+		$char: "\E030";
+	}
+	@if $filename == dashboard {
+		$char: "\E031";
+	}
+	@if $filename == date_range {
+		$char: "\E032";
+	}
+	@if $filename == delete {
+		$char: "\E033";
+	}
+	@if $filename == description {
+		$char: "\E034";
+	}
+	@if $filename == desktop_windows {
+		$char: "\E035";
+	}
+	@if $filename == devices {
+		$char: "\E036";
+	}
+	@if $filename == done_all {
+		$char: "\E037";
+	}
+	@if $filename == double_arrow_left {
+		$char: "\E038";
+	}
+	@if $filename == double_arrow_right {
+		$char: "\E039";
+	}
+	@if $filename == download {
+		$char: "\E03A";
+	}
+	@if $filename == drafts {
+		$char: "\E03B";
+	}
+	@if $filename == edit {
+		$char: "\E03C";
+	}
+	@if $filename == error_outline {
+		$char: "\E03D";
+	}
+	@if $filename == event_available {
+		$char: "\E03E";
+	}
+	@if $filename == exit_to_app {
+		$char: "\E03F";
+	}
+	@if $filename == file_copy {
+		$char: "\E040";
+	}
+	@if $filename == filter_list {
+		$char: "\E041";
+	}
+	@if $filename == fingerprint {
+		$char: "\E042";
+	}
+	@if $filename == first_page {
+		$char: "\E043";
+	}
+	@if $filename == folder {
+		$char: "\E044";
+	}
+	@if $filename == folder_open {
+		$char: "\E045";
+	}
+	@if $filename == group_add {
+		$char: "\E046";
+	}
+	@if $filename == help_outline {
+		$char: "\E047";
+	}
+	@if $filename == home {
+		$char: "\E048";
+	}
+	@if $filename == home_work {
+		$char: "\E049";
+	}
+	@if $filename == info {
+		$char: "\E04A";
+	}
+	@if $filename == insert_chart {
+		$char: "\E04B";
+	}
+	@if $filename == insert_drive_file {
+		$char: "\E04C";
+	}
+	@if $filename == insert_invitation {
+		$char: "\E04D";
+	}
+	@if $filename == keyboard {
+		$char: "\E04E";
+	}
+	@if $filename == keyboard_arrow_down {
+		$char: "\E04F";
+	}
+	@if $filename == keyboard_arrow_left {
+		$char: "\E050";
+	}
+	@if $filename == keyboard_arrow_right {
+		$char: "\E051";
+	}
+	@if $filename == keyboard_arrow_up {
+		$char: "\E052";
+	}
+	@if $filename == label {
+		$char: "\E053";
+	}
+	@if $filename == label_off {
+		$char: "\E054";
+	}
+	@if $filename == last_page {
+		$char: "\E055";
+	}
+	@if $filename == list {
+		$char: "\E056";
+	}
+	@if $filename == local_phone {
+		$char: "\E057";
+	}
+	@if $filename == lock {
+		$char: "\E058";
+	}
+	@if $filename == lock_open {
+		$char: "\E059";
+	}
+	@if $filename == logo {
+		$char: "\E05A";
+	}
+	@if $filename == logout {
+		$char: "\E05B";
+	}
+	@if $filename == mail {
+		$char: "\E05C";
+	}
+	@if $filename == menu {
+		$char: "\E05D";
+	}
+	@if $filename == money_off {
+		$char: "\E05E";
+	}
+	@if $filename == mood {
+		$char: "\E05F";
+	}
+	@if $filename == mood_bad {
+		$char: "\E060";
+	}
+	@if $filename == more_horiz {
+		$char: "\E061";
+	}
+	@if $filename == more_vert {
+		$char: "\E062";
+	}
+	@if $filename == note_add {
+		$char: "\E063";
+	}
+	@if $filename == notifications {
+		$char: "\E064";
+	}
+	@if $filename == notifications_off {
+		$char: "\E065";
+	}
+	@if $filename == open_in_new {
+		$char: "\E066";
+	}
+	@if $filename == people {
+		$char: "\E067";
+	}
+	@if $filename == person {
+		$char: "\E068";
+	}
+	@if $filename == person_add {
+		$char: "\E069";
+	}
+	@if $filename == pie_chart {
+		$char: "\E06A";
+	}
+	@if $filename == print {
+		$char: "\E06B";
+	}
+	@if $filename == radio_after {
+		$char: "\E06C";
+	}
+	@if $filename == remove {
+		$char: "\E06D";
+	}
+	@if $filename == remove_circle_outline {
+		$char: "\E06E";
+	}
+	@if $filename == reply {
+		$char: "\E06F";
+	}
+	@if $filename == reply_all {
+		$char: "\E070";
+	}
+	@if $filename == restore {
+		$char: "\E071";
+	}
+	@if $filename == room {
+		$char: "\E072";
+	}
+	@if $filename == save {
+		$char: "\E073";
+	}
+	@if $filename == schedule {
+		$char: "\E074";
+	}
+	@if $filename == school {
+		$char: "\E075";
+	}
+	@if $filename == search {
+		$char: "\E076";
+	}
+	@if $filename == send {
+		$char: "\E077";
+	}
+	@if $filename == sentiment_dissatisfied {
+		$char: "\E078";
+	}
+	@if $filename == sentiment_satisfied {
+		$char: "\E079";
+	}
+	@if $filename == settings {
+		$char: "\E07A";
+	}
+	@if $filename == share {
+		$char: "\E07B";
+	}
+	@if $filename == shopping_cart {
+		$char: "\E07C";
+	}
+	@if $filename == smartphone {
+		$char: "\E07D";
+	}
+	@if $filename == sort {
+		$char: "\E07E";
+	}
+	@if $filename == speed {
+		$char: "\E07F";
+	}
+	@if $filename == star {
+		$char: "\E080";
+	}
+	@if $filename == star_border {
+		$char: "\E081";
+	}
+	@if $filename == star_half {
+		$char: "\E082";
+	}
+	@if $filename == swap_horiz {
+		$char: "\E083";
+	}
+	@if $filename == swap_horizontal_circle {
+		$char: "\E084";
+	}
+	@if $filename == swap_vert {
+		$char: "\E085";
+	}
+	@if $filename == swap_vertical_circle {
+		$char: "\E086";
+	}
+	@if $filename == tablet_android {
+		$char: "\E087";
+	}
+	@if $filename == textsms {
+		$char: "\E088";
+	}
+	@if $filename == thumb_down {
+		$char: "\E089";
+	}
+	@if $filename == thumb_up {
+		$char: "\E08A";
+	}
+	@if $filename == timeline {
+		$char: "\E08B";
+	}
+	@if $filename == trending_down {
+		$char: "\E08C";
+	}
+	@if $filename == trending_flat {
+		$char: "\E08D";
+	}
+	@if $filename == trending_up {
+		$char: "\E08E";
+	}
+	@if $filename == upload {
+		$char: "\E08F";
+	}
+	@if $filename == verified_user {
+		$char: "\E090";
+	}
+	@if $filename == visibility {
+		$char: "\E091";
+	}
+	@if $filename == visibility_off {
+		$char: "\E092";
+	}
+	@if $filename == zoom_in {
+		$char: "\E093";
+	}
+	@if $filename == zoom_out {
+		$char: "\E094";
+	}
+
+	@return $char;
+}
+
+@mixin scielods__ico-($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %scielods__ico-;
+		} @else {
+			@include scielods__ico--styles;
+		}
+		content: scielods__ico--char($filename);
+	}
+}
+
+.#{$__classPrefix}__ico--Facebook {
+	@include scielods__ico-(Facebook);
+}
+.#{$__classPrefix}__ico--Glassdoor {
+	@include scielods__ico-(Glassdoor);
+}
+.#{$__classPrefix}__ico--Instagram {
+	@include scielods__ico-(Instagram);
+}
+.#{$__classPrefix}__ico--Linkedin {
+	@include scielods__ico-(Linkedin);
+}
+.#{$__classPrefix}__ico--Twitter {
+	@include scielods__ico-(Twitter);
+}
+.#{$__classPrefix}__ico--YouTube {
+	@include scielods__ico-(YouTube);
+}
+.#{$__classPrefix}__ico--account_circle {
+	@include scielods__ico-(account_circle);
+}
+.#{$__classPrefix}__ico--add {
+	@include scielods__ico-(add);
+}
+.#{$__classPrefix}__ico--add_circle_outline {
+	@include scielods__ico-(add_circle_outline);
+}
+.#{$__classPrefix}__ico--add_comment {
+	@include scielods__ico-(add_comment);
+}
+.#{$__classPrefix}__ico--add_shopping_cart {
+	@include scielods__ico-(add_shopping_cart);
+}
+.#{$__classPrefix}__ico--alarm_off {
+	@include scielods__ico-(alarm_off);
+}
+.#{$__classPrefix}__ico--alarm_on {
+	@include scielods__ico-(alarm_on);
+}
+.#{$__classPrefix}__ico--apps {
+	@include scielods__ico-(apps);
+}
+.#{$__classPrefix}__ico--arrow_back {
+	@include scielods__ico-(arrow_back);
+}
+.#{$__classPrefix}__ico--arrow_downward {
+	@include scielods__ico-(arrow_downward);
+}
+.#{$__classPrefix}__ico--arrow_drop_down {
+	@include scielods__ico-(arrow_drop_down);
+}
+.#{$__classPrefix}__ico--arrow_drop_up {
+	@include scielods__ico-(arrow_drop_up);
+}
+.#{$__classPrefix}__ico--arrow_forward {
+	@include scielods__ico-(arrow_forward);
+}
+.#{$__classPrefix}__ico--arrow_left {
+	@include scielods__ico-(arrow_left);
+}
+.#{$__classPrefix}__ico--arrow_right {
+	@include scielods__ico-(arrow_right);
+}
+.#{$__classPrefix}__ico--arrow_upward {
+	@include scielods__ico-(arrow_upward);
+}
+.#{$__classPrefix}__ico--attach_file {
+	@include scielods__ico-(attach_file);
+}
+.#{$__classPrefix}__ico--attach_money {
+	@include scielods__ico-(attach_money);
+}
+.#{$__classPrefix}__ico--attachment {
+	@include scielods__ico-(attachment);
+}
+.#{$__classPrefix}__ico--autorenew {
+	@include scielods__ico-(autorenew);
+}
+.#{$__classPrefix}__ico--bar_chart {
+	@include scielods__ico-(bar_chart);
+}
+.#{$__classPrefix}__ico--block {
+	@include scielods__ico-(block);
+}
+.#{$__classPrefix}__ico--bookmark {
+	@include scielods__ico-(bookmark);
+}
+.#{$__classPrefix}__ico--bookmark_border {
+	@include scielods__ico-(bookmark_border);
+}
+.#{$__classPrefix}__ico--bookmarks {
+	@include scielods__ico-(bookmarks);
+}
+.#{$__classPrefix}__ico--chat {
+	@include scielods__ico-(chat);
+}
+.#{$__classPrefix}__ico--chat_bubble {
+	@include scielods__ico-(chat_bubble);
+}
+.#{$__classPrefix}__ico--chat_bubble_outline {
+	@include scielods__ico-(chat_bubble_outline);
+}
+.#{$__classPrefix}__ico--check {
+	@include scielods__ico-(check);
+}
+.#{$__classPrefix}__ico--check_after {
+	@include scielods__ico-(check_after);
+}
+.#{$__classPrefix}__ico--check_circle {
+	@include scielods__ico-(check_circle);
+}
+.#{$__classPrefix}__ico--clear {
+	@include scielods__ico-(clear);
+}
+.#{$__classPrefix}__ico--clear_all {
+	@include scielods__ico-(clear_all);
+}
+.#{$__classPrefix}__ico--cloud {
+	@include scielods__ico-(cloud);
+}
+.#{$__classPrefix}__ico--cloud_done {
+	@include scielods__ico-(cloud_done);
+}
+.#{$__classPrefix}__ico--cloud_download {
+	@include scielods__ico-(cloud_download);
+}
+.#{$__classPrefix}__ico--cloud_off {
+	@include scielods__ico-(cloud_off);
+}
+.#{$__classPrefix}__ico--cloud_upload {
+	@include scielods__ico-(cloud_upload);
+}
+.#{$__classPrefix}__ico--compare_arrows {
+	@include scielods__ico-(compare_arrows);
+}
+.#{$__classPrefix}__ico--computer {
+	@include scielods__ico-(computer);
+}
+.#{$__classPrefix}__ico--create_new_folder {
+	@include scielods__ico-(create_new_folder);
+}
+.#{$__classPrefix}__ico--credit_card {
+	@include scielods__ico-(credit_card);
+}
+.#{$__classPrefix}__ico--dashboard {
+	@include scielods__ico-(dashboard);
+}
+.#{$__classPrefix}__ico--date_range {
+	@include scielods__ico-(date_range);
+}
+.#{$__classPrefix}__ico--delete {
+	@include scielods__ico-(delete);
+}
+.#{$__classPrefix}__ico--description {
+	@include scielods__ico-(description);
+}
+.#{$__classPrefix}__ico--desktop_windows {
+	@include scielods__ico-(desktop_windows);
+}
+.#{$__classPrefix}__ico--devices {
+	@include scielods__ico-(devices);
+}
+.#{$__classPrefix}__ico--done_all {
+	@include scielods__ico-(done_all);
+}
+.#{$__classPrefix}__ico--double_arrow_left {
+	@include scielods__ico-(double_arrow_left);
+}
+.#{$__classPrefix}__ico--double_arrow_right {
+	@include scielods__ico-(double_arrow_right);
+}
+.#{$__classPrefix}__ico--download {
+	@include scielods__ico-(download);
+}
+.#{$__classPrefix}__ico--drafts {
+	@include scielods__ico-(drafts);
+}
+.#{$__classPrefix}__ico--edit {
+	@include scielods__ico-(edit);
+}
+.#{$__classPrefix}__ico--error_outline {
+	@include scielods__ico-(error_outline);
+}
+.#{$__classPrefix}__ico--event_available {
+	@include scielods__ico-(event_available);
+}
+.#{$__classPrefix}__ico--exit_to_app {
+	@include scielods__ico-(exit_to_app);
+}
+.#{$__classPrefix}__ico--file_copy {
+	@include scielods__ico-(file_copy);
+}
+.#{$__classPrefix}__ico--filter_list {
+	@include scielods__ico-(filter_list);
+}
+.#{$__classPrefix}__ico--fingerprint {
+	@include scielods__ico-(fingerprint);
+}
+
+
+.#{$__classPrefix}__ico--first_page {
+	@include scielods__ico-(first_page);
+}
+
+
+
+
+
+
+.#{$__classPrefix}__ico--folder {
+	@include scielods__ico-(folder);
+}
+.#{$__classPrefix}__ico--folder_open {
+	@include scielods__ico-(folder_open);
+}
+.#{$__classPrefix}__ico--group_add {
+	@include scielods__ico-(group_add);
+}
+.#{$__classPrefix}__ico--help_outline {
+	@include scielods__ico-(help_outline);
+}
+.#{$__classPrefix}__ico--home {
+	@include scielods__ico-(home);
+}
+.#{$__classPrefix}__ico--home_work {
+	@include scielods__ico-(home_work);
+}
+.#{$__classPrefix}__ico--info {
+	@include scielods__ico-(info);
+}
+.#{$__classPrefix}__ico--insert_chart {
+	@include scielods__ico-(insert_chart);
+}
+.#{$__classPrefix}__ico--insert_drive_file {
+	@include scielods__ico-(insert_drive_file);
+}
+.#{$__classPrefix}__ico--insert_invitation {
+	@include scielods__ico-(insert_invitation);
+}
+.#{$__classPrefix}__ico--keyboard {
+	@include scielods__ico-(keyboard);
+}
+.#{$__classPrefix}__ico--keyboard_arrow_down {
+	@include scielods__ico-(keyboard_arrow_down);
+}
+.#{$__classPrefix}__ico--keyboard_arrow_left {
+	@include scielods__ico-(keyboard_arrow_left);
+}
+.#{$__classPrefix}__ico--keyboard_arrow_right {
+	@include scielods__ico-(keyboard_arrow_right);
+}
+.#{$__classPrefix}__ico--keyboard_arrow_up {
+	@include scielods__ico-(keyboard_arrow_up);
+}
+.#{$__classPrefix}__ico--label {
+	@include scielods__ico-(label);
+}
+.#{$__classPrefix}__ico--label_off {
+	@include scielods__ico-(label_off);
+}
+.#{$__classPrefix}__ico--last_page {
+	@include scielods__ico-(last_page);
+}
+.#{$__classPrefix}__ico--list {
+	@include scielods__ico-(list);
+}
+.#{$__classPrefix}__ico--local_phone {
+	@include scielods__ico-(local_phone);
+}
+.#{$__classPrefix}__ico--lock {
+	@include scielods__ico-(lock);
+}
+.#{$__classPrefix}__ico--lock_open {
+	@include scielods__ico-(lock_open);
+}
+.#{$__classPrefix}__ico--logo {
+	@include scielods__ico-(logo);
+}
+.#{$__classPrefix}__ico--logout {
+	@include scielods__ico-(logout);
+}
+.#{$__classPrefix}__ico--mail {
+	@include scielods__ico-(mail);
+}
+.#{$__classPrefix}__ico--menu {
+	@include scielods__ico-(menu);
+}
+.#{$__classPrefix}__ico--money_off {
+	@include scielods__ico-(money_off);
+}
+.#{$__classPrefix}__ico--mood {
+	@include scielods__ico-(mood);
+}
+.#{$__classPrefix}__ico--mood_bad {
+	@include scielods__ico-(mood_bad);
+}
+.#{$__classPrefix}__ico--more_horiz {
+	@include scielods__ico-(more_horiz);
+}
+.#{$__classPrefix}__ico--more_vert {
+	@include scielods__ico-(more_vert);
+}
+.#{$__classPrefix}__ico--note_add {
+	@include scielods__ico-(note_add);
+}
+.#{$__classPrefix}__ico--notifications {
+	@include scielods__ico-(notifications);
+}
+.#{$__classPrefix}__ico--notifications_off {
+	@include scielods__ico-(notifications_off);
+}
+.#{$__classPrefix}__ico--open_in_new {
+	@include scielods__ico-(open_in_new);
+}
+.#{$__classPrefix}__ico--people {
+	@include scielods__ico-(people);
+}
+.#{$__classPrefix}__ico--person {
+	@include scielods__ico-(person);
+}
+.#{$__classPrefix}__ico--person_add {
+	@include scielods__ico-(person_add);
+}
+.#{$__classPrefix}__ico--pie_chart {
+	@include scielods__ico-(pie_chart);
+}
+.#{$__classPrefix}__ico--print {
+	@include scielods__ico-(print);
+}
+.#{$__classPrefix}__ico--radio_after {
+	@include scielods__ico-(radio_after);
+}
+.#{$__classPrefix}__ico--remove {
+	@include scielods__ico-(remove);
+}
+.#{$__classPrefix}__ico--remove_circle_outline {
+	@include scielods__ico-(remove_circle_outline);
+}
+.#{$__classPrefix}__ico--reply {
+	@include scielods__ico-(reply);
+}
+.#{$__classPrefix}__ico--reply_all {
+	@include scielods__ico-(reply_all);
+}
+.#{$__classPrefix}__ico--restore {
+	@include scielods__ico-(restore);
+}
+.#{$__classPrefix}__ico--room {
+	@include scielods__ico-(room);
+}
+.#{$__classPrefix}__ico--save {
+	@include scielods__ico-(save);
+}
+.#{$__classPrefix}__ico--schedule {
+	@include scielods__ico-(schedule);
+}
+.#{$__classPrefix}__ico--school {
+	@include scielods__ico-(school);
+}
+.#{$__classPrefix}__ico--search {
+	@include scielods__ico-(search);
+}
+.#{$__classPrefix}__ico--send {
+	@include scielods__ico-(send);
+}
+.#{$__classPrefix}__ico--sentiment_dissatisfied {
+	@include scielods__ico-(sentiment_dissatisfied);
+}
+.#{$__classPrefix}__ico--sentiment_satisfied {
+	@include scielods__ico-(sentiment_satisfied);
+}
+.#{$__classPrefix}__ico--settings {
+	@include scielods__ico-(settings);
+}
+.#{$__classPrefix}__ico--share {
+	@include scielods__ico-(share);
+}
+.#{$__classPrefix}__ico--shopping_cart {
+	@include scielods__ico-(shopping_cart);
+}
+.#{$__classPrefix}__ico--smartphone {
+	@include scielods__ico-(smartphone);
+}
+.#{$__classPrefix}__ico--sort {
+	@include scielods__ico-(sort);
+}
+.#{$__classPrefix}__ico--speed {
+	@include scielods__ico-(speed);
+}
+.#{$__classPrefix}__ico--star {
+	@include scielods__ico-(star);
+}
+.#{$__classPrefix}__ico--star_border {
+	@include scielods__ico-(star_border);
+}
+.#{$__classPrefix}__ico--star_half {
+	@include scielods__ico-(star_half);
+}
+.#{$__classPrefix}__ico--swap_horiz {
+	@include scielods__ico-(swap_horiz);
+}
+.#{$__classPrefix}__ico--swap_horizontal_circle {
+	@include scielods__ico-(swap_horizontal_circle);
+}
+.#{$__classPrefix}__ico--swap_vert {
+	@include scielods__ico-(swap_vert);
+}
+.#{$__classPrefix}__ico--swap_vertical_circle {
+	@include scielods__ico-(swap_vertical_circle);
+}
+.#{$__classPrefix}__ico--tablet_android {
+	@include scielods__ico-(tablet_android);
+}
+.#{$__classPrefix}__ico--textsms {
+	@include scielods__ico-(textsms);
+}
+.#{$__classPrefix}__ico--thumb_down {
+	@include scielods__ico-(thumb_down);
+}
+.#{$__classPrefix}__ico--thumb_up {
+	@include scielods__ico-(thumb_up);
+}
+.#{$__classPrefix}__ico--timeline {
+	@include scielods__ico-(timeline);
+}
+.#{$__classPrefix}__ico--trending_down {
+	@include scielods__ico-(trending_down);
+}
+.#{$__classPrefix}__ico--trending_flat {
+	@include scielods__ico-(trending_flat);
+}
+.#{$__classPrefix}__ico--trending_up {
+	@include scielods__ico-(trending_up);
+}
+.#{$__classPrefix}__ico--upload {
+	@include scielods__ico-(upload);
+}
+.#{$__classPrefix}__ico--verified_user {
+	@include scielods__ico-(verified_user);
+}
+.#{$__classPrefix}__ico--visibility {
+	@include scielods__ico-(visibility);
+}
+.#{$__classPrefix}__ico--visibility_off {
+	@include scielods__ico-(visibility_off);
+}
+.#{$__classPrefix}__ico--zoom_in {
+	@include scielods__ico-(zoom_in);
+}
+.#{$__classPrefix}__ico--zoom_out {
+	@include scielods__ico-(zoom_out);
+}
+
+ 

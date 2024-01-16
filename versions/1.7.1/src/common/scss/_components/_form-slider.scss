@@ -1,0 +1,470 @@
+/*
+
+@mixin __form-slider__tag--base {
+    -webkit-appearance: none;
+    appearance: none;
+    @include __form-slider__track;
+    opacity: 1;
+
+    &::-webkit-slider-runnable-track {
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    &::-moz-range-track {
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    &::-ms-track {
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    &::-ms-fill-upper {
+        background: none !important;
+        box-shadow: none !important;
+    }
+    
+    &::-ms-fill-lower {
+        @include __form-slider__fill;
+    }
+
+    &::-webkit-slider-thumb {
+        @include __form-slider__thumb;
+        // margin-top: __remcalc(-6);
+    }
+
+    &::-moz-range-thumb {
+        @include __form-slider__thumb;
+        // margin-top: __remcalc(-6);
+    }
+
+    &::-ms-thumb {
+        @include __form-slider__thumb;
+    }
+
+    &:hover {
+        &::-webkit-slider-thumb {
+            @include __form-slider__thumb--hover;
+        }
+
+        &::-moz-range-thumb {
+            @include __form-slider__thumb--hover;
+        }
+    }
+
+    &:focus {
+        box-shadow: none !important;
+        outline: none;
+
+        &::-webkit-slider-thumb {
+            @include __form-slider__thumb--focus;
+        }
+
+        &::-moz-range-thumb {
+            @include __form-slider__thumb--focus;
+        }
+    }
+    
+    &:disabled {
+        &::-webkit-slider-thumb {
+            @include __form-slider__thumb--disabled;
+        }
+    
+        &::-moz-range-thumb {
+            @include __form-slider__thumb--disabled;
+        }
+    }
+}
+
+@mixin __form-slider__track--base {
+    height: __remcalc(6);
+    border-radius: __remcalc(6);
+}
+
+@mixin __form-slider__track {
+    width: 100%;
+    background: $__bg__gray--2;
+    @include __form-slider__track--base;
+
+    @include __on-theme--dark {
+        background: $__bg__white--1;
+    }
+}
+
+@mixin __form-slider__fill {
+    background: $__focus;
+    opacity: .5;
+    @include __form-slider__track--base;
+}
+
+@mixin __form-slider__fill--disabled {
+    background: $__disabled--dark;
+    opacity: .4;
+
+    @include __on-theme--dark {
+        opacity: 1;
+    }
+}
+
+@mixin __form-slider__thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    width: __remcalc(21) !important;
+    height: __remcalc(21) !important;
+    border-radius: 50%; 
+    background: $__focus;
+    border: 2px solid $__focus;
+    box-shadow: 0 0 0 0 $__hover--light;
+    transition: .2s all ease;
+    @include __shadow--level1; 
+}
+
+@mixin __form-slider__thumb--hover {
+    background: $__focus;
+    box-shadow: 0 0 0 __remcalc(12) $__hover--light;
+}
+
+@mixin __form-slider__thumb--focus {
+    opacity: 1;
+    background: $__focus;
+    border-color: $__white;
+    box-shadow: 0 0 0 __remcalc(12) $__hover--light !important;
+}
+
+@mixin __form-slider__thumb--disabled {
+    opacity: 1;
+    background: $__disabled;
+    border-color: $__disabled;
+    box-shadow: 0 0 0 __remcalc(12) transparent !important;
+    cursor: not-allowed;
+}
+
+@if $bootstrap {
+    .custom-range {
+        @include __form-slider__tag--base;
+
+        &::-webkit-slider-thumb {
+            margin-top: __remcalc(-9);
+        }
+
+        &::-moz-range-thumb {
+            margin-top: __remcalc(-9);
+        }
+    
+        &::-ms-thumb {
+            margin-top: __remcalc(-9);
+        }
+    }
+}
+
+@if $foundation {
+    .slider {
+        @include __form-slider__track;
+
+        &-handle {
+            @include __form-slider__thumb;
+
+            &:hover {
+                @include __form-slider__thumb--hover;
+            }
+
+            &:focus:active {
+                @include __form-slider__thumb--focus;
+            }
+        }
+
+        &-fill {
+            @include __form-slider__fill;
+        }
+
+        &.disabled {
+            opacity: 1;
+
+            .slider-handle {
+                @include __form-slider__thumb--disabled;
+            }
+    
+            .slider-fill {
+                @include __form-slider__fill--disabled;
+            }
+        }
+    }
+
+    input[type='range'] {
+        @include __form-slider__tag--base;
+    }
+}
+
+*/
+
+/* Common Elements for NoUISlider */
+/*=include ../../../node_modules/nouislider/distribute/nouislider.css */ 
+
+/*
+.noUi {
+    &-target {
+        @include __form-slider__track;
+        border: 0;
+        box-shadow: none;
+        margin: 2.25rem 0 5rem;
+    }
+
+    &-connect {
+        @include __form-slider__fill;
+    }
+
+    &-handle {
+        @include __form-slider__thumb;
+        right: -9px !important;
+
+        &:before,
+        &:after {
+            display: none;
+        }
+
+        &:hover {
+            @include __form-slider__thumb--hover;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus:active {
+            @include __form-slider__thumb--focus;
+        }
+    }
+
+    &-marker-normal,
+    &-marker-large {
+        background: $__disabled--light;
+        opacity: .5;
+
+        @include __on-theme--dark {
+            background: $__bg__white--1;
+            opacity: 1;
+        }
+    }
+
+    &-marker-horizontal.noUi-marker {
+        width: 1px;
+        height: __remcalc(7.5);
+
+        &-large {
+            height: __remcalc(15);
+        }
+    }
+
+    &-value-horizontal {
+        margin-top: __remcalc(6);
+        @include __text__body--micro;
+        color: $__disabled--light;
+
+        @include __on-theme--dark {
+            color: $__text--dark;
+        }
+
+        &:last-child {
+            transform: translate(-90%,50%);
+        }
+    }
+
+    &-tooltip {
+        border: none;
+        background: none;
+        color: $__focus;
+        @include __text__overline;
+    }
+
+    &-target[disabled] {
+        .noUi {
+            &-connect {
+                @include __form-slider__fill--disabled;
+            }
+
+            &-handle {
+                @include __form-slider__thumb--disabled;
+            }
+
+            &-tooltip {
+                color: $__disabled;
+            }
+        }
+    }
+}
+
+*/
+
+
+
+
+// Range
+//
+// Style range inputs the same across browsers. Vendor-specific rules for pseudo
+// elements cannot be mixed. As such, there are no shared styles for focus or
+// active states on prefixed selectors.
+
+
+.form-range {
+    width: 100%;
+    height: add($form-range-thumb-height, $form-range-thumb-focus-box-shadow-width * 2);
+    padding: 0; // Need to reset padding
+    background-color: transparent;
+    appearance: none;
+  
+    &:focus {
+      outline: 0;
+  
+      // Pseudo-elements must be split across multiple rulesets to have an effect.
+      // No box-shadow() mixin for focus accessibility.
+      &::-webkit-slider-thumb { box-shadow: $form-range-thumb-focus-box-shadow; }
+      &::-moz-range-thumb     { box-shadow: $form-range-thumb-focus-box-shadow; }
+
+      
+    }
+  
+    &::-moz-focus-outer {
+      border: 0;
+    }
+  
+    &::-webkit-slider-thumb {
+      width: $form-range-thumb-width;
+      height: $form-range-thumb-height;
+      margin-top: ($form-range-track-height - $form-range-thumb-height) / 2; // Webkit specific
+      border: $form-range-thumb-border;
+      @include border-radius($form-range-thumb-border-radius);
+      @include box-shadow($form-range-thumb-box-shadow);
+      @include transition($form-range-thumb-transition);
+      appearance: none;
+
+      @include gradient-bg($__interaction--light);
+
+        @include __on-theme--dark {
+            @include gradient-bg($__interaction--dark);
+        }
+        @include __on-theme--light {
+            @include gradient-bg($__interaction--light);
+        }
+  
+      &:active {
+        @include gradient-bg($__interaction--light);
+        
+        @include __on-theme--dark {
+            @include gradient-bg($__interaction--dark);
+        }
+        @include __on-theme--light {
+            @include gradient-bg($__interaction--light);
+        }
+      }
+    }
+  
+    &::-webkit-slider-runnable-track {
+      width: $form-range-track-width;
+      height: $form-range-track-height;
+      color: transparent; // Why?
+      cursor: $form-range-track-cursor;
+      //background-color: $form-range-track-bg;
+
+      border-color: transparent;
+      @include border-radius($form-range-track-border-radius);
+      @include box-shadow($form-range-track-box-shadow);
+
+      background-color: $__border--light;
+
+        @include __on-theme--dark {
+            background-color: $__border--dark;
+        }
+
+        @include __on-theme--light {
+            background-color: $__border--light;
+        }
+    }
+  
+    &::-moz-range-thumb {
+      width: $form-range-thumb-width;
+      height: $form-range-thumb-height;
+      //@include gradient-bg($form-range-thumb-bg);
+      border: $form-range-thumb-border;
+      @include border-radius($form-range-thumb-border-radius);
+      @include box-shadow($form-range-thumb-box-shadow);
+      @include transition($form-range-thumb-transition);
+      appearance: none;
+
+      @include gradient-bg($__interaction--light);
+
+        @include __on-theme--dark {
+            @include gradient-bg($__interaction--dark);
+        }
+        @include __on-theme--light {
+            @include gradient-bg($__interaction--light);
+        }
+
+  
+      &:active {
+       // @include gradient-bg($form-range-thumb-active-bg);
+
+        @include gradient-bg($__interaction--light);
+
+        @include __on-theme--dark {
+            @include gradient-bg($__interaction--dark);
+        }
+        @include __on-theme--light {
+            @include gradient-bg($__interaction--light);
+        }
+      }
+    }
+  
+    &::-moz-range-track {
+      width: $form-range-track-width;
+      height: $form-range-track-height;
+      color: transparent;
+      cursor: $form-range-track-cursor;
+      background-color: $form-range-track-bg;
+      border-color: transparent; // Firefox specific?
+      @include border-radius($form-range-track-border-radius);
+      @include box-shadow($form-range-track-box-shadow);
+    }
+  
+    &:disabled {
+      pointer-events: none;
+  
+      &::-webkit-slider-thumb {
+       // background-color: $form-range-thumb-disabled-bg;
+       // background-color: $__disabled--light;
+        background-color: $__border--light;
+        
+
+        @include __on-theme--dark {
+           // background-color: $__disabled--dark;
+           //background-color: $__border--dark;
+           background-color: #717171; //evitar transparencia
+        }
+    
+        @include __on-theme--light {
+           // background-color: $__disabled--light;
+           background-color: $__border--light;
+        }
+        
+      }
+  
+      &::-moz-range-thumb {
+        //background-color: $form-range-thumb-disabled-bg;
+       // background-color: $__disabled--light;
+       background-color: $__border--light;
+
+        @include __on-theme--dark {
+           // background-color: $__disabled--dark;
+           background-color: #717171; //evitar transparencia
+        }
+    
+        @include __on-theme--light {
+           // background-color: $__disabled--light;
+           background-color: $__border--light;
+        }
+      }
+    }
+  }
+  

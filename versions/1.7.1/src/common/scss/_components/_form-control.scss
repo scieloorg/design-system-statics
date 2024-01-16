@@ -1,0 +1,573 @@
+@mixin __form-control__label--reduced {
+    @include __text__body--micro;
+    top: __remcalc(2);
+    transform: translateY(0);
+}
+
+@mixin __form-control__background {
+    //background: mix($__bg--light,$__disabled--light,80%);
+    background: $__bg--light;
+
+    @include __on-theme--dark {
+        //background: mix($__bg--dark,$__hover--dark,80%);
+        background: $__bg--dark; 
+    }
+
+    @include __on-theme--light {
+        //background: mix($__bg--light,$__disabled--light,80%);
+        background: $__bg--light;
+    }
+
+    &.is-focused {
+        background-color: mix($__bg--light,$__hover--light,10%);;
+
+        @include __on-theme--dark {
+            background-color: mix($__bg--dark,$__hover--dark,20%);
+        }
+
+        @include __on-theme--light {
+            background-color: mix($__bg--light,$__hover--light,10%);
+        }
+    }
+}
+
+@mixin __form-control__label__color {
+    color: $__text--light;
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+@mixin __form-control__icon($icon) {
+    content: b3__ico--char($icon);
+    position: absolute;
+    top: 50%;
+    right: __remcalc(12);
+    transform: translateY(-50%);
+    font-family: "b3-icons";
+    color: $__menu--light;
+    font-size: __remcalc(24);
+    pointer-events: none;
+
+    @include __on-theme--light {
+        color: $__menu--light;
+    }
+
+    @include __on-theme--dark {
+        color: $__menu--dark;
+    }
+}
+
+
+// Cópia do form-control do bootstrap 5.
+
+//
+// General form controls (plus a few specific high-level interventions)
+//
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-family: $input-font-family;
+    @include font-size($input-font-size);
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    appearance: none; // Fix appearance for date inputs in Safari
+
+    background-color: $input-bg;
+    color: $input-color;
+    border-color: $__border--light;
+
+    @include __on-theme--light {
+        background-color: $__bg--light;
+        color: $__text--light;
+        border-color: $__border--light;
+    }
+
+    @include __on-theme--dark {
+        background-color: $__bg--dark;
+        color: $__text--dark;
+        border-color: $__border--dark;
+    }
+  
+    // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+    @include border-radius($input-border-radius, 0);
+  
+    @include box-shadow($input-box-shadow);
+    @include transition($input-transition);
+  
+    &[type="file"] {
+      overflow: hidden; // prevent pseudo element button overlap
+
+      &:not(:disabled):not([readonly]) {
+        cursor: pointer;
+      }
+    }
+  
+    // Customize the `:focus` state to imitate native WebKit styles.
+    &:focus {
+      //color: $input-focus-color;
+      //background-color: $input-focus-bg;
+      //border-color: $input-focus-border-color;
+      outline: 0;
+
+        background-color: $input-bg;
+        color: $input-color;
+        //border-color: $__border--light;
+        border-color: $__border--light--focus;
+        
+
+        @include __on-theme--light {
+            background-color: $__bg--light;
+            color: $__text--light;
+            //border-color: $__border--light;
+            border-color: $__border--light--focus;
+        }
+
+        @include __on-theme--dark {
+            background-color: $__bg--dark;
+            color: $__text--dark;
+           // border-color: $__border--dark;
+           border-color: $__border--dark--focus;
+        }
+      
+      @if $enable-shadows {
+        @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+      } @else {
+        // Avoid using mixin so we can pass custom focus shadow properly
+        box-shadow: $input-focus-box-shadow;
+      }
+    }
+  
+    // Add some height to date inputs on iOS
+    // https://github.com/twbs/bootstrap/issues/23307
+    // TODO: we can remove this workaround once https://bugs.webkit.org/show_bug.cgi?id=198959 is resolved
+    &::-webkit-date-and-time-value {
+      // Multiply line-height by 1em if it has no unit
+      height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
+    }
+  
+    // Placeholder
+    &::placeholder {
+      color: $input-placeholder-color;
+      // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+      opacity: 1;
+      //color: $__text__subtle--light;
+
+        
+        @include __on-theme--dark {
+            color: $__text__subtle--dark;
+        }
+
+        @include __on-theme--light {
+            color: $__text__subtle--light;
+        }
+    }
+  
+    // Disabled and read-only inputs
+    //
+    // HTML5 says that controls under a fieldset > legend:first-child won't be
+    // disabled if the fieldset is disabled. Due to implementation difficulty, we
+    // don't honor that edge case; we style them as disabled anyway.
+    &:disabled,
+    &[readonly] {
+      //background-color: $input-disabled-bg;
+      //border-color: $input-disabled-border-color;
+      // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+      opacity: 1;
+
+
+        pointer-events: auto;
+        cursor: not-allowed;
+
+        background-color: $__bg__gray--2;
+        border-color: $__disabled__text--light;
+        color: $__disabled__text--light;
+  
+          @include __on-theme--dark {
+              background-color: $__bg__white--2;
+              border-color: $__disabled__text--dark;
+              color: $__disabled__text--dark;
+          }
+  
+          @include __on-theme--light {
+              background-color: $__bg__gray--2;
+              border-color: $__disabled__text--light;
+              color: $__disabled__text--light;
+          }
+
+          &::placeholder{
+            color: $__disabled__text--light;
+
+            @include __on-theme--dark {
+                color: $__disabled__text--dark;
+            }
+
+            @include __on-theme--light {
+                color: $__disabled__text--light;
+            }
+          }
+    }
+  
+    // File input buttons theming
+    &::file-selector-button {
+      padding: $input-padding-y $input-padding-x;
+      margin: (-$input-padding-y) (-$input-padding-x);
+      margin-inline-end: $input-padding-x;
+      color: $form-file-button-color;
+      @include gradient-bg($form-file-button-bg);
+      pointer-events: none;
+      border-color: inherit;
+      border-style: solid;
+      border-width: 0;
+      border-inline-end-width: $input-border-width;
+      border-radius: 0; // stylelint-disable-line property-disallowed-list
+      @include transition($btn-transition);
+
+
+      //outline: 1px solid red;
+      height: 48px;
+        
+        background-color: $__bg__gray--2;
+        color: $__text--light;
+        border-color: $__border--light;
+
+        @include __on-theme--light {
+            background-color: $__bg__gray--2;
+            color: $__text--light;
+            border-color: $__border--light;
+        }
+
+        @include __on-theme--dark {
+            background-color: $__bg__white--2;
+            color: $__text--dark;
+            border-color: $__border--dark;
+        }
+        
+    }
+  
+    &:hover:not(:disabled):not([readonly])::file-selector-button {
+      //background-color: $form-file-button-hover-bg;
+
+      background-color: shade-color($__bg__gray--2, 5%);
+
+      @include __on-theme--dark {
+        background-color: shade-color($__bg__white--2, 10%);
+      }
+      @include __on-theme--light {
+        background-color: shade-color($__bg__gray--2, 5%);
+      }
+          
+    
+      
+    }
+  
+    &::-webkit-file-upload-button {
+      padding: $input-padding-y $input-padding-x;
+      margin: (-$input-padding-y) (-$input-padding-x);
+      margin-inline-end: $input-padding-x;
+      color: $form-file-button-color;
+      //@include gradient-bg($form-file-button-bg);
+      
+      background-color: $form-file-button-bg;
+      //background-color: $__white;
+
+      pointer-events: none;
+      border-color: inherit;
+      border-style: solid;
+      border-width: 0;
+      border-inline-end-width: $input-border-width;
+      border-radius: 0; // stylelint-disable-line property-disallowed-list
+      @include transition($btn-transition);
+      transition: all 0.8s;
+
+      
+      
+    }
+  
+    &:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+      //background-color: $form-file-button-hover-bg;
+      //background: $__hover__secondary--light;
+      
+      background-color: rgb(217, 217, 217);
+
+      @include __on-theme--dark {
+        //background: $__hover__secondary--light;
+        background-color: rgb(220, 220, 220);
+        color: $__text--light;
+      }
+      @include __on-theme--light {
+        //background: $__hover__secondary--light;
+        background-color: rgb(217, 217, 217);
+        color: $__text--light;
+      }
+    }
+  }
+  
+  // Readonly controls as plain text
+  //
+  // Apply class to a readonly input to make it appear like regular plain
+  // text (without any border, background color, focus indicator)
+  
+  .form-control-plaintext {
+    display: block;
+    width: 100%;
+    padding: $input-padding-y 0;
+    margin-bottom: 0; // match inputs if this class comes on inputs with default margins
+    line-height: $input-line-height;
+    //color: $input-plaintext-color;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: $input-border-width 0;
+
+
+    color: $__text__subtle--light;
+    outline: 0;
+
+    @include __on-theme--dark {
+        color: $__text__subtle--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text__subtle--light;
+    }
+  
+    &.form-control-sm,
+    &.form-control-lg {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+  
+  // Form control sizing
+  //
+  // Build on `.form-control` with modifier classes to decrease or increase the
+  // height and font-size of form controls.
+  //
+  // Repeated in `_input_group.scss` to avoid Sass extend issues.
+  
+  .form-control-sm {
+    min-height: $input-height-sm;
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    @include font-size($input-font-size-sm);
+    @include border-radius($input-border-radius-sm);
+  
+    &::file-selector-button {
+      padding: $input-padding-y-sm $input-padding-x-sm;
+      margin: (-$input-padding-y-sm) (-$input-padding-x-sm);
+      margin-inline-end: $input-padding-x-sm;
+    }
+  
+    &::-webkit-file-upload-button {
+      padding: $input-padding-y-sm $input-padding-x-sm;
+      margin: (-$input-padding-y-sm) (-$input-padding-x-sm);
+      margin-inline-end: $input-padding-x-sm;
+    }
+  }
+  
+  .form-control-lg {
+    min-height: $input-height-lg;
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    @include font-size($input-font-size-lg);
+    @include border-radius($input-border-radius-lg);
+  
+    &::file-selector-button {
+      padding: $input-padding-y-lg $input-padding-x-lg;
+      margin: (-$input-padding-y-lg) (-$input-padding-x-lg);
+      margin-inline-end: $input-padding-x-lg;
+    }
+  
+    &::-webkit-file-upload-button {
+      padding: $input-padding-y-lg $input-padding-x-lg;
+      margin: (-$input-padding-y-lg) (-$input-padding-x-lg);
+      margin-inline-end: $input-padding-x-lg;
+    }
+  }
+  
+  // Make sure textareas don't shrink too much when resized
+  // https://github.com/twbs/bootstrap/pull/29124
+  // stylelint-disable selector-no-qualifying-type
+  textarea {
+    &.form-control {
+      min-height: $input-height;
+      height: $input-height;
+    }
+  
+    &.form-control-sm {
+      min-height: $input-height-sm;
+    }
+  
+    &.form-control-lg {
+      min-height: $input-height-lg;
+    }
+  }
+  // stylelint-enable selector-no-qualifying-type
+  
+  .form-control-color {
+    max-width: 3rem;
+    height: auto; // Override fixed browser height
+    padding: $input-padding-y;
+  
+    &:not(:disabled):not([readonly]) {
+      cursor: pointer;
+    }
+  
+    &::-moz-color-swatch {
+      height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
+      @include border-radius($input-border-radius);
+    }
+  
+    &::-webkit-color-swatch {
+      height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
+      @include border-radius($input-border-radius);
+    }
+  }
+  
+
+
+  // Cópia do form-select retirado do sass do bootstrap 5.
+
+  // Select
+//
+// Replaces the browser default select with a custom one, mostly pulled from
+// https://primer.github.io/.
+
+
+$form-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$__text--light}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !default;
+
+$form-select-indicator--dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$__text--dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !default;
+
+$form-select-indicator--disabled--light: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$__disabled__text--light}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !default;
+
+$form-select-indicator--disabled--dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$__disabled__text--dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>") !default;
+
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x;
+    font-family: $form-select-font-family;
+    @include font-size($form-select-font-size);
+    font-weight: $form-select-font-weight;
+    line-height: $form-select-line-height;
+    //color: $form-select-color;
+    //background-color: $form-select-bg;
+    //background-image: escape-svg($form-select-indicator);
+    background-repeat: no-repeat;
+    background-position: $form-select-bg-position;
+    background-size: $form-select-bg-size;
+    border: $form-select-border-width solid $form-select-border-color;
+    @include border-radius($form-select-border-radius, 0);
+    @include box-shadow($form-select-box-shadow);
+    appearance: none;
+
+    background-image: escape-svg($form-select-indicator);
+    background-color: $input-bg;
+    color: $input-color;
+    border-color: $__border--light;
+
+    @include __on-theme--light {
+        background-image: escape-svg($form-select-indicator);
+        background-color: $__bg--light;
+        color: $__text--light;
+        border-color: $__border--light;
+    }
+
+    @include __on-theme--dark {
+        background-image: escape-svg($form-select-indicator--dark);
+        background-color: $__bg--dark;
+        color: $__text--dark;
+        border-color: $__border--dark;
+    }
+  
+    &:focus {
+      //border-color: $form-select-focus-border-color;
+      outline: 0;
+      @if $enable-shadows {
+        @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
+      } @else {
+        // Avoid using mixin so we can pass custom focus shadow properly
+        box-shadow: $form-select-focus-box-shadow;
+      }
+
+      border-color: $__border--light--focus;
+
+      @include __on-theme--dark {
+        border-color: $__border--dark--focus;
+      }
+      @include __on-theme--light {
+        border-color: $__border--light--focus;
+      }
+    }
+  
+    &[multiple],
+    &[size]:not([size="1"]) {
+      padding-right: $form-select-padding-x;
+      background-image: none;
+    }
+  
+    &:disabled {
+      /*
+      color: $form-select-disabled-color;
+      background-color: $form-select-disabled-bg;
+      border-color: $form-select-disabled-border-color;
+      */
+
+      pointer-events: auto;
+      cursor: not-allowed;
+      
+      background-image: escape-svg($form-select-indicator--disabled--light);
+      background-color: $__bg__gray--2;
+      //border-color: $__border--light;
+      //border-color: $__disabled;
+      border-color: $__disabled__text--light;
+      color: $__disabled__text--light;
+
+        @include __on-theme--dark {
+            background-image: escape-svg($form-select-indicator--disabled--dark);
+            background-color: $__bg__white--2;
+            //border-color: $__border--dark;
+            //border-color: $__disabled--dark;
+            border-color: $__disabled__text--dark;
+            color: $__disabled__text--dark;
+        }
+
+        @include __on-theme--light {
+            background-image: escape-svg($form-select-indicator--disabled--light);
+            background-color: $__bg__gray--2;
+            //border-color: $__border--light;
+            //border-color: $__disabled;
+            border-color: $__disabled__text--light;
+            color: $__disabled__text--light;
+        }
+    }
+  
+    // Remove outline from select box in FF
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 $form-select-color;
+    }
+  }
+  
+  .form-select-sm {
+    padding-top: $form-select-padding-y-sm;
+    padding-bottom: $form-select-padding-y-sm;
+    padding-left: $form-select-padding-x-sm;
+    @include font-size($form-select-font-size-sm);
+  }
+  
+  .form-select-lg {
+    padding-top: $form-select-padding-y-lg;
+    padding-bottom: $form-select-padding-y-lg;
+    padding-left: $form-select-padding-x-lg;
+    @include font-size($form-select-font-size-lg);
+  }
+  

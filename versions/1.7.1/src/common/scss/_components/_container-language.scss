@@ -1,0 +1,36 @@
+
+.#{$__classPrefix}__language{
+
+    //position: absolute;
+    //right:  __remcalc(8px);
+    //right: 1rem;
+    //top: 0;
+    //top: 1rem;
+    text-align: right;
+
+    @include media-breakpoint-up(sm) {
+        position: static;
+        display: inline-block;
+        float: right;
+    }
+
+    a{
+        //margin: 0 __remcalc(8px);
+        //text-transform: uppercase;
+        //display: inline-block;
+        //text-decoration: none;
+
+        @include media-breakpoint-only(xs) {
+            //display: block;
+            //margin: __remcalc(4px) 0;
+        }
+
+        @include __on-theme--dark {
+           // color: $__text__subtle--dark;
+        }
+    
+        @include __on-theme--light {
+           // color: $__text__subtle--light;
+        }
+    }
+}

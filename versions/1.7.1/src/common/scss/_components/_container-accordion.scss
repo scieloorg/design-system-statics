@@ -1,0 +1,390 @@
+/*
+
+@mixin __accordion__border {
+    border-bottom: 1px solid $__bg__gray--2;
+
+    @include __on-theme--dark {
+        border-top-color: $__bg__white--1;
+    }
+
+    @include __on-theme--light {
+        border-top-color: $__bg__gray--2;
+    }
+}
+
+@mixin __accordion__header {
+    @include __button__base(48);
+    text-align: left;
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    text-align: left;
+    padding-left: __remcalc(42);
+    color: $__text__emphasis--light;
+    border-top: 1px solid $__bg__gray--2;
+
+    &:before,
+    &:after {
+        content: '' !important;
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: initial;
+        margin: 0;
+        transform: translateY(-50%);
+        background: $__interaction--light;
+        transition: all .2s ease;
+    }
+
+    &:before {
+        left: __remcalc(18);
+        height: __remcalc(14);
+        width: __remcalc(2);
+    }
+
+    &:after {
+        left: __remcalc(12);
+        width: __remcalc(14);
+        height: __remcalc(2);
+    }
+
+    &[aria-expanded='true'] {
+        &:before {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+    }
+
+    @include __button__ripple($__hover--light, mix($__focus,$__hover--light,10%), $__interaction--light);
+
+    &:focus {
+        box-shadow: none;
+        background-color: transparent;
+
+        &:active {
+            box-shadow: 0 0 0 __remcalc(4) $__hover--dark;
+        }
+    }
+
+    @include __on-theme--dark {
+        color: $__text__emphasis--dark;
+        border-top: 1px solid $__bg__white--1;
+
+        &:before,
+        &:after {
+            background: $__interaction--dark;
+        }
+
+        &:hover:not(:disabled):not(.disabled) {
+            color: $__interaction--dark;
+        }
+
+        &:focus {
+            background: none;
+            color: $__text__emphasis--dark;
+        }
+    }
+
+    @include __on-theme--light {
+        color: $__text__emphasis--light;
+        border-top: 1px solid $__bg__gray--2;
+
+        &:before,
+        &:after {
+            background: $__interaction--light;
+        }
+
+        &:hover:not(:disabled):not(.disabled) {
+            color: $__interaction--light;
+        }
+
+        &:focus {
+            color: $__text__emphasis--light;
+        }
+    }
+}
+
+@mixin __accordion__body {
+    border: none;
+    background: none;
+    padding: __remcalc(18) __remcalc(24);  
+    color: inherit;
+}
+
+@if $bootstrap {
+    .accordion {
+        @include __accordion__border;
+
+        .card {
+            border: none;
+            background: none;
+            border-radius: 0;
+            overflow: visible;
+            box-shadow: none;
+
+            &-header {
+                background: none;
+                padding: 0;
+                border-bottom: none;
+
+                h2 {
+                    margin: 0 !important;
+                }
+
+                .btn {
+                    @include __accordion__header;
+                    vertical-align: top;
+                }
+            }
+
+            &-body {
+                @include __accordion__body;
+            }
+        }
+    }
+}
+
+@if $foundation {
+    .accordion {
+        background: none;
+        @include __accordion__border;
+
+        &-item {
+            border: none;
+
+            &:last-child:not(.is-active) > .accordion-title,
+            :last-child > .accordion-content:last-child {
+                border-bottom: none;
+            }
+        }
+
+        &-title {
+            border: none;
+            @include __accordion__header;
+        }
+
+        &-content {
+            @include __accordion__body;
+        }
+
+        &[disabled] {
+            .accordion-title  {
+                color: $__disabled;
+
+                &:before,
+                &:after {
+                    background: $__disabled;
+                }
+
+                &:hover,
+                &:focus,
+                &:focus:active {
+                    background: none;
+                    color: $__disabled;
+                }
+
+                
+            }
+        }
+    }
+}
+
+*/
+
+//
+// Base styles
+//
+
+
+.accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $accordion-button-padding-y $accordion-button-padding-x;
+    @include font-size($font-size-base);
+    //color: $accordion-button-color;
+    color: $__text--light;
+    text-align: left; // Reset button style
+    background-color: $accordion-button-bg;
+    border: 0;
+    @include border-radius(0);
+    overflow-anchor: none;
+    @include transition($accordion-transition);
+
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+  
+    &:not(.collapsed) {
+      //color: $accordion-button-active-color;
+      //color: $accordion-button-color;
+      color: $__text--light;
+      //background-color: $accordion-button-active-bg;
+      background-color: $accordion-button-bg;
+      //box-shadow: inset 0 ($accordion-border-width * -1) 0 $accordion-border-color;
+      box-shadow: none;
+      border-bottom: 3px solid $__interaction--light; 
+
+        @include __on-theme--dark {
+            color: $__text--dark;
+            background-color: $accordion-button-bg;
+            border-bottom: 3px solid $__interaction--dark; 
+        }
+
+        @include __on-theme--light {
+            color: $__text--light;
+            background-color: $accordion-button-bg;
+            border-bottom: 3px solid $__interaction--light; 
+        }
+  
+      &::after {
+        //background-image: escape-svg($accordion-button-active-icon);
+        background-image: none;
+        transform: rotate(90deg);
+        color: $__interaction--light;
+
+        @include __on-theme--dark {
+            color: $__interaction--dark;
+        }
+
+        @include __on-theme--light {
+            color: $__interaction--light;
+        }
+      }
+    }
+  
+    // Accordion icon
+    &::after {
+      flex-shrink: 0;
+      width: $accordion-icon-width;
+      height: $accordion-icon-width;
+      margin-left: auto;
+      //content: "";
+      font-family: 'Material Icons Outlined';
+      content: "arrow_forward_ios";
+      //background-image: escape-svg($accordion-button-icon);
+      background-image: none;
+      background-repeat: no-repeat;
+      background-size: $accordion-icon-width;
+      @include transition($accordion-icon-transition);
+
+      //transform: rotate(-90deg);
+      text-align: center;
+      line-height: $accordion-icon-width;
+    }
+  
+    &:hover {
+      z-index: 2;
+    }
+  
+    &:focus {
+      z-index: 3;
+      //border-color: $accordion-button-focus-border-color;
+      border-color: $__interaction--light;
+      outline: 0;
+      //box-shadow: $accordion-button-focus-box-shadow;
+      box-shadow: none;
+    }
+  }
+  
+  .accordion-header {
+    margin-bottom: 0;
+  }
+  
+  .accordion-item {
+    margin-bottom: -$accordion-border-width;
+    background-color: $accordion-bg;
+    //border: $accordion-border-width solid $accordion-border-color;
+    border: $border-width solid $__border--light;
+
+    @include __on-theme--dark {
+        border: $border-width solid $__border--dark; 
+    }
+
+    @include __on-theme--light {
+        border: $border-width solid $__border--light;
+    }
+  
+    &:first-of-type {
+      @include border-top-radius($accordion-border-radius);
+  
+      .accordion-button {
+        @include border-top-radius($accordion-inner-border-radius);
+      }
+    }
+  
+    // Only set a border-radius on the last item if the accordion is collapsed
+    &:last-of-type {
+      margin-bottom: 0;
+      @include border-bottom-radius($accordion-border-radius);
+  
+      .accordion-button {
+        &.collapsed {
+          @include border-bottom-radius($accordion-inner-border-radius);
+        }
+      }
+  
+      .accordion-collapse {
+        @include border-bottom-radius($accordion-border-radius);
+      }
+    }
+  }
+  
+  .accordion-body {
+    padding: $accordion-body-padding-y $accordion-body-padding-x;
+    background: $__hover__secondary--light;
+    color: $__text--light;
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+        background: $__hover__secondary--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+        background: $__hover__secondary--light;
+    }
+    
+  }
+  
+  
+  // Flush accordion items
+  //
+  // Remove borders and border-radius to keep accordion items edge-to-edge.
+  
+  .accordion-flush {
+
+    border: $border-width solid $__border--light;
+    border-radius: $border-radius;
+
+    @include __on-theme--dark {
+        border: $border-width solid $__border--dark; 
+    }
+
+    @include __on-theme--light {
+        border: $border-width solid $__border--light;
+    }
+
+    .accordion-collapse {
+      border-width: 0;
+    }
+  
+    .accordion-item {
+      border-right: 0;
+      border-left: 0;
+      @include border-radius(0);
+  
+      &:first-child { border-top: 0; }
+      &:last-child { border-bottom: 0; }
+  
+      .accordion-button {
+        @include border-radius(0);
+      }
+    }
+  }
+  

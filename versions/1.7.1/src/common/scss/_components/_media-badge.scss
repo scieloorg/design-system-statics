@@ -1,0 +1,184 @@
+@mixin __badge__base {
+    border-radius: __remcalc(24);
+    font-size: __remcalc(10);
+    line-height: __remcalc(22);
+    padding: 0 __remcalc(7);
+    height: __remcalc(26);
+    min-width: __remcalc(26);
+    letter-spacing: .5px;
+    display: inline-block;
+    vertical-align: text-top;
+    border: 2px solid $__bg--light;
+    text-align: center;
+    text-transform: uppercase;
+    color: $__menu--light;
+
+    @include __on-theme--dark {
+        border-color: $__bg--dark;
+    }
+
+    @include __on-theme--light {
+        border-color: $__bg--light;
+    }
+}
+
+@mixin __badge__button-position {
+    vertical-align: text-bottom;
+    margin: 0 0 __remcalc(24) __remcalc(-21);
+    position: relative;
+    z-index: 2;
+}
+
+@mixin __badge__heading-position {
+    margin-left: -.6em;
+}
+
+@mixin __badge__theme($theme) {
+    
+    $bg--light: $secondary;
+    $text--light: $__text--light;
+    $bg--dark: $__text--dark;
+    $text--dark: $__menu--dark;
+
+    @if $theme == primary {
+        $bg--light: $__interaction--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__interaction--dark;
+        $text--dark: $__menu--dark;
+    }
+    @else if $theme == secondary {
+        $bg--light: $secondary;
+        $text--light: $__text--light;
+        $bg--dark: $__text--dark;
+        $text--dark: $__menu--dark;
+    } 
+    @else if $theme == success {
+        $bg--light: $__positive--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__positive--dark;
+        $text--dark: $__menu--dark;
+    } 
+    @else if $theme == warning {
+        $bg--light: $__warning--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__warning--dark;
+        $text--dark: $__menu--dark;
+    }
+    @else if $theme == info {
+        $bg--light: $__info--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__info--dark;
+        $text--dark: $__menu--dark;
+    }
+    @else if $theme == alert {
+        $bg--light: $__negative--light;
+        $text--light: $__menu--light;
+        $bg--dark: $__negative--dark;
+        $text--dark: $__menu--dark;
+    }
+
+    background: $bg--light;
+    color: $text--light;
+    
+    @include __on-theme--dark {
+        background-color: $bg--dark;
+        color: $text--dark;
+    }
+
+    @include __on-theme--light {
+        background-color: $bg--light;
+        color: $text--light;
+    }    
+}
+
+@if $bootstrap {
+    .badge {
+        @include __badge__base;
+        @include __badge__theme(secondary);
+
+        &-primary, &-light {
+            @include __badge__theme(primary);
+        }
+
+        &-secondary {
+            @include __badge__theme(secondary);
+        }
+
+        &-info {
+            @include __badge__theme(info);
+        }
+
+        &-dark {
+            @include __badge__theme(secondary);
+        }
+
+        &-success {
+            @include __badge__theme(success);
+        }
+
+        &-danger{
+            @include __badge__theme(alert);
+        }
+        
+        &-warning {
+            @include __badge__theme(warning);
+        }
+
+        @at-root 
+            h1 &, 
+            h2 &, 
+            h3 &, 
+            h4 &, 
+            h5 &, 
+            h6 &,
+            .h1 &
+            .h2 &,
+            .h3 &,
+            .h4 &,
+            .h5 &,
+            .h6 &,
+            .display-1 &,
+            .display-2 &,
+            .display-3 &,
+            .display-4 &,
+            .lead {
+            @include __badge__heading-position;
+        }
+
+        @at-root .btn + & {
+            @include __badge__button-position;
+        }
+    }
+}
+
+@if $foundation {
+    .badge {
+        @include __badge__base;
+        @include __badge__theme(primary);
+
+        &.primary {
+            @include __badge__theme(primary);
+        }
+
+        &.secondary {
+            @include __badge__theme(secondary);
+        }
+
+        &.success {
+            @include __badge__theme(success);
+        }
+
+        &.alert, 
+        &.warning {
+            @include __badge__theme(warning);
+        }
+
+        @at-root h1 &, h2 &, h3 &, h4 &, h5 &, h6  & {
+            @include __badge__heading-position;
+        }
+
+        @at-root .button + & {
+            @include __badge__button-position;
+        }
+    }
+}

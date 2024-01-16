@@ -1,0 +1,314 @@
+a {
+    color: $__interaction--light;
+    @include __text__body--link;
+
+    &:hover {
+        color: darken($__interaction--light,15%);
+    }
+
+    @include __on-theme--dark {
+        color: $__interaction--dark;
+
+        &:hover {
+            color: lighten($__interaction--dark,15%);
+        }
+    }
+
+    @include __on-theme--light {
+        color: $__interaction--light;
+        @include __text__body--link;
+
+        &:hover {
+            color: darken($__interaction--light,15%);
+        }
+    }
+
+    .material-icons,
+    .material-icons-outlined{    
+        vertical-align: text-bottom;
+    }
+
+    
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: __remcalc($__module__space--default);
+
+    .material-icons,
+    .material-icons-outlined{    
+        vertical-align: text-bottom;
+    }
+
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $__text__emphasis--light;
+    margin-bottom: __remcalc($__module__space--default);
+
+
+    @include __material-icons;
+
+    small {
+        color: $__text--light;
+        font-weight: inherit;
+    }
+
+    @include __on-theme--dark {
+        color: $__text__emphasis--dark;
+
+        small {
+            color: $__text--dark;
+        }
+    } 
+
+    @include __on-theme--light {
+        color: $__text__emphasis--light;
+
+        small {
+            color: $__text--light;
+            font-weight: inherit;
+        }
+    } 
+}
+
+h1, .#{$__classPrefix}__text-title--1 {
+    @include __text__title--1;
+
+    @include __material-icons;
+}
+
+h2, .#{$__classPrefix}__text-title--2 {
+    @include __text__title--2;
+
+    @include __material-icons;
+}
+
+h3, .#{$__classPrefix}__text-title--3 {
+    @include __text__title--3;
+
+    @include __material-icons;
+}
+
+h4, .#{$__classPrefix}__text-title--4 {
+    @include __text__title--4;
+
+    @include __material-icons;
+}
+
+h5, .#{$__classPrefix}__text-subtitle {
+    @include __text__subhead;
+
+    @include __material-icons;
+}
+
+h6, .#{$__classPrefix}__text-subtitle--small {
+    @include __text__subhead--small;
+
+    @include __material-icons;
+}
+
+.#{$__classPrefix}__text-body {
+    @include __text__body;
+}
+
+.#{$__classPrefix}__text-body--large {
+    @include __text__body--large;
+}
+
+.#{$__classPrefix}__text-body--small {
+    @include __text__body--small;
+}
+
+.#{$__classPrefix}__text-body--micro {
+    @include __text__body--micro;
+}
+
+.#{$__classPrefix}__text-overline {
+    @include __text__overline;
+}
+
+.#{$__classPrefix}__text-caption {
+    @include __text__caption;
+}
+
+.#{$__classPrefix}__text-caption--large {
+    @include __text__caption--large;
+}
+
+.#{$__classPrefix}__text-button {
+    @include __text__button;
+}
+
+.#{$__classPrefix}__text-button--large {
+    @include __text__button--large;
+}
+
+mark {
+    background: $__hover--light;
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+code {
+    @include __text__body--large;
+    color: $__text__emphasis--light;
+    background: $__hover--light;
+
+    @include __on-theme--dark {
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text__emphasis--light;
+    }
+
+}
+
+abbr[title], abbr[data-original-title] {
+    text-decoration: none;
+    border-bottom: 1px dotted $__text--light;
+
+    @include __on-theme--dark {
+        border-bottom-color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        border-bottom-color: $__text--light;
+    }
+}
+
+html {
+    font-size: $__font__rem;
+}
+
+.articleCtt{
+    font-size: $__font__rem--article;
+}
+
+
+.h1, .display-1,
+.h2, .display-2,
+.h3, .display-3,
+.h4, .display-4,
+.h5, .lead,
+.h6 {
+    color: $__text__emphasis--light;
+
+    @include __material-icons;
+
+    small {
+        color: $__text--light;
+        font-weight: inherit;
+    }
+
+    @include __on-theme--dark {
+        color: $__text__emphasis--dark;
+
+        small {
+            color: $__text--dark;
+        }
+    } 
+
+    @include __on-theme--light {
+        color: $__text__emphasis--light;
+
+        small {
+            color: $__text--light;
+        }
+    } 
+}
+
+.h1, .display-1 {
+    @include __text__title--1;
+
+    @include __material-icons;
+}
+
+.h2, .display-2 {
+    @include __text__title--2;
+
+    @include __material-icons;
+}
+
+.h3, .display-3 {
+    @include __text__title--3;
+
+    @include __material-icons;
+}
+
+.h4, .display-4 {
+    @include __text__title--4;
+
+    @include __material-icons;
+}
+
+.h5, .lead {
+    @include __text__subhead;
+
+    @include __material-icons;
+}
+
+.h6 {
+    @include __text__subhead--small;
+
+    @include __material-icons;
+}
+
+.blockquote {
+    margin: 0 0 1rem;
+    padding: 0.6rem 1.33333rem 0 1.26667rem;
+    border-left: 1px solid $__bg__gray--2;
+    font-size: 1rem;
+
+    @include __on-theme--dark {
+        border-left-color: $__bg__white--2;
+    }
+
+    @include __on-theme--light {
+        border-left-color: $__bg__gray--2;
+    }
+}
+
+cite {
+    display: block;
+    font-size: 0.86667rem;
+
+    &:before {
+        content: "— ";
+    }
+}
+
+.text-muted,
+.form-text{
+    color: $__text__subtle--light !important;
+
+    @include __on-theme--dark {
+        color: $__text__subtle--dark !important;
+    }
+
+    @include __on-theme--light {
+        color: $__text__subtle--light !important;
+    }
+}
+
+/*
+.material-icons,
+.material-icons-outlined{
+    
+    vertical-align: text-bottom;
+    font-size: inherit;
+    line-height: inherit;
+    display: inline;
+
+}
+*/
+
+ 

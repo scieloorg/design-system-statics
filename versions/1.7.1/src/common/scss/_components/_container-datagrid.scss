@@ -1,0 +1,331 @@
+.#{$__classPrefix}__datagrid {
+	width: 100%;
+
+	thead {
+		th {
+			position: relative;
+			cursor: pointer;
+
+			&.sorting_desc {
+				&:after {
+					@include __form-control__icon(arrow_drop_down);
+					font-size: __remcalc(11)
+					
+				}
+			}
+
+			&.sorting_asc {
+				&:after {
+					@include __form-control__icon(arrow_drop_up);
+					font-size: __remcalc(11)
+				}
+			}
+
+			&.sorting,
+			&.sorting_desc,
+			&.sorting_asc {
+				&:after {
+					right: 0;
+				}
+			}
+
+			&.sorting_desc,
+			&.sorting_asc {
+				border-top: 2px solid $__focus;
+
+				&:after {
+					color: $__focus;
+					top: unset;
+					bottom: 0;
+				}
+			}
+
+			&:focus {
+				outline: none;
+			}
+
+			&:hover {
+				border-color: $__focus;
+			}
+		}
+
+		th[colspan] {
+			text-align: left;
+		}
+	}
+
+	tbody {
+		.sorting_1 {
+			background: $__bg__gray--2;
+		}
+	}
+}
+
+@if $bootstrap {
+	.#{$__classPrefix}__datagrid {
+		tbody {
+			tr {
+				&:nth-of-type(even) {
+					@include __table__tbody-row--hover(even);
+				}
+
+				&:hover:nth-of-type(even) {
+					@include __table__tbody-row--hover(evenhover);
+				}
+			}
+		}
+	}
+	
+	.dataTables {
+		&_paginate {
+			a {
+				&.previous {
+					padding-right: __remcalc(14) !important;
+				}
+	
+				&.next {
+					padding-left: __remcalc(14) !important;
+				}
+			}
+		}
+
+		&_length,
+		&_filter {
+			input {
+				outline: 0;
+				border: none;
+			}
+		}
+	}
+}
+
+@if $foundation {
+	.#{$__classPrefix}__datagrid {
+		margin-bottom: 0;
+	}
+	
+	.dataTables {
+		&_paginate {
+			a {
+				&.previous {
+					padding-right: __remcalc(7) !important;
+				}
+	
+				&.next {
+					padding-left: __remcalc(7) !important;
+				}
+			}
+		}
+
+		&_length,
+		&_filter {
+			label {
+				color: unset;
+			}
+
+			input {
+				height: auto;
+
+				&:focus {
+					outline: none !important;
+					border: none !important;
+					background: none !important;
+					box-shadow: none !important;
+				}
+			}
+
+			select {
+				width: auto;
+				height: auto;
+			}
+
+			label {
+				margin-bottom: .5rem;
+			}
+		}
+	}
+}
+
+.dataTables {
+	&_length,
+	&_info,
+	&_filter,
+	&_paginate {
+		float: left;
+		width: 50%;
+	}
+
+	&_info {
+		font-size: __remcalc(12);
+	}
+
+	&_info,
+	&_paginate {
+		padding: __remcalc(14) __remcalc(5);
+		box-sizing: border-box;
+	}
+
+	&_length,
+	&_filter {
+		label {
+			box-sizing: border-box;
+		}
+
+		select,
+		input {
+            border: none;
+            border-radius: 0;
+            background: none;
+            box-shadow: none;
+            padding: __remcalc(18) __remcalc(12) __remcalc(6);
+            cursor: pointer;
+            color: $__text__emphasis--light;
+            margin: 0;
+			-webkit-appearance: none;
+			appearance: none;
+			outline: none;
+
+			@include __on-theme--dark {
+                color: $__text__emphasis--dark;
+			}
+			
+			@include __on-theme--light {
+                color: $__text__emphasis--light;
+            }
+			
+			&:-webkit-autofill,
+            &:-webkit-autofill:hover, 
+            &:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0.1) inset;
+                box-shadow: 0 0 0px 1000px rgba(0,0,0,0.1) inset;
+                transition: background-color 5000s ease-in-out 0s;
+
+                -webkit-text-fill-color: $__black;
+
+                @include __on-theme--dark {
+                    -webkit-text-fill-color: $__white;
+                    box-shadow: 0 0 0px 1000px rgba(255,255,255,0.1) inset;
+                }
+
+                @include __on-theme--light {
+                    -webkit-text-fill-color: $__black;
+                }
+            }
+			
+            &:focus::-ms-value {
+                background: none;
+            }  
+
+			&::-ms-expand {
+				display: none;
+			}
+		}
+
+		input {
+			width: 100%;
+		}
+
+		select {
+			text-align-last: center;
+		}
+	}
+
+	&_length {
+		label {
+			border-radius: 3px;
+		}
+
+		select {
+			@include __form-control__background;
+			border-bottom: 1px solid $__focus;
+
+			@include __on-theme--dark {
+                border-bottom-color: $__white;
+            }
+
+            @include __on-theme--light {
+                border-bottom-color: $__focus;
+			}
+		}
+	}
+
+	&_filter {
+		label {
+			width: 100%;
+			border-radius: __remcalc(48);
+			border-bottom: 1px solid $__focus;
+			caret-color: $__focus;
+			@include __form-control__background;
+
+			@include __on-theme--dark {
+                border-bottom-color: $__white;
+            }
+
+            @include __on-theme--light {
+                border-bottom-color: $__focus;
+			}
+		}
+	}
+
+	&_length {
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			height: __remcalc(2);
+			width: 0;
+			left: 50%;
+			background: $__focus;
+			transition: all .4s ease-in-out;
+		}
+
+		&:before {
+			transform: translateX(-50%);
+		}
+
+		&:after {
+			@include __form-control__icon(keyboard_arrow_down);
+			font-size:  __remcalc(14);
+			right: 60%;
+			top: 50%;
+			transform: translateY(-35%);
+		}
+	}
+
+	&_paginate {
+		text-align: right;
+		padding-top: __remcalc(7);
+
+		a {
+			display: inline-block;
+			@include __page-item__link;
+			@include __page-item__link--hover;
+
+			&.previous,
+			&.next {
+				border-radius: 0;
+				background: none;
+				width: auto;
+				height: auto;
+			}
+
+			&.current {
+                @include __page-item--focused;
+            }
+
+            &.disabled {
+                @include __page-item--disabled;
+            }
+		}
+	}
+
+	&_wrapper {
+		.dataTable {
+			thead {
+				.sorting_asc {
+					position: relative;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,258 @@
+@mixin __form-switch__track--size($width: 42, $height: 24) {
+    width: __remcalc($width);
+    height: __remcalc($height);
+    border-radius: __remcalc($height);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin __form-switch__track($width: 42, $height: 24) {
+    @include __form-switch__track--size($width, $height);
+    border: 2px solid $__focus;
+    transition: all .2s ease;
+    box-shadow: 0 0 0 0 $__hover--light;
+    background: $__white;
+
+    @include __on-theme--dark {
+        background: $__bg--dark;
+    }
+}
+
+@mixin __form-switch__track--hover {
+    box-shadow: 0 0 0 __remcalc(12) $__hover--light;
+}
+
+@mixin __form-switch__track--focus {
+    box-shadow: 0 0 0 __remcalc(3) $__hover--dark;
+}
+
+@mixin __form-switch__track--checked {
+    background: $__focus;
+    border-color: $__focus;
+}
+
+@mixin __form-switch__track--disabled {
+    background: $__white;
+    border-color: $__disabled--light;
+
+    @include __on-theme--dark {
+        background: $__bg--dark;
+        border-color: $__bg__white--2;
+    }
+}
+
+@mixin __form-switch__ball--size($size: 12) {
+    width: __remcalc($size);
+    height: __remcalc($size);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin __form-switch__ball($size: 12) {
+    @include __form-switch__ball--size($size);
+    border-radius: 50%;
+    background: $__focus;
+    transition: all .2s ease;
+}
+
+@mixin __form-switch__ball--checked {
+    top: 50%;
+    transform: translateY(-50%);
+    background: $__white;
+}
+
+@mixin __form-switch__ball--disabled {
+    background: $__disabled--light;
+
+    @include __on-theme--dark {
+        background: $__bg__white--2;
+    }
+}
+
+@if $bootstrap {
+    /*
+    .custom-switch {
+        padding-left: __remcalc(54);
+
+        .custom-control-label {
+            @include __text__overline;
+            line-height: __remcalc(39);
+
+            @include __on-theme--dark {
+                color: $__text--dark;
+            }
+
+            @include __on-theme--light {
+                color: $__text--light;
+            }
+
+            &:before {
+                left: __remcalc(-54);
+                @include __form-switch__track;
+            }
+            
+            &:after {
+                left: __remcalc(-48);
+                @include __form-switch__ball;
+            }
+
+            &:hover {
+                &:before {
+                    @include __form-switch__track--hover;
+                }
+            }
+        }
+
+        .custom-control-input {
+            &:focus {
+                & ~ .custom-control-label:before {
+                    @include __form-switch__track--focus;
+                }
+            }
+
+            &:checked ~ .custom-control-label {
+                &:before {
+                    @include __form-switch__track--checked;
+                }
+    
+                &:after {
+                    left: __remcalc(-30);
+                    @include __form-switch__ball--checked;
+                }
+            }
+
+            &:disabled ~ .custom-control-label {
+                cursor: not-allowed;
+
+                &:hover {
+                    &:before {
+                        box-shadow: 0 0 0 0 $__hover--light;
+                    }
+                }
+
+                &:before {
+                    @include __form-switch__track--disabled;
+                }
+    
+                &:after {
+                    left: __remcalc(-30);
+                    @include __form-switch__ball--disabled;
+                }
+            }
+        }
+    }
+    */
+    
+}
+
+@if $foundation {
+
+    /*
+    .switch {
+        &-paddle {
+            @include __form-switch__track;
+
+            @at-root input:checked ~ & {
+                @include __form-switch__track--checked;
+            }
+
+            @at-root input:focus ~ & {
+                @include __form-switch__track--focus;
+            }
+
+            @at-root input:disabled ~ & {
+                @include __form-switch__track--disabled;
+            }
+
+            &:after {
+                @include __form-switch__ball;
+
+                @at-root input:checked ~ & {
+                    left: __remcalc(22);
+                    @include __form-switch__ball--checked;
+                }
+
+                @at-root input:disabled ~ & {
+                    @include __form-switch__ball--disabled;
+                }
+            }
+
+            &:hover {
+                @include __form-switch__track--hover;
+
+                @at-root input:disabled ~ & {
+                    box-shadow: 0 0 0 0 $__hover--light;
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        &-active,
+        &-inactive {
+            @include __text__overline;
+        }
+
+        &-inactive {
+            color: $__focus;
+            right: 5%;
+        }
+
+        input:disabled {
+            & ~ .switch-paddle .switch-active,
+            & ~ .switch-paddle .switch-inactive {
+                color: $__disabled--light;
+
+                @include __on-theme--dark {
+                    color: $__bg__white--2;
+                }
+            }
+        }
+
+        &.tiny {
+            .switch-paddle {
+                @include __form-switch__track--size(33,18);
+
+                &:after {
+                    @include __form-switch__ball--size(6);
+                }
+            }
+
+            input:checked ~ .switch-paddle:after {
+                left: __remcalc(20);
+            }
+        }
+
+        &.small {
+            .switch-paddle {
+                @include __form-switch__track--size;
+
+                &:after {
+                    @include __form-switch__ball--size;
+                }
+            }
+
+            input:checked ~ .switch-paddle:after {
+                left: __remcalc(22);
+            }
+        }
+
+        &.large {
+            .switch-paddle {
+                @include __form-switch__track--size(60,30);
+
+                &:after {
+                    left: __remcalc(4);
+                    @include __form-switch__ball--size(15);
+                }
+            }
+
+            input:checked ~ .switch-paddle:after {
+                left: __remcalc(36);
+            }
+        }
+    }
+
+    */
+}
+
+

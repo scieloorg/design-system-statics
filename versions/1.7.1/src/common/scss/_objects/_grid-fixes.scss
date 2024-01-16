@@ -1,0 +1,24 @@
+.container {
+    padding-left: $__grid__gutter--xsmall;
+    padding-right: $__grid__gutter--xsmall;
+}
+
+@include __breakpoint--small {
+    $gutter: $__grid__gutter--small / 2;
+    @include __bootstrap-grid-fix($gutter);
+}
+
+@include __breakpoint--medium {
+    $gutter: $__grid__gutter--medium / 2;
+    @include __bootstrap-grid-fix($gutter);
+}
+
+@include __breakpoint--large {
+    $gutter: $__grid__gutter--large / 2;
+    @include __bootstrap-grid-fix($gutter);
+}
+
+@include __breakpoint--xlarge {
+    $gutter: $__grid__gutter--xlarge / 2;
+    @include __bootstrap-grid-fix($gutter);
+}

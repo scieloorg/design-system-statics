@@ -1,0 +1,22 @@
+::-moz-selection {   
+    background: $__selection; 
+
+    @include __on-theme--dark {
+        background: $__selection--dark; 
+    }
+
+    @include __on-theme--light {
+        background: $__selection; 
+    }
+}
+::selection { 
+    background: $__selection; 
+
+    @include __on-theme--dark {
+        background: $__selection--dark; 
+    }
+
+    @include __on-theme--light {
+        background: $__selection; 
+    }
+}

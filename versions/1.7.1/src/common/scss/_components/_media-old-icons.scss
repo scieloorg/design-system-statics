@@ -1,0 +1,226 @@
+.material-icons-outlined{
+    //outline: 1px solid blue;
+}
+
+[class^="sci-ico-"], [class*=" sci-ico-"] {
+
+    //outline: 1px solid red;
+    display: inline-block;
+    font-size: 24px;
+    height: 24px;
+    line-height: 1;
+    //float: left;
+   // vertical-align: text-bottom;
+
+    .article-title &{
+        float: none;
+    }
+
+    .article &{
+        vertical-align: text-bottom;
+        margin-right: 3px;   
+    }
+    
+    .modal-body &{
+        margin-right: 0;
+    }
+
+    &:before{
+        font-family: 'Material Icons Outlined';
+        color: inherit; 
+    }    
+}
+
+.sci-ico-top {
+    &:before{
+        content: "vertical_align_top";
+    }
+}
+
+.sci-ico-home {
+    &:before{
+        content: "home";
+    }
+}
+
+.sci-ico-zoom {
+    &:before{
+        content: "zoom_in";
+    }
+}
+
+.sci-ico-translation {
+    &:before{
+        content: "translate";
+    }
+}
+
+.sci-ico-socialOther,
+.sci-ico-socialTwitterSingle,
+.sci-ico-socialTwitter,
+.sci-ico-socialGooglePlus,
+.sci-ico-socialFacebook,
+.sci-ico-socialEmail {
+    &:before{
+        content: "share";
+    }
+}
+
+.sci-ico-similar {
+    &:before{
+        content: "playlist_add";
+    }
+}
+
+.sci-ico-newWindow {
+    &:before{
+        content: "open_in_new";
+    }
+}
+
+.sci-ico-metrics {
+    &:before{
+        content: "show_chart";
+    }
+}
+
+.sci-ico-link,
+.sci-ico-citation {
+    &:before{
+        content: "link";
+    }
+}
+
+.sci-ico-home {
+    &:before{
+        content: "home";
+    }
+}
+
+.sci-ico-floatingMenuDefault {
+    &:before{
+        content: "more_horiz";
+    }
+}
+
+.sci-ico-floatingMenuClose {
+    &:before{
+        content: "close";
+    }
+}
+
+.sci-ico-fileXML,
+.sci-ico-filePDF,
+.sci-ico-fileEPUB,
+.sci-ico-fileCSV,
+.sci-ico-download{
+    &:before{
+        content: "file_download";
+    }
+}
+
+.sci-ico-fileTable {
+    &:before{
+        content: "table_chart";
+    }
+}
+
+.sci-ico-fileFormula {
+    &:before{
+        content: "functions";
+    }
+}
+
+.sci-ico-fileFigure,
+.sci-ico-figures {
+    &:before{
+        content: "image";
+    }
+}
+
+.sci-ico-emailOutlined,
+.sci-ico-email {
+    &:before{
+        content: "email";
+    }
+}
+
+.sci-ico-arrowUp {
+    &:before{
+        content: "keyboard_arrow_up";
+    }
+}	
+
+.sci-ico-arrowRight {
+    &:before{
+        content: "keyboard_arrow_right";
+    }
+}	
+
+.sci-ico-arrowLeft {
+    &:before{
+        content: "keyboard_arrow_left";
+    }
+}
+
+.sci-ico-arrowDown {
+    &:before{
+        content: "keyboard_arrow_down";
+    }
+}
+
+.sci-ico-socialRSS {
+    &:before{
+        content: "rss_feed";
+    }
+}
+
+.sci-ico-pin {
+    &:before{
+        content: "location_on";
+    }
+}
+
+.sci-ico-copy {
+    &:before{
+        content: "content_copy";
+    }
+}
+
+.sci-ico-authorInstruction {
+    &:before{
+        content: "help_outline";
+    }
+}
+
+.sci-ico-about {
+    &:before{
+        content: "info";
+    }
+}
+
+.sci-ico-check {
+    &:before{
+        content: "check";
+    }
+}
+
+.sci-ico-top {
+    &:before{
+        content: "vertical_align_top";
+    }
+}
+
+
+/*
+Ícones legados - não utilizados
+*/
+.sci-ico-cr,
+.sci-ico-public-domain,
+.sci-ico-cc-by,
+.sci-ico-cc-nc,
+.sci-ico-cc-nd,
+.sci-ico-cc-sa,
+.sci-ico-cc	{
+    display: none;
+}

@@ -1,0 +1,250 @@
+
+@mixin __tooltip__base {
+    @include __shadow--level2;
+    @include __text__body--micro;
+    border-radius: __remcalc(3);
+    padding: __remcalc(6) __remcalc(12);
+    background: $__bg--dark;
+    color: $__white;
+
+    @include __on-theme--dark {
+        background: $__bg--light;
+        color: $__bg--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__bg--dark;
+        color: $__white;
+    }
+
+}
+
+// @mixin __tooltip__arrow--border($direction: top) {
+//     // @include __tooltip__arrow-align($direction, center);
+
+//     &:before {
+//         border: inset __remcalc(12);
+//         @include __tooltip__arrow($direction,$__bg__gray--2);
+//     }
+
+//     &:after {
+//         border: inset __remcalc(10);
+//         @include __tooltip__arrow($direction,$__white);
+//     }
+// }
+
+// @mixin __tooltip__arrow($direction: top, $color: $__white) {
+//     border-color: transparent;
+
+//     @if $direction == left {
+//         border-left-color: $color;
+//         left: 100%;
+//         right: auto;
+//     }
+
+//     @else if $direction == right {
+//         border-right-color: $color;
+//         right: 100%;
+//         left: auto;
+//     }
+
+//     @else if $direction == bottom {
+//         border-bottom-color: $color;
+//         bottom: 100%;
+//         top: auto;
+
+//     } @else {
+//         border-top-color: $color;
+//         top: 100%;
+//         bottom: auto;
+//     }
+// }
+
+// @mixin __tooltip__arrow-align($direction: top, $align: left) {
+//     @if $direction == top or $direction == bottom {
+//         @if $align == left {
+//             &:before,
+//             &:after {
+//                 left: 10%;
+//                 right: auto;
+//                 transform: translateX(0);
+//             }
+
+//             &:before {
+//                 transform: translateX(__remcalc(-1));
+//             }
+//         } @else if $align == center {
+//             &:before,
+//             &:after {
+//                 left: 50%;
+//                 right: auto;
+//                 transform: translateX(-50%);
+//             }
+//         } @else {
+//             &:before,
+//             &:after {
+//                 right: 10%;
+//                 left: auto;
+//                 transform: none;
+//             }
+
+//             &:before {
+//                 transform: translateX(__remcalc(-1));
+//             }
+//         }
+//     } @else {
+//         @if $align == top {
+//             &:before,
+//             &:after {
+//                 top: 10%;
+//                 bottom: auto;
+//                 transform: none;
+//             }
+
+//             &:before {
+//                 transform: translateY(__remcalc(-1));
+//             }
+//         } @else if $align == center {
+//             &:before,
+//             &:after {
+//                 top: 50%;
+//                 bottom: auto;
+//                 transform: translateY(-50%);
+//             }
+//         } @else {
+//             &:before,
+//             &:after {
+//                 bottom: 10%;
+//                 top: auto;
+//                 transform: none;
+//             }
+
+//             &:before {
+//                 transform: translateY(__remcalc(-1));
+//             }
+//         }
+//     }
+// }
+
+@if $bootstrap {
+
+    
+    .tooltip {
+    
+        &-inner {
+            @include __tooltip__base;
+        }
+
+        &.show { 
+            opacity: 1; 
+        }
+    }
+
+    .bs-tooltip-top {
+        .tooltip-arrow {
+            &::before {
+                border-top-color: $__bg--dark;
+                
+                @include __on-theme--dark {
+                    border-top-color: $__bg--light;
+                }
+                @include __on-theme--light {
+                    border-top-color: $__bg--dark;
+                }
+            }
+        }
+    }
+    
+    .bs-tooltip-end {
+        .tooltip-arrow {
+            &::before {
+                border-right-color: $__bg--dark;
+                
+                @include __on-theme--dark {
+                    border-right-color: $__bg--light;
+                }
+                @include __on-theme--light {
+                    border-right-color: $__bg--dark;
+                }
+            }
+        }
+    }
+    
+    .bs-tooltip-bottom {
+        .tooltip-arrow {
+            &::before {
+                border-bottom-color: $__bg--dark;
+                
+                @include __on-theme--dark {
+                    border-bottom-color: $__bg--light;
+                }
+                @include __on-theme--light {
+                    border-bottom-color: $__bg--dark;
+                }
+            }
+        }
+    }
+    
+    .bs-tooltip-start {
+        .tooltip-arrow {
+            &::before {
+                border-left-color: $__bg--dark;
+                
+                @include __on-theme--dark {
+                    border-left-color: $__bg--light;
+                }
+                @include __on-theme--light {
+                    border-left-color: $__bg--dark;
+                }
+            }
+        }
+    }
+    
+}
+
+@if $foundation {
+    .tooltip {
+        @include __tooltip__base;
+        // @include __tooltip__arrow--border;
+
+        // &.top {
+        //     @include __tooltip__arrow--border(top);
+        // }
+
+        // &.right {
+        //     @include __tooltip__arrow--border(right);
+        // }
+
+        // &.left {
+        //     @include __tooltip__arrow--border(left);
+        // }
+
+        // &.bottom {
+        //     @include __tooltip__arrow--border(bottom);
+        // }
+
+        // &.top, &.bottom {
+        //     &.align-left {
+        //         @include __tooltip__arrow-align(top,left);
+        //     }
+        //     &.align-center {
+        //         @include __tooltip__arrow-align(top,center);
+        //     }
+        //     &.align-right {
+        //         @include __tooltip__arrow-align(top,left);
+        //     }
+        // }
+
+        // &.left, &.right {
+        //     &.align-top {
+        //         @include __tooltip__arrow-align(left,top);
+        //     }
+        //     &.align-center {
+        //         @include __tooltip__arrow-align(left,center);
+        //     }
+        //     &.align-bottom {
+        //         @include __tooltip__arrow-align(left,bottom);
+        //     }
+        // }
+    }
+}

@@ -1,0 +1,180 @@
+@if $foundation {
+.picker {
+	table:not(.unstriped) tbody tr:nth-child(even) {
+		background: none;
+	}
+
+	thead th {
+		padding: inherit;
+		line-height: inherit;
+		border: none;
+		text-align: center;
+	}
+
+	tbody,
+	tfoot {
+		td,
+		th, 
+		td,
+		th {
+			border: none;
+		}
+	}
+}
+}
+
+@if $bootstrap {
+
+}
+
+// Common Elements for Pickadate
+/*=include ../../../node_modules/pickadate/lib/themes/default.css */
+/*=include ../../../node_modules/pickadate/lib/themes/default.date.css */
+
+.picker {
+	&--opened &__holder {
+		background: $_bg__backdrop;
+	}
+
+	&__box {
+		padding: __remcalc(10) __remcalc(17);
+		border: 0;
+		box-shadow: none;
+		border-radius: 6px;
+	}
+
+	&__nav--prev,
+	&__nav--next {
+		color: $__menu--light;
+
+		&:before {
+			font-family: "b3-icons";
+			position: absolute;
+			border: 0;
+            font-size: __remcalc(24);
+			
+		}
+
+		&:hover {
+			background: none;
+
+			&:before {
+				color: $__focus;
+			}
+		}
+	}
+
+	&__nav--prev:before {
+		content: b3__ico--char(keyboard_arrow_left);
+	}
+
+	&__nav--next:before {
+		content: b3__ico--char(keyboard_arrow_right);
+	}
+
+	&__weekday {
+		width: auto;
+		color: $__text--light;
+		@include __text__caption;
+	}
+
+	&__header {
+		margin-top: 0;
+		padding-top: __remcalc(5);
+	}
+
+	&__header,
+	&__year {
+		@include __text__subhead--small;
+	}
+
+	&__year {
+		color: $__text--light;
+		font-style: normal;
+	}
+
+	&__day,
+	&__day--today,
+	&__day--infocus,
+	&__day--outfocus {
+		padding: 0;
+		margin: 0 auto;
+		border-radius: 99px;
+		width: __remcalc(30);
+		height: __remcalc(30);
+		text-align: center;
+		line-height: __remcalc(28);
+		font-size: __remcalc(13.5);
+		color: $__interaction--light;
+		font-weight: normal;
+		background: none;
+		border: 2px solid transparent;
+	}
+
+	&__day--today:before {
+		display: none;
+	}
+
+	&__day--infocus,
+	&__day--outfocus {
+		&:hover {
+			color: $__interaction--light;
+			background: $__hover--light40;
+			border-color: rgba(0, 176, 230, 0);
+		}
+	}
+
+	&__day--outfocus {
+		color: $__disabled--light;
+	}
+
+	&--focused &__day--highlighted,
+	&__day--highlighted:hover {
+		color: $__text--light;
+		border-color: $__focus;
+		background: none;
+	}
+
+	&__button--clear,
+	&__button--close,
+	&__button--today {
+		padding: 0;
+		text-transform: uppercase;
+		border: 0;
+		@include __text__button;
+
+		&:before {
+			display: none;
+		}
+
+		&:hover {
+			background: none;
+			border: none;
+			@include __text__button;
+		}
+	}
+
+	&__button--clear {
+		color: $__text__emphasis--light;
+
+		&:hover {
+			color: $__text--light;
+		}
+	}
+
+	&__button--close {
+		color: $__negative--light;
+
+		&:hover {
+			color: $__negative--dark;
+		}
+	}
+
+	&__button--today {
+		color: $__interaction--light;
+
+		&:hover {
+			color: $__focus;
+		}
+	}
+}

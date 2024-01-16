@@ -1,0 +1,477 @@
+@mixin __tabs__base {
+    border: none;
+    background: none;
+    margin-bottom: __remcalc(12);
+    border-bottom: 1px solid $__border--light;
+
+    @include __on-theme--dark {
+        border-color: $__border--dark;
+    }
+
+    @include __on-theme--light {
+        border-color: $__border--light;
+    }
+
+    @include __breakpoint--xsmall-only {
+        display: block;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        > li {
+            float: none;
+            display: inline-block;
+        }
+    }
+}
+
+@mixin __tabs__item {
+    @include __text__button;
+    line-height: __remcalc(30);
+    color: $__text--light;
+    border-radius: 0;
+    border-top-left-radius: __remcalc(3);
+    border-top-right-radius: __remcalc(3);
+    border-width: 0;
+    padding: __remcalc(9) __remcalc(24);
+    position: relative;
+    transition: .2s all;
+
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        border-bottom: 3px solid $__focus;
+        transition: .2s all;
+    }
+
+    /*
+    [class^='material-icons'] {
+        position: relative;
+        width: auto;
+        line-height: 18px;
+        bottom: -6px;
+
+        outline: 2px solid red;
+    }
+    */
+
+    /*
+    [class^='b3__ico'] {
+        vertical-align: middle;
+        line-height: __remcalc(24);
+        font-size: __remcalc(24);
+        margin-right: __remcalc(6);
+    }
+    */
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+@mixin __pills__item {
+    @include __text__button;
+    line-height: __remcalc(30);
+    color: $__text--light;
+    border-radius: __remcalc(3);
+    border-width: 0;
+    padding: __remcalc(9) __remcalc(24);
+    position: relative;
+    transition: .2s all;
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+@mixin __tabs__item-vertical {
+    @include __text__button;
+    background: none;
+    line-height: __remcalc(30);
+    color: $__text--light;
+    border-radius: __remcalc(3);
+    border-left: 3px solid transparent;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: __remcalc(9) __remcalc(24);
+
+    /*
+    [class^='b3__ico'] {
+        vertical-align: middle;
+        line-height: __remcalc(24);
+        font-size: __remcalc(24);
+        margin-right: __remcalc(6);
+    }
+    */
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+@mixin __tabs__item--hover {
+   // border: none;
+    background: $__hover__secondary--light;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        background: $__hover__secondary--dark;
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__hover__secondary--light;
+        color: $__text__emphasis--light;
+    }
+
+}
+
+@mixin __pills__item--hover {
+    
+    &:not(.active){
+        // border: none;
+        background: $__hover__secondary--light;
+        color: $__text__emphasis--light;
+    
+        @include __on-theme--dark {
+            background: $__hover__secondary--dark;
+            color: $__text__emphasis--dark;
+        }
+    
+        @include __on-theme--light {
+            background: $__hover__secondary--light;
+            color: $__text__emphasis--light;
+        }
+    }
+ 
+ }
+
+@mixin __tabs__item--active {
+    border: none;
+    background: none;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text__emphasis--light;
+    }
+
+    &:before {
+        left: 50%;
+        width: 100%;
+        border-color: $__interaction--light;
+
+        @include __on-theme--dark {
+            border-color: $__interaction--dark;
+        }
+    
+        @include __on-theme--light {
+            border-color: $__interaction--light;
+        }
+    }
+}
+
+@mixin __pills__item--active {
+    border: none;
+    background: $__interaction--light;
+    color: $__bg--light;
+
+    @include __on-theme--dark {
+        background: $__interaction--dark;
+        color: $__bg--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__interaction--light;
+        color: $__bg--light;
+    }
+
+    
+}
+
+@mixin __tabs__item-vertical--hover {
+    background: $__hover__secondary--light;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        background: $__hover__secondary--dark;
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__hover__secondary--light;
+        color: $__text__emphasis--light;
+    }
+} 
+
+@mixin __tabs__item-vertical--active {
+    background: transparent;
+    border-color: $__interaction--light;
+    color: $__text__emphasis--light;
+
+        @include __on-theme--dark {
+            border-color: $__interaction--dark;
+            color: $__text__emphasis--dark;
+        }
+    
+        @include __on-theme--light {
+            border-color: $__interaction--light;
+            color: $__text__emphasis--light;
+        }
+
+       
+} 
+
+@mixin __tabs__pane {
+    padding: __remcalc(12) 0;
+}
+
+@if $bootstrap {
+    .nav {
+        &:not(.flex-column).nav-tabs {
+            @include __tabs__base;
+
+            .nav-link {
+                @include __tabs__item;
+
+                &.active {
+                    @include __tabs__item--active
+                }
+
+                &.disabled {
+                    color: $__disabled__text--light;
+                    cursor: not-allowed;
+
+                    @include __on-theme--dark {
+                        color: $__disabled__text--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        color: $__disabled__text--light
+                    }
+                }
+
+                &.dropdown-toggle {
+                    position: relative;
+                    padding-right: __remcalc(36) !important;
+                    
+                    &:after {
+                        @include __button__icon--dropdown;
+                        border: none !important;
+                        margin-top: 0 !important;
+                        width: __remcalc(24) !important;
+                        height: __remcalc(24) !important;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                &:not(.disabled) {
+                    &:hover,
+                    &:focus {
+                        @include __tabs__item--hover;
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                background: $__bg--light;
+                border: 1px solid $__border--light;
+                border-radius: 3px;
+                @include __shadow--level2;
+
+                & > a {
+                    @include __nav-menu__base;
+                    @include __text__caption;
+                    color: $__text--light !important;
+
+                    &:hover {
+                        @include __nav-menu--hover;
+                    }
+
+                    @include __on-theme--dark {
+                        color: $__text--dark !important;
+                    }
+                
+                    @include __on-theme--light {
+                        color: $__text--light !important;
+                    }
+                }
+
+                @include __on-theme--dark {
+                    background: $__bg--dark;
+                    border: 1px solid $__border--dark;
+                }
+            
+                @include __on-theme--light {
+                    background: $__bg--light;
+                    border: 1px solid $__border--light;
+                }
+
+                .dropdown-divider{
+                    border-color: $__border--light;
+
+                    @include __on-theme--dark {
+                        border-color: $__border--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        border-color: $__border--light;
+                    }
+                }
+            }
+        }
+
+        
+        &.nav-pills {
+            .nav-link {
+                @include __pills__item;
+
+                &.active {
+                    @include __pills__item--active;
+                }
+
+                &.disabled {
+                    color: $__disabled__text--light;
+                    cursor: not-allowed;
+
+                    @include __on-theme--dark {
+                        color: $__disabled__text--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        color: $__disabled__text--light
+                    }
+                }
+
+                &:not(.disabled) {
+                    &:hover,
+                    &:focus {
+                        @include __pills__item--hover;
+                    }
+                }
+            }
+        }
+
+        &.flex-column.nav-pills {
+            .nav-link {
+                @include __tabs__item-vertical;
+
+                &.active {
+                    @include __tabs__item-vertical--active;
+                }
+
+                &.disabled {
+                    color: $__disabled__text--light;
+                    cursor: not-allowed;
+
+                    @include __on-theme--dark {
+                        color: $__disabled__text--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        color: $__disabled__text--light
+                    }
+                }
+
+                &:not(.disabled) {
+                    &:hover,
+                    &:focus {
+                        @include __tabs__item-vertical--hover;
+                    }
+                }
+            }
+        }
+    }
+
+    .tab-pane {
+        @include __tabs__pane;
+    }    
+}
+
+/*
+@if $foundation {
+    .tabs {
+        @include __tabs__base;
+
+        &:not(.vertical) .tabs-title {
+            & > a {
+                @include __tabs__item;
+                
+                &:hover {
+                    @include __tabs__item--hover;
+                }
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            &.is-active > a {
+                @include __tabs__item--active;
+            }
+        }
+
+        &.vertical {
+            border: none;
+
+            .tabs-title {
+                & > a {
+                    @include __tabs__item-vertical;
+                    
+                    &:hover {
+                        @include __tabs__item-vertical--hover;
+                    }
+    
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+    
+                &.is-active > a {
+                    @include __tabs__item-vertical--active;
+                }
+            }
+        }
+
+        &-content {
+            background: none;
+            padding: 0;
+            border: 0;
+            color: $__text--light;
+
+            @include __on-theme--dark {
+                color: $__text--dark;
+            }
+        
+            @include __on-theme--light {
+                color: $__text--light;
+            }
+
+        }
+
+        &-panel {
+            @include __tabs__pane;
+        }
+    }
+}
+*/

@@ -1,0 +1,127 @@
+@mixin __progressbar__base {
+    height: __remcalc(3);
+    border-radius: __remcalc(4);
+    @include __text__overline;
+    color: $__disabled;
+    overflow: visible;
+    height: __remcalc(28);
+    position: relative;
+    background-color: $__bg__gray--2;
+
+    @include __on-theme--dark {
+        background-color: $__bg__white--2;
+    }
+    @include __on-theme--light {
+        background-color: $__bg__gray--2;
+    }
+}
+
+@mixin __progressbar__bar {
+    position: relative;
+    height: __remcalc(28);
+    border-radius: __remcalc(4);
+    color: $white;
+}
+
+@mixin __progressbar__theme($theme) {
+
+    $barcolor--light: $__interaction--light;
+    $barcolor--dark: $__interaction--dark;
+
+    @if $theme == primary {
+        $barcolor--light: $__interaction--light;
+        $barcolor--dark: $__interaction--dark;
+    } 
+    @else if $theme == info {
+        $barcolor--light: $__info--light;
+        $barcolor--dark: $__info--dark;
+    } 
+    @else if $theme == success {
+        $barcolor--light: $__positive--light;
+        $barcolor--dark: $__positive--dark;
+    } 
+    @else if $theme == warning {
+        $barcolor--light: $__warning--light;
+        $barcolor--dark: $__warning--dark;
+    }
+    @else if $theme == alert {
+        $barcolor--light: $__negative--light;
+        $barcolor--dark: $__negative--dark;
+    }
+
+    @include __on-theme--dark {
+        background-color: $barcolor--dark !important;
+    }
+    @include __on-theme--light {
+        background-color: $barcolor--light !important;
+    }
+}
+
+@if $bootstrap {
+    .progress {
+        @include __progressbar__base;
+
+        &-bar {
+            @include __progressbar__bar;
+
+            & ~ .progress-bar {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                margin-left: __remcalc(-7);
+            }
+
+            @include __progressbar__theme(primary);
+
+            &.bg-primary {
+                @include __progressbar__theme(primary);
+            }
+
+            &.bg-info {
+                @include __progressbar__theme(info);
+            }
+
+            &.bg-success {
+                @include __progressbar__theme(success);
+            }
+
+            &.bg-warning {
+                @include __progressbar__theme(warning);
+            }
+
+            &.bg-danger {
+                @include __progressbar__theme(alert);
+            }
+        }
+    }
+}
+/*
+@if $foundation {
+    .progress {
+        @include __progressbar__base;
+
+        &.primary .progress-meter {
+            @include __progressbar__theme(primary);
+        }
+
+        &.secondary .progress-meter {
+            @include __progressbar__theme(secondary);
+        }
+
+        &.success .progress-meter {
+            @include __progressbar__theme(success);
+        }
+
+        &.warning .progress-meter, &.alert .progress-meter {
+            @include __progressbar__theme(warning);
+        }
+
+        &-meter {
+            @include __progressbar__bar;
+
+            &-text {
+                color: $__disabled;
+            }
+        }
+    }
+}
+*/

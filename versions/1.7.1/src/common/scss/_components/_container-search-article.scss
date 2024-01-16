@@ -1,0 +1,54 @@
+
+section{
+
+    &.#{$__classPrefix}__search-articles{
+
+        background: $__bg__gray--1;
+        padding: __remcalc(18px);
+
+        @include __on-theme--dark {
+            background: $__bg__white--1;
+        }
+
+        @include __on-theme--light {
+            background: $__bg__gray--1;
+        }
+
+        .input-group{
+      
+            @include media-breakpoint-down(lg) { 
+            
+                flex-flow: column;
+                height: auto;
+                background: transparent;
+        
+                .form-control,
+                .form-select{
+                    width: 100%; 
+                    margin: 0 0 .5rem !important;
+                    border-radius: 0.25rem !important;
+        
+                    &:last-child{
+                        margin: 0;
+                    }
+                }
+            }
+        
+            .input-group-append{
+        
+                .form-select{
+                    min-width: 180px;
+                }
+            }
+            .input-group-preppend{
+                .form-select{
+                    min-width: 120px;
+                }
+            }
+        
+        }
+
+    }
+}
+
+

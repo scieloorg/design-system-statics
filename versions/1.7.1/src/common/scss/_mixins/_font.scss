@@ -1,0 +1,141 @@
+@mixin __text__overline {
+    font-weight: bold;
+    font-size: .75rem;
+    line-height: $__font__line-height;
+    letter-spacing: 0.06px;
+}
+
+@mixin __text__caption {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.2em;
+}
+
+@mixin __text__caption--large {
+    font-weight: 700;
+    font-size: 1;
+    line-height: 1.2em;
+    letter-spacing: 0;
+}
+
+@mixin __text__button {
+    font-weight: 400 !important;
+    font-size: 1rem;
+    letter-spacing: 0.1px !important;
+    white-space: nowrap;
+}
+
+@mixin __text__button--large {
+    font-size: 1.25rem;
+}
+
+@mixin __text__body {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.6em;
+    letter-spacing: 0.1px;
+}
+
+@mixin __text__body--large {
+    font-size: __remcalc(18);
+}
+
+@mixin __text__body--small {
+    font-size: .75rem;
+    letter-spacing: 0.06;
+}
+
+@mixin __text__body--micro {
+    font-size: .75rem;
+}
+
+@mixin __text__body--link {
+    //font-weight: bold;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+@mixin __text__subhead {
+    font-weight: bold;
+    font-size: __remcalc(21);
+    line-height: 1.25em;
+    letter-spacing: 0;
+}
+
+@mixin __text__subhead--small {
+    font-size: __remcalc(16.5);
+    letter-spacing: 0;
+}
+
+@mixin __text__title--1 {
+    font-weight: 700;
+    font-size: 2.5rem; 
+    line-height: $__font__line-height;
+    letter-spacing: -0.2px;
+}
+
+@mixin __text__title--2 {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: $__font__line-height;
+    letter-spacing: -0.16px;
+}
+
+@mixin __text__title--3 {
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: $__font__line-height;
+    letter-spacing: -0.14px;
+}
+
+@mixin __text__title--4 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: $__font__line-height;
+    letter-spacing: -.12px;
+}
+
+@mixin __text__title--5 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: $__font__line-height;
+    letter-spacing: -.1px;
+}
+
+@mixin __text__title--6 {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: $__font__line-height;
+    letter-spacing: .08px;
+}
+
+@mixin __text__brand {
+    font-family: $__font__family--brand;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: $__font__line-height;
+}
+
+@mixin __material-icons{
+
+    .material-icons,
+    .material-icons-outlined{
+        
+        vertical-align: text-bottom;
+        font-size: inherit;
+        line-height: inherit;
+        display: inline-block;
+
+        /*
+        correção da largura máxima dos ícones para titulo de modal
+        .modal-title &{
+            max-width: 30px;
+            outline: 1px solid red;
+        }
+        */
+
+    }
+}

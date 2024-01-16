@@ -1,0 +1,394 @@
+
+.#{$__classPrefix}__floatingMenuCtt{
+	
+	position: fixed;
+	bottom: 30px;
+	width: auto;
+	height: auto;
+	margin: 0;
+
+	.material-icons-outlined{
+		//outline: 1px solid yellow;
+		vertical-align: baseline;
+	}
+
+	& > a {
+
+		padding-top: 6px;
+
+		& > .material-icons-outlined{
+			//outline: 1px solid purple;
+		}
+	}
+}
+
+
+.#{$__classPrefix}__floatingMenu {
+
+	transition: all 0.5s; 
+	box-sizing: border-box;
+	z-index: 1001;
+	padding-left: 0;
+	white-space: nowrap;
+	list-style: none;
+    opacity: 1;
+	bottom: auto;
+	opacity: 1;
+	margin:0;
+	display: inline-block;
+	
+	.fm-wrap {
+		padding: 0;
+		margin: 0;
+
+		@include media-breakpoint-up(sm) {
+			padding: 25px 25px 25px 0;
+			margin: -25px -25px -25px 0;
+		}
+	}
+	
+	.fm-button-main,
+	.fm-button-child {
+		display: inline-block;
+		position: relative;
+		padding: 0;
+		color: #fff;
+		cursor: pointer;
+		outline: none;
+		background-color: $primary;
+		border: none;
+		border-radius: 50%;
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+		-webkit-user-drag: none;
+
+		@include __on-theme--dark {
+			background: $__interaction--dark;
+			color: $__bg--dark;
+        }
+        @include __on-theme--light {
+			background-color: $primary;
+			color: #fff;
+        }
+	}
+	
+	.fm-button-main {
+		width: 56px;
+		height: 56px;
+		z-index: 20;
+		padding-top: 17px;
+    	padding-left: 16px;
+
+		.glyphFloatMenu {
+			position: absolute;
+			width: 53px;
+			height: 56px;
+			font-size: 32px;
+			line-height: 56px;
+			text-align: center;
+		}
+
+		.sci-ico-floatingMenuDefault,
+		.material-icons-outlined-menu-default{
+			//outline: 1px solid lightblue;
+		}
+		.sci-ico-floatingMenuClose,
+		.material-icons-outlined-menu-close {
+			opacity: 0;
+		}
+	}
+
+	.fm-button-child {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		@include animated(.3s,all);
+		margin-top: 1px;
+		padding-top: 6px;
+
+		.glyphFloatMenu {
+			font-size: 24px;
+		}
+
+		/* icones dentro do menu que abre */
+		.material-icons-outlined{
+			//outline: 1px solid red;
+			//vertical-align: baseline;
+		} 
+
+		&:hover {
+			background-color: mix($__black,$primary,15%); // mesmo efeito hover do button primary
+
+			@include __on-theme--dark {
+				background-color: mix($__white, $__interaction--dark,40%);
+				color: $__bg--dark;
+			}
+			@include __on-theme--light {
+				background-color: mix($__black, $primary,15%);
+				color: $white;	
+			}
+		}
+	}
+
+	.fm-list {
+		
+		position: absolute;
+		bottom: 42px;
+		width: 56px;
+		min-height: 56px;
+		margin: 0;
+
+		@include media-breakpoint-up(sm) {
+			margin-left: 8px;
+		}
+		
+		li {
+			box-sizing: border-box;
+			position: absolute;
+			top: 30px;
+			left: 8px;
+			display: block;
+			padding: 9px 0 2px 0;
+			margin: 0;
+			width: 50px;
+			height: auto;
+
+			
+			@include media-breakpoint-up(sm) {
+				top: 41px;
+				left: 6px;
+
+			}
+
+			// tooltip fixo apenas para o mobile
+
+			@include media-breakpoint-only(xs) {
+				
+				a{
+					&:after{
+						content: attr(data-mobile-tooltip);
+						color: $tooltip-color;
+						//background: rgba($tooltip-bg, $tooltip-opacity);
+						background: #333;
+						position: absolute;
+						margin-left: 16px;
+						display: inline-block;
+						width: auto;
+						height: auto;
+						text-align: left;
+						padding: 5px;
+						line-height: 100%;
+						border-radius: 4px;
+						//font-size: $tooltip-font-size;
+						font-size: .75rem;
+						margin-top: 3px;
+
+						@include __on-theme--dark {
+							background: $__bg--light;
+							color: $__bg--dark;
+						}
+					
+						@include __on-theme--light {
+							background: $__bg--dark;
+							color: $__white;
+						}
+					}
+					&:before{
+						content: '';
+						border-right: 4px solid #333;
+						border-left: 4px solid transparent;
+						border-top: 4px solid transparent;
+						border-bottom: 4px solid transparent;
+						margin-left: 13px;
+						margin-top: 10px;
+						position: absolute;
+						margin-left: 32px;
+
+						@include __on-theme--dark {
+							border-right: 4px solid $__bg--light;
+						}
+					
+						@include __on-theme--light {
+							border-right: 4px solid  $__bg--dark;
+						}
+						
+					}
+				}
+			}
+		}
+
+	}
+
+	&:hover {
+		.fm-button-main {
+			background-color: $white;
+			padding-top: 17px;
+    		padding-left: 16px;
+		}
+
+		.sci-ico-floatingMenuDefault,
+		.material-icons-outlined-menu-default {
+			opacity: 0;
+			display: none;
+		}
+
+		.sci-ico-floatingMenuClose,
+		.material-icons-outlined-menu-close {
+			opacity: 1;
+			color: $__interaction--light;
+
+			/*
+			@include __on-theme--dark {
+				color: $__interaction--dark;
+			}
+			@include __on-theme--light {
+				color: $__interaction--light;
+			}
+			*/
+		}
+	}
+
+	//animation
+	&.fm-slidein .fm-list li {
+		display: block;
+		opacity: 0;
+		transition: all 0.5s; 
+	}
+	&.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li {
+		opacity: 1;
+	}
+	
+	//FOR LOOP LESS
+	//@include generate-li-child(7);
+
+	/*
+	@mixin generate-li-child($n, $i: 1) when ($i =< $n){
+		
+		&.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(${i}) {
+			-webkit-transform: translateX(($i * 50px));
+			transform: translateX(($i * 50px)); 
+		 }
+		@include generate-li-child($n, ($i + 1));
+	}
+	*/
+  
+	
+	&.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(1) {
+
+      	-webkit-transform: translateX(50px);
+      	transform: translateX(50px);
+
+		@include media-breakpoint-only(xs) {
+			-webkit-transform: translateY(-50px);
+      		transform: translateY(-50px);
+		}
+		
+    }
+    &.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(2) {
+      	-webkit-transform: translateX(100px);
+      	transform: translateX(100px);
+	  	
+	 	@include media-breakpoint-only(xs) {
+			-webkit-transform: translateY(-100px);
+		  	transform: translateY(-100px);
+		}
+    }
+    &.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(3) {
+      	-webkit-transform: translateX(150px);
+      	transform: translateX(150px);
+
+	  	@include media-breakpoint-only(xs) {
+			-webkit-transform: translateY(-150px);
+			transform: translateY(-150px);
+		}
+    }
+    &.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(4) {
+      	-webkit-transform: translateX(200px);
+      	transform: translateX(200px);
+
+		@include media-breakpoint-only(xs) {
+			-webkit-transform: translateY(-200px);
+			transform: translateY(-200px);
+		}
+    }
+    &.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(5) {
+      	-webkit-transform: translateX(250px);
+      	transform: translateX(250px);
+
+	  	@include media-breakpoint-only(xs) {
+			-webkit-transform: translateY(-250px);
+			transform: translateY(-250px);
+		}
+    }
+    &.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(6) {
+		-webkit-transform: translateX(300px);
+		transform: translateX(300px);
+
+		@include media-breakpoint-only(xs) {
+			-webkit-transform: translateY(-300px);
+			transform: translateY(-300px);
+		}
+    }
+    &.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(7) {
+		-webkit-transform: translateX(350px);
+		transform: translateX(350px);
+
+		@include media-breakpoint-only(xs) {
+			-webkit-transform: translateY(-350px);
+			transform: translateY(-350px);
+		}
+    }
+
+}
+
+
+
+.#{$__classPrefix}__floatingMenuItem {
+	opacity: 1;
+	color: $white;	
+	background-color: $primary;
+	border-radius: 50%;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	@include animated(.3s,all);
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);	
+
+	margin-right: 4px;
+
+	@include __on-theme--dark {
+		background: $__interaction--dark;
+		color: $__bg--dark;
+	}
+	@include __on-theme--light {
+		background: $__interaction--light;
+		color: $white;	
+	}
+
+	.glyphFloatMenu {
+		font-size: 24px;
+	}
+
+	&:hover {
+		background-color: mix($__black, $primary,15%);
+		color: $white;
+
+		@include __on-theme--dark {
+			background-color: mix($__white, $__interaction--dark,40%);
+			color: $__bg--dark;
+		}
+		@include __on-theme--light {
+			background-color: mix($__black, $primary,15%);
+			color: $white;	
+		}
+	}
+
+	/*
+	&.isCookiebarActive{
+		bottom: 50px;
+	}
+	*/
+
+}

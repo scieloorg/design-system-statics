@@ -1,0 +1,107 @@
+.#{$__classPrefix}__text-color {
+    &--light {
+        color: $__text--light !important;
+    }
+
+    &--dark {
+        color: $__text--dark !important;
+    }
+
+    &__emphasis {
+        &--light {
+            color: $__text__emphasis--light !important;
+        }
+
+        &--dark {
+            color: $__text__emphasis--dark !important;
+        }
+    }
+
+    &__menu {
+        &--light {
+            color: $__menu--light !important;
+        }
+
+        &--dark {
+            color: $__menu--dark !important;
+        }
+    }
+
+    &__interaction {
+        &--light {
+            color: $__interaction--light !important;
+        }
+
+        &--dark {
+            color: $__interaction--dark !important;
+        }
+    }
+
+    &__positive {
+        &--light {
+            color: $__positive--light !important;
+        }
+
+        &--dark {
+            color: $__positive--dark !important;
+        }
+    }
+
+    &__negative {
+        &--light {
+            color: $__negative--light !important;
+        }
+
+        &--dark {
+            color: $__negative--dark !important;
+        }
+    }
+}
+
+.#{$__classPrefix}__bg {
+    &__gray {
+        &--1 {
+            background-color: $__bg__gray--1 !important;
+        }
+
+        &--2 {
+            background-color: $__bg__gray--2 !important;
+        }
+    }
+
+    &__white {
+        &--1 {
+            background-color: $__bg__white--1 !important;
+        }
+
+        &--2 {
+            background-color: $__bg__white--2 !important;
+        }
+    }
+}
+
+.#{$__classPrefix}__border {
+    &-top {
+        border-top: 2px solid $__menu--light !important;
+
+        @include __on-theme--dark {
+            border-top-color: $__menu--dark !important;
+        }
+
+        @include __on-theme--light {
+            border-top-color: $__menu--light !important;
+        }
+    }
+
+    &-bottom {
+        border-bottom: 2px solid $__menu--light !important;
+
+        @include __on-theme--dark {
+            border-bottom-color: $__menu--dark !important;
+        }
+
+        @include __on-theme--light {
+            border-bottom-color: $__menu--light !important;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "scielo-design-system",
+  "version": "1.1.7",
+  "description": "Design System para SciELO (Scientific Electronic Library Online)",
+  "main": "index.html",
+  "scripts": {
+    "pack": "npm pack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://caramez@bitbucket.org/parati_uid/aberto-ds-scielo.git"
+  },
+  "keywords": [
+    "design-system",
+    "aberto",
+    "scielo"
+  ],
+  "author": "Parati UID",
+  "private": true,
+  "homepage": "https://bitbucket.org/parati_uid/aberto-ds-scielo#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-copy": "^4.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-include": "^2.4.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-webserver": "^0.1.0",
+    "i": "^0.3.7",
+    "node-sass": "^4.14.1",
+    "npm": "^6.13.7"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.5.4",
+    "bootstrap": "^5.0.0-beta3",
+    "chart.js": "~2.9.4",
+    "datatables.net": "^1.11.4",
+    "datatables.net-dt": "^1.11.4",
+    "nouislider": "~14.1.0",
+    "pickadate": "^3.6.4",
+    "wnumb": "~1.2.0"
+  }
+}

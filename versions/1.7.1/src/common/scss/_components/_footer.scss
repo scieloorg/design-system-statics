@@ -1,0 +1,39 @@
+
+/*
+Ver _nav-footer.scss
+*/
+
+footer {
+
+	/*
+	margin: 0;
+	padding-top: __remcalc($__module__space--small);
+	padding-bottom: __remcalc($__module__space--large);
+	border-top: 1px solid $__bg__gray--2;
+
+	@include __on-theme--dark {
+		background: $__bg--dark;
+	}
+
+	@include __on-theme--light {
+		background: $__white;
+		border-top-color: $__bg__white--2;
+	} 
+	*/
+}
+
+@if $bootstrap {
+
+	/*
+	footer {
+		background: unset;
+
+		.partners{
+			a{
+				margin: 10px;
+			}
+		}
+	}
+	*/
+
+}

@@ -1,0 +1,527 @@
+
+
+@mixin __form-control__label--reduced {
+    @include __text__body--micro;
+    top: __remcalc(2);
+    transform: translateY(0);
+}
+
+@mixin __form-control__background {
+    background: mix($__bg--light,$__disabled--light,80%);
+
+    @include __on-theme--dark {
+        background: mix($__bg--dark,$__hover--dark,80%); 
+    }
+
+    @include __on-theme--light {
+        background: mix($__bg--light,$__disabled--light,80%);
+    }
+
+    &.is-focused {
+        background-color: mix($__bg--light,$__hover--light,10%);;
+
+        @include __on-theme--dark {
+            background-color: mix($__bg--dark,$__hover--dark,20%);
+        }
+
+        @include __on-theme--light {
+            background-color: mix($__bg--light,$__hover--light,10%);
+        }
+    }
+}
+
+@mixin __form-control__label__color {
+    color: $__text--light;
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+@mixin __form-control__icon($icon) {
+    content: b3__ico--char($icon);
+    position: absolute;
+    top: 50%;
+    right: __remcalc(12);
+    transform: translateY(-50%);
+    font-family: "b3-icons";
+    color: $__menu--light;
+    font-size: __remcalc(24);
+    pointer-events: none;
+
+    @include __on-theme--light {
+        color: $__menu--light;
+    }
+
+    @include __on-theme--dark {
+        color: $__menu--dark;
+    }
+}
+
+.#{$__classPrefix}__form {
+    &-control,
+    &-select {
+        position: relative;
+        border-radius: 3px;
+        overflow: hidden;
+        transition: all 0.8s;
+        @include __form-control__background;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: __remcalc(2);
+            width: 0;
+            left: 50%;
+            background: $__focus;
+            transition: all .4s ease-in-out;
+        }
+
+        &:before {
+            transform: translateX(-50%);
+        }
+
+        &:hover:not(.is-disabled) {
+            $color: mix($__bg--light,$__hover--light,50%);
+            background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+
+            @include __on-theme--dark {
+                $color: mix($__bg--dark,$__hover--dark,50%);
+                background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+            }
+
+            @include __on-theme--light {
+                $color: mix($__bg--light,$__hover--light,50%);
+                background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+            }
+        }
+
+        label {
+            position: absolute;
+            left: __remcalc(12);
+            @include __text__caption;
+            transition: .2s all ease;
+            cursor: pointer;
+            @include __form-control__label__color;
+            pointer-events: none;
+        }
+
+        input,
+        textarea,
+        select {
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid $__focus;
+            background: none;
+            box-shadow: none;
+            padding: __remcalc(18) __remcalc(12) 0;
+            transition: .2s all ease;
+            cursor: pointer;
+            color: $__text__emphasis--light;
+            border-color: $__focus !important;
+            margin: 0;
+            width: 100%;
+
+            @include __on-theme--dark {
+                color: $__text__emphasis--dark;
+                border-color: $__text--dark !important;
+            }
+
+            @include __on-theme--light {
+                color: $__text__emphasis--light;
+                border-color: $__focus !important;
+            }
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover, 
+            &:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0.1) inset;
+                box-shadow: 0 0 0px 1000px rgba(0,0,0,0.1) inset;
+                transition: background-color 5000s ease-in-out 0s;
+
+                -webkit-text-fill-color: $__black;
+
+                @include __on-theme--dark {
+                    -webkit-text-fill-color: $__white;
+                    box-shadow: 0 0 0px 1000px rgba(255,255,255,0.1) inset;
+                }
+
+                @include __on-theme--light {
+                    -webkit-text-fill-color: $__black;
+                }
+            }
+
+            &:focus {
+                background: none;
+                outline: none;
+                box-shadow: none;
+                border: none;
+            }
+        }
+
+        input, select {
+            height: __remcalc(48);
+        }
+
+        select {
+            &:focus::-ms-value {
+                background: none;
+            }  
+
+          &::-ms-expand {
+                display: none;
+            }
+        }
+
+        &.large {
+            &.is-focused > label,
+            &.has-value > label {
+                top: __remcalc(6);       
+            }
+
+            input, 
+            select {
+                height: __remcalc(60);
+                @include __text__caption--large;
+            }
+        }
+
+        &.small {
+            display:-ms-grid;
+            display: grid;
+            -ms-grid-columns: 1fr 7fr;
+            grid-template-columns: 1fr 7fr;
+
+            label {
+                position: static;
+                line-height: __remcalc(35);
+                white-space: nowrap;
+                display: inline-block;
+                padding: 0 __remcalc(12);
+                transform: translateY(0);
+                margin: 0;
+                -ms-grid-column: 1; 
+                border-bottom: 1px solid $__focus;
+
+                @include __on-theme--dark {
+                    border-color: $__text--dark;
+                }
+    
+                @include __on-theme--light {
+                    border-color: $__focus;
+                }
+            }
+
+            input, 
+            select {
+                height: __remcalc(36);
+                padding: 0 __remcalc(12);
+                line-height: __remcalc(35);
+                -ms-grid-column: 2;
+            }
+        }
+
+        &.not-label {
+            input,
+            textarea,
+            select {
+                padding: __remcalc(9) __remcalc(12);
+            }
+        }
+
+        &.is-search {
+            border-radius: __remcalc(48);
+        }
+
+        &.is-focused {
+            background-size: 100%;
+            transition: background 0s;
+
+            &:before {
+                width: 100%;
+            }
+
+            label {
+                color: $__focus;
+            }
+
+            &.small label {
+                border-color: $__focus;
+            }
+        }
+
+        &.is-disabled {
+            input, select, textarea, label {
+                border-bottom: none;
+                cursor: not-allowed;
+                color: $__disabled--dark;
+                
+                @include __on-theme--dark {
+                    color: $__bg__white--2;
+                }
+                
+                @include __on-theme--light {
+                    color: $__disabled--dark;
+                }
+            }
+        }
+
+        &.is-focused:not(.small) > label,
+        &.has-value:not(.small) > label,
+        &.has-placeholder:not(.small) > label {
+            @include __form-control__label--reduced;
+        }
+
+        @at-root .was-validated & {
+            input, select, textarea {
+                &:invalid,
+                &.is-invalid,
+                &:valid,
+                &.is-valid {
+                    background: none;
+                }
+            }
+        }
+
+        &.is-valid {
+            &:before {
+                background: $__positive--dark;
+                width: 100%;
+            }
+
+            label {
+                color: $__positive--light;
+
+                @include __on-theme--dark {
+                    color: $__positive--dark;
+                }
+
+                @include __on-theme--light {
+                    color: $__positive--light;
+                }
+            }
+
+            & ~ .#{$__classPrefix}__form-feedback--valid {
+                max-height: __remcalc(100);
+                margin-top: __remcalc(6);
+            }
+        }
+
+        &.is-invalid {
+            &:before {
+                background: $__negative--dark;
+                width: 100%;
+            }
+
+            label {
+                color: $__negative--light;
+
+                @include __on-theme--dark {
+                    color: $__negative--dark;
+                }
+
+                @include __on-theme--light {
+                    color: $__negative--light;
+                }
+            }
+
+            & ~ .#{$__classPrefix}__form-feedback--invalid {
+                max-height: __remcalc(100);
+                margin-top: __remcalc(6);
+            }
+        }
+    }
+
+    &-control {
+        label {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        input, textarea {
+            caret-color: $__focus;
+
+            &::placeholder {
+                opacity: .4;
+                color: $__text--light;
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                }
+    
+                @include __on-theme--light {
+                    color: $__text--light;
+                }
+            }
+            
+            &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                opacity: .4;
+                color: $__text--light;
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                }
+    
+                @include __on-theme--light {
+                    color: $__text--light;
+                }
+            }
+            
+            &::-ms-input-placeholder { /* Microsoft Edge */
+                opacity: .4;
+                color: $__text--light;
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                }
+    
+                @include __on-theme--light {
+                    color: $__text--light;
+                }
+            }
+        }
+
+        textarea {
+            margin-top: __remcalc(21);
+            padding-top: 0;
+        }
+
+        &.is-datepicker {
+            &:after {
+                @include __form-control__icon(date_range);
+            }
+        }
+    }
+
+    &-select {
+        &:after {
+            @include __form-control__icon(keyboard_arrow_down);
+        }
+
+        label {
+            @include __form-control__label--reduced;
+        }
+
+        select {
+            -webkit-appearance: none;
+            appearance: none;
+
+            &[multiple] {
+                margin-top: __remcalc(21);
+                padding-top: 0; 
+                height: auto;
+            }
+        }
+
+        &.is-multiple {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    &-feedback {
+        &--valid,
+        &--invalid {
+            position: relative;
+            display: block;
+            max-height: 0;
+            overflow: hidden;
+            padding-left: __remcalc(33);
+            @include __text__body--micro;
+
+            &:before {
+                content: '';
+                // content: b3__ico--char(keyboard_arrow_down);
+                font-family: "b3-icons";
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: __remcalc(12);
+                font-size: __remcalc(18);
+            }
+
+            &.is-visible {
+                max-height: __remcalc(100);
+                margin-top: __remcalc(6);
+            }
+        }
+
+        &--valid {
+            color: $__positive--light;
+
+            &:before {
+                content: b3__ico--char(check_circle);
+            }
+
+            @include __on-theme--dark {
+                color: $__positive--dark;
+            }
+
+            @include __on-theme--light {
+                color: $__positive--light;
+            }
+        }
+
+        &--invalid {
+            color: $__negative--light;
+
+            &:before {
+                content: b3__ico--char(error_outline);
+            }
+
+            @include __on-theme--dark {
+                color: $__negative--dark;
+            }
+
+            @include __on-theme--light {
+                color: $__negative--light;
+            }
+        }
+    }
+
+    &-help-text {
+        display: block;
+        margin: __remcalc(3) __remcalc(12);
+        @include __text__body--micro;
+        font-style: normal;
+        color: $__text--light !important;
+
+        @include __on-theme--dark {
+            color: $__text--dark !important;
+        }
+
+        @include __on-theme--light {
+            color: $__text--light !important;
+        }
+    }
+}
+
+@if $foundation {
+    .help-text {
+        @extend .#{$__classPrefix}__form-help-text;
+    }
+}
+
+@if $bootstrap {
+    /*
+    .valid-feedback {
+        @extend .#{$__classPrefix}__form-feedback--valid;
+    }
+
+    .invalid-feedback {
+        @extend .#{$__classPrefix}__form-feedback--invalid;
+    }
+
+    .form-text.text-muted {
+        @extend .#{$__classPrefix}__form-help-text;
+    }
+    */
+}
+
+

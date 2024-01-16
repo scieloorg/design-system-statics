@@ -1,0 +1,44 @@
+@mixin __shadow($distance: 3) {
+    //box-shadow: 0px __remcalc($distance) __remcalc($distance) rgba(102, 110, 122, 0.1);
+}
+
+@mixin __shadow--level1 {
+    @include __shadow(3);
+}
+
+@mixin __shadow--level2 {
+    @include __shadow(6);
+}
+
+@mixin __shadow--level3 {
+    @include __shadow(9);
+}
+
+@mixin __shadow--level4 {
+    @include __shadow(12);
+}
+
+@mixin __shadow--level5 {
+    @include __shadow(15);
+}
+
+
+.scielo__shadow-1{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.scielo__shadow-2{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.scielo__shadow-3{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.scielo__shadow-4{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.scielo__shadow-5{
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}

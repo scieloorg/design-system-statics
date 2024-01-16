@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-br" class="example">
+	
+	
+	    <head>
+	        <meta charset="utf-8">
+	        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	        <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+	        <link href="../../examples/examples.css" rel="stylesheet">
+	    </head>
+    <body>
+        <div class="container">
+			<div class="form-group">
+				<div class="scielods__form-control">
+					<label for="exampleDatepicker">Calendário</label>
+					<input type="text" class="form-control b3__form-datepicker" id="exampleDatepicker">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="scielods__form-control">
+					<label for="exampleDatepicker">Calendário</label>
+					<input type="text" data-value="01/01/2020" class="form-control b3__form-datepicker" id="exampleDatepicker">
+				</div>
+			</div>
+        </div>
+                <script src="../../dist/js/bootstrap.bundle.min.js"></script> 
+		<script src="../../dist/bootstrap/js/plugins/wNumb.min.js"></script>
+		<script src="../../dist/bootstrap/js/plugins/picker.js"></script> 
+		<script src="../../dist/bootstrap/js/plugins/picker.date.js"></script> 
+
+		<script>
+			$(function(){
+				$(".b3__form-datepicker").pickadate();
+			})
+		</script>
+    </body>
+</html>

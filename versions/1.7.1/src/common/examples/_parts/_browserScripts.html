@@ -1,0 +1,82 @@
+<script>
+    var $browser = {
+        defaults: {
+            initialPage: "Grid" 
+        },
+        getPage: function() {
+            return (window.location.hash == "" ? this.defaults.initialPage : window.location.hash.replace('#',''));
+        },
+        fillTitle: function(page) {
+            document.querySelector(".browser__title").innerHTML = page;
+        },
+        fillIframes: function(page) {
+            page = page.toLowerCase();
+
+            var bootstrapPath = './bootstrap/'+page+'.html';
+
+            document.querySelector("#bootstrap iframe").setAttribute("src",bootstrapPath);
+        },
+        hashChange: function() {
+            var page = this.getPage();
+
+            this.fillPage(page);
+            
+        },
+        fillPage: function(page) {
+            this.fillTitle(page);
+            this.fillIframes(page);
+        },
+        switchFramework: function() {
+            document.querySelectorAll(".browser__switch").forEach((btn) => {
+                btn.addEventListener("click",function() {
+                    var t = this,
+                        framework = t.classList.contains("bootstrap-switch") ? "#bootstrap" : "#foundation",
+                        active = t.is(".active");
+
+                    if(active) {
+                        document.querySelector(framework).classList.add("hide");
+                        t.classList.remove("active");
+                    } else {
+                        document.querySelector(framework).classList.remove("hide");
+                        t.classList.add("active");
+                    }
+                });
+            });
+        },
+        switchTheme: function() {
+            document.querySelectorAll(".browser__theme-switch").forEach((item) => {
+                item.addEventListener("click",function() {
+                    var param = typeof this.dataset.theme === "undefined" ? "light" : this.dataset.theme,
+                        themeRemove = param == "light" ? 'scielo__theme--dark' : 'scielo__theme--light';
+                        themeApply = 'scielo__theme--'+param;
+
+                    document.querySelectorAll(".browser__theme-switch").forEach((link) => {
+                        link.classList.remove("active");
+                    });
+                    this.classList.add("active");
+
+                    document.querySelectorAll(".browser__frame iframe").forEach((iframe) => {
+                        iframe.contentDocument.querySelector("body").classList.remove(themeRemove)
+                        iframe.contentDocument.querySelector("body").classList.add(themeApply);
+                    });
+                });
+            });
+        },
+        init: function() {
+            var _self = this,
+                page = this.getPage();
+            
+            this.fillPage(page); 
+            this.switchFramework();
+            this.switchTheme();
+
+            window.onhashchange = function() {
+                _self.hashChange();
+            }
+        }
+    };
+
+    window.addEventListener("DOMContentLoaded",function() {
+        $browser.init();
+    });
+</script>

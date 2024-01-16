@@ -1,0 +1,201 @@
+@mixin __form-input-group__base {
+   // @include __form-control__background;
+    border-radius: 3px;
+    flex-flow: row nowrap;
+    height: __remcalc($__module__space--large);
+    //height: __remcalc($__module__space--default);
+   
+    &.is-search { 
+        border-radius: __remcalc($__module__space--large);
+    }
+}
+
+@mixin __form-input-group__text {
+    //border: none;
+    border-radius: 3px;
+    @include __text__caption;
+    //background: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    @include __form-control__label__color;
+    
+
+    background-color: $__bg__gray--2;
+    border-color: $__border--light;
+    color: $__text--light;
+
+    @include __on-theme--dark {
+        background-color: $__bg__white--2;
+        border-color: $__border--dark;
+        color: $__text--dark;
+    }
+    @include __on-theme--light {
+        background-color: $__bg__gray--2;
+        border-color: $__border--light;
+        color: $__text--light;
+    }
+
+    span[class^='b3__ico--'] {
+        font-size: __remcalc(24);
+    }
+
+    .#{$__classPrefix}__form-checkbox,
+    .#{$__classPrefix}__form-radio {
+        ~ label {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+@mixin __form-input-group__fields {
+    .#{$__classPrefix}__form-control,
+    .#{$__classPrefix}__form-select,
+    .#{$__classPrefix}__form-file {        
+        input, select, textarea, label {
+            border-bottom: none;
+        }
+
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}
+
+@mixin __form-input-group--button {
+    margin-bottom: 0;
+
+    //$buttonSize: 24;
+    //$iconMargin: 3;
+    //@at-root: 15;
+    
+    $buttonSize: 48;
+    $iconMargin: 15;
+    $iconSize: 20;
+
+    @include __button__resize($buttonSize);
+    @include __button__update-corner($buttonSize);
+    //margin: __remcalc(12) __remcalc(12) 0;
+    //border-radius: __remcalc($buttonSize) !important;
+    
+
+    /*
+    &[class*='b3__btn-with-icon--left'] {
+        padding-left: __remcalc(26);
+        @include __button__icon($iconSize);
+        @include __button__icon--left($iconMargin);
+    }
+
+    &[class*='b3__btn-with-icon--right'],
+    &.dropdown {
+        padding-right: __remcalc(26);
+    }
+
+    &[class*='b3__btn-with-icon--right'] {
+        @include __button__icon($iconSize);
+        @include __button__icon--right($iconMargin);
+    }
+
+    &[class*='b3__btn-with-icon--only'] {
+        @include __button__icon($iconSize);
+        @include __button__icon--only($buttonSize);
+    }
+    */
+    
+    &.dropdown-toggle:not(.dropdown-toggle-split) {
+        //padding-right: __remcalc(18);
+        padding-right: __remcalc(40);
+    }
+
+    &.dropdown-toggle:after {
+        @include __button__icon--dropdown-update($iconSize, $iconMargin);
+        //@include __button__icon--dropdown-update(20px, 15px);
+    }
+}
+
+
+@if $bootstrap {
+    .input-group {
+        @include __form-input-group__base;
+
+        &-text {
+            @include __form-input-group__text;
+        }
+
+        @include __form-input-group__fields;
+
+        .#{$__classPrefix}__form-control,
+        .#{$__classPrefix}__form-select,
+        .#{$__classPrefix}__form-file {
+            flex: 1 1 auto;
+        }
+            
+        .btn {
+            @include __form-input-group__button;
+        }
+    }
+
+
+
+    // copia do bootstrap:
+
+    // Sizing
+    //
+    // Remix the default form control sizing classes into new ones for easier
+    // manipulation.
+
+    .input-group-lg > .form-control,
+    .input-group-lg > .form-select,
+    .input-group-lg > .input-group-text,
+    .input-group-lg > .btn {
+        padding: $input-padding-y-lg $input-padding-x-lg;
+        @include font-size($input-font-size-lg);
+        @include border-radius($input-border-radius-lg);
+    }
+
+    .input-group-sm > .form-control,
+    .input-group-sm > .form-select,
+    .input-group-sm > .input-group-text,
+    .input-group-sm > .btn {
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        @include font-size($input-font-size-sm);
+        @include border-radius($input-border-radius-sm);
+    }
+
+    .input-group-lg > .form-select,
+    .input-group-sm > .form-select {
+        padding-right: $form-select-padding-x + $form-select-indicator-padding;
+    }
+
+}
+
+/*
+@if $foundation {
+    .input-group {
+        @include __form-input-group__base;
+        @include __form-input-group__fields;
+
+        &-label {
+            @include __form-input-group__text;
+        }
+
+        .button {
+            font-size: .8rem;
+            @include __form-input-group__button;
+        }
+    } 
+}
+*/
+
+
+
+
+
+
+

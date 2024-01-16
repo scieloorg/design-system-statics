@@ -1,0 +1,233 @@
+
+.#{$__classPrefix}__contribGroup {
+    color: #403d39;
+    margin: 15px 10%;
+    font-size: 1.1em;
+    text-align: center;
+    opacity: 1;
+
+    a.btn-fechar{
+        display: inline-block;
+        border-radius: 100%;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        font-size: 86%;
+        padding: 5px 0;
+        text-align: center;
+        margin-top: 10px;
+        font-family: 'Material Icons Outlined';
+        content: "close";
+        
+        &:hover{
+            background: $__interaction--light;
+            color: #fff;
+        }
+    }
+
+    .sci-ico-emailOutlined {
+        font-size: 20px;
+        vertical-align: baseline;
+    }
+
+    .dropdown {
+        display: inline-block;
+        padding: 0;
+
+        .dropdown-toggle {
+           
+            background: transparent;
+            border: 1px solid transparent;
+            padding: __remcalc(10);
+            height: auto;
+            outline: 0;
+            margin-bottom: 0;
+            color: $__interaction--light;
+
+            &:hover{
+                border: 1px solid transparent;
+                color: darken($__interaction--light,15%);
+                background: transparent !important;
+            }
+
+            @include __on-theme--dark {
+                border: 1px solid transparent;
+                color: $__interaction--dark;
+
+                &:hover{
+                    border: 1px solid transparent;
+                    color: lighten($__interaction--dark,15%);
+                }
+            }
+
+            @include __on-theme--light {
+                border: 1px solid transparent;
+                color: $__interaction--light;
+                
+                &:hover{
+                    border: 1px solid transparent;
+                    color: darken($__interaction--light,15%);
+                }
+            }
+
+            &:focus{
+                
+                box-shadow: none;
+                background: transparent;
+                border: 1px solid $__border--light;
+
+                @include __on-theme--dark {
+                    box-shadow: none;
+                    background: transparent;
+                    border: 1px solid $__border--dark;
+                }
+                @include __on-theme--light {
+                    box-shadow: none;
+                    background: transparent;
+                    border: 1px solid $__border--light;
+                }
+            }
+          
+            @include media-breakpoint-only(xs) {
+                max-width: 300px !important;
+                white-space: inherit;
+                height: auto;
+            }
+
+            &:after{
+                display: none;;
+            }
+        }
+
+        .dropdown-menu {
+            padding: 10px 20px;
+            text-align: left;
+            border-radius: 4px;
+
+            &.show{
+                color: $__text--light;
+                padding-left: __remcalc(12);
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                }
+                @include __on-theme--light {
+                    color: $__text--light;
+                }
+            }
+          
+            strong {
+                display: inline-block;
+                margin: 20px 0 8px 0;
+                font-size: 11px;
+                color: #00314c;
+                text-transform: uppercase;
+            }
+        }
+
+        a {
+            cursor: pointer;
+
+            span {
+                display: inline-block;
+                padding: 5px 0;
+            }
+        }
+
+        &.open {
+            background: $__interaction--light;
+            border-radius: 4px;
+
+            a {
+                color: #fff;
+            }
+        }
+    }
+
+    // btn sobre os autores
+    .outlineFadeLink{
+        @include __button__theme--solid('secondary');
+        margin: 0 0 0 __remcalc(10);
+       
+        @include media-breakpoint-only(xs) {
+            margin: __remcalc(8) 0;
+        }
+    }
+
+    
+}
+
+.btnContribLinks {
+    display: inline-block;
+    margin-top: 4px;
+
+    background-image: url(../img/logo-orcid.svg);
+    background-repeat: no-repeat;
+    background-size: 1.5em auto;
+    background-position: .5em center;
+   // padding-left: 2.5em;
+   // padding-right: .5em;
+
+    padding: .5em .5em .5em 2.5em;
+
+    border-radius: 4px;
+
+    border: 1px solid $__interaction--light;
+
+    @include __on-theme--dark {
+        border: 1px solid $__interaction--dark;
+    }
+    @include __on-theme--light {
+        border: 1px solid $__interaction--light;
+    }
+
+    .ModalDefault &{
+        padding: .5em .5em .5em 2.5em !important;
+    }
+
+    &:hover{
+        border-color: darken($__interaction--light,15%);
+
+        @include __on-theme--dark {
+            border-color: lighten($__interaction--dark,15%);
+        }
+        @include __on-theme--light {
+            border-color: darken($__interaction--light,15%);
+        }
+    }
+}
+
+.linkGroup {
+    position: relative;
+    font-size: .85em;
+
+    a.selected {
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -16px;
+            left: 4px;
+            width: 16px;
+            height: 7px;
+            background: url(../img/articleContent-arrow.png) bottom center no-repeat;
+            z-index: 999;
+        }
+    }
+}
+
+.btn-open{
+    display: inline-block;
+    margin: 0 __remcalc(10);
+    transition: all 0.4s;
+
+    @include media-breakpoint-only(xs) {
+        display: block;
+        margin: __remcalc(4) auto;
+    }
+}
+
+// caminho das imagens
+//background-image: url(../img/logo-scielo-no-label-negative.svg);

@@ -1,0 +1,656 @@
+/*
+@mixin __tabs__base {
+    border: none;
+    background: none;
+    margin-bottom: __remcalc(12);
+    border-bottom: 1px solid $__border--light;
+
+    @include __on-theme--dark {
+        border-color: $__border--dark;
+    }
+
+    @include __on-theme--light {
+        border-color: $__border--light;
+    }
+
+    @include __breakpoint--xsmall-only {
+        display: block;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        > li {
+            float: none;
+            display: inline-block;
+        }
+    }
+}
+
+@mixin __tabs__item {
+    @include __text__button;
+    line-height: __remcalc(30);
+    color: $__text--light;
+    border-radius: 0;
+    border-top-left-radius: __remcalc(3);
+    border-top-right-radius: __remcalc(3);
+    border-width: 0;
+    padding: __remcalc(9) __remcalc(24);
+    position: relative;
+    transition: .2s all;
+
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        border-bottom: 3px solid $__focus;
+        transition: .2s all;
+    }
+
+    [class^='material-icons'] {
+        position: relative;
+        width: auto;
+        line-height: 18px;
+        bottom: -6px;
+    }
+
+   
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+@mixin __tabs__item-vertical {
+    @include __text__button;
+    background: none;
+    line-height: __remcalc(30);
+    color: $__text--light;
+    border-radius: __remcalc(3);
+    border-left: 3px solid transparent;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: __remcalc(9) __remcalc(24);
+
+    
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+}
+
+@mixin __tabs__item--hover {
+   // border: none;
+    background: $__hover__secondary--light;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        background: $__hover__secondary--dark;
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__hover__secondary--light;
+        color: $__text__emphasis--light;
+    }
+
+}
+
+@mixin __tabs__item--active {
+    border: none;
+    background: none;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text__emphasis--light;
+    }
+
+    &:before {
+        left: 50%;
+        width: 100%;
+        border-color: $__interaction--light;
+
+        @include __on-theme--dark {
+            border-color: $__interaction--dark;
+        }
+    
+        @include __on-theme--light {
+            border-color: $__interaction--light;
+        }
+    }
+}
+
+@mixin __tabs__item-vertical--hover {
+    background: $__hover__secondary--light;
+    color: $__text__emphasis--light;
+
+    @include __on-theme--dark {
+        background: $__hover__secondary--dark;
+        color: $__text__emphasis--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__hover__secondary--light;
+        color: $__text__emphasis--light;
+    }
+} 
+
+@mixin __tabs__item-vertical--active {
+    //border-color: $__focus;
+    border-color: $__interaction--light;
+    color: $__text__emphasis--light;
+
+        @include __on-theme--dark {
+            border-color: $__interaction--dark;
+            color: $__text__emphasis--dark;
+        }
+    
+        @include __on-theme--light {
+            border-color: $__interaction--light;
+            color: $__text__emphasis--light;
+        }
+} 
+
+@mixin __tabs__pane {
+    padding: __remcalc(12) 0;
+}
+
+@if $bootstrap {
+    .nav {
+        &:not(.flex-column).nav-tabs {
+            @include __tabs__base;
+
+            .nav-link {
+                @include __tabs__item;
+
+                &.active {
+                    @include __tabs__item--active
+                }
+
+                &.disabled {
+                    color: $__disabled--light;
+                    cursor: not-allowed;
+
+                    @include __on-theme--dark {
+                        color: $__disabled--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        color: $__disabled--light;
+                    }
+                }
+
+                &.dropdown-toggle {
+                    position: relative;
+                    padding-right: __remcalc(36) !important;
+                    
+                    &:after {
+                        @include __button__icon--dropdown;
+                        border: none !important;
+                        margin-top: 0 !important;
+                        width: __remcalc(24) !important;
+                        height: __remcalc(24) !important;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                &:not(.disabled) {
+                    &:hover,
+                    &:focus {
+                        @include __tabs__item--hover;
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                background: $__bg--light;
+                border: 1px solid $__border--light;
+                border-radius: 3px;
+                @include __shadow--level2;
+
+                & > a {
+                    @include __nav-menu__base;
+                    @include __text__caption;
+                    color: $__text--light !important;
+
+                    &:hover {
+                        @include __nav-menu--hover;
+                    }
+
+                    @include __on-theme--dark {
+                        color: $__text--dark !important;
+                    }
+                
+                    @include __on-theme--light {
+                        color: $__text--light !important;
+                    }
+                }
+
+                @include __on-theme--dark {
+                    background: $__bg--dark;
+                    border: 1px solid $__border--dark;
+                }
+            
+                @include __on-theme--light {
+                    background: $__bg--light;
+                    border: 1px solid $__border--light;
+                }
+
+                .dropdown-divider{
+                    border-color: $__border--light;
+
+                    @include __on-theme--dark {
+                        border-color: $__border--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        border-color: $__border--light;
+                    }
+                }
+            }
+        }
+
+        &.flex-column.nav-pills {
+            .nav-link {
+                @include __tabs__item-vertical;
+
+                &.active {
+                    @include __tabs__item-vertical--active;
+                }
+
+                &.disabled {
+                    color: $__disabled;
+                    cursor: not-allowed;
+                }
+
+                &:not(.disabled) {
+                    &:hover,
+                    &:focus {
+                        @include __tabs__item-vertical--hover;
+                    }
+                }
+            }
+        }
+    }
+
+    .tab-pane {
+        @include __tabs__pane;
+    }    
+}
+*/
+
+
+
+
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    //display: block;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+
+    margin: 0 10px;
+
+    /*
+    @include media-breakpoint-only(xs){
+        margin: 0 40px;
+    }
+    */
+
+    img {
+        display: block;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+
+
+/*
+Slick theme
+*/
+
+// @charset "UTF-8";
+
+// Default Variables
+
+// Slick icon entity codes outputs the following
+// "\2190" outputs ascii character "←"
+// "\2192" outputs ascii character "→"
+// "\2022" outputs ascii character "•"
+
+$slick-font-path: "./fonts/" !default;
+$slick-font-family: "Material Icons Outlined" !default;
+$slick-loader-path: "./" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "navigate_before" !default;
+$slick-next-character: "navigate_next" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+@function slick-image-url($url) {
+    @if function-exists(image-url) {
+        @return image-url($url);
+    }
+    @else {
+        @return url($slick-loader-path + $url);
+    }
+}
+
+@function slick-font-url($url) {
+    @if function-exists(font-url) {
+        @return font-url($url);
+    }
+    @else {
+        @return url($slick-font-path + $url);
+    }
+}
+
+/* Slider */
+
+.slick-list {
+    .slick-loading & {
+       // background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+    }
+}
+
+/* Icons */
+@if $slick-font-family == "slick" {
+    @font-face {
+        font-family: "slick";
+        src: slick-font-url("slick.eot");
+        src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+
+    @include __button--solid(secondary,$__button__size--default);
+
+
+    position: absolute;
+    display: block;
+    height: 40px;
+    width: 30px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    
+    
+    &:hover, &:focus {
+        outline: none;
+        
+        &:before {
+            opacity: $slick-opacity-on-hover;
+        }
+    }
+    
+    &.slick-disabled:before {
+        opacity: $slick-opacity-not-active;
+    }
+    
+    &:before {
+        font-family: $slick-font-family;
+        font-size: 20px;
+        line-height: 1;
+        //color: $slick-arrow-color;
+        opacity: $slick-opacity-default;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.slick-prev {
+    left: -25px;
+
+    @include media-breakpoint-only(xs){
+        left: 0;
+        z-index: 1;
+    }
+
+
+    [dir="rtl"] & {
+        left: auto;
+        right: -25px;
+    }
+    &:before {
+        content: $slick-prev-character;
+        [dir="rtl"] & {
+            content: $slick-next-character;
+        }
+    }
+}
+
+.slick-next {
+    right: -25px;
+
+    @include media-breakpoint-only(xs){
+        right: 0;
+        z-index: 1;
+    }
+
+    [dir="rtl"] & {
+        left: -25px;
+        right: auto;
+    }
+    &:before {
+        content: $slick-next-character;
+        [dir="rtl"] & {
+            content: $slick-prev-character;
+        }
+    }
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -32px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    @include media-breakpoint-only(xs){
+        display: flex;
+    }
+
+    li {
+        position: relative;
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+
+        @include media-breakpoint-only(xs){
+            flex: 1;
+            height: 4px;
+        }
+        
+        button {
+            background: transparent;
+            border: 2px solid $__text__subtle--light;
+            border-radius: 100px;
+            display: block;
+            height: 16px;
+            width: 16px;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 0;
+            cursor: pointer;
+
+            @include media-breakpoint-only(xs){
+                background: rgba($__text__subtle--light,0.2);
+                border: 0;
+                width: 100%;
+                height: 4px;
+                border-radius: 0;
+            }
+
+            @include __on-theme--dark {
+                background: rgba($__text__subtle--dark,0.2);
+            }
+        
+            @include __on-theme--light {
+                background: rgba($__text__subtle--light,0.2);
+            }
+            
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+
+        }
+       
+        &.slick-active button {
+            background: $__text__subtle--light;
+
+            @include __on-theme--dark {
+                background: $__text__subtle--dark;
+            }
+        
+            @include __on-theme--light {
+                background: $__text__subtle--light;
+            }
+        }
+    }
+}
+
+
+/*
+.lazy{
+    border: 2px solid red;
+}
+*/

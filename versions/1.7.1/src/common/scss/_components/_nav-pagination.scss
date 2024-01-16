@@ -1,0 +1,211 @@
+@mixin __page-item__base {
+    background: none;
+    border-color: $border-color;
+
+    /*
+    [class^='b3__ico'] {
+        font-size: __remcalc(18);
+    }
+    */
+}
+
+@mixin __page-item__link {
+    background: none;
+    @include __text__caption;
+    height: __remcalc(32);
+    text-align: center;
+    border-color: $__border--light;
+    transition: all .2s;
+    color: $__interaction--light;
+    font-weight: normal;
+
+    @include __on-theme--dark {
+        color: $__interaction--dark;
+        border-color: $__border--dark;
+        //border-color: $__bg__white--1;
+        font-weight: normal;
+    }
+
+    @include __on-theme--light {
+        color: $__interaction--light;
+        border-color: $__border--light;
+        font-weight: normal;
+    }
+}
+
+@mixin __page-item__link--hover {
+    &:hover { 
+        
+        background: $__hover__secondary--light;
+        color: $__interaction--light;
+        border-color: $__border--light;
+
+        @include __on-theme--dark {
+            background: $__hover__secondary--dark;
+            color: $__interaction--dark;
+            border-color: $__border--dark;
+        }
+
+        @include __on-theme--light {
+            background: $__hover__secondary--light;
+            color: $__interaction--light;
+            border-color: $__border--light;
+        }
+    }
+}
+
+@mixin __page-item--disabled {
+    color: $__disabled--light;
+    border-color: $__disabled--light;
+    //pointer-events: auto;
+    cursor: not-allowed;
+
+    @include __on-theme--dark {
+        color: $__disabled--dark;
+        border-color: $__disabled--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__disabled--light;
+        border-color: $__disabled--light;
+    }
+}
+
+@mixin __page-item--focused {
+    background: none;
+    border-color: $__interaction--light;
+    background-color: $__interaction--light;
+    color: $__menu--light;
+    font-weight: normal;
+
+    @include __on-theme--dark {
+        background-color: $__interaction--dark;
+        border-color: $__interaction--dark;
+        color: $__menu--dark;
+    }
+
+    @include __on-theme--light {
+        border-color: $__interaction--light;
+        background-color: $__interaction--light;
+        color: $__menu--light;
+    }
+}
+
+@if $bootstrap {
+    .page-item {
+        @include __page-item__base;
+
+        &.active .page-link {
+            @include __page-item--focused;
+        }
+
+        &.disabled .page-link {
+            background: none; 
+            @include __page-item--disabled;
+        }
+
+        .material-icons-outlined,
+        .material-icons{
+            font-size: 1rem;
+            line-height: 1.2em;
+        }
+    }
+    .page-link {
+        @include __page-item__link;
+        @include __page-item__link--hover;
+    }
+}
+
+/*
+@if $foundation {
+    .pagination {
+        display: flex;
+
+        li {
+            @include __page-item__base;
+            @include __page-item__link;
+
+            a {
+                @include __page-item__link;
+                @include __page-item__link--hover;
+            }
+
+            &.pagination-previous:before,
+            &.pagination-previous a:before,
+            &.pagination-previous.disabled:before,
+            &.pagination-previous.disabled a:before,
+            &.pagination-next:after,
+            &.pagination-next a:after { 
+                display: none;
+            }
+
+            &.current {
+                @include __page-item--focused;
+            }
+
+            &.disabled {
+                @include __page-item--disabled;
+            }
+
+            &.ellipsis:after {
+                color: $__text--light;
+
+                @include __on-theme--dark {
+                    color: $__text--dark;
+                }
+            
+                @include __on-theme--light {
+                    color: $__text--light;
+                }
+            }
+        }
+    }
+}
+*/
+
+
+.scielo__ico{
+
+    &:before {
+		content: '';
+        position: absolute;
+        font-size: __remcalc(24);
+        line-height: __remcalc(24);
+
+	}
+    
+    &--first_page{
+        
+        &:before {
+            font-family: 'Material Icons Outlined';
+            content: "first_page"; 
+            color: inherit; 
+        }   
+    }
+    
+    &--last_page{
+
+        &:before {
+            font-family: 'Material Icons Outlined';
+            content: "last_page"; 
+		    color: inherit; 
+        }   
+    }
+
+    &--navigate_before{
+        
+        &:before {
+            font-family: 'Material Icons Outlined';
+            content: "navigate_before"; 
+		    color: inherit; 
+        } 
+    }
+    &--navigate_next{
+        
+        &:before {
+            font-family: 'Material Icons Outlined';
+            content: "navigate_next";  
+		    color: inherit; 
+        } 
+    }
+}

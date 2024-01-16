@@ -1,0 +1,10 @@
+@function __remcalc($value) {
+    $value: __clean-unit($value); // retirando unidade
+    $value: ($value / __clean-unit($__font__rem)) * 1rem;
+
+    @return $value;
+}
+
+@function __clean-unit($value) {
+    @return $value / ($value * 0 + 1);
+}

@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="pt-br" class="example">
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+        <link href="../../examples/examples.css" rel="stylesheet">
+    </head>
+<body>
+    
+    
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-end">
+                    <a href="#">
+                        <span class="material-icons-outlined">info</span>
+                        Sobre o SciELO Brasil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="scielo__search-articles">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-10">
+                    
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="input-group">
+                                <textarea class="form-control" aria-label="With textarea" placeholder="Entre uma ou mais palavras"></textarea>
+                                <div class="input-group-append">
+                                    <select class="form-select">
+                                        <option selected value="todos">Todos os índices</option>
+                                        <option value="ano">Ano</option>
+                                        <option value="autor">Autor</option>
+                                        <option value="financiador">Financiador</option>
+                                        <option value="periodico">Periódico</option>
+                                        <option value="resumo">Resumo</option>
+                                        <option value="titulo">Título</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- begin dinamic row -->
+                    <div class="scielo__dinamic-row">
+                    </div>
+                    <!-- end dinamic row -->
+
+
+                    <div class="row">
+                        <div class="col-12 text-end">
+                            
+                            <a href="#" class="addRowBtn mt-3 d-block">
+                                Adicionar outro campo
+                            </a>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="row d-sm-none">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-4 col-lg-2 d-grid gap-2">
+                    <button type="button" class="btn btn-primary scielo__btn-with-icon--right">
+                        <i class="material-icons-outlined">search</i>
+                        Buscar
+                    </button>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+
+    <script src="../../dist/js/bootstrap.bundle.min.js"></script> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            
+            let addRowBtn = $('.addRowBtn');
+            let placeRow = $('.scielo__dinamic-row');
+            let newFormRow = '<div class="row"><div class="col-12"><hr></div><div class="col-2 col-lg-1 text-end"><button type="button" class="btn btn-danger scielo__btn-with-icon--only"><i class="material-icons-outlined">clear</i></button></div><div class="col-10 col-lg-11"><div class="input-group"><div class="input-group-preppend"><select class="form-select"><option selected value="and">AND</option><option value="or">OR</option><option value="and not">AND NOT</option></select></div><textarea class="form-control" aria-label="With textarea" placeholder="Entre uma ou mais palavras"></textarea><div class="input-group-append"><select class="form-select"><option selected value="todos">Todos os índices</option><option value="ano">Ano</option><option value="autor">Autor</option><option value="financiador">Financiador</option><option value="periodico">Periódico</option><option value="resumo">Resumo</option><option value="titulo">Título</option></select></div></div></div></div>';
+
+            let btnRemoveRow = $('.btn-danger');
+
+            addRowBtn.on( "click", function() {
+                placeRow.append( newFormRow );
+                console.log('linha adicionada');
+            })
+
+            // remove as linhas inseridas dinamicamente e as que já estavam lá.
+            placeRow.on( "click", ".btn-danger", function() {
+                $(this).parent().parent().animate({'opacity':0},300).hide(1);
+            })
+
+        });
+
+        
+    </script>
+    
+</body>
+</html>

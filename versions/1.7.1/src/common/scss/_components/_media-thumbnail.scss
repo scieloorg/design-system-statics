@@ -1,0 +1,27 @@
+@mixin __thumbnail__base {
+    display: inline-block;
+    background: none;
+    border: none;
+    border-radius: __remcalc(3);
+    padding: 0;
+    overflow: hidden;
+    @include __shadow--level1;
+}
+
+@if $bootstrap {
+    .img-thumbnail {
+        @include __thumbnail__base;
+    }
+}
+
+@if $foundation {
+    .thumbnail {
+        @include __thumbnail__base;
+    }
+
+    a.thumbnail {
+        &:hover {
+            @include __shadow--level3;
+        }
+    }
+}

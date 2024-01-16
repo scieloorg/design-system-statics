@@ -1,0 +1,397 @@
+/*
+@mixin __card__base {
+    border-radius: __remcalc(3);
+    background: $__white;
+    border: 1px solid $__bg__gray--1;
+    @include __shadow--level2;
+}
+
+@mixin __card__body {
+    padding: __remcalc(24);
+}
+
+@mixin __card__body {
+    padding: __remcalc(24);
+}
+
+@mixin __card__header {
+    padding: __remcalc(12) __remcalc(24);
+    @include __text__overline;
+    color: $__text__emphasis--light !important;
+    background: $__bg__gray--1;
+}
+
+@mixin __card__title {
+    @include __text__title--4;
+    color: $__text__emphasis--light !important;
+    margin-bottom: __remcalc(0);
+}
+
+@mixin __card__subtitle {
+    @include __text__subhead--small;
+    color: $__text--light !important;
+    margin-top: __remcalc(12);
+    margin-bottom: 0;
+}
+
+@mixin __card__text {
+    @include __text__body;
+    color: $__text--light !important;
+    margin-top: __remcalc(12);
+    margin-bottom: 0;
+}
+
+@mixin __card__link {
+    @include __text__button;
+    display: inline-block;
+    color: $__interaction--light !important;
+    transition: .25s all;
+    box-shadow: 0 0 0 transparent;
+    border-radius: __remcalc(24);
+    margin-top: __remcalc(24); 
+
+    &:hover {
+        background: $__hover--light;
+        color: $__interaction--light;
+        @include __form-switch__track--hover;
+    }
+}
+
+@mixin __card__button {
+    margin-top: __remcalc(24);
+    margin-bottom: 0;
+}
+
+
+@if $bootstrap {
+    .card {
+        @include __card__base;
+
+        &-body {
+            @include __card__body;
+        }
+
+        &-title {
+            @include __card__title;
+        }
+
+        &-subtitle {
+            @include __card__subtitle;
+        }
+
+        &-text {
+            @include __card__text;
+        }
+
+        &-link {
+            @include __card__link;
+        }
+
+        .btn {
+            @include __card__button;
+        }
+        
+        .list-group-item {
+            color: $__text--light !important;   
+        }
+    }
+
+    .list-group-item {
+        padding: __remcalc(12) __remcalc(24);
+    }
+}
+
+@if $foundation {
+    .card {
+        @include __card__base;
+
+        &-divider {
+            @include __card__header;
+        }
+
+        &-section {
+            @include __card__body;
+        }
+
+        &-title {
+            @include __card__title;
+        }
+    }
+}
+*/
+
+//
+// Base styles
+//
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+    height: $card-height;
+    word-wrap: break-word;
+    //background-color: $card-bg;
+    background-color: $__bg--light;
+    background-clip: border-box;
+    //border: $card-border-width solid $card-border-color;
+    border: $border-width solid $__border--light;
+    @include border-radius($card-border-radius);
+
+    @include __on-theme--dark {
+        border: $border-width solid $__border--dark; 
+        background-color: $__bg--dark;
+    }
+
+    @include __on-theme--light {
+        border: $border-width solid $__border--light;
+        background-color: $__bg--light;
+    }
+
+    .list-group-item{
+        background-color: $__bg--light;
+        border-color: $__border--light;
+
+        @include __on-theme--dark {
+            border-color: $__border--dark; 
+            background-color: $__bg--dark;
+        }
+    
+        @include __on-theme--light {
+            border-color: $__border--light;
+            background-color: $__bg--light;
+        }
+    }
+  
+    > hr {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  
+    > .list-group {
+      border-top: inherit;
+      border-bottom: inherit;
+  
+      &:first-child {
+        border-top-width: 0;
+        @include border-top-radius($card-inner-border-radius);
+      }
+  
+      &:last-child  {
+        border-bottom-width: 0;
+        @include border-bottom-radius($card-inner-border-radius);
+      }
+    }
+  
+    // Due to specificity of the above selector (`.card > .list-group`), we must
+    // use a child selector here to prevent double borders.
+    > .card-header + .list-group,
+    > .list-group + .card-footer {
+      border-top: 0;
+    }
+  }
+  
+  .card-body {
+    // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+    // as much space as possible, ensuring footers are aligned to the bottom.
+    flex: 1 1 auto;
+    padding: $card-spacer-y $card-spacer-x;
+    //color: $card-color;
+    color: $__text--light;
+
+    @include __on-theme--dark {
+        color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text--light;
+    }
+  }
+  
+  .card-title {
+    margin-bottom: $card-title-spacer-y;
+    //color: $__interaction--light;
+
+    @include __on-theme--dark {
+        //color: $__interaction--dark;
+    }
+
+    @include __on-theme--light {
+        //color: $__interaction--light;
+    }
+  }
+  
+  .card-subtitle {
+    margin-top: -$card-title-spacer-y / 2;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $__text__subtle--light;
+    font-size: __remcalc(12);
+
+    @include __on-theme--dark {
+        color: $__text__subtle--dark;
+    }
+
+    @include __on-theme--light {
+        color: $__text__subtle--light;
+    }
+    
+  }
+  
+  .card-text:last-child {
+    margin-bottom: 0;
+  }
+  
+  .card-link {
+    &:hover {
+      text-decoration: none;
+    }
+  
+    + .card-link {
+      margin-left: $card-spacer-x;
+    }
+  }
+  
+  //
+  // Optional textual caps
+  //
+  
+  .card-header {
+    padding: $card-cap-padding-y $card-cap-padding-x;
+    margin-bottom: 0; // Removes the default margin-bottom of <hN>
+    color: $card-cap-color;
+    background-color: $card-cap-bg;
+    border-bottom: $card-border-width solid $card-border-color;
+    
+  
+    &:first-child {
+      @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
+    }
+  }
+  
+  .card-footer {
+    padding: $card-cap-padding-y $card-cap-padding-x;
+    color: $card-cap-color;
+    background-color: $card-cap-bg;
+    border-top: $card-border-width solid $card-border-color;
+  
+    &:last-child {
+      @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+    }
+  }
+  
+  
+  //
+  // Header navs
+  //
+  
+  .card-header-tabs {
+    margin-right: -$card-cap-padding-x / 2;
+    margin-bottom: -$card-cap-padding-y;
+    margin-left: -$card-cap-padding-x / 2;
+    border-bottom: 0;
+  
+    @if $nav-tabs-link-active-bg != $card-bg {
+      .nav-link.active {
+        background-color: $card-bg;
+        border-bottom-color: $card-bg;
+      }
+    }
+  }
+  
+  .card-header-pills {
+    margin-right: -$card-cap-padding-x / 2;
+    margin-left: -$card-cap-padding-x / 2;
+  }
+  
+  // Card image
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: $card-img-overlay-padding;
+    @include border-radius($card-inner-border-radius);
+  }
+  
+  .card-img,
+  .card-img-top,
+  .card-img-bottom {
+    width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  }
+  
+  .card-img,
+  .card-img-top {
+    @include border-top-radius($card-inner-border-radius);
+  }
+  
+  .card-img,
+  .card-img-bottom {
+    @include border-bottom-radius($card-inner-border-radius);
+  }
+  
+  
+  //
+  // Card groups
+  //
+  
+  .card-group {
+    // The child selector allows nested `.card` within `.card-group`
+    // to display properly.
+    > .card {
+      margin-bottom: $card-group-margin;
+    }
+  
+    @include media-breakpoint-up(sm) {
+      display: flex;
+      flex-flow: row wrap;
+      // The child selector allows nested `.card` within `.card-group`
+      // to display properly.
+      > .card {
+        // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        flex: 1 0 0%;
+        margin-bottom: 0;
+  
+        + .card {
+          margin-left: 0;
+          border-left: 0;
+        }
+  
+        // Handle rounded corners
+        @if $enable-rounded {
+          &:not(:last-child) {
+            @include border-end-radius(0);
+  
+            .card-img-top,
+            .card-header {
+              // stylelint-disable-next-line property-disallowed-list
+              border-top-right-radius: 0;
+            }
+            .card-img-bottom,
+            .card-footer {
+              // stylelint-disable-next-line property-disallowed-list
+              border-bottom-right-radius: 0;
+            }
+          }
+  
+          &:not(:first-child) {
+            @include border-start-radius(0);
+  
+            .card-img-top,
+            .card-header {
+              // stylelint-disable-next-line property-disallowed-list
+              border-top-left-radius: 0;
+            }
+            .card-img-bottom,
+            .card-footer {
+              // stylelint-disable-next-line property-disallowed-list
+              border-bottom-left-radius: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  

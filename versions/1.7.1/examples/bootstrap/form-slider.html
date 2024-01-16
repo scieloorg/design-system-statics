@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-br" class="example">
+    
+    
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+            <link href="../../examples/examples.css" rel="stylesheet">
+        </head>
+    <body>
+
+        <!--
+        <div class="container">
+            <h1>Range antigo</h1>    
+            <input type="range" class="custom-range" id="customRange1">
+        </div>
+        <div class="container">
+            <input type="range" class="custom-range" id="customRange2" disabled>
+        </div>
+        <div class="container">
+            <div id="nouislider"></div>
+        </div>
+        <div class="container">
+            <div id="nouislider-disabled"></div>
+        </div>
+        -->
+        <br><br><br> 
+        
+        <div class="container">
+            <h1>Range novo</h1>  
+            <label for="customRange1" class="form-label">Example range</label>
+            <input type="range" class="form-range" id="customRange1">
+        </div>
+
+        <div class="container">
+            <label for="disabledRange" class="form-label">Disabled range</label>
+            <input type="range" class="form-range" id="disabledRange" disabled>
+        </div>
+
+        <script src="../../dist/js/bootstrap.bundle.min.js"></script> 
+
+
+
+        <!--
+        <script src="../../dist/bootstrap/js/plugins/wNumb.min.js"></script>  
+        <script src="../../dist/bootstrap/js/plugins/nouislider.min.js"></script>  
+        <script>
+            var slider = document.getElementById('nouislider'),
+                sliderDisabled = document.getElementById('nouislider-disabled'),
+                sliderCfg = {
+                    start: [10, 30],
+                    connect: true,
+                    step: 5,
+                    tooltips: [wNumb({decimals: 2}), wNumb({decimals: 2})],
+                    range: {
+                        min: 0,
+                        max: 100
+                    },
+                    pips: {
+                        mode: 'values',
+                        values: [10, 25, 50, 75, 100],
+                        density: 2
+                    }
+                };
+
+            noUiSlider.create(slider, sliderCfg);
+
+            noUiSlider.create(sliderDisabled, sliderCfg);
+            sliderDisabled.setAttribute('disabled',true);
+
+        </script>
+        -->
+    </body>
+</html>

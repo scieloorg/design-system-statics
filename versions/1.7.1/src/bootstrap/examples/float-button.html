@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-br" class="example">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="../../dist/css/bootstrap.css" rel="stylesheet">
+		<link href="../../examples/examples.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container" data-breakpoint="Float Button - Article SciELO">
+			<div class="row">
+				<div class="col">
+					<div class="scielo__floatingMenuCtt">
+						<a class="scielo__floatingMenuItem fm-button-child item-goto d-none d-sm-inline-block" data-bs-toggle="tooltip" title="Ir para o topo" --data-fm-label="{% trans %}Ir para o topo{% endtrans %}" href="#top">
+							<span class="material-icons-outlined">
+								vertical_align_top
+							</span>
+						</a>
+						<a href="javascript:;" class="scielo__floatingMenuItem fm-button-child item-download d-none d-sm-inline-block" data-bs-toggle="tooltip" title="PDFs" --data-fm-label="{% trans %}PDFs{% endtrans %}" data-toggle="modal" data-target="#ModalDownloads">
+							<span class="material-icons-outlined">
+								file_download
+							</span>
+						</a>
+						<a href="javascript:;" data-toggle="modal" data-target="#metric_modal_id" class="scielo__floatingMenuItem fm-button-child item-metrics d-none d-sm-inline-block" data-bs-toggle="tooltip" title="Métricas" --data-fm-label="{% trans %}Métricas{% endtrans %}" target="_blank">
+							<span class="material-icons-outlined">
+								show_chart
+							</span>
+						</a>
+						<ul class="scielo__floatingMenu fm-slidein" data-fm-toogle="hover">
+							<li class="fm-wrap">
+								<a href="javascript:;" class="fm-button-main"><span class="material-icons-outlined material-icons-outlined-menu-default">more_horiz</span><span class="material-icons-outlined material-icons-outlined-menu-close">close</span></a>
+								
+								<!-- exibe em tudo menos mobile-->
+								<ul class="fm-list d-none d-sm-block">
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Figuras e tabelas" data-mobile-tooltip="Figuras e tabelas" data-toggle="modal" data-target="#ModalTablesFigures">
+											<span class="material-icons-outlined">
+												image
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Versões e traduções" data-mobile-tooltip="Versões e traduções" data-toggle="modal" data-target="#ModalVersionsTranslations">
+											<span class="material-icons-outlined">
+												translate
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Como citar este artigo" data-mobile-tooltip="Como citar este artigo" data-toggle="modal" data-target="#ModalArticles">
+											<span class="material-icons-outlined">
+												link
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Artigos relacionados" data-mobile-tooltip="Artigos relacionados" data-toggle="modal" data-target="#ModalRelatedArticles">
+											<span class="material-icons-outlined">
+												article
+											</span>
+										</a>
+									</li>
+								</ul>
+
+
+								<!-- exibe apenas no mobile-->
+								<ul class="fm-list d-block d-sm-none">
+									<li class="">
+										<a class="fm-button-child item-goto" data-bs-toggle="tooltip" title="Ir para o topo" data-mobile-tooltip="Ir para o topo" href="#top">
+											<span class="material-icons-outlined">
+												vertical_align_top
+											</span>
+										</a>
+									</li>
+									<li class="d-block d-sm-none">
+										<a href="javascript:;" class="fm-button-child item-download" data-bs-toggle="tooltip" title="PDFs" data-mobile-tooltip="PDFs" data-toggle="modal" data-target="#ModalDownloads">
+											<span class="material-icons-outlined">
+												file_download
+											</span>
+										</a>
+									</li>
+									<li class="d-block d-sm-none">
+										<a href="javascript:;" data-toggle="modal" data-target="#metric_modal_id" class="fm-button-child item-metrics" data-bs-toggle="tooltip" title="Métricas" data-mobile-tooltip="Métricas" target="_blank">
+											<span class="material-icons-outlined">
+												show_chart
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Figuras e tabelas" data-mobile-tooltip="Figuras e tabelas" data-toggle="modal" data-target="#ModalTablesFigures">
+											<span class="material-icons-outlined">
+												image
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Versões e traduções" data-mobile-tooltip="Versões e traduções" data-toggle="modal" data-target="#ModalVersionsTranslations">
+											<span class="material-icons-outlined">
+												translate
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Como citar este artigo" data-mobile-tooltip="Como citar este artigo" data-toggle="modal" data-target="#ModalArticles">
+											<span class="material-icons-outlined">
+												link
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" data-bs-toggle="tooltip" title="Artigos relacionados" data-mobile-tooltip="Artigos relacionados" data-toggle="modal" data-target="#ModalRelatedArticles">
+											<span class="material-icons-outlined">
+												article
+											</span>
+										</a>
+									</li>
+								</ul>
+
+
+
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../dist/js/bootstrap.bundle.min.js"></script> 
+		<script>
+			
+			function isTouchDevice(){
+				return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+			}
+
+			if(isTouchDevice()===false) {
+
+				var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+				var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+					return new bootstrap.Tooltip(tooltipTriggerEl)
+				})
+			
+			}
+		</script>
+	</body>
+</html>

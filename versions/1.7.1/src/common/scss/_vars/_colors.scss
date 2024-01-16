@@ -1,0 +1,98 @@
+$__white: #fff;
+$__black: #000;
+
+$__brand__main: #DA202C;
+// $__brand__gradient: linear-gradient(71.13deg, #27396E 0%, #4AB0E6 100%);
+
+$__bg--light: $__white;
+$__bg--dark: #333;
+
+$__text--light: #333;
+$__text__emphasis--light: #00314C;
+$__text__subtle--light: #6C6B6B;
+
+$__text--dark: #C4C4C4;
+$__text__emphasis--dark: #EEE;
+$__text__subtle--dark: #ADADAD;
+
+$__interaction--light: #3867CE;
+$__interaction--dark: #86ACFF;
+
+//$__hover--light: rgba(0, 176, 230, 0.2);
+$__hover--light: rgba(0, 176, 230, 0.2);
+$__hover--light40: rgba(0, 176, 230, 0.08);
+$__hover--dark: rgba(0, 176, 230, 0.6);
+$__hover--dark40: rgba(0, 176, 230, 0.24);
+
+$__positive--light: #2C9D45;
+$__positive--dark: #2C9D45;
+
+$__negative--light: #C63800;
+$__negative--dark: #FF7E4A;
+
+$__warning--light: #B67F00;
+$__warning--dark: #B67F00;
+
+$__info--light: #2195A9;
+$__info--dark: #2299AD;
+
+$__support__green--light: #30A47F;
+$__support__green--dark: #30A47F;
+
+$__support__purple--light: #6628EE;
+$__support__purple--dark: #8D5DF8;
+
+$__support__yellow--light: #C38900;
+$__support__yellow--dark: #C38900;
+
+$__support__blue--light: #25A2B7;
+$__support__blue--dark: #25A2B7;
+
+$__disabled: rgba($__black,.1);
+$__disabled--light: rgba($__black,.1);
+$__disabled__text--light: rgba($__black,.1);
+$__disabled--dark: rgba($__white,.2);
+$__disabled__text--dark: rgba($__white,.2);
+
+$__bg__gray--1: #F7F6F4;
+$__bg__gray--2: #EFEEEC;
+$__bg__white--1: #393939;
+$__bg__white--2: #414141;
+
+//$__border--light: #ccc;
+//$__border--dark: #ccc;
+
+//$__border--light: $__bg__gray--2;
+$__border--light: #ccc;
+$__border--dark: rgba($__white,.3);
+
+$__border--light--focus: rgba($__interaction--light,0.6);
+$__border--dark--focus: rgba($__interaction--dark,0.6);
+
+
+// verificar utilização 
+$__menu--light: $__white;
+$__menu--dark: $__text__emphasis--dark;
+
+// Text marker
+$__selection: #F8F567;
+$__selection--dark: #070a98;
+
+//private
+$_bg__backdrop: rgba($__black,.8);
+
+//hover secondary
+$__hover__secondary--light: $__bg__gray--1;
+$__hover__secondary--dark: $__bg__white--2;
+
+
+//focus
+$__focus: rgba($__interaction--light, .25);
+
+
+$__focus--primary: rgba($__interaction--light, .25);
+$__focus--secondary: rgba($__border--light, .25);
+$__focus--success: rgba($__positive--light, .25);
+$__focus--warning: rgba($__warning--light, .25);
+$__focus--info: rgba($__info--light, .25);
+$__focus--alert: rgba($__negative--light, .25);

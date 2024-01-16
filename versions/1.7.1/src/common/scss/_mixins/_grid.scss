@@ -1,0 +1,13 @@
+@mixin __bootstrap-grid-fix($gutter) {
+    .container,
+    .col,
+    [class*="col-"] {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
+
+    .row {
+        margin-left: $gutter * -1;
+        margin-right: $gutter * -1;
+    }
+}
