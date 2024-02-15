@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+
+    nginx:
+        image: nginx:latest
+        container_name: ds_nginx
+        depends_on:
+            - ds_webapp
+        volumes:
+            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/logs:/var/log/nginx/
+        ports:
+            - "80:80"
