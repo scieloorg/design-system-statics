@@ -9,6 +9,11 @@ const include       = require('gulp-include');
 const webserver     = require('gulp-webserver');
 const cleanCSS      = require('gulp-clean-css');
 
+const outputCSSBootstrapRoot = './../../css/';
+const outputCSSArticleRoot = './../../css/';
+const outputJSRoot = './../../js/';
+const outputIMGRoot = './../../img/';
+
 let sassSources = {
     "article": [
             "./src/bootstrap/scss/article.scss",
@@ -59,6 +64,37 @@ let sassSources = {
     outputExamples: ['./examples']
 };
 
+// Atualiza css bootstrap da raiz com css bootstrap da versão
+function copyCSSBootstrapToRoot() {
+    return src(sassSources.bootstrap)
+			.pipe(sourcemaps.init())
+			.pipe(
+				sass({ 
+                    outputStyle: 'nested',
+                    includePaths: ['./node_modules/bootstrap/']
+                })
+            )
+            .pipe(include())
+            .pipe(cleanCSS())
+			.pipe(sourcemaps.write('./'))
+			.pipe(dest(outputCSSBootstrapRoot));
+}
+// Atualiza css article da raiz com css article da versão
+function copyCSSArticleToRoot() {
+    return src(sassSources.article)
+			.pipe(sourcemaps.init())
+            
+			.pipe(
+				sass({ 
+                    outputStyle: 'nested'
+                })
+            )
+            .pipe(include())
+            .pipe(cleanCSS())
+			.pipe(sourcemaps.write('./'))
+			.pipe(dest(outputCSSArticleRoot));
+}
+
 function processArticleCSS() {
 	return src(sassSources.article)
 			.pipe(sourcemaps.init())
@@ -68,7 +104,6 @@ function processArticleCSS() {
                     outputStyle: 'nested'
                 })
             )
-            
             .pipe(include())
             .pipe(cleanCSS())
 			.pipe(sourcemaps.write('./'))
@@ -183,7 +218,21 @@ exports.default = series(
                     )
                 );
 
+// Processamento de CSS individual: Bootstrap e Article                
 exports.bootstrap = processBootstrapCSS;
-
 exports.article = processArticleCSS;
 
+
+
+exports.processCSS = series(
+                    processBootstrapCSS,
+                    processArticleCSS
+);
+
+// Use "gulp copytoroot" para atualizar os bootstrap.css e article.css da raiz com os dessa versão.
+exports.copytoroot = series(
+                    copyCSSBootstrapToRoot,
+                    copyCSSArticleToRoot,
+                   // copyJSToRoot,
+                   // copyIMGToRoot
+);

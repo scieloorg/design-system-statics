@@ -61,3 +61,6 @@ $foundation: false;
 @import "../../common/scss/itcssImports/objects";
 @import "../../common/scss/itcssImports/components";
 @import "../../common/scss/itcssImports/utils";
+
+/* Css print global*/
+@import "./scielo-ds-print";
