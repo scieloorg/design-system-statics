@@ -52,6 +52,7 @@
 @mixin __text__body--link {
     //font-weight: bold;
     text-decoration: none;
+    word-wrap: break-word;
 
     &:hover{
         text-decoration: underline;

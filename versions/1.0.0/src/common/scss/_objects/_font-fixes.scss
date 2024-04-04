@@ -311,4 +311,11 @@ cite {
 }
 */
 
- 
+@media (min-width: 768px){ 
+
+    .#{$__classPrefix}__truncate{
+        display: block;
+        max-width: 285px;
+    }
+    
+}

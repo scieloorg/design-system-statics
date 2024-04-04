@@ -1,0 +1,31 @@
+
+/* Context-menu */
+
+ul.scielo__menu-contexto,
+    ul.scielo__menu-contexto ul{
+      list-style: none;
+    }
+    ul.scielo__menu-contexto ul{
+      margin-bottom: 1rem;
+    }
+    ul.scielo__menu-contexto .nav-link{
+      padding:0;
+      color: $__text__subtle--light;
+    }
+    ul.scielo__menu-contexto .nav-link.active{
+      color:$__interaction--light;
+    }
+    .sticky-top{
+      top: 80px;
+    }
+
+    .bd-example h5,
+    .bd-example h4{
+      margin-top: 3rem;
+    }
+    .bd-example hr{
+      margin-top: 3rem;
+    }
+    .bd-example ul{
+      margin-bottom: 3rem;
+    }

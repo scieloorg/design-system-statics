@@ -148,6 +148,10 @@
         background-color: $__bg--light;
     }
 
+    .journalContent &{
+      min-height: 220px;
+    }
+
     .list-group-item{
         background-color: $__bg--light;
         border-color: $__border--light;
@@ -205,6 +209,11 @@
 
     @include __on-theme--light {
         color: $__text--light;
+    }
+
+    .btn{
+      position: absolute;
+      bottom: 16px;
     }
   }
   

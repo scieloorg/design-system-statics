@@ -75,3 +75,21 @@ $__bg__white--2: #414141;
 
    
 }
+
+/*
+Ajuste pontual no levelMenu das paginas do periódico.
+*/
+.levelMenu{
+    .journal &{
+
+        margin-top: 1.5rem;
+
+        @include media-breakpoint-only(xs) {
+
+            margin-top: 145px;
+            /*9.0625rem*/
+            
+        }
+
+    }
+}
