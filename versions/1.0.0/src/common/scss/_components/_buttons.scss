@@ -1182,3 +1182,9 @@
         display: block;  
     }
 } 
+
+.dropdown-item {
+    .fixed-top &{
+        color: $__interaction--light;
+    }
+}

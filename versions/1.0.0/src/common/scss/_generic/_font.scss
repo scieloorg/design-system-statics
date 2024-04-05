@@ -1,3 +1,26 @@
 body, p, h1, h2, h3, h4, h5, h6, input, textarea {
     text-rendering: optimizeLegibility;
 }
+
+body{
+    
+    &.top-nav-visible{
+
+        padding-top: 115px;
+
+        @media (min-width: 768px){ 
+
+            padding-top: 74px; 
+            
+        }
+
+    }
+
+}
+
+/*
+Ajuste pontual Opac - section.journalInfo
+*/
+.journalInfo{
+    margin-top: 74px;
+}
