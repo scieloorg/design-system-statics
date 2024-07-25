@@ -342,10 +342,7 @@
     position: relative;
     left: 0;
     top: 0;
-    //display: block;
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
 
     &:before,
     &:after {
