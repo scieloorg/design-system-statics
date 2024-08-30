@@ -280,6 +280,7 @@
   }
   
   .card-footer {
+    /*
     padding: $card-cap-padding-y $card-cap-padding-x;
     color: $card-cap-color;
     background-color: $card-cap-bg;
@@ -288,6 +289,12 @@
     &:last-child {
       @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
     }
+    */
+    padding: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
   
   
