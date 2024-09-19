@@ -125,11 +125,13 @@
 //
 
 .card {
+  
     position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
-    height: $card-height;
+    //height: $card-height;
+    height: auto;
     word-wrap: break-word;
     //background-color: $card-bg;
     background-color: $__bg--light;
@@ -137,6 +139,12 @@
     //border: $card-border-width solid $card-border-color;
     border: $border-width solid $__border--light;
     @include border-radius($card-border-radius);
+    
+
+    /* Aplica padding-bottom de 4rem ao .card se contiver um .card-footer */
+    &:has(.card-footer) {
+      padding-bottom: 4rem;
+    }
 
     @include __on-theme--dark {
         border: $border-width solid $__border--dark; 
@@ -193,6 +201,7 @@
     > .list-group + .card-footer {
       border-top: 0;
     }
+
   }
   
   .card-body {
@@ -295,6 +304,8 @@
     left: 0;
     bottom: 0;
     right: 0;
+    background-color: transparent;
+    border: 0;
   }
   
   
