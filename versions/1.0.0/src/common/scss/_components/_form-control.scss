@@ -397,8 +397,8 @@
   // stylelint-disable selector-no-qualifying-type
   textarea {
     &.form-control {
-      min-height: $input-height;
-      height: $input-height;
+      min-height: 5rem;
+      height: 5rem;
     }
   
     &.form-control-sm {
