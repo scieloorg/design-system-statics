@@ -399,6 +399,11 @@
     &.form-control {
       min-height: 5rem;
       height: 5rem;
+      
+      .#{$__classPrefix}__search-articles &{
+        min-height: $input-height;
+        height: $input-height;
+      }
     }
   
     &.form-control-sm {
