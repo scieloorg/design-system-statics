@@ -226,11 +226,12 @@ Logo SciELO
             color: $__text--light;
             font-style: italic;
             border-bottom: 1px solid $__border--light;
-            padding-bottom: 2px;
+            padding-bottom: 10px;
             padding-left: 24px;
             padding-right: 0;
             top: 40px;
             left: __remcalc(130px);
+            line-height: 1rem;
 
             @include media-breakpoint-up(sm) {
                 font-size: __remcalc(30px);
@@ -239,6 +240,7 @@ Logo SciELO
                 padding-right: 5px;
                 top: 80px;
                 left: __remcalc(150px);
+                line-height: normal;
             }
 
             //outline: 1px solid red;
@@ -305,3 +307,6 @@ Logo SciELO
 
 }
 
+.#{$__classPrefix}__logo-periodico{
+    max-height: 100px;
+}

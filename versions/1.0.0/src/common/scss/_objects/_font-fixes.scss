@@ -262,11 +262,27 @@ html {
     @include __material-icons;
 }
 
-.blockquote {
+.blockquote,
+blockquote {
     margin: 0 0 1rem;
-    padding: 0.6rem 1.33333rem 0 1.26667rem;
-    border-left: 1px solid $__bg__gray--2;
-    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
+    border-left: 4px solid $border-color;
+    background-color: $__bg__gray--2;
+    font-style: italic;
+
+    &::before{
+        content: "\201C"; /* Código ASCII para abrir aspas */
+        font-family: $__font__family--brand;
+        font-size: 2rem; /* Ajuste de estilo opcional */
+        line-height: 2rem;
+    }
+
+    &::after {
+        content: "\201D"; /* Código ASCII para fechar aspas */
+        font-family: $__font__family--brand;
+        font-size: 2rem; /* Ajuste de estilo opcional */
+        line-height: 2rem;
+    }
 
     @include __on-theme--dark {
         border-left-color: $__bg__white--2;
