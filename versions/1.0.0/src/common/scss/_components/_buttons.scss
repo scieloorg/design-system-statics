@@ -1168,15 +1168,12 @@
 
 .floatingBtnError {
     position: fixed;
-    padding: 12px;
-    writing-mode: vertical-rl;
-    right: 8px;
-    top: 45%;
-    transform: rotate(-180deg);
-    line-height: 1rem;
-    height: 260px;
-    transition: none !important;
-    display:none;
+    right: calc(0px + var(--bs-gutter-x, 1.5rem));
+    top: 35%;
+    transform: rotate(-90deg);
+    display: none;
+    transform-origin: right center;
+    margin: 0;
 
     @media (min-width: 1024px){ 
         display: block;  
