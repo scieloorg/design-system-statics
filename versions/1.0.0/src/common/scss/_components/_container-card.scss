@@ -1,125 +1,3 @@
-/*
-@mixin __card__base {
-    border-radius: __remcalc(3);
-    background: $__white;
-    border: 1px solid $__bg__gray--1;
-    @include __shadow--level2;
-}
-
-@mixin __card__body {
-    padding: __remcalc(24);
-}
-
-@mixin __card__body {
-    padding: __remcalc(24);
-}
-
-@mixin __card__header {
-    padding: __remcalc(12) __remcalc(24);
-    @include __text__overline;
-    color: $__text__emphasis--light !important;
-    background: $__bg__gray--1;
-}
-
-@mixin __card__title {
-    @include __text__title--4;
-    color: $__text__emphasis--light !important;
-    margin-bottom: __remcalc(0);
-}
-
-@mixin __card__subtitle {
-    @include __text__subhead--small;
-    color: $__text--light !important;
-    margin-top: __remcalc(12);
-    margin-bottom: 0;
-}
-
-@mixin __card__text {
-    @include __text__body;
-    color: $__text--light !important;
-    margin-top: __remcalc(12);
-    margin-bottom: 0;
-}
-
-@mixin __card__link {
-    @include __text__button;
-    display: inline-block;
-    color: $__interaction--light !important;
-    transition: .25s all;
-    box-shadow: 0 0 0 transparent;
-    border-radius: __remcalc(24);
-    margin-top: __remcalc(24); 
-
-    &:hover {
-        background: $__hover--light;
-        color: $__interaction--light;
-        @include __form-switch__track--hover;
-    }
-}
-
-@mixin __card__button {
-    margin-top: __remcalc(24);
-    margin-bottom: 0;
-}
-
-
-@if $bootstrap {
-    .card {
-        @include __card__base;
-
-        &-body {
-            @include __card__body;
-        }
-
-        &-title {
-            @include __card__title;
-        }
-
-        &-subtitle {
-            @include __card__subtitle;
-        }
-
-        &-text {
-            @include __card__text;
-        }
-
-        &-link {
-            @include __card__link;
-        }
-
-        .btn {
-            @include __card__button;
-        }
-        
-        .list-group-item {
-            color: $__text--light !important;   
-        }
-    }
-
-    .list-group-item {
-        padding: __remcalc(12) __remcalc(24);
-    }
-}
-
-@if $foundation {
-    .card {
-        @include __card__base;
-
-        &-divider {
-            @include __card__header;
-        }
-
-        &-section {
-            @include __card__body;
-        }
-
-        &-title {
-            @include __card__title;
-        }
-    }
-}
-*/
-
 //
 // Base styles
 //
@@ -130,13 +8,10 @@
     display: flex;
     flex-direction: column;
     min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
-    //height: $card-height;
     height: auto;
     word-wrap: break-word;
-    //background-color: $card-bg;
     background-color: $__bg--light;
     background-clip: border-box;
-    //border: $card-border-width solid $card-border-color;
     border: $border-width solid $__border--light;
     @include border-radius($card-border-radius);
     
@@ -347,6 +222,8 @@
   .card-img-top,
   .card-img-bottom {
     width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+    height: 9.3rem;
+    object-fit: cover; 
   }
   
   .card-img,
@@ -422,3 +299,26 @@
     }
   }
   
+
+  .card{
+    .stretched-link{
+      &:hover{
+
+        .text-primary{
+          text-decoration: underline;
+          color: $link-hover-color !important;
+        }
+        
+        .btn-secondary{
+          // mantem o botão como se estivesse no estado mouseover
+          background: #d9d9d9 radial-gradient(circle, transparent 1%, #d9d9d9 1%) center / 15000%;
+        }
+
+        .card-img-top{
+          transition: all .8s;
+          filter: brightness(0.83); /* Escurece a imagem */
+        }
+        
+      }
+    }
+  }

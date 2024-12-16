@@ -268,21 +268,6 @@ blockquote {
     padding: 0.8rem 1.4rem;
     border-left: 4px solid $border-color;
     background-color: $__bg__gray--2;
-    font-style: italic;
-
-    &::before{
-        content: "\201C"; /* Código ASCII para abrir aspas */
-        font-family: $__font__family--brand;
-        font-size: 2rem; /* Ajuste de estilo opcional */
-        line-height: 2rem;
-    }
-
-    &::after {
-        content: "\201D"; /* Código ASCII para fechar aspas */
-        font-family: $__font__family--brand;
-        font-size: 2rem; /* Ajuste de estilo opcional */
-        line-height: 2rem;
-    }
 
     @include __on-theme--dark {
         border-left-color: $__bg__white--2;
