@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="pt-br" class="example">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="../../dist/css/bootstrap.css" rel="stylesheet">
+		<link href="../../examples/examples.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container" data-breakpoint="Float Button - Article SciELO 33">
+			<div class="row">
+				<div class="col">
+
+					<div class="scielo__floatingMenuCttJs3">
+						<a class="scielo__floatingMenuItem fm-button-child item-goto d-none d-xl-inline-block" data-bs-toggle="tooltip" title="Ir para o topo" href="#top" tabindex="0">
+							<span class="material-icons-outlined">
+								vertical_align_top
+							</span>
+						</a>
+						<a href="javascript:;" class="scielo__floatingMenuItem fm-button-child item-download d-none d-xl-inline-block" data-bs-toggle="tooltip" title="PDFs" data-bs-target="#ModalDownloads" tabindex="0">
+							<span class="material-icons-outlined">
+								file_download
+							</span>
+						</a>
+						<a href="javascript:;" class="scielo__floatingMenuItem fm-button-child item-metrics d-none d-xl-inline-block" data-bs-toggle="tooltip" title="Métricas" target="_blank" data-bs-target="#metric_modal_id" tabindex="0">
+							<span class="material-icons-outlined">
+								show_chart
+							</span>
+						</a>
+						<ul class="scielo__floatingMenuJs3 fm-slidein" data-fm-toogle="hover">
+							<li class="fm-wrap">
+								<a href="javascript:;" class="fm-button-main" data-bs-toggle="tooltip" title="Abrir menu" tabindex="0"><span class="material-icons-outlined material-icons-outlined-menu-default">more_horiz</span></a>
+								<a href="javascript:;" class="fm-button-close" data-bs-toggle="tooltip" title="Fechar menu" tabindex="0"><span class="material-icons-outlined material-icons-outlined-menu-close">close</span></a>
+								
+
+								<!-- exibe em tudo menos mobile-->
+								<ul class="fm-list-desktop d-none d-xl-block">
+									<li>
+										<a class="fm-button-child" id="lnkFigsTables" data-bs-toggle="tooltip" title="Figuras e tabelas" data-bs-target="#ModalTablesFigures" tabindex="0">
+											<span class="material-icons-outlined">
+												image
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" id="lnkVersTranslations" data-bs-toggle="tooltip" title="Versões e traduções" data-bs-target="#ModalVersionsTranslations" tabindex="0">
+											<span class="material-icons-outlined">
+												translate
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" id="lnkHowToCite" data-bs-toggle="tooltip" title="Como citar este artigo" data-bs-target="#ModalHowcite" tabindex="0">
+											<span class="material-icons-outlined">
+												link
+											</span>
+										</a>
+									</li>
+									<li>
+										<a class="fm-button-child" id="lnkArticles" data-bs-toggle="tooltip" title="Artigos relacionados" data-bs-target="#ModalRelatedArticles" tabindex="0">
+											<span class="material-icons-outlined">
+												article
+											</span>
+										</a>
+									</li>
+								</ul>
+                            
+
+
+								<!-- exibe apenas no mobile-->
+								<ul class="fm-list-mobile d-block d-xl-none">
+									<li class="">
+										<a class="fm-button-child item-goto" data-mobile-tooltip="Ir para o topo" href="#top">
+											<span class="material-icons-outlined">
+												vertical_align_top
+											</span>
+										</a>
+									</li>
+									<li class="">
+										<a href="javascript:;" class="fm-button-child item-download" data-mobile-tooltip="PDFs" data-bs-toggle="modal" data-bs-target="#ModalDownloads">
+											<span class="material-icons-outlined">
+												file_download
+											</span>
+										</a>
+									</li>
+									<li class="">
+										<a href="javascript:;" class="fm-button-child item-metrics" data-mobile-tooltip="Métricas" data-bs-toggle="modal" data-bs-target="#metric_modal_id">
+											<span class="material-icons-outlined">
+												show_chart
+											</span>
+										</a>
+									</li>
+									<li class="">
+										<a class="fm-button-child" data-mobile-tooltip="Figuras e tabelas" data-bs-toggle="modal" data-bs-target="#ModalTablesFigures">
+											<span class="material-icons-outlined">
+												image
+											</span>
+										</a>
+									</li>
+									<li class="">
+										<a class="fm-button-child" data-mobile-tooltip="Versões e traduções" data-bs-toggle="modal" data-bs-target="#ModalVersionsTranslations">
+											<span class="material-icons-outlined">
+												translate
+											</span>
+										</a>
+									</li>
+									<li class="">
+										<a class="fm-button-child" data-mobile-tooltip="Como citar este artigo" data-bs-toggle="modal" data-bs-target="#ModalHowcite">
+											<span class="material-icons-outlined">
+												link
+											</span>
+										</a>
+									</li>
+									<li class="">
+										<a class="fm-button-child" data-mobile-tooltip="Artigos relacionados" data-bs-toggle="modal" data-bs-target="#ModalRelatedArticles">
+											<span class="material-icons-outlined">
+												article
+											</span>
+										</a>
+									</li>
+								</ul>
+
+							</li>
+						</ul>
+					</div>
+
+                    
+				</div>
+			</div>
+		</div>
+
+
+        <!-- MOdal Figuras e tabelas -->        
+        <div class="modal fade" tabindex="-1" id="ModalTablesFigures">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Figuras e Tabelas</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <p>Texto do modal teste.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOdal Versões e traduções -->        
+        <div class="modal fade" tabindex="-1" id="ModalVersionsTranslations">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Versões e Traduções</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <p>Texto do modal teste.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOdal How to cite -->        
+        <div class="modal fade" tabindex="-1" id="ModalHowcite">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">How to cite</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <p>Texto do modal teste.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOdal Articles -->        
+        <div class="modal fade" tabindex="-1" id="ModalRelatedArticles">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Articles</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <p>Texto do modal teste.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOdal ModalDownloads -->        
+        <div class="modal fade" tabindex="-1" id="ModalDownloads">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Downloads</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <p>Texto do modal teste.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOdal metric_modal_id -->        
+        <div class="modal fade" tabindex="-1" id="metric_modal_id">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Métricas</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <p>Texto do modal teste.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+		
+		
+		<script>
+            document.addEventListener("DOMContentLoaded", function() {
+
+                // Inicializar todos os tooltips
+                const tooltipTriggers = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+                tooltipTriggers.forEach(trigger => {
+
+                    if (!isTouchDevice()) {
+                        new bootstrap.Tooltip(trigger);
+                    }
+                    
+                });
+        
+                // Configurar o comportamento dos modais
+                tooltipTriggers.forEach(link => {
+                    link.addEventListener("click", function(event) {
+                        event.preventDefault(); // Prevenir o comportamento padrão do link
+        
+                        const modalTarget = document.querySelector(this.getAttribute("data-bs-target"));
+                        if (modalTarget) {
+                            const modal = new bootstrap.Modal(modalTarget);
+                            modal.show();
+                        }
+                    });
+                });
+        
+                
+            });
+
+
+            // Seleciona os elementos principais
+            const btnOpen = document.querySelector('.fm-button-main');
+            const btnClose = document.querySelector('.fm-button-close');
+            const fmListDesktop = document.querySelector('.fm-list-desktop');
+            const fmListMobile = document.querySelector('.fm-list-mobile');
+
+            
+            function isTouchDevice() {
+                return window.matchMedia('(pointer: coarse)').matches;
+            }
+
+            function isMouseDevice() {
+                return window.matchMedia('(pointer: fine)').matches;
+            }
+
+
+            // Função para verificar e remover tooltips visíveis
+            function removerTooltipsVisiveis() {
+                const fmListItems = document.querySelectorAll('.fm-list-desktop li a[data-bs-toggle="tooltip"]');
+                fmListItems.forEach((item) => {
+                    const tooltipInstance = bootstrap.Tooltip.getInstance(item); // Verifica se o tooltip existe
+                    if (tooltipInstance) {
+                        tooltipInstance.hide(); // Esconde o tooltip
+                        tooltipInstance.dispose(); // Remove o tooltip
+                    }
+                });
+            }
+
+
+
+    
+            // Função para aplicar transformações
+            function aplicarTransformacoes() {
+
+                //const isMobile = window.matchMedia('(max-width: 1199px)').matches;
+                const isMobile = isTouchDevice();
+                
+    
+                const fmListItems = Array.from(
+                    document.querySelectorAll(isMobile ? '.fm-list-mobile li' : '.fm-list-desktop li')
+                ).filter(item => {
+                    const fmList = item.closest(isMobile ? '.fm-list-mobile' : '.fm-list-desktop');
+                    return fmList && window.getComputedStyle(fmList).display !== 'none';
+                });
+    
+                fmListItems.forEach((item, index) => {
+                    const link = item.querySelector('a');
+                    if (link) {
+                        link.style.display = 'block';
+                        link.style.opacity = '0';
+                        link.style.transition = 'opacity 0.3s ease';
+    
+                        requestAnimationFrame(() => {
+                            link.style.opacity = '1';
+                        });
+                    }
+    
+                    const pos = (index + 1) * 47;
+                    item.style.transform = isMobile ? `translateY(-${pos}px)` : `translateX(${pos}px)`;
+                    item.style.transition = 'transform 0.3s ease';
+                });
+                
+    
+            }
+    
+            // Função para resetar transformações
+            function resetarTransformacoes() {
+                // Verifica se está no mobile
+                //const isMobile = window.matchMedia('(max-width: 1199px)').matches;
+                const isMobile = isTouchDevice();
+
+                // Seleciona os itens da lista com base no contexto (mobile ou desktop)
+                const fmListItems = Array.from(
+                    document.querySelectorAll(isMobile ? '.fm-list-mobile li' : '.fm-list-desktop li')
+                );
+
+                // Itera sobre os itens da lista e aplica os ajustes
+                fmListItems.forEach((item, index) => {
+                    const link = item.querySelector('a');
+
+                    if (link) {
+                        link.style.opacity = '0'; // Ajusta a opacidade
+                        link.style.transition = 'opacity 0.3s ease'; // Aplica transição de opacidade
+
+                        setTimeout(() => {
+                            link.style.display = 'none'; // Esconde o link após a transição
+                        }, 300); // Tempo em milissegundos
+                    }
+
+                    // Reseta a transformação
+                    item.style.transform = 'translateY(0)';
+                    item.style.transition = 'transform 0.3s ease'; // Aplica transição de transformação
+                });
+            }
+
+            
+    
+            // Função para abrir a lista
+            function abrirLista() {
+                fmListMobile.style.display = 'block';
+                fmListDesktop.style.display = 'block';
+                btnClose.style.display = 'block';
+                btnOpen.style.display = 'none';
+    
+                aplicarTransformacoes();
+
+                // Se for dispositivo touch, exibir tooltips imediatamente
+                if (isTouchDevice()) {
+                   // exibirTooltipsComAtraso(400); // Atraso de 1,5 segundos antes de exibir os tooltips
+                }
+
+                
+                document.addEventListener('click', fecharAoClicarFora);
+            }
+    
+            // Função para fechar a lista
+            function fecharLista() {
+                fmListMobile.style.display = 'none';
+                fmListDesktop.style.display = 'none';
+                btnClose.style.display = 'none';
+                btnOpen.style.display = 'block';
+
+                if (isTouchDevice()) {
+                    removerTooltipsVisiveis();
+                }
+                
+                resetarTransformacoes();
+                document.removeEventListener('click', fecharAoClicarFora);
+            }
+    
+            // Fecha o menu ao clicar fora
+            function fecharAoClicarFora(event) {
+                if (!fmListMobile.contains(event.target) && !btnOpen.contains(event.target) && !btnClose.contains(event.target)) {
+                    fecharLista();
+                }
+                if (!fmListDesktop.contains(event.target) && !btnOpen.contains(event.target) && !btnClose.contains(event.target)) {
+                    fecharLista();
+                }
+            }
+    
+            
+            // Configura os eventos para desktop e mobile
+            // Função para configurar eventos
+            function configurarEventos() {
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+                btnOpen.addEventListener('click', abrirLista);
+                btnClose.addEventListener('click', fecharLista);
+            }
+
+            // Adiciona suporte ao Enter para ativar os links
+
+            const menuItems = document.querySelectorAll('.fm-list-desktop');
+
+            menuItems.forEach(item => {
+                item.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        item.click(); // Simula um clique no botão
+                    }
+                });
+            });
+
+
+            
+            
+
+    
+            function init(){
+                // Configura eventos iniciais
+                if ((btnOpen && fmListMobile) || (btnOpen && fmListDesktop)) {
+                    
+                    configurarEventos();
+                    window.addEventListener('resize', init);
+
+                }
+
+            }
+
+            init();
+        
+           
+        </script>
+        
+
+        <script src="../../dist/js/bootstrap.bundle.min.js"></script> 
+	
+	</body>
+</html>

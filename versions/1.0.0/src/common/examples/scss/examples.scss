@@ -4,6 +4,11 @@
 .navbar {
     grid-area: brand;
 }
+@media (max-width: 767.98px) {
+    .navbar {
+        display: none;
+    }
+}
 
 .browser {
     height: 100vh;
@@ -111,6 +116,28 @@
         &:before {
             content: '/ ';
             opacity: .5;
+        }
+    }
+}
+
+.browser {
+    
+    @media (max-width: 767.98px) {
+        height: 90vh;
+            
+        grid-template-rows: 0px 0px auto;
+        grid-template-areas:    "brand"
+                                "bar"
+                                "window";
+
+    }
+
+    &__brand,
+    &__bar{
+        @media (max-width: 767.98px) {
+            
+                display: none;
+            
         }
     }
 }

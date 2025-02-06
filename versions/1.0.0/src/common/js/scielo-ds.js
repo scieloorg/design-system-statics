@@ -3,9 +3,11 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
+    /*
     if($("body.article").length) { 
         Article.Init();
     } 
+    */
 		 
 
 });    

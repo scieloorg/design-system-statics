@@ -1,11 +1,14 @@
 
-.#{$__classPrefix}__floatingMenuCtt{
+.#{$__classPrefix}__floatingMenuCttJs{
 	
 	position: fixed;
 	bottom: 30px;
+    /*left:80px;*/
 	width: auto;
 	height: auto;
 	margin: 0;
+    
+    //border: 2px solid red !important;
 
 	.material-icons-outlined{
 		vertical-align: baseline;
@@ -22,7 +25,7 @@
 }
 
 
-.#{$__classPrefix}__floatingMenu {
+.#{$__classPrefix}__floatingMenuJs {
 
 	transition: all 0.5s; 
 	box-sizing: border-box;
@@ -47,7 +50,8 @@
 	}
 	
 	.fm-button-main,
-	.fm-button-child {
+	.fm-button-child,
+    .fm-button-close {
 		display: inline-block;
 		position: relative;
 		padding: 0;
@@ -70,7 +74,8 @@
         }
 	}
 	
-	.fm-button-main {
+	.fm-button-main,
+    .fm-button-close {
 		width: 56px;
 		height: 56px;
 		z-index: 20;
@@ -86,15 +91,12 @@
 			text-align: center;
 		}
 
-		.sci-ico-floatingMenuDefault,
-		.material-icons-outlined-menu-default{
-			//outline: 1px solid lightblue;
-		}
-		.sci-ico-floatingMenuClose,
-		.material-icons-outlined-menu-close {
-			opacity: 0;
-		}
 	}
+
+    .fm-button-close{
+        background: white;
+        color: $primary;
+    }
 
 	.fm-button-child {
 		width: 40px;
@@ -130,7 +132,6 @@
 	}
 
 	.fm-list {
-		
 		position: absolute;
 		bottom: 42px;
 		width: 56px;
@@ -146,24 +147,24 @@
 			position: absolute;
 			top: 30px;
 			left: 8px;
-			display: block;
+			//display: none;
 			padding: 9px 0 2px 0;
 			margin: 0;
 			width: 50px;
 			height: auto;
-
+            list-style: none;
 			
 			@include media-breakpoint-up(sm) {
 				top: 41px;
 				left: 6px;
-
 			}
 
 			// tooltip fixo apenas para o mobile
-
 			@include media-breakpoint-only(xs) {
 				
 				a{
+                    display: none;
+
 					&:after{
 						content: attr(data-mobile-tooltip);
 						color: $tooltip-color;
@@ -218,60 +219,8 @@
 
 	}
 
-	&:hover {
-		.fm-button-main {
-			background-color: $white;
-			padding-top: 17px;
-    		padding-left: 16px;
-		}
-
-		.sci-ico-floatingMenuDefault,
-		.material-icons-outlined-menu-default {
-			opacity: 0;
-			display: none;
-		}
-
-		.sci-ico-floatingMenuClose,
-		.material-icons-outlined-menu-close {
-			opacity: 1;
-			color: $__interaction--light;
-
-			/*
-			@include __on-theme--dark {
-				color: $__interaction--dark;
-			}
-			@include __on-theme--light {
-				color: $__interaction--light;
-			}
-			*/
-		}
-	}
-
-	//animation
-	&.fm-slidein .fm-list li {
-		display: block;
-		opacity: 0;
-		transition: all 0.5s; 
-	}
-	&.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li {
-		opacity: 1;
-	}
-	
-	//FOR LOOP LESS
-	//@include generate-li-child(7);
-
-	/*
-	@mixin generate-li-child($n, $i: 1) when ($i =< $n){
-		
-		&.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(${i}) {
-			-webkit-transform: translateX(($i * 50px));
-			transform: translateX(($i * 50px)); 
-		 }
-		@include generate-li-child($n, ($i + 1));
-	}
-	*/
   
-	
+	/*
 	&.fm-slidein[data-fm-toogle="hover"]:hover .fm-list li:nth-child(1) {
 
       	-webkit-transform: translateX(50px);
@@ -337,57 +286,7 @@
 			transform: translateY(-350px);
 		}
     }
+    */
 
 }
 
-
-
-.#{$__classPrefix}__floatingMenuItem {
-	opacity: 1;
-	color: $white;	
-	background-color: $primary;
-	border-radius: 50%;
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	@include animated(.3s,all);
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);	
-
-	margin-right: 4px;
-
-	@include __on-theme--dark {
-		background: $__interaction--dark;
-		color: $__bg--dark;
-	}
-	@include __on-theme--light {
-		background: $__interaction--light;
-		color: $white;	
-	}
-
-	.glyphFloatMenu {
-		font-size: 24px;
-	}
-
-	&:hover {
-		background-color: mix($__black, $primary,15%);
-		color: $white;
-
-		@include __on-theme--dark {
-			background-color: mix($__white, $__interaction--dark,40%);
-			color: $__bg--dark;
-		}
-		@include __on-theme--light {
-			background-color: mix($__black, $primary,15%);
-			color: $white;	
-		}
-	}
-
-	/*
-	&.isCookiebarActive{
-		bottom: 50px;
-	}
-	*/
-
-}
