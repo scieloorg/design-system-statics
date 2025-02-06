@@ -1,0 +1,257 @@
+
+.#{$__classPrefix}__floatingMenuCttJs2{
+	
+	position: fixed;
+	bottom: 30px;
+    /*left:80px;*/
+	width: auto;
+	height: auto;
+	margin: 0;
+    
+    //border: 2px solid green !important;
+
+	.material-icons-outlined{
+		vertical-align: baseline;
+	}
+
+	& > a {
+
+		padding-top: 6px;
+
+		& > .material-icons-outlined{
+			//outline: 1px solid purple;
+		}
+	}
+}
+
+
+.#{$__classPrefix}__floatingMenuJs2 {
+
+	transition: all 0.5s; 
+	box-sizing: border-box;
+	z-index: 1001;
+	padding-left: 0;
+	white-space: nowrap;
+	list-style: none;
+    opacity: 1;
+	bottom: auto;
+	opacity: 1;
+	margin:0;
+	display: inline-block;
+	
+	.fm-wrap {
+		padding: 0;
+		margin: 0;
+
+		@include media-breakpoint-up(sm) {
+			padding: 25px 25px 25px 0;
+			margin: -25px -25px -25px 0;
+		}
+	}
+	
+	.fm-button-main,
+	.fm-button-child,
+    .fm-button-close {
+		display: inline-block;
+		position: relative;
+		padding: 0;
+		color: #fff;
+		cursor: pointer;
+		outline: none;
+		background-color: $primary;
+		border: none;
+		border-radius: 50%;
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+		-webkit-user-drag: none;
+
+		@include __on-theme--dark {
+			background: $__interaction--dark;
+			color: $__bg--dark;
+        }
+        @include __on-theme--light {
+			background-color: $primary;
+			color: #fff;
+        }
+	}
+	
+	.fm-button-main,
+    .fm-button-close {
+		width: 56px;
+		height: 56px;
+		z-index: 20;
+		padding-top: 17px;
+    	padding-left: 16px;
+
+		.glyphFloatMenu {
+			position: absolute;
+			width: 53px;
+			height: 56px;
+			font-size: 32px;
+			line-height: 56px;
+			text-align: center;
+		}
+
+	}
+
+    .fm-button-close{
+        background: white;
+        color: $primary;
+        display: none;
+		z-index: 999;
+    }
+
+	.fm-button-child {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		@include animated(.3s,all);
+		margin-top: 1px;
+		padding-top: 6px;
+
+		.glyphFloatMenu {
+			font-size: 24px;
+		}
+
+		/* icones dentro do menu que abre */
+		.material-icons-outlined{
+			
+		} 
+
+		&:hover {
+			background-color: mix($__black,$primary,15%); // mesmo efeito hover do button primary
+
+			@include __on-theme--dark {
+				background-color: mix($__white, $__interaction--dark,40%);
+				color: $__bg--dark;
+			}
+			@include __on-theme--light {
+				background-color: mix($__black, $primary,15%);
+				color: $white;	
+			}
+		}
+	}
+
+	.fm-list-desktop,
+    .fm-list-mobile {
+		position: absolute;
+		bottom: 42px;
+		width: 56px;
+		min-height: 56px;
+		margin: 0;
+		
+		li {
+			position: absolute;
+			box-sizing: border-box;
+			padding: 9px 0 2px 0;
+			margin: 0;
+			width: 50px;
+			height: auto;
+            list-style: none;
+
+            a{
+                display: none; 
+            }
+            
+		}
+	}
+}
+
+.fm-list-mobile{
+   // outline: 2px solid red;
+    padding: 8px;
+	margin-bottom: 7px !important;
+	margin-left: 2px !important;
+
+    li{
+		top: 39px;
+		left: 6px;
+
+        // tooltip fixo apenas para o mobile
+			a{
+                
+                &:after{
+                    content: attr(data-mobile-tooltip);
+                    color: $tooltip-color;
+                    //background: rgba($tooltip-bg, $tooltip-opacity);
+                    background: #333;
+                    position: absolute;
+                    margin-left: 16px;
+                    display: inline-block;
+                    width: auto;
+                    height: auto;
+                    text-align: left;
+                    padding: 5px;
+                    line-height: 100%;
+                    border-radius: 4px;
+                    //font-size: $tooltip-font-size;
+                    font-size: .75rem;
+                    margin-top: 3px;
+
+                    @include __on-theme--dark {
+                        background: $__bg--light;
+                        color: $__bg--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        background: $__bg--dark;
+                        color: $__white;
+                    }
+                }
+                &:before{
+                    content: '';
+                    border-right: 4px solid #333;
+                    border-left: 4px solid transparent;
+                    border-top: 4px solid transparent;
+                    border-bottom: 4px solid transparent;
+                    margin-left: 13px;
+                    margin-top: 10px;
+                    position: absolute;
+                    margin-left: 32px;
+
+                    @include __on-theme--dark {
+                        border-right: 4px solid $__bg--light;
+                    }
+                
+                    @include __on-theme--light {
+                        border-right: 4px solid  $__bg--dark;
+                    }
+                    
+                }
+            }
+    }
+}
+.fm-list-desktop{
+    //outline: 2px solid purple;
+	margin-left: 15px !important;
+
+    li{
+        display: inline;
+		top: 38px;
+		left: 6px;
+
+		position: absolute;
+		box-sizing: border-box;
+		padding: 2px 2px !important;
+		margin: 0;
+		width: 40px !important;
+		height: auto;
+		list-style: none;
+		margin-top: 10px !important;
+		//margin-right: 4px !important;
+		outline: 0px solid red;
+		left: 0 !important; 
+
+        a{
+            &::after{
+                content: '';
+                display: none;
+            }
+            &::before{
+                content: '';
+                display: none;
+            }
+        }
+
+    }
+}

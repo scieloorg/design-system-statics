@@ -410,6 +410,8 @@ var Article = {
 
 	    $("ul.floatingMenuMobile").on('focusout click', function(e) {
 
+			console.log("entrei na função");
+
 	    	if(isFloatingMenuMobileClosed) { // Open menu
 
 	    		if(e.type === 'focusout') {
