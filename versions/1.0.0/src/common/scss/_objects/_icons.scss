@@ -1,2 +1,51 @@
 // @import "../../assets/font/icon"
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+@font-face {
+    font-family: 'scielo-social-network';
+    src:  url('../fonts/scielo-social-network.eot?dhp6e8');
+    src:  url('../fonts/scielo-social-network.eot?dhp6e8#iefix') format('embedded-opentype'),
+      url('../fonts/scielo-social-network.ttf?dhp6e8') format('truetype'),
+      url('../fonts/scielo-social-network.woff?dhp6e8') format('woff'),
+      url('../fonts/scielo-social-network.svg?dhp6e8#scielo-social-network') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'scielo-social-network' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal; 
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-bluesky:before {
+    content: "\e900";
+    color: #616060;
+  }
+  .icon-mastodon:before {
+    content: "\e901";
+    color: #616060;
+  }
+  .icon-linkedin:before {
+    content: "\e902";
+    color: #616060;
+  }
+  .icon-facebook:before {
+    content: "\e903";
+    color: #616060;
+  }
+  .icon-youtube:before {
+    content: "\e904";
+    color: #616060;
+  }
+   
