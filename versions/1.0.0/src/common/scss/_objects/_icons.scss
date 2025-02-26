@@ -48,4 +48,21 @@
     content: "\e904";
     color: #616060;
   }
-   
+
+  .#{$__classPrefix}__social-network-links{
+    a{
+      text-decoration: none;
+
+      &:hover{
+
+        [class^="icon-"], [class*=" icon-"] {
+          
+          &::before{
+            color: $__interaction--light;
+          }
+          
+        }
+
+      }
+    }
+  }
