@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-br" class="example">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+        <link href="../../examples/examples.css" rel="stylesheet">
+    </head>
+<body>
+
+    
+   
+    <div class="container">
+        
+        <div class="row">
+            <div class="col">
+                
+                <details class="scielo__accessibleMenu">
+                    <summary>
+                        <span class="menu-icon"></span>
+                        <span>Menu</span>
+                    </summary>
+                    <nav>
+                        <ul>
+                          <li class="logo">
+                            <div class="scielo__logo-scielo--small"></div>
+                          </li>
+                          <li>
+                            <a href="{{ url_for('.index') }}">
+                              <strong>{{ coll_macro.get_collection_name() }}</strong>
+                            </a>
+                            <ul>
+                                <li>
+                                  <a href="{{ url_for('.collection_list') }}?status=current" class="tab_link">
+                                    Lista alfabética de periódicos
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="{{ url_for('.collection_list_thematic') }}?status=current" class="tab_link">
+                                    Lista temática de periódicos
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="{{ config.URL_SEARCH }}?q=*&lang={% if session.lang %}{{ session.lang[:2] }}{% endif %}&filter[in][]={{config.OPAC_COLLECTION}}">
+                                    Busca
+                                  </a>
+                                </li>
+                                <li>
+                                  <a target="_blank" href="{{ config.METRICS_URL }}/?collection={{ config.OPAC_COLLECTION }}">
+                                    Métricas
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="{{ url_for('.about_collection') }}">
+                                    Sobre: {{ coll_macro.get_collection_name() }}
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="{{ url_for('.about_collection') }}">
+                                    Contatos
+                                  </a>
+                                </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <strong>SciELO.org - Rede SciELO</strong>
+                            </a>
+                            <ul>
+                              <li>
+                                <a target="_blank" href="{{ config.URL_SCIELO_ORG }}">
+                                  Coleções nacionais e temáticas
+                                </a>
+                              </li>
+                              <li>
+                                <a target="_blank" href="{{ config.URL_SCIELO_ORG }}{{ g.scielo_org.journals_by_title }}">
+                                    Lista alfabética de periódicos
+                                </a>
+                              </li>
+                              <li>
+                                <a target="_blank" href="{{ config.URL_SCIELO_ORG }}{{ g.scielo_org.journals_by_subject }}">
+                                    Lista de periódicos por assunto
+                                </a>
+                              </li>
+                              <li>
+                                <a target="_blank" href="{{ config.URL_SEARCH }}">
+                                  Busca
+                                </a>
+                              </li>
+                              <li>
+                                <a target="_blank" href="{{ config.METRICS_URL }}">
+                                  Métricas
+                                </a>
+                              </li>
+                              <li>
+                                <a target="_blank" href="{{ config.URL_SCIELO_ORG }}{{ g.scielo_org.oai_and_rss }}">
+                                    Acesso OAI e RSS
+                                </a>
+                              </li>
+                              <li>
+                                <a target="_blank" href="{{ config.URL_SCIELO_ORG }}{{ g.scielo_org.about_network }}">
+                                    Sobre a Rede SciELO
+                                </a>
+                              </li>
+                              <li>
+                                <a target="_blank" href="{{ config.URL_SCIELO_ORG }}{{ g.scielo_org.contact }}">
+                                  Contatos
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                              <a target="_blank" href="{{ config.URL_BLOG_SCIELO }}/{{ session.lang }}/">
+                                <strong>Blog SciELO em Perspectiva</strong>
+                              </a>
+                          </li>
+                        </ul>
+                    </nav>
+                </details>
+            
+                
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      document.addEventListener("click", function(event) {
+          const details = document.querySelector(".scielo__accessibleMenu");
+
+          if (details && details.hasAttribute("open") && !details.contains(event.target)) {
+              details.open = false; // Fecha o menu
+          }
+      });
+
+
+
+  </script>
+    
+</body>
+</html>
+ 

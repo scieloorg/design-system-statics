@@ -109,6 +109,11 @@
             box-shadow: 0 0 0 __remcalc(2) $__focus--primary;
             outline: none;
         }
+
+        &:focus-visible{
+            outline: 3px solid $__interaction--light;
+            outline-offset: 2px;
+        }
     
         &:focus:active {
             box-shadow: 0 0 0 __remcalc(4) $__focus--primary;
@@ -127,8 +132,13 @@
             box-shadow: 0 0 0 __remcalc(2) $__focus--secondary;
             outline: none;
         }
+
+        &:focus-visible{
+            outline: 3px solid $__interaction--light;
+            outline-offset: 2px;
+        }
     
-        &:focus:active {
+        &:active {
             box-shadow: 0 0 0 __remcalc(4) $__focus--secondary;
         }
         
@@ -144,6 +154,11 @@
         &:focus {
             box-shadow: 0 0 0 __remcalc(2) $__focus--success;
             outline: none;
+        }
+
+        &:focus-visible{
+            outline: 3px solid $__interaction--light;
+            outline-offset: 2px;
         }
     
         &:focus:active {
@@ -163,6 +178,11 @@
             box-shadow: 0 0 0 __remcalc(2) $__focus--warning;
             outline: none;
         }
+
+        &:focus-visible{
+            outline: 3px solid $__interaction--light;
+            outline-offset: 2px;
+        }
     
         &:focus:active {
             box-shadow: 0 0 0 __remcalc(4) $__focus--warning;
@@ -181,6 +201,11 @@
             box-shadow: 0 0 0 __remcalc(2) $__focus--info;
             outline: none;
         }
+
+        &:focus-visible{
+            outline: 3px solid $__interaction--light;
+            outline-offset: 2px;
+        }
     
         &:focus:active {
             box-shadow: 0 0 0 __remcalc(4) $__focus--info;
@@ -198,6 +223,11 @@
         &:focus {
             box-shadow: 0 0 0 __remcalc(2) $__focus--alert;
             outline: none;
+        }
+
+        &:focus-visible{
+            outline: 3px solid $__interaction--light;
+            outline-offset: 2px;
         }
     
         &:focus:active {
@@ -228,6 +258,11 @@
     &:focus {
         background-color: $bg--light;
         color: $text--light;
+    }
+
+    &:focus-visible{
+        outline: 3px solid $__interaction--light;
+        outline-offset: 2px;
     }
 
     @if $type == disable {

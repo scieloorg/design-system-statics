@@ -683,3 +683,144 @@ novo css do menu
 .scielo-ico-menu-opened{
     display: none;
 }
+
+
+/* Menu acessível - arquivável - não dependende de JS */
+
+.#{$__classPrefix}__accessibleMenu{
+    
+    position:absolute;
+    z-index:9;
+    top:20px;
+
+    /* Botão do menu */
+    summary {
+        cursor: pointer;
+        font-size: 1.2rem;
+        background: $__white;
+        color: $__text--light;
+        padding: 2px 4px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 110px;
+        min-height: 32px;
+        justify-content: center;
+        transition: background 0.3s ease-in-out;
+        border: 1px solid $__border--light;
+
+        span{
+            font-size: 1rem;
+        }
+
+        /* Ícone do menu */
+        .menu-icon {
+            display: inline-block;
+            width: 16px;
+            height: 2px;
+            background: $__text--light;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-icon::before,
+        .menu-icon::after {
+            content: "";
+            width: 16px;
+            height: 2px;
+            background: $__text--light;
+            position: absolute;
+            left: 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-icon::before {
+            top: -6px;
+        }
+
+        .menu-icon::after {
+            top: 6px;
+        }
+    }
+
+    &[open]{
+        summary{
+            background-color: $__bg__gray--1;
+        }
+    }
+
+    /* Ícone transformando em X */
+    &[open] .menu-icon {
+        background: transparent;
+    }
+
+    &[open] .menu-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    &[open] .menu-icon::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    &[open] nav {
+        opacity: 1;
+        max-height: 750px; /* Ajuste conforme o tamanho do menu */
+    }
+
+    /* Estilo do menu */
+    nav {
+        background: $__white;
+        padding: .5rem 0;
+        margin-top: 2px;
+        width: 280px;
+        border-radius: 5px;
+        border: 1px solid $__border--light;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+        box-shadow: 0 0 7px rgba(0,0,0,.1);
+
+        
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 5px 0;
+
+                &.logo{
+                    text-align: center;
+                    padding-top: 1rem;
+                }
+
+                a {
+                    text-decoration: none;
+                    padding: .25rem 1rem;
+                    display: block;
+                    color: $__text__emphasis--light;
+
+                   &:hover,
+                   &:focus-visible{
+                       background-color: $__bg__gray--1;
+                       color: $__interaction--light;
+
+                       strong{
+                        color: $__interaction--light;
+                       }
+                   }
+                   
+                   strong{
+                       color: $__text__emphasis--light;
+                   }
+                }
+            }
+        }
+    }
+}
+
