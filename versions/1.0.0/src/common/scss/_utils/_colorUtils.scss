@@ -16,6 +16,15 @@
             color: $__text__emphasis--dark !important;
         }
     }
+    &__subtle {
+        &--light {
+            color: $__text__subtle--light !important;
+        }
+
+        &--dark {
+            color: $__text__subtle--dark !important;
+        }
+    }
 
     &__menu {
         &--light {
