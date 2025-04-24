@@ -5,22 +5,7 @@
 @import "../../common/scss/itcssImports/mixins";
 
 
-
-
-
  .article {
-
-	//lista de referencias do corpo do artigo que deve ser exibida somente em modo leitura do firefox.
-	/*
-	.articleReadOnlyReferences{
-		display: none;
-	}
-	.ref sup{
-		display: none;
-	}
-	*/
-
-
 
 	.zindexFix {
 		z-index: 98 !important;
@@ -977,7 +962,6 @@
 		    font-size: .85em;
 		    margin: 0;
 		    font-weight: normal;
-		    //color: #a7a49e;
 		    padding: 10px 0 0px;
 		    text-align: center;
 		    min-height: 35px;
@@ -995,17 +979,15 @@
 
 			._articleBadge{
 				font-weight: bold;
-				opacity: .88;
+				opacity: 1;
 			}
 			.group-doi{
 				white-space: nowrap;
 				display:inline-block;
 			}
 			._doi{
-				//color: #6789d3;
                 color: $__interaction--light;
 
-				//@include media-breakpoint-only(xs) {
 				@include __breakpoint--xsmall-only() {
 					display: table;
 					white-space: pre-wrap;
@@ -1028,13 +1010,6 @@
 
 
 		.article-title {
-			/*
-			font-size: 2.571em; //36px (body 14px)
-			text-align: center;
-			margin-top: 0;
-			letter-spacing: -0.025em;
-			*/
-			
 			text-align: center;
 
 			@include __breakpoint--xsmall-only() {
@@ -1089,12 +1064,6 @@
 			.ref {
 				.opened {
 					margin-top: 2.4em;
-
-                    /*
-					@media $onlyMobile {
-						margin: 0;
-					}
-                    */
 				}
 
 				&.footnote {
@@ -1106,7 +1075,6 @@
 						&.opened {
 							text-align: left;
 							font-weight: normal;
-							//font-size: 13px;
 							font-size: 18px;
 							letter-spacing: inherit;
 
@@ -1130,15 +1098,10 @@
 		}
 
 		h2.article-title {
-			//font-size: 1.8em;
 			font-weight: normal;
-			//padding: 10px 0;
-			//margin-bottom: 0;
 		}
 
 		h2 {
-			//color: $DarkBlue;
-			//font-size: 1.2em;
 		}
 
 		.article-correction-title {
@@ -1173,14 +1136,12 @@
 				&:before {
 					content: '\00bb';
 					font-weight: bold;
-					//color: $Blue;
 					position: absolute;
 					left: 0;
 				}
 			}
 
 			a {
-				//color: $Blue;
 				font-weight: bold;
 
 				&:hover {
@@ -1195,8 +1156,6 @@
 
 			.article-title {
 				text-align: left;
-				//margin: 14px 0 20px;
-				//font-size: 2em;
 
 				@include __breakpoint--xsmall-only() {
 					@include __text__title--3;
@@ -1242,13 +1201,10 @@
 		}
 		.btn.primary {
 			background: #fff;
-			//border: 1px solid lighten($Blue,20%);
-			//color: $Blue;
 			font-size: 1.1em;
 			padding: 10px 15px;
 
 			&:hover {
-				//background: $Blue;
 				color: #fff;
 			}
 		}
@@ -1270,7 +1226,6 @@
 			margin: 0 0 15px;
 			padding: 0;
 
-			//quebra linha de link
 			overflow-wrap: break-word;
 			word-wrap: break-word;
 			-ms-word-break: break-all;
@@ -1279,7 +1234,6 @@
 			-ms-hyphens: auto;
 			-moz-hyphens: auto;
 			-webkit-hyphens: auto;
-			//hyphens: auto;
 		}
 
 		.articleReferral {
@@ -1291,7 +1245,6 @@
 			border: 1px solid #f3f2e4;
 			vertical-align: middle;
 			min-height: 168px;
-			//@include border-box;
 
 			.arText {
 				padding-left: 25px;
@@ -1336,44 +1289,12 @@
 		}
 	}
 
-    /*
-	.floatingMenuCtt{
-		overflow: hidden;
-		height: 130px;
-		margin-top: -190px;
-		margin-bottom:150px;
-		margin-left: -150px;
-		display:inline-block;
-
-		position: absolute;
-		z-index: 1010;
-
-		margin-left: 0;
-		display: block;
-		width:100%;
-		left:0;
-
-		
-	    &.smallerViewPort{
-	    	margin-left: 0;
-	    }
-	    
-
-	}
-    */
-
 	.articleMenu {
 		position: absolute;
 		margin: 25px 0 90px 0;
 		padding: 0 15px 0 0;
 		font-size: .85em;
-        //display: none;
-
-        /*
-        @include media-breakpoint-up(md) {
-            display: block;  
-        }
-        */
+       
 
 		&.fixed {
 			position: fixed;
@@ -1396,7 +1317,6 @@
 				width: 12px;
 				text-align: center;
 				margin-left: -17px;
-				//color: #aba8a3;
 				vertical-align: middle;
 				margin-bottom: 5px;
 
@@ -1422,11 +1342,9 @@
 				}
 
 				a{
-					//color: $Blue;
 					.circle{
 						width: 20px;
 						height: 20px;
-						//background: $Blue;
 						display: inline-block;
 						color: #fff;
 						border-radius:100px;
@@ -1439,7 +1357,6 @@
 
 		}
 		a {
-			//color: #aba8a3;
 			display: inline-block;
 			width: 100%;
 			white-space: nowrap;
@@ -1448,11 +1365,8 @@
 			vertical-align: middle;
 			margin-bottom: 5px;
             text-decoration: none;
-
             color: $__text__subtle--light;
-
 			text-transform: lowercase !important;
-
 
             @include __on-theme--dark {
                 color: $__text__subtle--dark;
@@ -1481,11 +1395,7 @@
 
 		li.selected {
 			&:before, & > a {
-				//color: #738390;
 				font-weight: bold;
-
-                //color: red;
-
                 color: $__text__emphasis--light;
 
                 @include __on-theme--dark {
@@ -1498,8 +1408,6 @@
 			}
 
 			li:before, li a {
-				//color: #aba8a3;
-                //color: blue;
                 color: $__text__emphasis--light;
 
                 @include __on-theme--dark {
@@ -1533,12 +1441,8 @@
 		a {
 			border: 1px solid #ddd;
 			background: #fff;
-			//color: $DarkBlue;
 
 			&:hover {
-				//color: $Blue;
-				//background: $LightGray;
-
                 background: $__bg__gray--1;
 
                 @include __on-theme--dark {
@@ -1578,9 +1482,7 @@
 		margin: 20px 0;
 
 		.container-license {
-			//background: #f2f1ee;
 			font-size: .8em;
-			//color: #6d6d6b;
 			padding: 25px;
 			width:100%;
 
@@ -1605,10 +1507,8 @@
 				}
 			}
 			a{
-				//color: $Gray;
 				cursor: pointer;
 				display: inline-block;
-				//text-decoration: none;
 			}
 		}
 		img {
@@ -1636,7 +1536,6 @@
 			position: relative;
 			display: block;
 			background: url(../img/dashline.png) bottom left repeat-x;
-			//color: $DarkBlue;
 			padding: 7px 2px;
 
 			.collapseIcon {
@@ -1645,7 +1544,6 @@
 			}
 			&:active, &:focus {
 				text-decoration: none;
-				//color: $Blue;
 			}
 		}
 	}
@@ -1654,20 +1552,6 @@
 		background: #f7f6f5;
 		font-size: .9em;
 		padding: 15px;
-		//color: #00e;
-
-        /*
-        color: $__interaction--light;
-
-        @include __on-theme--dark {
-            color: $__interaction--dark;
-        }
-    
-        @include __on-theme--light {
-            color: $__interaction--light;
-        } 
-        */
-
 
 		ul {
 			margin: 0 0 0 0;
@@ -1708,19 +1592,7 @@
 
 
 		a {
-			//color: #00e;
-
-            /*
-            color: $__interaction--light;
-
-            @include __on-theme--dark {
-                color: $__interaction--dark;
-            }
-
-            @include __on-theme--light {
-                color: $__interaction--light;
-            } 
-            */
+			
 		}
 	}
 
@@ -1736,7 +1608,6 @@
 		span {
 			display: inline-block;
 			padding: 5px 10px;
-			//color: $Gray;
 			margin: 0 0 15px 0;
 			border-radius: 4px;
 			position: relative;
@@ -1748,7 +1619,6 @@
 				left: 0;
 				right: 0;
 				bottom: 0;
-				//border-bottom: 2px solid $Gray;
 			}
 
 		}
@@ -1776,7 +1646,6 @@
 
 #translateArticleModal {
 	.modal-body {
-		//background: $LightGray;
 		font-size: .9em;
 
         background: $__bg__gray--1;
@@ -1833,7 +1702,6 @@
 		.big {
 			font-size: 2em;
 			font-weight: normal;
-			//color: $Blue;
 		}
 		table {
 			th,td {
@@ -1851,7 +1719,6 @@
 	}
 
 	.fig, .table {
-		//font-size: 13px;
 		margin-top: 10px;
 		margin-bottom: 40px;
 		position: relative;
@@ -1868,8 +1735,6 @@
 
 		.thumb,
 		.thumbOff {
-			//@include border-box;
-			//border: 4px solid #e5e4e3;
 			height: 160px;
 			background-size: 100% auto;
 			text-indent: -5000px;
@@ -1896,19 +1761,13 @@
 				position: absolute;
 				bottom: 10px;
 				right: 10px;
-				//background-color: $Blue;
-				//@include radius(4px);
-                
                 border-radius: 4px;
-				//color: #fff;
 				font-size: 24px;
 				text-align: center;
 				width: 30px;
 				height: 30px;
 				line-height: 30px;
-
 				text-indent: 0;
-
                 background-color: $__interaction--light;
                 color: $__white;
 
@@ -1922,33 +1781,30 @@
                     color: $__white;
                 }
 
-
 			}
 		}
 
 		.thumbOff {
-			//font-family: 'scielo-glyphs' !important;
             font-family: 'Material Icons Outlined' !important;
 			text-align: center;
 			line-height: 140px;
 			font-size: 100px;
-			color: #b7b4af;
-			//background: #fff;
+			color: $__text__subtle--light;
 			text-indent: 0;
 			overflow: hidden;
-
             background: $__bg--light;
             
             @include __on-theme--dark {
                 background: $__bg--dark;
+				color: $__text__subtle--dark;
             }
         
             @include __on-theme--light {
                 background: $__bg--light;
+				color: $__text__subtle--light;
             }
 
 			&:before {
-				//content: "\e918";
                 content: "table_chart";
 			}
 		}
@@ -1958,10 +1814,20 @@
 			overflow: hidden;
 			box-sizing: border-box;
 			height: 140px;
-			border: 4px solid #e5e4e3;
+			border: 4px solid $__border--light;
 			border-radius: 3px;
-			background-color: #e5e4e3;
+			background-color: $__border--light;
 			cursor: pointer;
+
+			@include __on-theme--dark {
+                border: 4px solid $__border--dark;
+				background-color: $__border--dark;
+            }
+        
+            @include __on-theme--light {
+                border: 4px solid $__border--light;
+				background-color: $__border--light;
+            }
 
 			img{
 				width: 100%;
@@ -1977,11 +1843,9 @@
 				width: 30px;
 				height: 30px;
 				border-radius: 4px;
-				//background-color: #6789d3;
 				padding: 5px;
 				display: inline-block;
 				font-size: 24px;
-				//color: white;
 				line-height: 50%;
 
                 background-color: $__interaction--light;
@@ -2066,7 +1930,6 @@
 				color: #000;
 				font-size: 1.4rem;
 				display: block;
-				// position: absolute;
 				width: auto;
 			}
 
@@ -2086,35 +1949,10 @@
 		}
 	}
 
-    /*
-	.outlineFadeLink {
-		display: inline-block;
-		padding: 5px 10px;
-		margin-left: 8px;
-		min-width: 10%;
-		color: #1b92e4;
-		font-weight: normal;
-		text-transform: uppercase;
-		text-decoration: none !important;
-		font-size: 10px;
-		border: 1px solid #e0e0df;
-		//@include radius(4px);
-	}
-    */
 }
 
 .ModalDefault {
-    /*
-	.modal-header {
-		//background: #f5f3f1;
-		//@include radius(4px);
-
-		.modal-title {
-			text-transform: uppercase;
-		}
-	}
-    */
-
+    
 	.modal-center {
 		text-align: center;
 	}
@@ -2126,37 +1964,6 @@
 
 		li {
 			margin-bottom: 4px;
-			////@include border-box;
-
-            /*
-			a {
-				display: block;
-				padding: 5px;
-				border: 1px solid #e1e7f6;
-				//@include radius(4px);
-				font-size: 0.929em;
-				//color: #6789d3;
-				clear: both;
-				white-space: nowrap;
-				//.cssAnimations .animated (.3s,all);
-				////@include border-box;
-				width: 100%;
-
-				&:hover {
-					//border-color: #6789d3;
-
-                    border-color: $__interaction--light;
-
-                    @include __on-theme--dark {
-                        border-color: $__interaction--dark;
-                    }
-
-                    @include __on-theme--light {
-                        border-color: $__interaction--light;
-                    }
-				}
-			}
-            */
 
 			&:last-child {
 				margin-bottom: 0;
@@ -2198,7 +2005,6 @@
 			padding: 0;
 
 			a {
-				//padding: 5px 0;
 				padding: 5px;
 				display: inline-block;
 				margin: 0;
@@ -2212,14 +2018,11 @@
 			}
 
 			&.active {
-				//border-bottom: 2px solid $Blue;
 
 				a {
-					//color: $Blue;
 
 					&:hover,
 					&:focus {
-						//color: $Blue;
 						border: none;
 						background: none;
 					}
@@ -2250,8 +2053,6 @@
 .ModalTutors {
 	.info {
 		padding: 28px 0;
-		//background: url(../img/dashline.png) bottom left repeat-x;
-
         border-bottom: 1px dotted $__border--light;
         
         @include __on-theme--dark {
@@ -2263,7 +2064,6 @@
         }  
 
 		&:last-child {
-			//background: none;
             border-bottom: 0;
 		}
 
@@ -2313,7 +2113,6 @@
 
 	[class^="sci-ico-file"] {
 		line-height: 40px !important;
-		//color: $Blue;
 		font-size: 40px;
 	}
 }
@@ -2376,16 +2175,6 @@
 		}
 	}
 	.link-newWindow {
-        /*
-		position: absolute;
-		right: 55px;
-		font-size: 20px;
-		top: 9px;
-		opacity: .2;
-		color: #000;
-		//.cssAnimations @include animated(.3s,all);
-        */
-
         text-decoration: none;
 
 		&:hover {
@@ -2394,7 +2183,6 @@
 	}
 
 	.modal-footer {
-		//background: $LightGray;
 		margin-top: 0;
 		text-align: left;
 
@@ -2415,7 +2203,6 @@
 		width: #{"calc(100% - 70px)"};
 	}
 	img {
-		// width: 100%;
 		float: left;
 	}
 
@@ -2530,7 +2317,6 @@
 
 .articleCtt .contribGroup .btnContribLinks,
 .ModalDefault .md-list li a {
-	//&.orcid,
 	&.lattes,
 	&.researcherid, 
 	&.scopus {
@@ -2554,363 +2340,6 @@
 	}
 }
 
-
-
-
-
-
-/*
-Ajustes para mobile
-*/
-/*
-@media $onlyMobile {
-
-	.article{
-
-		.no-gutter{
-			margin-left:0;
-			margin-right:0;
-		}
-
-		.bugherd,
-		.articleMenu{
-			display:none;
-		}
-		#flDebugToolbarHandle{
-			display:none !important;
-		}
-
-		.container{
-			min-width:auto !important;
-		}
-		.articleCtt{
-			//padding-top: 100px;
-		}
-
-		.levelMenu{
-
-			&.levelMenu-xs{
-				display: block !important;
-			}
-
-			margin-top: 50px !important;
-			height: 135px !important;
-
-			.btn-group{
-				padding-left:2px;
-
-				a{
-					width:25%;
-				}
-			}
-
-			.btn-group{
-				&.levelMenuMobileTop{
-					padding-left:2px;
-
-					a{
-						width:25%;
-					}
-				}
-				&.levelMenuMobileBottom{
-					padding-left:2px;
-					margin-top: -1px;
-
-					a{
-						width:50%;
-						height:38px;
-
-						&:first-child{
-							width:25%;
-						}
-						&:last-child{
-							width:25%;
-							margin-left:-2px;
-						}
-					}
-				}
-
-			}
-		}
-
-		.articleCtt .articleTxt .articleBadge-editionMeta-doi-copyLink .group-doi{
-			white-space: normal;
-			margin-top: 10px;
-			display:block;
-		}
-		.articleCtt .copyLink{
-			display: block;
-	    	margin: 10px auto;
-	    	max-width: 90px;
-		}
-		.articleCtt .contribGroup .dropdown .dropdown-toggle{
-			white-space: normal;
-		}
-		.articleCtt .articleTxt .articleSectionTitle,
-		.articleCtt .articleTxt h2,
-		.articleCtt .contribGroup
-		{
-			font-size: auto;
-		}
-		.articleCtt .contribGroup {
-			font-size: 1em !important;
-
-			.dropdown{
-				display: block;
-			}
-		}
-		.articleCtt .articleTimeline li{
-			width: auto;
-			display: block;
-		}
-		.floatingBtnError{
-			display:none;
-		}
-
-		.floatingMenuMobile{
-			left: 5px;
-			margin: 0;
-			bottom: 40px;
-
-			&.isCookiebarActive{
-				bottom: 120px;
-			}
-
-			@media (orientation : landscape) {
-				bottom: 5px;
-
-				&.isCookiebarActive{
-					bottom: 70px;
-				}
-			}
-		}
-
-		.partners img{
-			margin: 10px;
-		}
-		.collectionSignature{
-
-			div{
-				width: 100%;
-				text-align: center;
-			}
-
-		}
-		.collectionSignature{
-			padding: 0 30px;
-			text-align: center;
-
-			.logo-svg-footer{
-				display: inline-block;
-			}
-		}
-		.articleCtt .articleTxt{
-			padding: 0 50px 10px;
-		}
-		.articleCtt .documentLicense .container-license{
-			text-align: center;
-			padding: 25px 25px 10px;
-
-			a{
-				margin: 0 0 15px;
-			}
-		}
-
-		h1.article-title{
-			font-size:1.8em !important;
-		}
-		h2.article-title{
-			font-size:1.5em !important;
-		}
-
-		.journalAddress{
-			text-align: center;
-			width: 100%;
-
-			div{
-				width:100%;
-			}
-			.pin{
-				margin-bottom: 15px;
-			}
-		}
-
-		.journalLinks{
-			text-align: center;
-			width: 100%;
-
-			a {
-				display: block;
-				margin: 25px 0 0 0;
-			}
-		}
-
-		.articleCtt .articleTxt .article-title .short-link{
-			visibility: visible;
-		}
-		.article .refList li{
-			padding: 8px 7px 14px;
-		}
-		.article .ref {
-			position: static;
-
-			.opened{
-				width: auto;
-				padding: 10px;
-				max-width:350px;
-
-				@media (orientation : landscape) {
-					left: auto !important;
-				}
-			}
-		}
-		.article .ref-list .refList div{
-			word-break: break-word;
-		}
-
-		h2.logo-svg-mini {
-
-			margin-top: 10px;
-			margin-left: -25px;
-
-			a {
-			    width: 58px;
-			    height: 50px;
-			    display: block;
-			    background: url(../img/logo-scielo-svg.svg) center center no-repeat;
-			    background-size: 95%;
-			    background-position-y: -5px;
-			}
-		}
-
-		.language{
-
-			@media (orientation : landscape) {
-				position: absolute;
-				right: -85px;
-			}
-
-			a {
-				display: block;
-				position: static !important;
-				display: block;
-				width:auto;
-
-
-				&:nth-child(1){
-					margin: 18px 0 0 15px !important;
-				}
-				&:nth-child(2){
-					margin: 10px 0 0 15px !important;
-					background-position-x: 0px;
-				}
-
-				&.lang-es{
-					//background-position: 1px -2px;
-				}
-			}
-		}
-
-
-		.journalNameMobile{
-			padding: 1rem;
-			background: rgba(0,0,0,0.05);
-
-			text-align: center;
-
-			&.open{
-				ul{
-					.JournalMenuMobile{
-						padding: 0;
-						margin-top: 1rem;
-
-						li{
-							a{
-								display: block;
-								padding: @include 5rem;
-								text-align: left;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		@media (orientation : landscape) {
-			.alternativeHeader{
-				.mainMenu{
-					max-height: 360px;
-					overflow-y: auto;
-				}
-			}
-		}
-
-		.alternativeHeader{
-			&.alternativeHeader-xs{
-				display: block !important;
-			}
-			.truncate{
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				max-width: 315px;
-				display: inline-block;
-			}
-			.sci-ico-arrowDown{
-				display: inline-block;
-    			margin: -10px 0 0 0;
-			}
-		}
-
-		.alternativeHeader .dropdown-menu{
-			margin: -5px 10px 0 10px;
-	    	border-color: rgba(0,0,0,.15);
-	    	width: auto;
-
-	    	@media (orientation : landscape) {
-
-				width: 300px;
-				left: 50%;
-				margin-left:-150px;
-
-			}
-
-	    	a{
-	    		img{
-
-	    			@media (orientation : landscape) {
-
-						width: auto;
-						max-height: 50px;
-
-					}
-	    		}
-	    	}
-		}
-
-		.menu-share-mobile{
-			right: 3px;
-	    	left: auto;
-	    	top: 35px;
-
-	    	@media (orientation : landscape) {
-	    		z-index: 998;
-	    	}
-		}
-
-		.tooltip-mobile-on{
-			&:after{
-				content:"";
-			}
-		}
-
-
-	}
-
-
-}
-
-*/
 
 /** Article container
 *************************************/
@@ -2939,12 +2368,6 @@ Ajustes para mobile
 			padding-left: 16px !important;
 			padding-right: 16px !important;
 
-            /*
-			@media $minDesktop {
-				padding-left: 32px !important;
-				padding-right: 32px !important;
-			}
-            */
 		}
 
 		&:hover{
@@ -2971,11 +2394,7 @@ Ajustes para mobile
 		}
 
 		&.menu-share-mobile{
-            /*
-			@media $onlyTablet {
-				left: auto;
-			}
-            */
+            
 		}
 
 
@@ -3007,16 +2426,6 @@ Ajustes para mobile
 					display: inline-block;
 					width: 70%;
 				}
-
-                /*
-				@media $onlyMobile {
-					.caret{
-						position: absolute;
-						right: 10px;
-						top: 17px;
-					}
-				}
-                */
 
 			}
 		}
@@ -3070,35 +2479,12 @@ Ajustes para mobile
 	}
 }
  
-/*
-.xref.xrefblue{
-
-	a{
-		color: $__interaction--light;
-		//--pointer-events: none;
-		// outline: 2px solid green; 
-
-		@include __on-theme--dark {
-			color: $__interaction--dark; 
-			// outline: 2px solid red;
-		}
-
-		@include __on-theme--light {
-			color: $__interaction--light;
-			// outline: 2px solid brown;
-		} 
-
-	}
-    
-}
-*/
 .ref{
 	.xref{
 
 		a{
 			color: $__warning--light;
 			pointer-events: none; 
-			//outline: 1px solid red;
 
 			@include __on-theme--dark {
 				color: $__warning--dark; 
@@ -3160,8 +2546,7 @@ Apenas para teste fora do opac
         }
     }
 }
-/*
-*/
+
 
 h3, h4, h5:not(.modal-title), .h5{
 	margin: 25px 0 12px;
