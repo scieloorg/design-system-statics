@@ -1,0 +1,452 @@
+/*tab contents*/
+#tab-colecoes{
+	padding-bottom: 0;
+	background-color: $__bg__gray--1;
+
+	dl{
+		column-count: 1;
+		column-gap: 0;
+
+		div{
+			display: inline-block;
+		}
+
+		@media (orientation: landscape) {
+
+			@media (min-width: 485px) and (max-width: 850px) {
+
+				column-count: 2;
+				column-gap: 1.6rem;
+			}
+		}
+
+		@include media-breakpoint-up(sm) {
+			column-count: 3;
+			column-gap: 1.6rem;
+
+			@media (orientation: landscape) {
+				column-count: 4;
+				column-gap: 1.6rem;
+
+				@media (min-width: 485px) and (max-width: 850px) {
+					column-count: 2;
+					column-gap: 1.6rem;
+				}
+			}
+		}
+
+		dt,dd{
+			display: inline-block;
+			width: 100%;
+		}
+
+		dd {
+			margin-bottom: 1.5rem;
+
+			h3{
+				margin:0;
+				//font-size:1.4rem;
+				color: $__text__subtle--light;
+				text-transform: uppercase;
+			}
+		}
+		dd {
+			margin-bottom:2rem;
+			min-height: 25px;
+			position:relative;
+
+			
+
+				a{
+					display: flex;
+					align-items: center; // centraliza o texto e a bandeira
+					padding-left: 45px;
+					color: #403D39;
+					position: relative;
+					min-height: 30px;
+
+					&::before {
+						content: "";
+						background-position: center;
+						background-repeat: no-repeat;
+						display: inline-block;
+						width: 29px;
+						height: 21px;
+						position: absolute;
+						left: 10px;
+						box-shadow: 0 3px 8px 0 rgba(0,0,0,.2);
+						margin-top: 5px;
+					}
+
+					&.scielo-books,
+					&.scielo-servers-repos,
+					&.flag-generic,
+					&.flag-spa,
+					&.flag-wid{ // genericos X
+
+						&::before{
+							background-image: url('../images/ico/artigo.png');
+							box-shadow:none;
+							width:50px;
+							height:50px;
+							margin-left:-7px;
+							margin-top:-2px;
+						}
+
+						&.scielo-servers-repos-no-data,
+						&.scielo-books-no-data{
+							h4{
+								margin-top:.8rem;
+							}
+
+							&.discontinued-item {
+
+								a {
+									display: block;
+									padding-top: 4px;
+								}
+								
+							}
+						}
+					}
+
+					&.flag-sza{ //africa do sul X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20viewBox%3D%220%200%2049%2035%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%3Ctitle%3E_Flags/ZA%3C/title%3E%3Cdesc%3ECreated%20with%20Sketch.%3C/desc%3E%3Cdefs%3E%3Crect%20id%3D%22b%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22/%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cmask%20id%3D%22a%22%20fill%3D%22white%22%3E%3Cuse%20xlink%3Ahref%3D%22%23b%22/%3E%3C/mask%3E%3Cuse%20fill%3D%22%2306A86E%22%20xlink%3Ahref%3D%22%23b%22/%3E%3Cpolygon%20points%3D%220%205%2016%2018%200%2031%22%20fill%3D%22%23FFBF2E%22%20mask%3D%22url(%23a)%22/%3E%3Cpolygon%20points%3D%22-2%205%2014%2017%20-2%2029%22%20fill%3D%22%23262626%22%20mask%3D%22url(%23a)%22/%3E%3Cpolygon%20points%3D%2221.211%2014%205%200%2049%200%2049%2014%22%20fill%3D%22%23fff%22%20mask%3D%22url(%23a)%22/%3E%3Cpolygon%20points%3D%2221.197%2011%207%200%2049%200%2049%2011%22%20fill%3D%22%23F44E46%22%20mask%3D%22url(%23a)%22/%3E%3Cpolygon%20points%3D%225%2035%2049%2035%2049%2021%2021.211%2021%22%20fill%3D%22%23fff%22%20mask%3D%22url(%23a)%22/%3E%3Cpolygon%20points%3D%227%2035%2049%2035%2049%2024%2021.197%2024%22%20fill%3D%22%23072CB4%22%20mask%3D%22url(%23a)%22/%3E%3C/g%3E%3C/svg%3E") !important;
+
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-arg{ //argentina X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/AR%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22AR%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%2388BBE8%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%2388BBE8%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2223.3333333%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Ccircle%20id%3D%22Oval-1%22%20stroke%3D%22%23DB7A2C%22%20stroke-width%3D%220.666666667%22%20fill%3D%22%23F4B32E%22%20mask%3D%22url%28%23mask-2%29%22%20cx%3D%2224.5%22%20cy%3D%2217.5%22%20r%3D%223.83333333%22%3E%3C/circle%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-bol{ //bolivia X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/BO%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22BO%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Cuse%20id%3D%22Mask%22%20fill%3D%22%23FFFFFF%22%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23058C3F%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2223.3333333%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23E63426%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23FFEB1F%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2211.6666667%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-scl{ //brasil X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Ccircle%20id%3D%22path-3%22%20cx%3D%228.16666667%22%20cy%3D%228.16666667%22%20r%3D%228.16666667%22%3E%3C/circle%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/BR%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22BR%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Cuse%20id%3D%22Mask%22%20fill%3D%22%23FFFFFF%22%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3Crect%20id%3D%22Mask-Copy%22%20fill%3D%22%2305AB41%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%3E%3C/rect%3E%20%3Cpath%20d%3D%22M5.22829172%2C17.8634044%20C4.91811477%2C17.6627017%204.91743328%2C17.3377392%205.22829172%2C17.1365956%20L23.9383749%2C5.03007112%20C24.2485519%2C4.82936838%2024.7507666%2C4.82892742%2025.0616251%2C5.03007112%20L43.7717083%2C17.1365956%20C44.0818852%2C17.3372983%2044.0825667%2C17.6622608%2043.7717083%2C17.8634044%20L25.0616251%2C29.9699289%20C24.7514481%2C30.1706316%2024.2492334%2C30.1710726%2023.9383749%2C29.9699289%20L5.22829172%2C17.8634044%20Z%22%20id%3D%22Rectangle-60%22%20fill%3D%22%23FDD216%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3Cg%20id%3D%22Oval-2%22%20mask%3D%22url%28%23mask-2%29%22%3E%20%3Cg%20transform%3D%22translate%2816.333333%2C%209.333333%29%22%3E%20%3Cmask%20id%3D%22mask-4%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-3%22%3E%3C/use%3E%20%3C/mask%3E%20%3Cuse%20id%3D%22Mask%22%20stroke%3D%22none%22%20fill%3D%22%23053087%22%20fill-rule%3D%22evenodd%22%20xlink%3Ahref%3D%22%23path-3%22%3E%3C/use%3E%20%3Cpath%20d%3D%22M-1.16666667%2C6.99999999%20C6.70574707e-14%2C5.83333338%204.21777344%2C6.3790691%208.16666667%2C7.00000001%20C12.1155599%2C7.62093092%2016.3475472%2C9.34754739%2017.5%2C10.5%22%20id%3D%22Line%22%20stroke%3D%22%23FFFFFF%22%20stroke-width%3D%221.33333333%22%20fill%3D%22none%22%20stroke-linecap%3D%22square%22%20mask%3D%22url%28%23mask-4%29%22%20transform%3D%22translate%288.166667%2C%208.407346%29%20rotate%286.000000%29%20translate%28-8.166667%2C%20-8.407346%29%20%22%3E%3C/path%3E%20%3C/g%3E%20%3C/g%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-chl{ //chile X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/CL%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22CL%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23EA3B2E%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2216.3333333%22%20width%3D%2249%22%20height%3D%2218.6666667%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-83%22%20fill%3D%22%230B48C2%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2216.3333333%22%20height%3D%2216.3333333%22%3E%3C/rect%3E%20%3Cpolygon%20id%3D%22Star-8%22%20fill%3D%22%23FFFFFF%22%20mask%3D%22url%28%23mask-2%29%22%20points%3D%228.16666667%209.98666674%205.42366882%2011.9420793%206.43574374%208.72907762%203.72840292%206.72458736%207.09689746%206.69425568%208.16666667%203.5%209.23643587%206.69425568%2012.6049304%206.72458736%209.8975896%208.72907762%2010.9096645%2011.9420793%22%3E%3C/polygon%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-col{ //colombia X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cg%20id%3D%22_Flags/CO-new%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%230748AE%22%20x%3D%220%22%20y%3D%2216.3333333%22%20width%3D%2249%22%20height%3D%229.33333333%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23DE2035%22%20x%3D%220%22%20y%3D%2225.6666667%22%20width%3D%2249%22%20height%3D%229.33333333%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23FFD935%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2216.3333333%22%3E%3C/rect%3E%20%3C/g%3E%20%3C/svg%3E") !important;
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-cri{ //costa rica X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/CR%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22CR%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%2306358F%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%227%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%2306358F%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2228%22%20width%3D%2249%22%20height%3D%227%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2-Copy-4%22%20fill%3D%22%23E61F37%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2211.6666667%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-cub{ //cuba X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/CU%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22CU%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%230B389F%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%227%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%230B389F%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2214%22%20width%3D%2249%22%20height%3D%227%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%230B389F%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2228%22%20width%3D%2249%22%20height%3D%227%22%3E%3C/rect%3E%20%3Cpolygon%20id%3D%22Rectangle-83%22%20fill%3D%22%23E12A43%22%20mask%3D%22url%28%23mask-2%29%22%20points%3D%220%200%2023.3333333%2017.5%200%2035%22%3E%3C/polygon%3E%20%3Cpolygon%20id%3D%22Star-53%22%20fill%3D%22%23FFFFFF%22%20mask%3D%22url%28%23mask-2%29%22%20points%3D%228.16666667%2019.2897046%205.42366882%2021.2754126%206.46455642%2018.0530491%203.72840292%2016.0579207%207.11470468%2016.0520985%208.16666667%2012.8333333%209.21862865%2016.0520985%2012.6049304%2016.0579207%209.86877691%2018.0530491%2010.9096645%2021.2754126%22%3E%3C/polygon%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-esp{ //espanha X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/ES%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22ES%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Cuse%20id%3D%22Mask%22%20fill%3D%22%23FFFFFF%22%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23DD172C%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%229.33333333%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23DD172C%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2225.6666667%22%20width%3D%2249%22%20height%3D%229.33333333%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23FFD133%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%229.33333333%22%20width%3D%2249%22%20height%3D%2216.3333333%22%3E%3C/rect%3E%20%3Cpolygon%20id%3D%22Rectangle-139-Copy%22%20fill%3D%22%23FFEDB1%22%20mask%3D%22url%28%23mask-2%29%22%20points%3D%2212.8333333%2016.3333333%2015.1666667%2016.3333333%2015.1666667%2017.5%2012.8333333%2017.5%22%3E%3C/polygon%3E%20%3Cpath%20d%3D%22M10.304781%2C15.8101743%20L10.7210883%2C20.8058618%20C10.7681024%2C21.370031%2011.26713%2C21.8333333%2011.8247967%2C21.8333333%20L13.84187%2C21.8333333%20C14.4008181%2C21.8333333%2014.8984998%2C21.3708048%2014.9455783%2C20.8058618%20L15.3618856%2C15.8101743%20C15.3766129%2C15.6334465%2015.2547292%2C15.5%2015.0808425%2C15.5%20L10.5858242%2C15.5%20C10.4105138%2C15.5%2010.2899577%2C15.6322938%2010.304781%2C15.8101743%20Z%22%20id%3D%22Rectangle-137%22%20stroke%3D%22%23A41517%22%20stroke-width%3D%220.666666667%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3Cpolygon%20id%3D%22Rectangle-139%22%20fill%3D%22%23A41517%22%20mask%3D%22url%28%23mask-2%29%22%20points%3D%2210.5%2017.5%2015.1666667%2017.5%2015.1666667%2018.6666667%2014%2018.6666667%2012.8333333%2021%2011.6666667%2018.6666667%2010.5%2018.6666667%22%3E%3C/polygon%3E%20%3Crect%20id%3D%22Rectangle-135%22%20fill%3D%22%23A41517%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%227%22%20y%3D%2214%22%20width%3D%222.33333333%22%20height%3D%228.16666667%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-135-Copy%22%20fill%3D%22%23A41517%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%2216.3333333%22%20y%3D%2214%22%20width%3D%222.33333333%22%20height%3D%228.16666667%22%3E%3C/rect%3E%20%3Cpath%20d%3D%22M10.5%2C12.8333333%20C10.5%2C12.1890011%2011.0172454%2C11.6666667%2011.6655591%2C11.6666667%20L14.0011075%2C11.6666667%20C14.6448281%2C11.6666667%2015.1666667%2C12.184509%2015.1666667%2C12.8333333%20L15.1666667%2C13.67556%20C15.1666667%2C13.8547433%2015.0113983%2C14%2014.8310515%2C14%20L10.8356152%2C14%20C10.65026%2C14%2010.5%2C13.8469035%2010.5%2C13.67556%20L10.5%2C12.8333333%20Z%22%20id%3D%22Rectangle-138%22%20fill%3D%22%23A41517%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-mex{ //mexico X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/MX%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22MX%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Mask%22%20fill%3D%22%23E3283E%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%2232.6666667%22%20y%3D%220%22%20width%3D%2216.3333333%22%20height%3D%2235%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23128A60%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2216.3333333%22%20height%3D%2235%22%3E%3C/rect%3E%20%3Cpath%20d%3D%22M19.8333333%2C16.3333333%20C19.8333333%2C18.0584514%2020.7693997%2C19.5649394%2022.1613211%2C20.3725861%20M27.0109864%2C20.2675608%20C28.3073017%2C19.4384768%2029.1666667%2C17.9862628%2029.1666667%2C16.3333333%22%20id%3D%22Oval-5%22%20stroke%3D%22%238C9157%22%20stroke-width%3D%221.33333333%22%20stroke-linecap%3D%22round%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3Cellipse%20id%3D%22Oval-5%22%20fill%3D%22%23C59262%22%20mask%3D%22url%28%23mask-2%29%22%20cx%3D%2224.5%22%20cy%3D%2215.1666667%22%20rx%3D%222.33333333%22%20ry%3D%223.5%22%3E%3C/ellipse%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-per{ //peru X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/PE%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22PE%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Mask%22%20fill%3D%22%23E82438%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%2232.6666667%22%20y%3D%220%22%20width%3D%2216.3333333%22%20height%3D%2235%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23E82438%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2216.3333333%22%20height%3D%2235%22%3E%3C/rect%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-prt{ //portugal X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/PT%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22PT%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Cuse%20id%3D%22Mask%22%20fill%3D%22%23FFFFFF%22%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3Crect%20id%3D%22Mask-Copy%22%20fill%3D%22%23FF2936%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2-Copy%22%20fill%3D%22%23128415%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2218.6666667%22%20height%3D%2235%22%3E%3C/rect%3E%20%3Ccircle%20id%3D%22Oval-1%22%20stroke%3D%22%23FAF94F%22%20stroke-width%3D%221.33333333%22%20mask%3D%22url%28%23mask-2%29%22%20cx%3D%2218.6666667%22%20cy%3D%2217.5%22%20r%3D%225.33333333%22%3E%3C/circle%3E%20%3Cpath%20d%3D%22M16.3333333%2C14.3376245%20C16.3333333%2C14.1511597%2016.4886017%2C14%2016.6689485%2C14%20L20.6643848%2C14%20C20.84974%2C14%2021%2C14.1462049%2021%2C14.3376245%20L21%2C19.6668769%20C21%2C20.4031405%2020.4089634%2C21%2019.6752033%2C21%20L17.65813%2C21%20C16.926465%2C21%2016.3333333%2C20.4031839%2016.3333333%2C19.6668769%20L16.3333333%2C14.3376245%20Z%22%20id%3D%22Rectangle-429%22%20fill%3D%22%23FFFFFF%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3Cpath%20d%3D%22M18.6666667%2C18.6666667%20C19.3109989%2C18.6666667%2019.8333333%2C16.9776655%2019.8333333%2C16.3333333%20C19.8333333%2C15.6890011%2019.3109989%2C15.1666667%2018.6666667%2C15.1666667%20C18.0223345%2C15.1666667%2017.5%2C15.6890011%2017.5%2C16.3333333%20C17.5%2C16.9776655%2018.0223345%2C18.6666667%2018.6666667%2C18.6666667%20Z%22%20id%3D%22Oval-27%22%20fill%3D%22%231D50B5%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-ury{ //uruguai X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/UY%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22UY%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Cpath%20d%3D%22M0%2C28%20L0%2C0%20L23.3333333%2C0%20L23.3333333%2C4.66666667%20L49%2C4.66666667%20L49%2C9.33333333%20L23.3333333%2C9.33333333%20L23.3333333%2C14%20L49%2C14%20L49%2C18.6666667%20L23.3333333%2C18.6666667%20L23.3333333%2C23.3333333%20L49%2C23.3333333%20L49%2C28%20L0%2C28%20Z%20M0%2C32.6666667%20L49%2C32.6666667%20L49%2C35%20L0%2C35%20L0%2C32.6666667%20Z%22%20id%3D%22Combined-Shape%22%20fill%3D%22%230E4DC5%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3Crect%20id%3D%22Rectangle-1568%22%20fill%3D%22%23FFFFFF%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2223.3333333%22%20height%3D%2223.3333333%22%3E%3C/rect%3E%20%3Cpath%20d%3D%22M11.6666667%2C16.3122784%20L10.1090201%2C18.6374159%20L9.71446845%2C15.8667019%20L7.30223805%2C17.2857409%20L8.14892703%2C14.6182243%20L5.35988459%2C14.8501067%20L7.28011709%2C12.8141218%20L4.66666667%2C11.8129205%20L7.28011709%2C10.8117192%20L5.35988459%2C8.77573434%20L8.14892703%2C9.00761676%20L7.30223805%2C6.34010013%20L9.71446845%2C7.75913914%20L10.1090201%2C4.98842513%20L11.6666667%2C7.31356264%20L13.2243132%2C4.98842513%20L13.6188649%2C7.75913914%20L16.0310953%2C6.34010013%20L15.1844063%2C9.00761676%20L17.9734487%2C8.77573434%20L16.0532162%2C10.8117192%20L18.6666667%2C11.8129205%20L16.0532162%2C12.8141218%20L17.9734487%2C14.8501067%20L15.1844063%2C14.6182243%20L16.0310953%2C17.2857409%20L13.6188649%2C15.8667019%20L13.2243132%2C18.6374159%20L11.6666667%2C16.3122784%20Z%20M11.6666667%2C16.267466%20C14.1268442%2C16.267466%2016.1212121%2C14.273098%2016.1212121%2C11.8129205%20C16.1212121%2C9.35274299%2014.1268442%2C7.35837506%2011.6666667%2C7.35837506%20C9.20648914%2C7.35837506%207.21212121%2C9.35274299%207.21212121%2C11.8129205%20C7.21212121%2C14.273098%209.20648914%2C16.267466%2011.6666667%2C16.267466%20Z%20M11.6666667%2C15.1666667%20C9.73367004%2C15.1666667%208.16666667%2C13.5996633%208.16666667%2C11.6666667%20C8.16666667%2C9.73367004%209.73367004%2C8.16666667%2011.6666667%2C8.16666667%20C13.5996633%2C8.16666667%2015.1666667%2C9.73367004%2015.1666667%2C11.6666667%20C15.1666667%2C13.5996633%2013.5996633%2C15.1666667%2011.6666667%2C15.1666667%20Z%22%20id%3D%22Star-28%22%20fill%3D%22%23FED443%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-ven{ //venezuela X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/VE%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22VE%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Cuse%20id%3D%22Mask%22%20fill%3D%22%23FFFFFF%22%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3Crect%20id%3D%22Rectangle-2-Copy-4%22%20fill%3D%22%23063191%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2211.6666667%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23E2213B%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2223.3333333%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Cpath%20d%3D%22M24.5%2C16.3333333%20C23.8556678%2C16.3333333%2023.3333333%2C15.8109989%2023.3333333%2C15.1666667%20C23.3333333%2C14.5223345%2023.8556678%2C14%2024.5%2C14%20C25.1443322%2C14%2025.6666667%2C14.5223345%2025.6666667%2C15.1666667%20C25.6666667%2C15.8109989%2025.1443322%2C16.3333333%2024.5%2C16.3333333%20Z%20M19.8333333%2C17.5%20C19.1890011%2C17.5%2018.6666667%2C16.9776655%2018.6666667%2C16.3333333%20C18.6666667%2C15.6890011%2019.1890011%2C15.1666667%2019.8333333%2C15.1666667%20C20.4776655%2C15.1666667%2021%2C15.6890011%2021%2C16.3333333%20C21%2C16.9776655%2020.4776655%2C17.5%2019.8333333%2C17.5%20Z%20M29.1666667%2C17.5%20C28.5223345%2C17.5%2028%2C16.9776655%2028%2C16.3333333%20C28%2C15.6890011%2028.5223345%2C15.1666667%2029.1666667%2C15.1666667%20C29.8109989%2C15.1666667%2030.3333333%2C15.6890011%2030.3333333%2C16.3333333%20C30.3333333%2C16.9776655%2029.8109989%2C17.5%2029.1666667%2C17.5%20Z%20M17.5%2C21%20C16.8556678%2C21%2016.3333333%2C20.4776655%2016.3333333%2C19.8333333%20C16.3333333%2C19.1890011%2016.8556678%2C18.6666667%2017.5%2C18.6666667%20C18.1443322%2C18.6666667%2018.6666667%2C19.1890011%2018.6666667%2C19.8333333%20C18.6666667%2C20.4776655%2018.1443322%2C21%2017.5%2C21%20Z%20M31.5%2C21%20C30.8556678%2C21%2030.3333333%2C20.4776655%2030.3333333%2C19.8333333%20C30.3333333%2C19.1890011%2030.8556678%2C18.6666667%2031.5%2C18.6666667%20C32.1443322%2C18.6666667%2032.6666667%2C19.1890011%2032.6666667%2C19.8333333%20C32.6666667%2C20.4776655%2032.1443322%2C21%2031.5%2C21%20Z%22%20id%3D%22Oval-61%22%20fill%3D%22%23FFFFFF%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23FFD044%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-ecu{ //equador X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/EC%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22EC%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Cuse%20id%3D%22Mask%22%20fill%3D%22%23FFFFFF%22%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%230748AE%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2216.3333333%22%20width%3D%2249%22%20height%3D%229.33333333%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23DE2035%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2225.6666667%22%20width%3D%2249%22%20height%3D%229.33333333%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23FFD935%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2216.3333333%22%3E%3C/rect%3E%20%3Cpath%20d%3D%22M21.6999089%2C14%20L23.3333333%2C18.9002733%20L25.6666667%2C18.9002733%20L27.3000911%2C14%20C28.4335229%2C14.8513968%2029.1666667%2C16.2068843%2029.1666667%2C17.7336067%20C29.1666667%2C20.3109355%2027.0773288%2C22.4002733%2024.5%2C22.4002733%20C21.9226712%2C22.4002733%2019.8333333%2C20.3109355%2019.8333333%2C17.7336067%20C19.8333333%2C16.2068843%2020.5664771%2C14.8513968%2021.6999089%2C14%20Z%22%20id%3D%22Oval-12%22%20fill%3D%22%23FFD935%22%20mask%3D%22url%28%23mask-2%29%22%3E%3C/path%3E%20%3Cpolygon%20id%3D%22Rectangle-483%22%20fill%3D%22%235FC0DC%22%20mask%3D%22url%28%23mask-2%29%22%20points%3D%2224.5%2012.8333333%2025.6666667%2018.6666667%2023.3333333%2018.6666667%22%3E%3C/polygon%3E%20%3Cpolyline%20id%3D%22Line%22%20stroke%3D%22%233F2821%22%20stroke-width%3D%220.666666667%22%20opacity%3D%220.66%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20mask%3D%22url%28%23mask-2%29%22%20points%3D%2230.3333333%2010.5%2026.8333333%209.33333333%2024.5%2011.6666667%2022.1666667%209.33333333%2018.6666667%2010.5%22%3E%3C/polyline%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-pry{ //paraguai X
+
+						&::before{
+							background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2249px%22%20height%3D%2235px%22%20viewBox%3D%220%200%2049%2035%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%20%3Cdefs%3E%20%3Crect%20id%3D%22path-1%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2235%22%20rx%3D%222%22%3E%3C/rect%3E%20%3C/defs%3E%20%3Cg%20id%3D%22_Flags/PY%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%3Cg%20id%3D%22PY%22%3E%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C/use%3E%20%3C/mask%3E%20%3Crect%20stroke%3D%22%23F5F5F5%22%20stroke-width%3D%220.5%22%20x%3D%220.25%22%20y%3D%220.25%22%20width%3D%2248.5%22%20height%3D%2234.5%22%20rx%3D%222%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23E33F39%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Crect%20id%3D%22Rectangle-2%22%20fill%3D%22%23124BBA%22%20mask%3D%22url%28%23mask-2%29%22%20x%3D%220%22%20y%3D%2223.3333333%22%20width%3D%2249%22%20height%3D%2211.6666667%22%3E%3C/rect%3E%20%3Ccircle%20id%3D%22Oval-1%22%20stroke%3D%22%23398153%22%20stroke-width%3D%220.666666667%22%20mask%3D%22url%28%23mask-2%29%22%20cx%3D%2224.5%22%20cy%3D%2217.5%22%20r%3D%223.83333333%22%3E%3C/circle%3E%20%3Ccircle%20id%3D%22Oval-29%22%20fill%3D%22%23E5CF58%22%20mask%3D%22url%28%23mask-2%29%22%20cx%3D%2224.5%22%20cy%3D%2217.5%22%20r%3D%221.16666667%22%3E%3C/circle%3E%20%3C/g%3E%20%3C/g%3E%20%3C/svg%3E");
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-dom{ //republica dominicana X
+
+						&::before{
+							background-image: url(data:image/svg+xml,%3Csvg%20width%3D%22900%22%20height%3D%22600%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M%200%2C0%20H%20900%20V%20600%20H%200%20Z%22%20fill%3D%22%23fff%22/%3E%3Cpath%20d%3D%22M%200%2C0%20H%20390%20V%20240%20H%200%20Z%22%20fill%3D%22%23002d62%22/%3E%3Cpath%20d%3D%22M%200%2C360%20H%20390%20V%20600%20H%200%20Z%22%20fill%3D%22%23ce1126%22/%3E%3Cpath%20d%3D%22M%20510%2C0%20H%20900%20V%20240%20H%20510%20Z%22%20fill%3D%22%23ce1126%22/%3E%3Cpath%20d%3D%22M%20510%2C360%20H%20900%20V%20600%20H%20510%20Z%22%20fill%3D%22%23002d62%22/%3E%3Cpath%20d%3D%22M%20390%2C0%20H%20510%20V%20600%20H%20390%20Z%22%20fill%3D%22%23fff%22/%3E%3Cpath%20d%3D%22M%200%2C240%20H%20900%20V%20360%20H%200%20Z%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E) !important;
+							background-size: 29px 22px;
+						}
+					}
+					&.flag-pan{ //panama X
+
+						&::before{
+							background-image: url(data:image/svg+xml,%3csvg%20version%3d%221.1%22%20id%3d%22Layer_1%22%20xmlns%3d%22http%3a//www.w3.org/2000/svg%22%20xmlns%3axlink%3d%22http%3a//www.w3.org/1999/xlink%22%20x%3d%220px%22%20y%3d%220px%22%20viewBox%3d%220%200%20512%20298.7%22%20style%3d%22enable-background%3anew%200%200%20512%20298.7%3b%22%20xml%3aspace%3d%22preserve%22%3e%3cstyle%20type%3d%22text/css%22%3e%20.st0%7bfill%3a%23FFFFFF%3b%7d%20.st1%7bfill%3a%234165B0%3b%7d%20.st2%7bfill%3a%23C01F3F%3b%7d%3c/style%3e%3cg%3e%3crect%20class%3d%22st0%22%20width%3d%22512%22%20height%3d%22298.7%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22144%2c37.3%20132.5%2c72.8%20150.2%2c78.6%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22144%2c37.3%20155.5%2c72.8%20137.8%2c78.6%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22179.5%2c63.1%20142.2%2c63.1%20142.2%2c81.8%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22179.5%2c63.1%20149.3%2c85%20138.3%2c69.9%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22108.5%2c63.1%20138.7%2c85%20149.7%2c69.9%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22108.5%2c63.1%20145.8%2c63.1%20145.8%2c81.8%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22165.9%2c104.8%20154.4%2c69.3%20136.7%2c75.1%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22165.9%2c104.8%20135.7%2c82.9%20146.7%2c67.8%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22122.1%2c104.8%20152.3%2c82.9%20141.3%2c67.8%20%22/%3e%3cpolygon%20class%3d%22st1%22%20points%3d%22122.1%2c104.8%20133.6%2c69.3%20151.3%2c75.1%20%22/%3e%3crect%20y%3d%22149.3%22%20class%3d%22st1%22%20width%3d%22256%22%20height%3d%22149.4%22/%3e%3crect%20x%3d%22256%22%20class%3d%22st2%22%20width%3d%22256%22%20height%3d%22149.4%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22368%2c186.6%20356.5%2c222.1%20374.2%2c227.9%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22368%2c186.6%20379.5%2c222.1%20361.8%2c227.9%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22403.5%2c212.4%20366.2%2c212.4%20366.2%2c231.1%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22403.5%2c212.4%20373.3%2c234.4%20362.3%2c219.3%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22332.5%2c212.4%20362.7%2c234.4%20373.7%2c219.3%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22332.5%2c212.4%20369.8%2c212.4%20369.8%2c231.1%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22389.9%2c254.2%20378.4%2c218.7%20360.7%2c224.4%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22389.9%2c254.2%20359.7%2c232.2%20370.7%2c217.1%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22346.1%2c254.2%20376.3%2c232.2%20365.3%2c217.1%20%22/%3e%3cpolygon%20class%3d%22st2%22%20points%3d%22346.1%2c254.2%20357.6%2c218.7%20375.3%2c224.4%20%22/%3e%3c/g%3e%3c/svg%3e);
+  							background-size: 29px 22px;
+						}
+					}
+
+					    
+					&.flag-no-data{
+						h4{
+							margin-top:.5rem;
+						}
+					}
+					&.scielo-books,
+					&.scielo-servers-repos,
+					&.flag-generic,
+					&.flag-spa,
+					&.flag-wid{
+
+						&::before{
+							margin-left: -10px;
+    						margin-top: 12px;
+						}
+					}
+
+					strong{
+						display:block;
+						//font-weight: bold;
+						color: $primary;
+					}
+					h4{
+						margin:0;
+						display:block;
+						//font-weight: bold;
+						//font-size:1.4rem;
+						color: $primary;
+					}
+					span{
+						display: block;
+						//font-size:1.4rem;
+					}
+
+					&.discontinued-toggle-off,
+					&.discontinued-toggle-on{
+						padding-left:0;
+						text-decoration: none;
+						position:relative;
+
+						&:after{
+							content:"";
+							width: 32px;
+							height: 16px;
+							display: inline-block;
+							position:absolute;
+							left: 120px;
+							top:0;
+							background-position:center;
+						}
+					}
+
+					&.discontinued-toggle-off{
+						&:after{
+							background-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2048%2048%22%20style%3D%22enable-background%3Anew%200%200%2048%2048%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%236789D3%22%20d%3D%22M17.2%2C32.9l9.2-9.2l-9.2-9.2l2.8-2.8l12%2C12l-12%2C12L17.2%2C32.9z%22/%3E%3Cpath%20fill%3D%22none%22%20class%3D%22st1%22%20d%3D%22M0-0.3h48v48H0V-0.3z%22/%3E%3C/svg%3E") !important;
+
+							background-size: 32px 26px;
+						}
+					}
+					&.discontinued-toggle-on{
+						&:after{
+							background-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2048%2048%22%20style%3D%22enable-background%3Anew%200%200%2048%2048%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%236789D3%22%20d%3D%22M14.8%2C16.4l9.2%2C9.2l9.2-9.2l2.8%2C2.8l-12%2C12l-12-12L14.8%2C16.4z%22/%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0-0.8h48v48H0V-0.8z%22/%3E%3C/svg%3E") !important;
+
+							background-size: 32px 26px;
+						}
+					}
+				}
+
+			
+
+
+			&.first-node-collection{
+
+				&::before{
+					margin-top: 38px;
+				}
+				h3{
+					margin-bottom:20px;
+				}
+
+
+				&.scielo-servers-repos-no-data,
+				&.scielo-books-no-data{
+					&::before{
+						margin-top: 27px;
+					}
+				}
+			}
+
+			&.first-node-collection-no-content {
+				margin-bottom: 0;
+				clear: both;
+
+				&::before {
+					display: none;
+				}
+			}
+
+			&.subcontent-block {
+				padding-left: 0;
+
+				&:before {
+					background-image: url(../images/ico/discontinued.png);
+				}
+
+				& > h4 {
+					margin:0 0 10px;
+					//font-size:1.4rem;
+					color: #b0b0b0;
+					//font-weight: normal;
+				}
+
+				&.first-node-collection{
+
+					&::before {
+						margin-top: 22px;
+					}
+
+					&.scielo-servers-repos-no-data,
+					&.scielo-books-no-data{
+						&::before{
+							margin-top: 26px;
+						}
+					}
+				}
+
+				&::before,
+				a {
+					opacity: 1;
+				}
+			}
+
+			&.discontinued-item{
+				display: none;
+			}
+		}
+	}
+}
+
+
+#tab-periodicos{
+	background-color: $__bg__gray--1;
+	
+	dl{
+		dt{
+			padding-bottom: 1rem;
+			margin-bottom: 1rem;
+			display:block;
+
+			h3{
+				margin:0;
+				//font-size: 1.4rem;
+			}
+		}
+		dd{
+			display:inline-block;
+
+			> a{
+				background: #fff;
+				border: 1px solid #DAE3F4;
+				//font-size: 1.2rem;
+				//font-weight:400;
+				color: $primary;
+				padding: 1rem 1.5rem;
+				float:left;
+			}
+			&.search-periodicos{
+				position:relative;
+				display:block;
+
+				input[type="text"] {
+					border: 1px solid #DAE3F4;
+					border-radius: 2px;
+					background: #fff;
+					padding: 1rem 5rem 1rem 1.5rem;
+					width:90%;
+
+					//font-size:1.2rem;
+					color: #9B9B9B;
+
+					@include media-breakpoint-up(sm) {
+    					width:40rem;
+  					}
+				}
+
+				.input-group-btn{
+					width:auto;
+
+					.btn-default{
+						border-color: #DAE3F4;
+					}
+
+					input[type="submit"] {
+						&.btn-primary{
+							background-image: url("data:image/svg+xml,%3Csvg%20id%3D%22Layer_1%22%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2015%2015%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23fff%3Bfill-rule%3Aevenodd%3B%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Emagnifier-white%3C/title%3E%3Cpath%20id%3D%22path-1%22%20class%3D%22cls-1%22%20d%3D%22M1.06%2C5.73A4.67%2C4.67%2C0%2C1%2C1%2C5.73%2C10.4%2C4.67%2C4.67%2C0%2C0%2C1%2C1.06%2C5.73m13.63%2C7L12%2C10a1%2C1%2C0%2C0%2C0-1.25-.18l-.51-.52A5.73%2C5.73%2C0%2C1%2C0%2C0%2C5.73a5.72%2C5.72%2C0%2C0%2C0%2C9.28%2C4.5l.52.51A1%2C1%2C0%2C0%2C0%2C10%2C12l2.7%2C2.7a1.07%2C1.07%2C0%2C0%2C0%2C1.5%2C0l.51-.51a1.07%2C1.07%2C0%2C0%2C0%2C0-1.5%22/%3E%3C/svg%3E");
+							background-size: 15px 15px;
+							background-position:center center;
+							background-repeat:no-repeat;
+						}
+					}
+				}
+			}
+		}
+
+		&:first-child{
+			dt{
+				margin-bottom:0;
+			}
+		}
+	}
+}
