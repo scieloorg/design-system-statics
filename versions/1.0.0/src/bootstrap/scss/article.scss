@@ -2203,11 +2203,11 @@
 		width: #{"calc(100% - 70px)"};
 	}
 	img {
-		float: left;
+		float: none;
 	}
 
 	.modal-body {
-		padding: 3px;
+		padding: 1rem;
 	}
 }
 

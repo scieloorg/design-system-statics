@@ -24,3 +24,17 @@ Ajuste pontual Opac - section.journalInfo
 .journalInfo{
     margin-top: 74px;
 }
+
+.#{$__classPrefix}__accessibility-note{
+    display: block;
+    background: $__bg__gray--1;
+    padding: 1rem;
+
+    @include __on-theme--dark {
+        background: $__bg__white--1;
+    }
+
+    @include __on-theme--light {
+        background: $__bg__gray--1;
+    }
+}
