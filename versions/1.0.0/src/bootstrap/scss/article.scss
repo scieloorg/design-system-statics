@@ -24,7 +24,7 @@
 		padding: 18px 0;
 		margin: 0;
 		height: 100px;
-		background: #efeeec;
+		//background: #efeeec;
 
 		a.selected:after {
 			border-bottom-color: #fff;
@@ -147,14 +147,21 @@
 		color: $__interaction--light;
 		cursor: pointer;
 
+		@include __on-theme--dark {
+			color: $__interaction--dark;
+		}
+
+		@include __on-theme--light {
+			color: $__interaction--light;
+		}
+
+
 		&::selection {
 			//background: $BlueHover;
 		}
 		&.big {
 			margin-top: 0px;
-			//margin-left: -8px;
 			vertical-align: middle;
-			//font-size: 12px;
 			color: $__warning--light;
 		}
 		a{
@@ -166,29 +173,16 @@
 
 	sup.xref {
 		padding: 4px 0 3px;
-		//font-size: 11px;
-
-        /*
-		@media $maxTablet2 {
-			padding: 10px;
-		}
-        */
 	}
 
 	.ref {
 		position: relative;
 		display: inline;
-		//font-size: 13px;
 
 		@include __breakpoint--xsmall-only() {
 			position: static;
 		}
 
-        /*
-		@media $maxTablet {
-			position: static;
-		}
-        */
 
 		.refCtt {
 			//.cssAnimations @include slideInUp(.3s);
@@ -211,10 +205,6 @@
 			overflow-x: hidden;
 			text-overflow: ellipsis;
             border-radius: 4px;
-			//color: #fff;
-			//background: $Blue;
-			//@include radius(4px);
-			////@include border-box;
 			z-index: 99;
 
             background: $__interaction--light;
@@ -234,13 +224,6 @@
                 color: $__white;
             }
 
-            /*
-			@media $maxTablet {
-				width: 100%;
-				display: inline-block;
-				left:0 !important;
-			}
-            */
 
 			&:before {
 				content: '';
@@ -2360,6 +2343,16 @@
 
 .levelMenu{
 
+	background: $__bg__gray--1;
+
+	@include __on-theme--dark {
+		background: $__bg__white--1;
+	}
+
+	@include __on-theme--light {
+		background: $__bg__gray--1;
+	}
+
 	.btn{
 		min-height: 38px;
 
@@ -2561,4 +2554,17 @@ h3, h4, h5:not(.modal-title), .h5{
 .modal .info span{
 	list-style: disc;
 	display: list-item;
+}
+
+
+.xref {
+	color: $__interaction--light;
+
+	@include __on-theme--dark {
+		color: $__interaction--dark;
+	}
+
+	@include __on-theme--light {
+		color: $__interaction--light;
+	}
 }
