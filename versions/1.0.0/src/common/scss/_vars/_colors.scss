@@ -18,6 +18,9 @@ $__text__subtle--dark: #ADADAD;
 $__interaction--light: #3867CE;
 $__interaction--dark: #86ACFF;
 
+$__interaction__hover--light: darken($__interaction--light,15%);
+$__interaction__hover--dark: lighten($__interaction--dark,15%);
+
 //$__hover--light: rgba(0, 176, 230, 0.2);
 $__hover--light: rgba(0, 176, 230, 0.2);
 $__hover--light40: rgba(0, 176, 230, 0.08);

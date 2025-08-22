@@ -322,8 +322,6 @@ novo css do menu
     z-index:9;
     top:20px;
 
-    
-    
 
     /* Botão do menu */
     summary {
@@ -341,6 +339,17 @@ novo css do menu
         justify-content: center;
         transition: background 0.3s ease-in-out;
         border: 1px solid $__border--light;
+
+        @include __on-theme--dark {
+            color: $__text--dark;
+            background: $__bg__white--1;
+        }
+        
+        @include __on-theme--light {
+            color: $__text--light;
+            background: $__bg__gray--1;
+        }
+
 
         @include media-breakpoint-down(md) {
             width:70px;
@@ -364,6 +373,14 @@ novo css do menu
             background: $__text--light;
             position: relative;
             transition: transform 0.3s ease-in-out;
+
+            @include __on-theme--dark {
+                background: $__text--dark;
+            }
+            
+            @include __on-theme--light {
+                background: $__text--light;
+            }
         }
 
         .menu-icon::before,
@@ -375,6 +392,14 @@ novo css do menu
             position: absolute;
             left: 0;
             transition: transform 0.3s ease-in-out;
+
+            @include __on-theme--dark {
+                background: $__text--dark;
+            }
+            
+            @include __on-theme--light {
+                background: $__text--light;
+            }
         }
 
         .menu-icon::before {
@@ -430,12 +455,20 @@ novo css do menu
 
         summary{
             background-color: $__bg__gray--1;
+
+            @include __on-theme--dark {
+                background: $__bg__white--1;
+            }
+        
+            @include __on-theme--light {
+                background: $__bg__gray--1;
+            }
         }
     }
 
     /* Ícone transformando em X */
     &[open] .menu-icon {
-        background: transparent;
+        background: transparent !important;
     }
 
     &[open] .menu-icon::before {
@@ -467,6 +500,15 @@ novo css do menu
         transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
         box-shadow: 0 0 7px rgba(0,0,0,.1);
 
+        @include __on-theme--dark {
+            background: $__bg__white--1;
+        }
+    
+        @include __on-theme--light {
+            background: $__bg__gray--1;
+        }
+
+
         ul {
             list-style: none;
             padding: 0;
@@ -486,18 +528,52 @@ novo css do menu
                     display: block;
                     color: $__text__emphasis--light;
 
+                    @include __on-theme--dark {
+                        color: $__text__emphasis--dark;
+                    }
+                
+                    @include __on-theme--light {
+                        color: $__text__emphasis--light;
+                    }
+
                    &:hover,
                    &:focus-visible{
                        background-color: $__bg__gray--1;
                        color: $__interaction--light;
 
+                        @include __on-theme--dark {
+                            color: $__interaction--dark;
+                            background: $__bg__white--1;
+                        }
+
+                        @include __on-theme--light {
+                            color: $__interaction--light;
+                            background: $__bg__gray--1;
+                        }
+
                        strong{
                         color: $__interaction--light;
+
+                        @include __on-theme--dark {
+                            color: $__interaction--dark;
+                        }
+
+                        @include __on-theme--light {
+                            color: $__interaction--light;
+                        }
                        }
                    }
                    
                    strong{
                        color: $__text__emphasis--light;
+
+                        @include __on-theme--dark {
+                            color: $__text__emphasis--dark;
+                        }
+
+                        @include __on-theme--light {
+                            color: $__text__emphasis--light;
+                        }
                    }
                 }
             }

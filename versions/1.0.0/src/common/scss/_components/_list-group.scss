@@ -10,6 +10,7 @@
   padding-left: 0; // reset padding because ul and ol
   margin-bottom: 0;
   @include border-radius($list-group-border-radius);
+  
 }
 
 .list-group-numbered {
@@ -70,6 +71,15 @@
   //text-decoration: if($link-decoration == none, null, none);
   background-color: $list-group-bg;
   border: $list-group-border-width solid $list-group-border-color;
+
+
+  @include __on-theme--dark {
+    background: $__bg__white--1;
+  }
+
+  @include __on-theme--light {
+    background-color: $list-group-bg;
+  }
 
   &:first-child {
     @include border-top-radius(inherit);

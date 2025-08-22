@@ -14,7 +14,6 @@
     background-clip: border-box;
     border: $border-width solid $__border--light;
     @include border-radius($card-border-radius);
-    
 
     /* Aplica padding-bottom de 4rem ao .card se contiver um .card-footer */
     &:has(.card-footer) {
@@ -302,11 +301,34 @@
 
   .card{
     .stretched-link{
+
+      .text-primary{
+        color: $__interaction--light !important;
+
+        @include __on-theme--dark {
+          color: $__interaction--dark !important;
+        }
+
+        @include __on-theme--light {
+          color: $__interaction--light !important;
+        }
+      }
+
+
       &:hover{
 
         .text-primary{
           text-decoration: underline;
-          color: $link-hover-color !important;
+          color: $__interaction__hover--light !important;
+
+          @include __on-theme--dark {
+            color: $__interaction__hover--dark !important;
+          }
+  
+          @include __on-theme--light {
+            color: $__interaction__hover--light !important;
+          }
+          
         }
         
         .btn-secondary{
