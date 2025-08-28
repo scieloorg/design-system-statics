@@ -729,6 +729,14 @@ body{
     border-top: 0.4em solid transparent;
     border-bottom: 0.4em solid transparent;
     border-left: 0.4em solid #333; /* usa a cor do texto */
+
+    @include __on-theme--dark {
+        border-left: 0.4em solid $__bg--light; /* usa a cor do texto */
+    }
+    
+    @include __on-theme--light {
+        border-left: 0.4em solid $__bg--dark; /* usa a cor do texto */
+    }
   }
   
   #accessibilityBar button#universalAccessBtn:hover span {

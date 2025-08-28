@@ -245,6 +245,8 @@
 
         pointer-events: auto;
         cursor: not-allowed;
+        text-decoration: none;
+
     } @else {
         @error "Tipo de botão desconhecido.";
     }
@@ -516,6 +518,7 @@
     background-color: transparent;
     border: 1px solid $border--light;
     color: $text--light;
+    text-decoration: none;
 
     &:focus {
         background-color: transparent;
@@ -718,6 +721,7 @@
     //border: none;
     border: $border-width solid transparent;
     color: $text--light;
+    text-decoration: none;
 
     &:focus {
         background-color: transparent;

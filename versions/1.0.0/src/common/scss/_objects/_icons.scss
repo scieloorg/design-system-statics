@@ -27,6 +27,19 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .icon-instagram:before {
+    content: "\e905";
+    color: $__text--light;
+    
+    @include __on-theme--dark {
+      color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+      color: $__text--light;
+    }
+  }
   
   .icon-bluesky:before {
     content: "\e900";
@@ -92,6 +105,22 @@
   .#{$__classPrefix}__social-network-links{
     a{
       text-decoration: none !important;
+
+        [class^="icon-"], [class*=" icon-"] {
+            
+          &::before{
+            color: $__text__subtle--light;
+
+            @include __on-theme--dark {
+              color: $__text__subtle--dark;
+            }
+
+            @include __on-theme--light {
+              color: $__text__subtle--light;
+            }
+          }
+          
+        }
 
       &:hover{
 
