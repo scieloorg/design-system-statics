@@ -145,5 +145,13 @@
 }
 
 header {
-    background: $white;
+    background: $__bg--light;
+
+    @include __on-theme--dark {
+        background: $__bg--dark;
+    }
+
+    @include __on-theme--light {
+        background: $__bg--light;
+    }
 }

@@ -1,0 +1,747 @@
+//
+// Base styles
+//
+
+#accessibilityBar{
+    -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    transition:all .5s ease-in-out;
+    z-index:9999;
+    position:fixed;
+    top:50%;
+    right:0;
+    transform:translate(100%, -50%);
+    background-color:rgba(34,34,34,.75);
+    border-radius:.5rem 0 0 .5rem;
+    box-shadow:0 5px 30px rgba(34,34,34,0);
+
+}
+#accessibilityBar *{
+    box-sizing:border-box;
+}
+#accessibilityBar{
+    &.active{
+        transform:translate(0, -50%);
+        box-shadow:0 5px 30px rgba(34,34,34,.5);
+    }
+
+    button{
+        outline:none !important;
+        box-shadow:none !important;
+        -webkit-appearance:none;
+        cursor:pointer;
+
+        &#universalAccessBtn{
+            -webkit-transition:all .3s ease-in-out;
+            -moz-transition:all .3s ease-in-out;
+            -o-transition:all .3s ease-in-out;
+            transition:all .3s ease-in-out;
+            font-size:24px;
+            font-size:1.5rem;
+            line-height:1;
+            color: $white;
+            background-color:$primary;
+            width:2.5rem;
+            height:2.5rem;
+            padding:0;
+            border-radius:50%;
+            border:none;
+            position:absolute;
+            top:50%;
+            transform:translate(-110%, -50%);
+            cursor:pointer;
+
+            @include __on-theme--dark {
+                color: $__text--light;
+                background-color: $__interaction--dark;
+            }
+            
+            @include __on-theme--light {
+                color: $white;
+                background-color: $__interaction--light;
+            }
+
+            &.collapsed{
+                span{
+                    opacity:0;
+                    right:50%;
+                }
+            }
+
+            span{
+                -webkit-transition:all .3s ease-in-out;
+                -moz-transition:all .3s ease-in-out;
+                -o-transition:all .3s ease-in-out;
+                transition:all .3s ease-in-out;
+                font-size:16px;
+                font-size:1rem;
+                line-height:1;
+                text-align:right;
+                font-weight:bold;
+                color: $white;
+                background-color:$primary;
+                box-shadow:0 10px 30px rgba(102,102,102,.1);
+                height:100%;
+                padding:0 1rem;
+                border-radius:.25rem;
+                display:flex;
+                align-items:center;
+                position:absolute;
+                top:50%;
+                right:120%;
+                transform:translateY(-50%);
+            }
+        }
+
+        &.setAccessibility{
+            font-size:12px;
+            font-size:.75rem;
+            -webkit-transition:all .3s ease-in-out;
+            -moz-transition:all .3s ease-in-out;
+            -o-transition:all .3s ease-in-out;
+            transition:all .3s ease-in-out;
+            color:#222;
+            font-weight:700;
+            background-color:#eee;
+            width:100%;
+            padding:.1rem .2rem;
+            border-radius:.25rem;
+            border:none;
+            display:flex;
+            align-items:center;
+            margin:.25rem;
+
+            &:hover{
+                background-color: $white;
+            }
+
+            strong{
+                color: $white;
+                background-color: $__interaction--light;
+                width:2.5rem;
+                height:2.5rem;
+                border-radius:.2rem;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                margin-right:.25rem;
+
+                @include __on-theme--dark {
+                    color: $__text--light;
+                    background-color: $__interaction--dark;
+                }
+                
+                @include __on-theme--light {
+                    color: $__text--dark;
+                    background-color: $__interaction--light;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media(max-width: 576px){
+    #accessibilityBar{
+        position:fixed;
+        top:initial;
+        bottom:0;
+        transform:translateX(100%);
+    }
+    #accessibilityBar.active{
+        transform:translateX(0);
+    }
+    #accessibilityBar #universalAccessBtn{
+        top:initial;
+        transform:translateX(-120%);
+        bottom:16px;
+        border-radius:50%;
+    }
+}
+
+/* Contraste */
+body.contrast #accessibilityBar button[data-accessibility=contrast]{
+    background-color:$primary !important;
+}
+body.scielo__theme--dark #accessibilityBar button[data-accessibility=dark]{
+    background-color: $__interaction--dark !important;
+    color: $__text--light;
+
+    @include __on-theme--light {
+        color: $__text--dark;
+        background-color: $__interaction--light !important;
+    }
+    
+    @include __on-theme--dark {
+        background-color: $__interaction--dark !important;
+        color: $__text--light;
+    }
+    
+}
+body.accessibility_readingLine #accessibilityBar button[data-accessibility=readingLine]{
+    background-color: $__interaction--dark !important;
+    color: $__text--light;
+
+    @include __on-theme--light {
+        color: $__text--dark;
+        background-color: $__interaction--light !important;
+    }
+    
+    @include __on-theme--dark {
+        background-color: $__interaction--dark !important;
+        color: $__text--light;
+    }
+}
+body.accessibility_markerLine #accessibilityBar button[data-accessibility=markerLine]{
+    background-color: $__interaction--dark !important;
+    color: $__text--light;
+
+    @include __on-theme--light {
+        color: $__text--dark;
+        background-color: $__interaction--light !important;
+    }
+    
+    @include __on-theme--dark {
+        background-color: $__interaction--dark !important;
+        color: $__text--light;
+    }
+}
+body.accessibility_readingLine #readingLine{
+    background-color:$primary !important;
+    opacity:1;
+    width:99vw;
+    height:.5rem;
+    position:absolute;
+    left:0;
+    z-index:9999;
+    transform:translateY(0.5rem);
+}
+body.accessibility_markerLine #markerLine{
+    background-color:#e4fd00 !important;
+    opacity:.75;
+    border-width:.1px 0;
+    border-style:solid;
+    border-color:#cde400;
+    width:99vw;
+    height:1.75rem;
+    position:absolute;
+    left:0;
+    z-index:9999;
+    transform:translateY(-1rem);
+    mix-blend-mode:color;
+}
+body.accessibility_markerLine.contrast #markerLine{
+    mix-blend-mode:multiply;
+    opacity:1
+}
+body.accessibility_markerLine.darkmode #markerLine{
+    opacity:.25;
+    background:#655b5b !important;
+    mix-blend-mode:unset;
+}
+
+body{
+    &.contrast{
+        background:#000 !important;
+        color: $white !important; 
+
+        nav,li,ol,header,footer,section,main,aside,article{
+            background-color: $black !important;
+            color: $white !important;
+        }
+
+        h1,h2,h3,h4,h5,h6,p,label,strong,em,cite,q,i,b,u,span{
+            color: $white !important;
+        }
+
+        a, a *{
+            color:$yellow !important;
+
+            [class^="icon-"], [class*=" icon-"] {
+                &:before{
+                    color: $yellow !important;
+                }
+            }
+        }
+
+        .btn-primary,
+        button,
+        input[type=button],
+        input[type=reset],
+        input[type=submit]{
+            background:$yellow !important;
+            color:#000 !important;
+            font-weight:bold;
+            border:none !important;
+
+            [class^="icon-"], [class*=" icon-"] {
+                &:before{
+                    color: $black;
+                }
+            }
+        }
+
+        .btn-secondary,
+        .btn-link{
+            border-color: $yellow !important;
+            background: $black !important;
+            color: $yellow !important;
+
+            [class^="icon-"], [class*=" icon-"] {
+                &:before{
+                    color: $yellow !important;
+                }
+            }
+        }
+
+        img{
+            filter:grayscale(100%) contrast(120%)
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=url],
+        input[type=search],
+        input[type=email],
+        input[type=tel],
+        input[type=date],
+        input[type=month],
+        input[type=week],
+        input[type=datetime],
+        input[type=datetime-local],
+        textarea,
+        select,
+        input[type=number]{
+            background-color: $black !important;
+            border:1px solid #fff !important;
+            color: $white !important;
+        }
+
+        .form-select{
+            //filter: invert(1);
+        }
+        
+
+        #accessibilityBar *{
+            background-color: $black !important;
+            color:$yellow !important;
+        }
+
+        #accessibilityBar {
+            .setAccessibility{
+                border:1px solid !important;
+
+                &[data-accessibility=contrast]{
+                    background-color:$yellow !important;
+                    color:#000 !important;
+                }
+            }
+        }
+
+        .doodle,
+        .page-instruments-image,
+        .cover-about,
+        section.about-partners header .col{
+            filter:grayscale(100%) contrast(120%);
+        }
+        .numbers-home,
+        .numbers-about{
+            background: $black !important;
+
+            .container{
+                outline: 1px solid $white;
+                background: $black !important;
+
+                .col{
+                    border-right: 1px solid #909090;
+    
+                    &:first-of-type{
+                        padding-left: 3.75rem;
+                    }
+    
+                    &:last-of-type{
+                        border:0;
+                    }
+                }
+            }
+        }
+        .about-the-creation,
+        .about-testimonials{
+            .btn{
+                [class^="icon-"], [class*=" icon-"] {
+                    &:before{
+                        color: $black !important;
+                    }
+                }
+            }
+
+            .slick-dots{
+                button{
+                    background-color: $black !important;
+
+                    &::before{
+                        color: #909090 !important;
+                    }
+                }
+
+                .slick-active{
+                    button{
+                        &::before{
+                            color: $yellow !important;
+                        }
+                    }
+                }
+            }
+        }
+        .text-white-after,
+        .mb-title-after,
+        .mb-text-secondary-after{
+
+            &::after{
+                background: #909090 !important;
+            }
+            
+        }
+
+        .mb-subtitle{
+            &::before{
+                background: #909090 !important;
+            }
+        }
+
+        .badge{
+            border-color: #909090 !important;
+            background: #909090 !important;
+            color: $black !important;
+        }
+
+        .mb-filters-selected{
+            .badge{
+                border-color: $yellow !important;
+                background-color: $black !important;
+                color: $yellow !important;
+
+                a{
+                    [class^="icon-"], [class*=" icon-"] {
+                        &:before{
+                            color: $yellow !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .range-value{
+            &.form-control{
+                border-color: $white;
+                background-color: $black;
+                color: $white;
+            }
+        }
+
+        .form-check-label{
+            small{
+                color: $yellow;
+            }
+        }
+        .form-check-input[type=checkbox]::before{
+            color: $yellow !important;
+        }
+        .form-check-input:checked + .form-check-label{
+            background-color: $black; 
+            border-color: $yellow;
+        }
+        .noUi-handle{
+            border-color: $yellow !important;
+            background-color: $white !important;
+        }
+        .noUi-connect{
+            background-color: $yellow !important;
+        }
+        .noUi-target{
+            background: #909090 !important;
+        }
+        .breadcrumb-item + .breadcrumb-item::before{
+            color: #909090 !important;
+        }
+        .mb-text-after{
+            &::after{
+                background-color: #909090 !important;
+            }
+        }
+
+        .mb-help,
+        .mb-contact{
+            background: $black !important;
+            outline: 1px solid $white !important;
+        }
+
+        footer{
+            border-color: #909090 !important;
+        }
+
+        .form-select-minimal{
+            --#{$__classPrefix}form-select-bg-img: #{escape-svg($form-select-indicator)};
+        }
+        .secondary-nav{
+            .form-select-minimal{
+                --#{$__classPrefix}form-select-bg-img: #{escape-svg($form-select-indicator)};
+            }
+            .btn-primary{
+                [class^="icon-"], [class*=" icon-"] {
+                    &:before{
+                        color: $black !important;
+                    }
+                }
+            }
+        }
+
+        .secondary-nav .dropdown-menu.show,
+        .secondary-nav .dropdown-menu.show:active,
+        .secondary-nav .dropdown-menu.show:focus{
+            background: $black !important;
+        }
+        .secondary-nav .dropdown-toggle.show{
+            background-color: $black !important;
+        }
+
+        .secondary-nav{
+            .nav{
+                background: $black !important;
+                outline: 1px solid #909090 !important;
+
+                .nav-link{
+                    &:hover{
+                        background: $black;
+                    }
+                }
+            }
+        }
+        .row-action{
+            background: rgba(#ccc,.2) !important; 
+
+            a{
+                &.btn{
+                    color: $black;
+
+                    [class^="icon-"], [class*=" icon-"] {
+                        &:before{
+                            color: $black !important;
+                        }
+                    }
+
+                    span{
+                        color: $black !important;
+
+                        [class^="icon-"], [class*=" icon-"] {
+                            &:before{
+                                color: $black !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        hr{
+            border-color: #909090;
+        }
+
+        footer{
+            .mb-footer-nav{
+                a{
+                    img{
+                        filter: invert(1) !important;
+                    }
+                }
+            }
+            
+        }
+        .mb-registration{
+            background-color: $black !important;
+
+            .btn{
+                span{
+                    color: $black !important;
+                }
+            }
+            .form-check-label{
+                color: $yellow !important;
+            }
+        }
+        .about-partners{
+            img{
+                filter: invert(1) !important;
+            }
+            .nav{
+                border-color: #909090 !important;
+            }
+            .nav-link.active{
+                background-color: $yellow !important;
+                color: $black !important;
+            }
+        }
+        .navbar-nav{
+            .form-select-minimal{
+                border-color: $yellow !important;
+                color: $yellow !important;
+            }
+        }
+
+        .navbar-brand,
+        .footer-brand{
+            filter: invert(1) !important;
+        }
+
+        .mb-internal-search,
+        .mb-composers-search,
+        .mb-musical-score-search{
+            small{
+                color: $white !important;
+            }
+        }
+        .music-name{
+            color: $white;
+        }
+        .dropdown-menu{
+            border-color: $yellow !important;
+            background-color: $black !important;
+        }
+        .actions{
+            .btn{
+                [class^="icon-"], [class*=" icon-"] {
+                    &:before{
+                        color: $black !important;
+                    }
+                }
+            }
+        }
+        .page-composers-timeline{
+            .card{
+                background: $black !important;
+                border-color: $white !important;
+            }
+        }
+        .page-composers-timeline-controls{
+
+            
+            
+            input[type="range"] {
+                background: $white !important; /* Cor da barra */
+              }
+    
+              /* Track (barra) - WebKit browsers (Chrome, Safari) */
+              input[type="range"]::-webkit-slider-runnable-track {
+                background: $white !important; /* Cor da barra */
+              }
+              
+              input[type="range"]::-webkit-slider-thumb {
+                background: $yellow !important; /* Cor do handler */
+              }
+              
+              input[type="range"]::-moz-range-thumb {
+                background: $yellow !important; /* Cor do handler */
+              }
+              
+              input[type="range"]::-ms-thumb {
+                background: $yellow !important; 
+              }
+              
+        }
+
+        .pagination{
+            .page-item{
+                a{
+                    border: 1px solid $yellow !important;
+                    background-color: $black !important;
+                    color: $yellow !important;
+                }
+                
+                &.active{
+                    a{
+                        border-color: $yellow !important;
+                        background-color: $yellow !important;
+                        color: $black !important;
+                    }
+                }
+            }
+
+        }
+        .mb-time-reading{
+            .mb-time-reading-text{
+                [class^="icon-"], [class*=" icon-"] {
+                    &:before{
+                        color: $white !important;
+                    }
+                }
+            }
+            .btn{
+                [class^="icon-"], [class*=" icon-"] {
+                    &:before{
+                        color: $black !important;
+                    }
+                }
+            }
+        }
+        .mb-news-internal-depoimentos{
+            background-color: $black !important;
+        }
+    }
+}
+
+
+// Ajustes pós teste no opac
+
+#accessibilityBar{
+    top: 33%;
+  }
+  
+  #accessibilityBar button#universalAccessBtn span {
+    font-size: .75rem;
+    font-weight: 400;
+    border-radius: .1875rem;
+    padding: .375rem .75rem;
+    background: #333;
+    color: #fff;
+    text-align: center;
+
+    @include __on-theme--dark {
+        background: $__bg--light;
+        color: $__text--light;
+    }
+    
+    @include __on-theme--light {
+        background: $__bg--dark;
+        color: $__text--dark;
+    }
+  }
+  
+  #accessibilityBar button#universalAccessBtn span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -3px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid transparent;
+    border-bottom: 0.4em solid transparent;
+    border-left: 0.4em solid #333; /* usa a cor do texto */
+
+    @include __on-theme--dark {
+        border-left: 0.4em solid $__bg--light; /* usa a cor do texto */
+    }
+    
+    @include __on-theme--light {
+        border-left: 0.4em solid $__bg--dark; /* usa a cor do texto */
+    }
+  }
+  
+  #accessibilityBar button#universalAccessBtn:hover span {
+      opacity: 1;
+      right: 120%;
+  }
+  
+  

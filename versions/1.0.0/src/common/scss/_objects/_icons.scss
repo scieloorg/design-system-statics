@@ -27,31 +27,100 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  .icon-instagram:before {
+    content: "\e905";
+    color: $__text--light;
+    
+    @include __on-theme--dark {
+      color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+      color: $__text--light;
+    }
+  }
   
   .icon-bluesky:before {
     content: "\e900";
-    color: #616060;
+    color: $__text--light;
+    
+    @include __on-theme--dark {
+      color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+      color: $__text--light;
+    }
   }
   .icon-mastodon:before {
     content: "\e901";
-    color: #616060;
+    color: $__text--light;
+    
+    @include __on-theme--dark {
+      color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+      color: $__text--light;
+    }
   }
   .icon-linkedin:before {
     content: "\e902";
-    color: #616060;
+    color: $__text--light;
+    
+    @include __on-theme--dark {
+      color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+      color: $__text--light;
+    }
   }
   .icon-facebook:before {
     content: "\e903";
-    color: #616060;
+    color: $__text--light;
+    
+    @include __on-theme--dark {
+      color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+      color: $__text--light;
+    }
   }
   .icon-youtube:before {
     content: "\e904";
-    color: #616060;
+    color: $__text--light;
+    
+    @include __on-theme--dark {
+      color: $__text--dark;
+    }
+
+    @include __on-theme--light {
+      color: $__text--light;
+    }
   }
 
   .#{$__classPrefix}__social-network-links{
     a{
       text-decoration: none !important;
+
+        [class^="icon-"], [class*=" icon-"] {
+            
+          &::before{
+            color: $__text__subtle--light;
+
+            @include __on-theme--dark {
+              color: $__text__subtle--dark;
+            }
+
+            @include __on-theme--light {
+              color: $__text__subtle--light;
+            }
+          }
+          
+        }
 
       &:hover{
 
@@ -59,6 +128,14 @@
           
           &::before{
             color: $__interaction--light;
+
+            @include __on-theme--dark {
+              color: $__interaction--dark;
+            }
+
+            @include __on-theme--light {
+              color: $__interaction--light;
+            }
           }
           
         }
