@@ -271,10 +271,15 @@
         opacity: 1;
     }
 
-    &.active:not(:disabled):not(.disabled) {
-        border: $border-width solid mix($__black,$bg--light,15%);
-        background-color: mix($__black,$bg--light,15%);
-        color: $text--light;
+    &.active:not(:disabled):not(.disabled),
+    &.selected:not(:disabled):not(.disabled) {
+
+        &:not(.unselected){
+            border: $border-width solid mix($__black,$bg--light,15%);
+            background-color: mix($__black,$bg--light,15%);
+            color: $text--light;
+        }
+        
     }
     
     @at-root .show > &.dropdown-toggle {
@@ -315,9 +320,13 @@
             color: $text--dark;
         }
 
-        &.active:not(:disabled):not(.disabled) {
-            background-color: mix($__black,$bg--dark,15%);
-            color: $text--dark;
+        &.active:not(:disabled):not(.disabled),
+        &.selected:not(:disabled):not(.disabled) {
+
+            &:not(.unselected){
+                background-color: mix($__black,$bg--dark,15%);
+                color: $text--dark;
+            }
         }
 
         $hoverBgColor: mix($__white,$bg--dark,40%);
@@ -349,9 +358,13 @@
             color: $text--light;
         }
 
-        &.active:not(:disabled):not(.disabled) {
-            background-color: mix($__white,$bg--light,15%);
-            color: $text--light;
+        &.active:not(:disabled):not(.disabled),
+        &.selected:not(:disabled):not(.disabled) {
+
+            &:not(.unselected){
+                background-color: mix($__white,$bg--light,15%);
+                color: $text--light;
+            }
         }
 
         //$hoverBgColor: mix($__white,$bg--light,40%);
