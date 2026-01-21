@@ -170,7 +170,11 @@ Logo SciELO
         background-position-x: calc(50% - 22px);
         display: inline-block;
 
-        //outline: 1px solid blue;
+        @media (max-width: 575.98px) {
+            background-position: top center;
+            height: auto;
+            min-height: 100px;
+        }
 
         @include media-breakpoint-up(sm) {
             width: __remcalc(350px);
@@ -191,18 +195,18 @@ Logo SciELO
         &:after{
             content: "Scientific Electronic Library Online";
             position: absolute;
-            //left: 50%;
-            //transform: translateX(__remcalc(-115px));
             top: __remcalc(70px);
             display: block;
-            //font-size: __remcalc(16px);
             font-size: 1.2rem;
             font-family: $__font__family--brand;
             color: $__text--light;
             white-space: nowrap;
             width: 100%;
-        // outline: 1px solid green;
             text-align: center;
+
+            @media (max-width: 575.98px) {
+                display: none;
+            }
 
             @include media-breakpoint-up(sm) {
                 top: __remcalc(150px);
@@ -243,7 +247,57 @@ Logo SciELO
                 line-height: normal;
             }
 
-            //outline: 1px solid red;
+            &.medium-text{
+                text-align: left;
+                left:       9rem;
+                font-size:  1rem;
+                max-width: 155px;
+                white-space: nowrap;
+            }
+
+            &.long-text{
+                text-align: left;
+                left:       9rem;
+                font-size:  1rem;
+            }
+
+            &.very-long-text{
+                text-align: left;
+                left:       9rem;
+                font-size:  1rem;
+                max-width: 230px;
+
+                @media (max-width: 575.98px) {
+                    position: static;
+                    display: block;
+                    top: 4.375rem;
+                    font-size: 1rem;
+                    width: 100%;
+                    text-align: center;
+                    border: 0;
+                    left: 0;
+                    padding-left: 0;
+                    max-width: 100%;
+                    margin-top: 5rem;
+                    line-height: 100%;
+                }
+            }
+
+            @media (max-width: 575.98px) {
+                &#collectionNameHome{
+                    position: static;
+                    display: block;
+                    top: 4.375rem;
+                    width: 100%;
+                    text-align: center;
+                    border: 0;
+                    left: 0;
+                    padding-left: 0;
+                    max-width: 100%;
+                    margin-top: 5rem;
+                    line-height: 100%;
+                }
+            }
 
             @include __on-theme--dark {
                 color: $__text--dark;
@@ -270,9 +324,20 @@ Logo SciELO
         background-image: url(../img/logo-scielo-no-label.svg);
         background-size: contain;
 	    background-repeat: no-repeat;
-        display: inline-block;
+        /*
         width: __remcalc(64px);
         height: __remcalc(64px);
+        */
+        display: flex;
+        align-items: flex-end; 
+        width: 100%;
+        height: __remcalc(64px);
+
+        @media (max-width: 575.98px) {
+            background-position: center 5px;
+            height: auto;
+            background-size: 75px;
+        }
 
         @include __on-theme--dark {
             background-image: url(../img/logo-scielo-no-label-negative.svg);
@@ -283,11 +348,48 @@ Logo SciELO
         }
         
         small{
+            /*
             position: absolute;
             left: __remcalc(72px);
             top: __remcalc(28px);
+            */
             color: $__text--light;
             font-weight: bolder;
+
+            position: absolute;
+            bottom: 10px;
+            top: auto;
+            left: 75px;
+            right: 0;
+            display: block;
+            white-space: normal; /* permite quebrar linha */
+            text-align: left;  /* opcional */
+
+            @media (max-width: 575.98px) {
+                margin-top: 70px;
+                margin-bottom: 20px;
+                font-size: 1.2rem;
+
+                &.very-long-text,
+                &#collectionNameInternal{
+                    position: static;
+                    display: block;
+                    top: 4.375rem;
+                    font-family: Arapey, serif;
+                    color: #333;
+                    width: 100%;
+                    text-align: center;
+                    border: 0;
+                    left: 0;
+                    padding-left: 0;
+                    max-width: 100%;
+                    margin-top: 5rem;
+                    line-height: 100%;
+                }
+                &.very-long-text{
+                    font-size: 1rem;
+                }
+            }
 
             @include __on-theme--dark {
                 color: $__text--dark;
