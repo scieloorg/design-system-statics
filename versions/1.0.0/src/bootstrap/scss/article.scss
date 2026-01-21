@@ -7,6 +7,23 @@
 
  .article {
 
+	/*
+	background: $__bg__gray--2;
+
+    @include __on-theme--dark {
+        background: $__bg__white--2 !important;
+    }
+
+    @include __on-theme--light {
+        background: $__bg__gray--2 !important;
+    }
+	*/
+
+	footer{
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
 	.zindexFix {
 		z-index: 98 !important;
 	}
@@ -24,7 +41,6 @@
 		padding: 18px 0;
 		margin: 0;
 		height: 100px;
-		//background: #efeeec;
 
 		a.selected:after {
 			border-bottom-color: #fff;
@@ -560,7 +576,7 @@
 }
 
 .articleCtt {
-	
+	/*
     background: $__bg__gray--1;
 
     @include __on-theme--dark {
@@ -570,6 +586,7 @@
     @include __on-theme--light {
         background: $__bg__gray--1;
     }
+	*/
     
 
 	hr {
@@ -909,7 +926,7 @@
 		position: relative;
 		padding: 0px 50px 100px;
 		//margin-top: -30px;
-		margin-bottom: 60px;
+		//margin-bottom: 60px;
 		//background: #fff;
 		//@include radius(4px);
 		//@include shadow();
@@ -2342,16 +2359,6 @@
 
 .levelMenu{
 
-	background: $__bg__gray--1;
-
-	@include __on-theme--dark {
-		background: $__bg__white--1;
-	}
-
-	@include __on-theme--light {
-		background: $__bg__gray--1;
-	}
-
 	.btn{
 		min-height: 38px;
 
@@ -2567,3 +2574,39 @@ h3, h4, h5:not(.modal-title), .h5{
 		color: $__interaction--light;
 	}
 }
+
+.journalContacts{
+	padding-bottom: 3.5rem;
+    padding-top: 3.5rem;
+
+	background: $__bg__gray--2;
+
+    @include __on-theme--dark {
+        background: $__bg__white--2;
+    }
+
+    @include __on-theme--light {
+        background: $__bg__gray--2;
+    }
+    
+}
+
+.article-bg-white{
+	background: $__bg__gray--2;
+
+    @include __on-theme--dark {
+        background: $__bg__white--2;
+    }
+
+    @include __on-theme--light {
+        background: $__bg__gray--2;
+    }
+}
+
+body{
+	
+	&.#{$__classPrefix}__theme--dark{
+		background: $__bg__white--1;
+	}
+}
+
