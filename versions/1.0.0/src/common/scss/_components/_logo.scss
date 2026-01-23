@@ -237,6 +237,21 @@ Logo SciELO
             left: __remcalc(130px);
             line-height: 1rem;
 
+            @include media-breakpoint-down(sm) {
+                position: static;
+                display: block;
+                top: 4.375rem;
+                font-size: 1.2rem;
+                width: 100%;
+                text-align: center;
+                border: 0;
+                left: 0;
+                padding-left: 0;
+                max-width: 100%;
+                margin-top: 5rem;
+                line-height: 100%;
+            }
+
             @include media-breakpoint-up(sm) {
                 font-size: __remcalc(30px);
                 padding-bottom: 12px;
