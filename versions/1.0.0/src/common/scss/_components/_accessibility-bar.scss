@@ -762,3 +762,36 @@ body{
   .btn.setAccessibility{
     margin: 0;
   }
+
+  /*
+  Ajuste da barra de acessibilidade versão modal
+  */
+
+   /* Container dos botões (opcional, só para garantir padrão) */
+  #accessibilityBarModal .setAccessibility {
+    display: flex;
+    align-items: center;       
+    justify-content: flex-start;
+    gap: 0;                    
+  }
+  
+  /* Wrapper do ícone */
+  #accessibilityBarModal .setAccessibility strong {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;             
+    min-width: 32px;
+    margin-right: 8px;       
+  }
+  
+  /* Ícones (material ou fontawesome) */
+  #accessibilityBarModal .setAccessibility i {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+  
+  /* Garante alinhamento do texto */
+  #accessibilityBarModal .setAccessibility {
+    text-align: left;
+  }
