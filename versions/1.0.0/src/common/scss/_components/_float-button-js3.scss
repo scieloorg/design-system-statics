@@ -266,3 +266,37 @@
         display: block !important;
     }
 }
+
+/*
+Ajuste para adequar o btn float menu ao protótipo de artigo acessível
+*/
+
+.btn-float-menu{
+	width: __remcalc(60px) !important;
+	height: __remcalc(60px) !important;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 8vh;
+	z-index: 5;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	margin-left: __remcalc(30px);
+}
+
+/*
+Ajuste btn go top
+*/
+
+.btn-float-gotop{
+	width: __remcalc(60px) !important;
+	height: __remcalc(60px) !important;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 8vh;
+	right: __remcalc(10px);
+	margin: 0;
+	overflow: visible;
+	display: none;
+}

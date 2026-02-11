@@ -745,3 +745,20 @@ body{
   }
   
   
+  /*
+  Ajuste do btn de acesso a barra de acessibilidade para se adequar ao prototipo de artigo acessível
+  */
+
+  #universalAccessBtn{
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 50% !important;
+    bottom: 25vh !important;
+    right: 0.625rem !important;
+    margin: 0 !important;
+    overflow: visible;
+  }
+
+  .btn.setAccessibility{
+    margin: 0;
+  }

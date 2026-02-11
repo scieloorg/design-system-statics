@@ -2579,34 +2579,36 @@ h3, h4, h5:not(.modal-title), .h5{
 	padding-bottom: 3.5rem;
     padding-top: 3.5rem;
 
-	background: $__bg__gray--2;
+	background: white;
 
     @include __on-theme--dark {
         background: $__bg__white--2;
     }
 
     @include __on-theme--light {
-        background: $__bg__gray--2;
+        background: white;
     }
     
 }
 
 .article-bg-white{
-	background: $__bg__gray--2;
+	background: white;
 
     @include __on-theme--dark {
         background: $__bg__white--2;
     }
 
     @include __on-theme--light {
-        background: $__bg__gray--2;
+        background: white;
     }
 }
 
 body{
+
+	background: $__bg__gray--1;
 	
 	&.#{$__classPrefix}__theme--dark{
 		background: $__bg__white--1;
 	}
+	
 }
-
