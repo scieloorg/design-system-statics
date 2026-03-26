@@ -277,7 +277,7 @@ Ajuste para adequar o btn float menu ao protótipo de artigo acessível
 	border-radius: 50%;
 	position: fixed;
 	bottom: 8vh;
-	z-index: 5;
+	z-index: 1050;
 	width: auto;
 	height: auto;
 	margin: 0;
@@ -299,4 +299,5 @@ Ajuste btn go top
 	margin: 0;
 	overflow: visible;
 	display: none;
+	z-index: 1050;
 }
