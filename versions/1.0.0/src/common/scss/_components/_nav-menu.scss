@@ -313,15 +313,13 @@ novo css do menu
 }
 
 
-
 /* Menu acessível - arquivável - não dependende de JS */
 
 .#{$__classPrefix}__accessibleMenu{
-    
-    position:absolute;
-    z-index:9;
-    top:20px;
 
+    position: relative;
+    z-index: 1030;
+    top:20px;
 
     /* Botão do menu */
     summary {
@@ -354,7 +352,6 @@ novo css do menu
             background: $__bg__gray--1;
         }
 
-
         @include media-breakpoint-down(md) {
             width:70px;
 
@@ -369,7 +366,6 @@ novo css do menu
             font-size: 1rem;
         }
 
-        /* Ícone do menu */
         .menu-icon {
             display: inline-block;
             width: 16px;
@@ -435,23 +431,23 @@ novo css do menu
                 padding: 12px 0;
 
                 @include media-breakpoint-down(md) {
-                    
                     span{
                         &:not(.menu-icon){
                             display: inline-block;
                         }
                     }
-                    
                 }
             }
 
             nav {
                 position: absolute;
-                top: 47px; 
+                top: 47px;
                 left: 0;
                 width: 100%;
                 height: calc(100vh - 47px);
+                max-height: calc(100vh - 47px);
                 overflow-y: auto;
+                overflow-x: hidden;
                 padding: 1rem;
                 border-radius: 0;
             }
@@ -470,7 +466,6 @@ novo css do menu
         }
     }
 
-    /* Ícone transformando em X */
     &[open] .menu-icon {
         background: transparent !important;
     }
@@ -485,12 +480,16 @@ novo css do menu
         top: 0;
     }
 
+    /* correção de z-index */
     &[open] nav {
+        position: absolute;
+        z-index: 1040;
         opacity: 1;
-        max-height: 750px; /* Ajuste conforme o tamanho do menu */
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
-    /* Estilo do menu */
     nav {
         background: $__white;
         padding: .5rem 0;
@@ -512,7 +511,6 @@ novo css do menu
             background: $__bg__gray--1;
         }
 
-
         ul {
             list-style: none;
             padding: 0;
@@ -524,6 +522,13 @@ novo css do menu
                 &.logo{
                     text-align: center;
                     padding-top: 1rem;
+
+                    img{
+                        max-width: 100%;
+                        max-height: 72px; /* evita logos gigantes */
+                        height: auto;
+                        width: auto;
+                    }
                 }
 
                 a {
@@ -540,10 +545,10 @@ novo css do menu
                         color: $__text__emphasis--light;
                     }
 
-                   &:hover,
-                   &:focus-visible{
-                       background-color: $__bg__gray--1;
-                       color: $__interaction--light;
+                    &:hover,
+                    &:focus-visible{
+                        background-color: $__bg__gray--1;
+                        color: $__interaction--light;
 
                         @include __on-theme--dark {
                             color: $__interaction--dark;
@@ -555,21 +560,21 @@ novo css do menu
                             background: $__bg__gray--1;
                         }
 
-                       strong{
-                        color: $__interaction--light;
-
-                        @include __on-theme--dark {
-                            color: $__interaction--dark;
-                        }
-
-                        @include __on-theme--light {
+                        strong{
                             color: $__interaction--light;
+
+                            @include __on-theme--dark {
+                                color: $__interaction--dark;
+                            }
+
+                            @include __on-theme--light {
+                                color: $__interaction--light;
+                            }
                         }
-                       }
-                   }
+                    }
                    
-                   strong{
-                       color: $__text__emphasis--light;
+                    strong{
+                        color: $__text__emphasis--light;
 
                         @include __on-theme--dark {
                             color: $__text__emphasis--dark;
@@ -578,10 +583,9 @@ novo css do menu
                         @include __on-theme--light {
                             color: $__text__emphasis--light;
                         }
-                   }
+                    }
                 }
             }
         }
     }
 }
-
