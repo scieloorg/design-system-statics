@@ -231,3 +231,257 @@
 
 // caminho das imagens
 //background-image: url(../img/logo-scielo-no-label-negative.svg);
+
+.author-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .25rem;
+  padding: 0;
+  margin: 1.25rem 0 .9375rem;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-list li {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.author-name {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  color: var(--bs-link-color);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+
+.author-name:hover,
+.author-name:focus {
+  color: var(--bs-link-hover-color);
+}
+
+.author-separator {
+  margin-right: .25rem;
+}
+
+.author-summary {
+  appearance: none;
+  border: 1px solid #ced4da;
+  background: #fff;
+  color: #212529;
+  border-radius: 999px;
+  padding: .125rem .625rem;
+  font-size: .9375rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.author-summary:hover,
+.author-summary:focus {
+  background: #f1f3f5;
+}
+
+.author-help {
+  margin-top: .75rem;
+  color: #6c757d;
+  font-size: .95rem;
+}
+
+.author-meta dt {
+  font-weight: 700;
+}
+
+.author-meta dd {
+  margin-bottom: .75rem;
+}
+
+.visually-hidden-focusable-inline:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.author-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem .25rem;
+  padding: 0;
+  margin: 1.25rem 0 .9375rem;
+  list-style: none;
+  align-items: center;
+  text-align: center;
+}
+
+.author-list li {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.author-name-trigger {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+
+.author-name-trigger:hover,
+.author-name-trigger:focus {
+  color: var(--bs-link-hover-color);
+}
+
+.author-separator {
+  margin-right: .25rem;
+}
+
+.author-summary {
+  appearance: none;
+  border: 1px solid #ced4da;
+  background: #fff;
+  color: #212529;
+  border-radius: 999px;
+  padding: .125rem .625rem;
+  font-size: .9375rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.author-summary:hover,
+.author-summary:focus {
+  background: #f1f3f5;
+}
+
+.author-help {
+  margin-top: .75rem;
+  color: #6c757d;
+  font-size: .95rem;
+}
+
+.ModalTutors .modal-body {
+  padding-bottom: 2.5rem;
+}
+
+.author-card {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+}
+
+.author-card:last-child {
+  border-bottom: 0;
+}
+
+.author-grid-row {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  column-gap: .5rem;
+  align-items: start;
+}
+
+.author-name {
+  font-weight: 600;
+}
+
+.author-roles,
+.author-institution,
+.correspondence,
+.modal-section-text,
+.section-content {
+  color: #6c757d;
+}
+
+.author-subrow,
+.section-row {
+  margin-left: 2rem;
+}
+
+.author-institution .material-icons-outlined,
+.author-grid-row .material-icons-outlined,
+.section-grid .material-icons-outlined {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.author-name-text,
+.author-inst-text {
+  display: block;
+}
+
+.orcid-button-wrap {
+  padding-left: 0;
+  margin-left: 2rem !important;
+}
+
+.orcid-button {
+  position: relative;
+  padding-left: 2.5rem;
+  background: #fff;
+  color: #212529;
+  border-color: #ced4da;
+}
+
+.orcid-button:hover,
+.orcid-button:focus {
+  background: #f8f9fa;
+  color: #212529;
+  border-color: #adb5bd;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  column-gap: .5rem;
+  align-items: start;
+}
+
+.section-grid.no-icon {
+  grid-template-columns: 1.5rem 1fr;
+}
+
+.section-grid.no-icon::before {
+  content: "";
+  display: block;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.section-content a {
+  word-break: break-word;
+}
+
+.orcid-button::before {
+  content: "";
+  position: absolute;
+  background-image: url(https://ds.scielo.org/img/logo-orcid.svg);
+  background-repeat: no-repeat;
+  background-size: 1.5em auto;
+  background-position: .5em center;
+  display: block;
+  width: 60px;
+  height: 60px;
+  top: -10px;
+  left: 0;
+}
+
+.material-icons-outlined {
+  vertical-align: middle;
+}
