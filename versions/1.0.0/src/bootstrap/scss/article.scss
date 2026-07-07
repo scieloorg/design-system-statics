@@ -1484,7 +1484,8 @@
 		}
 	}
 
-	.articleTimeline {
+	.articleTimeline,
+	.articleSectionList {
 		margin: 0 0 25px;
 		padding: 0;
 		font-size: .9em;
@@ -1502,6 +1503,65 @@
 				display: inline-block;
 				width: 22px;
 				text-align: center;
+			}
+		}
+	}
+
+	.articleSectionList{
+		margin-bottom: 0;
+
+		li {
+			width: 100%;
+			height: auto;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			border-bottom: 1px dotted #ccc;
+
+			&:before {
+				position: absolute;
+			}
+
+			strong{
+				display: block;
+			}
+
+			p {
+				a.orcid-button,
+				.orcid-button {
+					position: relative;
+					display: inline-block;
+					box-sizing: border-box;
+					max-width: 100%;
+					overflow: hidden;
+					padding-left: 2.5rem;
+					background: #fff;
+					color: #212529;
+					border-color: #ced4da;
+					text-overflow: ellipsis;
+					vertical-align: middle;
+					white-space: nowrap;
+
+					&:hover,
+					&:focus {
+						background: #f8f9fa;
+						color: #212529;
+						border-color: #adb5bd;
+					}
+
+					&:before {
+						content: "";
+						position: absolute;
+						background-image: url(https://ds.scielo.org/img/logo-orcid.svg);
+						background-repeat: no-repeat;
+						background-size: 1.5em auto;
+						background-position: .5em center;
+						display: block;
+						width: 60px;
+						height: 60px;
+						top: -10px;
+						left: 0;
+					}
+				}
 			}
 		}
 	}

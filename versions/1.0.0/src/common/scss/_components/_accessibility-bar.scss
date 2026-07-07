@@ -211,6 +211,7 @@ body.accessibility_markerLine #accessibilityBar button[data-accessibility=marker
 body.accessibility_readingLine #readingLine{
     background-color:$primary !important;
     opacity:1;
+    pointer-events:none;
     width:99vw;
     height:.5rem;
     position:absolute;
@@ -221,6 +222,7 @@ body.accessibility_readingLine #readingLine{
 body.accessibility_markerLine #markerLine{
     background-color:#e4fd00 !important;
     opacity:.75;
+    pointer-events:none;
     border-width:.1px 0;
     border-style:solid;
     border-color:#cde400;
