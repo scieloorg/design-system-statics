@@ -642,3 +642,13 @@ $__borderSolidColor: #E3E5E7;
 .table table{
     min-width: 100%;
 }
+
+// CKEditor wraps inserted tables in `<figure class="table">`. Bootstrap's
+// generic table selector then reaches the table rows one level too early and
+// adds its default bottom border to them. Keep regular `.table` components
+// unchanged and remove only that unintended border from the CKEditor markup.
+figure.table {
+  > table > :not(caption) > * {
+    border-bottom-width: 0;
+  }
+}
