@@ -1,3 +1,11 @@
+// O controle nativo reutiliza os estilos dos botões, inclusive hover e foco.
+details.authors-collapse > summary {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .btn-sm;
+    @extend .ms-0;
+    @extend .outlineFadeLink;
+}
 
 .#{$__classPrefix}__contribGroup {
     color: #403d39;
@@ -5,6 +13,137 @@
     font-size: 1.1em;
     text-align: center;
     opacity: 1;
+
+    .author-list,
+    .author-list__hidden {
+        display: inline;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: inherit;
+
+        > li {
+            display: inline;
+        }
+    }
+
+    .authors-collapse {
+        display: inline;
+        interpolate-size: allow-keywords;
+
+        > summary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            list-style: none;
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            &::marker {
+                content: "";
+            }
+
+            &::before {
+                content: "chevron_right";
+                display: inline-block;
+                font-family: "Material Icons Outlined";
+                font-size: 1.25rem;
+                font-weight: normal;
+                font-style: normal;
+                line-height: 1;
+                font-feature-settings: "liga";
+                -webkit-font-smoothing: antialiased;
+                transform: rotate(0deg);
+                transform-origin: center;
+                transition: transform 250ms ease-in-out;
+            }
+
+        }
+
+        .authors-collapse__close {
+            display: none;
+        }
+
+        &[open] {
+            .author-list__hidden {
+                display: contents;
+            }
+
+            .authors-collapse__open {
+                display: none;
+            }
+
+            .authors-collapse__close {
+                display: inline;
+            }
+
+            > summary::before {
+                transform: rotate(90deg);
+            }
+        }
+
+        @supports (interpolate-size: allow-keywords) and (transition-behavior: allow-discrete) {
+            &::details-content {
+                block-size: 0;
+                overflow: hidden;
+                opacity: 0;
+                transform: translateY(-0.25rem);
+                transition: block-size 250ms ease-in-out,
+                    opacity 200ms ease-in-out,
+                    transform 200ms ease-in-out,
+                    content-visibility 250ms allow-discrete;
+            }
+
+            &[open]::details-content {
+                block-size: auto;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            @starting-style {
+                &[open]::details-content {
+                    block-size: 0;
+                    opacity: 0;
+                    transform: translateY(-0.25rem);
+                }
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            &::details-content,
+            > summary::before {
+                transition: none;
+            }
+
+            &::details-content {
+                transform: none;
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        .author-separator {
+            display: none;
+        }
+    }
+
+    &--response {
+        margin-left: 0;
+        text-align: left;
+
+        .author-list {
+            text-align: left;
+        }
+
+        .authors-collapse .author-list__hidden,
+        .authors-collapse[open] .author-list__hidden {
+            display: block;
+            text-align: left;
+        }
+    }
 
     a.btn-fechar{
         display: inline-block;
@@ -333,7 +472,6 @@
 
 .author-name-trigger {
   appearance: none;
-  border: 0;
   background: transparent;
   padding: 0;
   margin: 0;
